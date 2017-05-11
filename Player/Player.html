@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	</head>
+	<body onload="onLoad()" onresize="doResize()" style="margin:0;padding:0;overflow:hidden">
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+		<script src="MSHTML5.js" type="text/javascript"></script>
+
+		<!-- Character Builder API examples
+		<a href="javascript:msSpeak('Movie1','This is a test of dynamic Speech')">msSpeak('Movie1','This is a test of Dynamic Speech')</a><br>
+		<a href="javascript:msSpeak('Movie2','This is a test of dynamic Speech')">msSpeak('Movie2','This is a test of Dynamic Speech')</a><br>
+		 -->
+
+		<!-- Blank slate -->
+		<div id="TopDiv">
+		</div>
+		
+		<script type="text/javascript" language="JavaScript">
+		
+		function doResize()
+		{
+		}
+		
+		var xhttp;
+		
+		function onLoad()
+		{
+			// On startup, the player load's it's content - this would normally be dynamically generated
+			xhttp = new XMLHttpRequest();
+			xhttp.open("GET", "Sample.xml", false);	// Must be on the same domain
+			xhttp.send();
+			xmlDoc = xhttp.responseXML;
+			onContentLoaded(xmlDoc)
+			
+			/* Use this code to load json instead:
+			$.ajax({ 
+				url: "GetContent.asp", data:{}, dataType:"jsonp", 
+				success: function(o) { onContentLoaded(o);}, 
+				error: function() { alert("Error calling server"); } 
+			}); 
+			*/
+		}
+		
+		var responses = [];
+
+		function onContentLoaded(xmlDoc)
+		{
+			/*
+			<MC UID="_SKOSCRIPTS_MC">
+				<item UID="_SKOSCRIPTS_MC_ITEM">
+				  <presentation UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION">
+					<material UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_MATERIAL">
+					  <TITLE UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_MATERIAL_TITLE"><![CDATA[]]></TITLE>
+					  <NOTES UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_MATERIAL_NOTES"><![CDATA[]]></NOTES>
+					  <mattextS UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_MATERIAL_MATTEXTS"><![CDATA[Is the sweet taste of corns relates to the changes of their genes? Why? Choose the most accurate answer.]]></mattextS>
+					  <mattextR UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_MATERIAL_MATTEXTR"><![CDATA[]]></mattextR>
+					  <mattextD UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_MATERIAL_MATTEXTD"><![CDATA[Is the sweet taste of corns relates to the changes of their genes? Why? Choose the most accurate answer.]]></mattextD>
+					  <PageConfig UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_MATERIAL_PAGECONFIG">
+						<BKIMG UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_MATERIAL_PAGECONFIG_BKIMG"><![CDATA[]]></BKIMG>
+						<AVATAR Teacher="" Student1="" Student2="" useStudent1="false" useStudent2="false" showStudent1="true" showStudent2="true" showTeacher="true" useTeacher="true" UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_MATERIAL_PAGECONFIG_AVATAR"/>
+						<MediaURLXML UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_MATERIAL_PAGECONFIG_MEDIAURLXML"/>
+						<MediaTypeXML UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_MATERIAL_PAGECONFIG_MEDIATYPEXML"/>
+						<SKOMsg UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_MATERIAL_PAGECONFIG_SKOMSG"/>
+						<UseAIML UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_MATERIAL_PAGECONFIG_USEAIML">1</UseAIML>
+						<PlayStyle UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_MATERIAL_PAGECONFIG_PLAYSTYLE">auto</PlayStyle>
+						<EnableBigImage UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_MATERIAL_PAGECONFIG_ENABLEBIGIMAGE">0</EnableBigImage>
+					  </PageConfig>
+					</material>
+					<response_lid UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_RESPONSE_LID">
+					  <render_choice shuffle="Yes" UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_RESPONSE_LID_RENDER_CHOICE">
+						<response_label ident="A" Activate="true" UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_RESPONSE_LID_RENDER_CHOICE_RESPONSE_LABEL1">
+						  <material Included="1" UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_RESPONSE_LID_RENDER_CHOICE_RESPONSE_LABEL1_MATERIAL1">
+							<mattext UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_RESPONSE_LID_RENDER_CHOICE_RESPONSE_LABEL1_MATERIAL1_MATTEXT"><![CDATA[No, because there is starch in their endosperm, it causes the sweet taste.]]></mattext>
+							<Hints UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_RESPONSE_LID_RENDER_CHOICE_RESPONSE_LABEL1_MATERIAL1_HINTS">
+							  <H UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_RESPONSE_LID_RENDER_CHOICE_RESPONSE_LABEL1_MATERIAL1_HINTS_H"><![CDATA[Think about: Does starch taste sweet? ]]></H>
+							</Hints>
+							<Feedbacks UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_RESPONSE_LID_RENDER_CHOICE_RESPONSE_LABEL1_MATERIAL1_FEEDBACKS">
+							  <F UID="_SKOSCRIPTS_MC_ITEM_PRESENTATION_RESPONSE_LID_RENDER_CHOICE_RESPONSE_LABEL1_MATERIAL1_FEEDBACKS_F"><![CDATA[Starch doesn't make corns taste sweet. <sad/>]]></F>
+							</Feedbacks>
+						  </material>
+						  ...
+			*/
+			// First parse out qtext, the question text, and an array responses of objects with fields letter, answertext, agentsays.
+			var presentations = xmlDoc.getElementsByTagName("presentation"); 
+			var material = presentations[0].getElementsByTagName("material")[0]; 
+			var mattextS = material.getElementsByTagName("mattextS")[0];
+			var qtext = mattextS.childNodes[0].nodeValue;
+			var response_lid = presentations[0].getElementsByTagName("response_lid")[0]; 
+			var render_choice = response_lid.getElementsByTagName("render_choice")[0]; 
+			var shuffle = (render_choice.getAttribute("shuffle") == 'Yes');
+			var response_labels = render_choice.getElementsByTagName("response_label"); 
+			responses = [];
+			for (var i = 0; i < response_labels.length; i++)
+			{
+				var letter = response_labels[i].getAttribute("ident");
+				var material = response_labels[i].getElementsByTagName("material")[0]; 
+				var mattext = material.getElementsByTagName("mattext")[0]; 
+				var answertext = mattext.childNodes[0].nodeValue;
+				var feedback = material.getElementsByTagName("Feedbacks")[0]; 
+				var agentsays = feedback.getElementsByTagName("F")[0].childNodes[0].nodeValue;
+				responses.push({letter:letter, answertext:answertext, agentsays:agentsays});
+			}
+	
+			// Use this data to generate a multiple choice question, with an agent on either side
+			var s = '';
+			s += '<table border="0" padding="0"><tr>';
+			s += '<td width="200">';
+			s += '<div id="Movie1" style="width:200px; height:250px"></div>'
+			s += '</td>';
+			s += '<td width="100%">';
+			s += '<p>';
+			s += qtext;
+			s += '</p>';
+			s += '<ul>';
+			for (var i = 0; i < responses.length; i++)
+			{
+				var response = responses[i];
+				s += '<p>';
+				s += '<input type="radio" name="q" onclick="javascript:response('+i+')"> ' + response.letter + ' ' + response.answertext;
+				s += '</p>';
+			}
+			s += '</ul>';
+			s += '</td>';
+			s += '<td width="200">';
+			s += '<div id="Movie2" style="width:200px; height:250px"></div>'
+			s += '</td>';
+			s += '</tr></table>';
+			document.getElementById('TopDiv').innerHTML = s;
+			
+			// Setup the agents
+			msAttach('Movie1', 'BenAS3HTML','Output/BenAS3HTML_Files',200,250);
+			msAttach('Movie2', 'SteveAS3HTML','Output/SteveAS3HTML_Files',200,250);
+		}
+
+		function response(i)
+		{
+			msSpeak('Movie1', responses[i].agentsays);
+		}
+		
+		function onSceneLoaded(id)
+		{
+			// CB content loaded and ready to accept commands - will get N of these where N is # of characters
+		}
+		function onPresentingChange(id, p)
+		{
+			// Presenting state changed, e.g. as a result of going idle
+			//if (p == false) alert("Character idle");
+		}
+		function onFocusChange(id, f)
+		{
+			// Focus changed, e.g. as a result of navigation
+		}
+		function onExternalCommand(id, cmd, args)
+		{
+			// External Command encountered in script
+			//alert("External Command cmd=" + cmd + ", args=" + args);
+		}
+		function onQueueLengthChange(id, n)
+		{
+			// msSpeakQueued queue length change
+		}
+		function onVariableChange(id, n)
+		{
+			// One or more variables changed
+		}
+		</script>
+
+	</body>
+</html>

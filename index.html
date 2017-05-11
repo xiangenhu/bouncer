@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	</head>
+	<body onload="onContentLoaded()" onresize="doResize()" style="margin:0;padding:0;overflow:hidden">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+		<script src="player/MSHTML5.js" type="text/javascript"></script>
+		<style>
+			#Movie2Obj2Inner, #Movie2btn0Back{ display: none !important; }
+			.tl-agent{
+			    width: 200px;
+			    height: 250px;
+			    top: 0;
+			    position: absolute;
+			    left: 0;
+			    margin-top: -68px;
+			}
+			.tr-agent{
+			    width: 200px;
+			    top: 0;
+			    height: 250px;
+			    position: absolute;
+			    right: 0;
+			    margin-top: -68px;
+			}
+			.bl-agent{
+			    width: 200px;
+			    height: 250px;
+			    bottom: 0;
+			    position: absolute;
+			    left: 0;
+			}
+			.br-agent{
+			    width: 200px;
+			    height: 250px;
+			    bottom: 0;
+			    position: absolute;
+			    right: 0;
+			}
+			.frame-loader{
+				border: 0px solid #ccc;
+			    width: 80%;
+			    margin-left: 9%;
+			    position: absolute;
+			    top: 10px;
+				bottom: 10px;
+			    height: 100%;
+			}
+
+		</style>
+
+		<div class="frame-loader">
+			<iframe src="" style="height: 100%; width: 100%"></iframe>
+		</div>
+		<div id="TopDiv">
+		</div>
+		<div>
+		
+		<script type="text/javascript" language="JavaScript">
+		var xhttp;
+		// URL Parser
+		function gup( name, url ) {
+		    if (!url) url = location.href;
+		    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+		    var regexS = "[\\?&]"+name+"=([^&#]*)";
+		    var regex = new RegExp( regexS );
+		    var results = regex.exec( url );
+		    return results == null ? null : results[1];
+		}
+		function doResize()
+		{
+		}
+		
+		var responses = [];
+
+		function onContentLoaded()
+		{
+			var s = '';
+			s += '<div id="Movie1" class="tl-agent"></div>';
+			s += '<div id="Movie2" class="tr-agent"></div>';
+			s += '<div id="Movie3" class="bl-agent"></div>';
+			s += '<div id="Movie4" class="br-agent"></div>';
+			document.getElementById('TopDiv').innerHTML = s;
+			
+			msAttach('Movie1', 'Ben', 'player/CBCode/English/Paul/Output/Ben_Files',200,250);
+			msAttach('Movie2', 'Angela','player/CBCode/English/Julie/Output/Angela_Files', 200,250);
+			msAttach('Movie3', 'Lily','player/CBCode/English/Julie/Output/Lily_Files', 200,250);
+			msAttach('Movie4', 'Carla','player//CBCode/English/Julie/Output/Carla_Files', 200,250);
+		}
+
+		function Talk(Movie,s)
+		{
+			Speak(Movie, s);
+		}
+		
+		function Playing(Movie,s)
+		{
+			Play(Movie, s);
+		}
+		
+		function responsing(Movie,s)
+		{
+			response(Movie, s);
+		}
+		
+		function response2(s)
+		{
+			response("Movie2", s);
+		}
+		
+		
+		function Play(movieID,Text)
+		{
+		//    alert("Playing "+" " +movieID+"   "+Text+" Not implemented yet ");
+			msPlay(movieID, Text);
+		}
+		
+		function Speak(movieID,Text)
+		{
+		
+			msSpeak(movieID, Text);
+		}
+		function response(movieID,Text)
+		{
+		//     alert("Response "+" " +movieID+"   "+Text+" Not implemented yet ");
+			msResponse(movieID, Text);
+		}
+		
+		function onSceneLoaded(id)
+		{
+			// CB content loaded and ready to accept commands - will get N of these where N is # of characters
+		}
+		function onPresentingChange(id, p)
+		{
+			// Presenting state changed, e.g. as a result of going idle
+			//if (p == false) alert("Character idle");
+		}
+		function onFocusChange(id, f)
+		{
+			// Focus changed, e.g. as a result of navigation
+		}
+		function onExternalCommand(id, cmd, args)
+		{
+			// External Command encountered in script
+			//alert("External Command cmd=" + cmd + ", args=" + args);
+		}
+		function onQueueLengthChange(id, n)
+		{
+			// msSpeakQueued queue length change
+		}
+		function onVariableChange(id, n)
+		{
+			// One or more variables changed
+		}
+		// Others
+		$(document).ready(function(){
+		  var url = gup('url', window.location.href);
+
+		  if (url !=  null){
+		  	$('.frame-loader iframe').attr('src', url);
+		  } else{
+		  	$('.frame-loader iframe').attr('src', 'http://www.memphis.edu');
+		  }
+		});
+		</script>
+	</body>
+</html>

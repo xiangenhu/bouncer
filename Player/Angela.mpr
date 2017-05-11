@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project html5="true" singlefile="false" size="250,200" htmlextctl="true" htmlextevt="true" htmltransparent="true" htmlrss="true" htmlpersist="true" initialpresenting="false" variables="Text=&quot;&quot;;" loader="standard" template="MessageDynamic">
+	
+	<stage id="Stage1">
+		<scene id="Scene1" name="Scene 1">
+			<character id="Char1" name="Angela" animationlibrary="Library/Characters/AngelaHead/AngelaHead.xml" position="0,0" size="250,200" defaultidle="simple" defaultvoice="Neo Julie"  top="classictop" hair="combeddark"/>
+			<message id="Msg1" name="Speak" externalfile="http://localhost/cs/cs.exe" method="get" externalfiletemplate="Library/Templates/Server/Speech.xml" externalfilecharacter="true" externalfilesize="true" externalfilevoice="true" externalfileautoactionlevel="true" externalfilevoiceparams="true" externalfilecustom="true" externalfileaddons="true" externalfileversion="true" externalfilevariables="Text" externalfileusesharedlibs="false" externalfilesharedlibpath="http://localhost/Projects/Angela/Output">
+			</message>
+		</scene>
+	</stage>
+</project>

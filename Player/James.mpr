@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project variables="Text=&quot;&quot;;" html5="true" loader="standard" size="250,200" htmlextctl="true" initialpresenting="false" template="MessageDynamic">
+	
+	<stage id="Stage1">
+		<scene id="Scene1" name="Scene 1">
+			<character id="Char1" name="James" animationlibrary="Library/Characters/James/James.xml" position="0,0" size="250,200" defaultidle="simple" defaultvoice="Loquendo Dave" />
+			<message id="Msg1" name="Speak" externalfile="http://localhost/cs/cs.exe" method="get" externalfiletemplate="Library/Templates/Server/Speech.xml" externalfilecharacter="true" externalfilesize="true" externalfilevoice="true" externalfileautoactionlevel="true" externalfilevoiceparams="true" externalfilecustom="true" externalfileaddons="true" externalfileversion="true" externalfilevariables="Text" externalfileusesharedlibs="false" externalfilesharedlibpath="http://localhost/Projects/Project50/Output">
+			</message>
+		</scene>
+	</stage>
+</project>

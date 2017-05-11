@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	</head>
+	<body onload="onLoad()" onresize="doResize()" style="margin:0;padding:0;overflow:hidden">
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+		<script src="MSHTML5.js" type="text/javascript"></script>
+		<style>
+			#Movie2Obj2Inner, #Movie2btn0Back{ display: none !important; }
+		</style>
+		<div id="TopDiv">
+		</div>
+		
+		<script type="text/javascript" language="JavaScript">
+		var xhttp;
+		// URL Parser
+		function gup( name, url ) {
+		    if (!url) url = location.href;
+		    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+		    var regexS = "[\\?&]"+name+"=([^&#]*)";
+		    var regex = new RegExp( regexS );
+		    var results = regex.exec( url );
+		    return results == null ? null : results[1];
+		}
+		function doResize()
+		{
+		}
+		
+		var xhttp;
+		
+		function onLoad()
+		{
+			// On startup, the player load's it's content - this would normally be dynamically generated
+			xhttp = new XMLHttpRequest();
+			xhttp.open("GET", "Sample.xml", false);	// Must be on the same domain
+			xhttp.send();
+			xmlDoc = xhttp.responseXML;
+			onContentLoaded(xmlDoc)
+			
+			/* Use this code to load json instead:
+			$.ajax({ 
+				url: "GetContent.asp", data:{}, dataType:"jsonp", 
+				success: function(o) { onContentLoaded(o);}, 
+				error: function() { alert("Error calling server"); } 
+			}); 
+			*/
+		}
+		
+		var responses = [];
+
+		function onContentLoaded(xmlDoc)
+		{
+			var s = '';
+			s += '<table border="0" padding="0" width="250"><tr>';
+			s += '<td width="200" align="center">';
+			s += '<div id="Movie1" style="width:200px; height:250px"></div>';
+			s += '</td>';
+			s += '<td width="100%">';
+			s += '</td>';
+			s += '</tr>';
+			s += '<tr>';
+			s += '<td width="200" align="center">';
+			s += '<div id="Movie2" style="width:200px; height:250px"></div>';
+			s += '</td>';
+			s += '</tr></table>';
+			document.getElementById('TopDiv').innerHTML = s;
+			
+			msAttach('Movie1', 'Ben', 'CBXINY/English/Paul/Output/Ben_Files',200,250);
+			msAttach('Movie2', 'Angela','CBXINY/English/Julie/Output/Angela_Files', 200,250);
+		}
+
+		function Speak1(s)
+		{
+			Speak("Movie1", s);
+		}
+		function Speak2(s)
+		{
+			Speak("Movie2", s);
+		}
+		
+		function Play1(s)
+		{
+			Play("Movie1", s);
+		}
+		function Play2(s)
+		{
+			Play("Movie2",s);
+		}
+		
+		function response1(s)
+		{
+			response("Movie1", s);
+		}
+		
+		function response2(s)
+		{
+			response("Movie2", s);
+		}
+		
+		
+		function Play(movieID,Text)
+		{
+		    alert("Playing "+" " +movieID+"   "+Text+" Not implemented yet ");
+		//	msPlay(movieID, Text);
+		}
+		
+		function Speak(movieID,Text)
+		{
+		
+			msSpeak(movieID, Text);
+		}
+		function response(movieID,Text)
+		{
+		     alert("Response "+" " +movieID+"   "+Text+" Not implemented yet ");
+		//	msResponse(movieID, Text);
+		}
+		
+		function onSceneLoaded(id)
+		{
+			// CB content loaded and ready to accept commands - will get N of these where N is # of characters
+		}
+		function onPresentingChange(id, p)
+		{
+			// Presenting state changed, e.g. as a result of going idle
+			//if (p == false) alert("Character idle");
+		}
+		function onFocusChange(id, f)
+		{
+			// Focus changed, e.g. as a result of navigation
+		}
+		function onExternalCommand(id, cmd, args)
+		{
+			// External Command encountered in script
+			//alert("External Command cmd=" + cmd + ", args=" + args);
+		}
+		function onQueueLengthChange(id, n)
+		{
+			// msSpeakQueued queue length change
+		}
+		function onVariableChange(id, n)
+		{
+			// One or more variables changed
+		}
+		// Others
+		$(document).ready(function(){
+		  onLoad();
+
+		    function splitmessages(msgJSON){
+		        return JSON.parse(unescape( msgJSON ));
+		    }
+
+		  function explode(){
+		    var messages = splitmessages(gup('text', window.location.href));
+		    // function doSpeak(messages, i) {
+		    //   var timer = 1000 * 2 * (i+1);
+		    //   setTimeout(function() {
+		    //     Speak1(messages[i]['t']);
+		    //   }, timer);
+		    // }
+		    function doSpeak1(messages, i, timer) {
+		      // var timer = 1000 * (i+1);
+		      setTimeout(function() {
+		        Speak1(messages[i]['t']);
+		      }, timer);
+		    };
+
+		    function doSpeak2(messages, i, timer) {
+		      console.log("Malke")
+		      // var timer = 1000 (i+1);
+		      setTimeout(function() {
+		        Speak2(messages[i]['t']);
+		      }, timer);
+		    };
+
+		    var timer = 1000;
+		    function setT(timer){
+		        return timer + 3000;
+		    }
+		    for (var i=0; i<messages.length;i++){
+		          console.log("MESSAFES" + messages[i]['g']);
+		          if(messages[i]['g'] == "1"){
+		            doSpeak1(messages, i, timer);
+		            timer = setT(timer)
+		            console.log("GEN:" + "1");
+		          } else{
+		            doSpeak2(messages, i, timer);
+		            timer = setT(timer)
+		            console.log("GEN:" + "2");
+		          }
+		    };
+		  };
+		  explode();
+		});
+		</script>
+
+	</body>
+</html>
