@@ -56,7 +56,7 @@
 		</style>
 
 		<div class="frame-loader">
-			<iframe src="" style="height: 100%; width: 100%"></iframe>
+			<iframe src="" style="height: 100%; width: 100%" id="innerframe"></iframe>
 		</div>
 		<div id="TopDiv">
 		</div>
@@ -65,14 +65,17 @@
 		<script type="text/javascript" language="JavaScript">
 		var xhttp;
 		// URL Parser
-		function gup( name, url ) {
-		    if (!url) url = location.href;
-		    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-		    var regexS = "[\\?&]"+name+"=([^&#]*)";
-		    var regex = new RegExp( regexS );
-		    var results = regex.exec( url );
-		    return results == null ? null : results[1];
-		}
+		function qs(search_for,defaultstr) {
+            var query = window.location.search.substring(1);
+			var parms = query.split('&');
+			for (var i = 0; i<parms.length; i++) {
+				var pos = parms[i].indexOf('=');
+				if (pos > 0  && search_for == parms[i].substring(0,pos)) {
+					return parms[i].substring(pos+1);
+					}
+				}
+				return defaultstr;
+			}
 		function doResize()
 		{
 		}
@@ -160,13 +163,8 @@
 		}
 		// Others
 		$(document).ready(function(){
-		  var url = gup('url', window.location.href);
-
-		  if (url !=  null){
-		  	$('.frame-loader iframe').attr('src', url);
-		  } else{
-		  	$('.frame-loader iframe').attr('src', 'https://docs.google.com/presentation/d/1Z6wOu6nA97K4gIhVfQdCQSK8eKM3YUb-Si9JMkK0nN8/present');
-		  }
+		  var url = qs("url","http://www.yahoo.com");
+		  document.getElementById('innerframe').src = url;
 		  Talk("Movie1","Hello!")
 		});
 		</script>
