@@ -32,8 +32,8 @@ window.James_Dir = {
 						"Obj2Btn1":{"type":"button", "name":"", "left":215, "top":0, "width":33, "height":25, "backfile":"Enter.png", "backoverfile":"EnterOver.png", "backdownfile":"EnterDown.png", "xfore":0, "yfore":0, "xdown":0, "ydown":0, "key":"enter", "onclick":"c.Text=c.getText('Obj2Edit1'); c.setText('Obj2Edit1',''); c.vc(); c.gotoAndRestart('Msg1');"}
 					}
 				},
-				"Msg1":{"type":"message", "name":"Respond", "external":true, "url":"https://www.x-in-y.com/cs/cs.exe?template=Library%2FTemplates%2FServer%2FSpeech.xml&character=James&addons=&voice=Loquendo%20Dave&size=200,160&autoactionlevel=2&flashversion=8&actionscript=3&aiengine=programd&aimldatabase=SampleBot", "method":"get", "addvariables":"Text,AIMLUser,AIMLSession,AIMLTimezone", "character":"Char1"},
-				"Msg2":{"type":"message", "name":"Speak", "external":true, "url":"https://www.x-in-y.com/cs/cs.exe?template=Library%2FTemplates%2FServer%2FSpeech.xml&character=James&addons=&voice=Loquendo%20Dave&size=200,160&autoactionlevel=2&flashversion=8&actionscript=3", "method":"get", "addvariables":"Text", "character":"Char1"},
+				"Msg1":{"type":"message", "name":"Respond", "external":true, "url":"http://www.x-in-y.com/cs/cs.exe?template=Library%2FTemplates%2FServer%2FSpeech.xml&character=James&addons=&voice=Loquendo%20Dave&size=200,160&autoactionlevel=2&flashversion=8&actionscript=3&aiengine=programd&aimldatabase=SampleBot", "method":"get", "addvariables":"Text,AIMLUser,AIMLSession,AIMLTimezone", "character":"Char1"},
+				"Msg2":{"type":"message", "name":"Speak", "external":true, "url":"http://www.x-in-y.com/cs/cs.exe?template=Library%2FTemplates%2FServer%2FSpeech.xml&character=James&addons=&voice=Loquendo%20Dave&size=200,160&autoactionlevel=2&flashversion=8&actionscript=3", "method":"get", "addvariables":"Text", "character":"Char1"},
 				"Msg3":{"type":"message", "name":"Eyenormal", "character":"Char1", "frames":2, "datafile":"JamesMsg3.js"}
 			}
 		}
