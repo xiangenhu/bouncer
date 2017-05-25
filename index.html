@@ -4,14 +4,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	</head>
 	<body onload="onContentLoaded()" onresize="doResize()" style="margin:0;padding:0;overflow:hidden">
-	<tutor gender="male" message="Hi"></tutor> 
-<tutor gender="female" message="Hello Dr.Strange"></tutor> 
-<tutor gender="male" message="How are you?"></tutor> 
-<tutor gender="female" message="I am fine!"></tutor>
-
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 		<script src="js/Better.js" type="text/javascript"></script>
-		<script src="js/MSHTML.js" type="text/javascript"></script>
 		<style>
 			#Movie2Obj2Inner, #Movie2btn0Back{ display: none !important; }
 			.tl-agent{
@@ -54,6 +48,14 @@
 			    height: 100%;
 			}
 
+			.TestSpeech{
+			    width: 100%;
+			    height: 250px;
+			    bottom: 0;
+			    position: absolute;
+			    left: 0;
+				margin-bottom: 9%;
+			}
 		</style>
 
 		<div class="frame-loader">
@@ -97,6 +99,7 @@
 			msAttach('Movie2', 'Angela','Player/CBCode/English/Julie/Output/Angela_Files', 200,250);
 			msAttach('Movie3', 'Lily','Player/CBCode/English/Julie/Output/Lily_Files', 200,250);
 			msAttach('Movie4', 'Carla','Player//CBCode/English/Julie/Output/Carla_Files', 200,250);
+			msEmbed1('Movie1', 'Ben', 'Player/CBCode/English/Paul/Output/Ben_Files',200,250);
 		}
 
 		function Talk(Movie,s)
@@ -165,9 +168,19 @@
 		}
 		// Others
 		$(document).ready(function(){
-		  var url = qs("url","http://www.yahoo.com");
+		  var url = qs("url","http://www.memphis.edu");
 		  document.getElementById('innerframe').src = url;
 		});
 		</script>
+		<div class="TestSpeech">
+		<a href="javascript:Speak('Movie1','This is a test of dynamic Speech')">msSpeak('Movie1','This is a test of Dynamic Speech')</a><br>
+		<hr/>
+		<a href="javascript:Speak('Movie2','This is a test of dynamic Speech')">msSpeak('Movie2','This is a test of Dynamic Speech')</a><br>
+		<hr/>
+		<a href="javascript:Speak('Movie3','This is a test of dynamic Speech')">msSpeak('Movie3','This is a test of Dynamic Speech')</a><br>
+		<hr/>
+		<a href="javascript:Speak('Movie4','This is a test of dynamic Speech')">msSpeak('Movie4','This is a test of Dynamic Speech')</a><br>
+		<hr/>
+		</div>
 	</body>
 </html>
