@@ -98,7 +98,7 @@
 			msAttach('Movie1', 'Ben', 'Player/CBCode/English/Paul/Output/Ben_Files',200,250);
 			msAttach('Movie2', 'Angela','Player/CBCode/English/Julie/Output/Angela_Files', 200,250);
 			msAttach('Movie3', 'Lily','Player/CBCode/English/Julie/Output/Lily_Files', 200,250);
-			msAttach('Movie4', 'Carla','Player//CBCode/English/Julie/Output/Carla_Files', 200,250);
+			msAttach('Movie4', 'Anna','Player//CBCode/English/Kate/Output/Anna_Files', 200,250);
 		}
 		
 		function Talk(Movie,s)
@@ -136,13 +136,7 @@
 		function onSceneLoaded(id)
 		{
 			// CB content loaded and ready to accept commands - will get N of these where N is # of characters
-			if (id=="Movie1")
-			{
-			   msSpeakQueued(id, "Welcome to ADL Resource center");
-			   msSpeakQueued("Movie2", "Welcome!");
-			   msSpeakQueued("Movie3", "Hi there!");
-			   msSpeakQueued("Movie4", "Great to meet you!");
-			}
+		
 		}
 		function onPresentingChange(id, p)
 		{

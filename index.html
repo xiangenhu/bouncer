@@ -99,9 +99,8 @@
 			msAttach('Movie2', 'Angela','Player/CBCode/English/Julie/Output/Angela_Files', 200,250);
 			msAttach('Movie3', 'Lily','Player/CBCode/English/Julie/Output/Lily_Files', 200,250);
 			msAttach('Movie4', 'Carla','Player//CBCode/English/Julie/Output/Carla_Files', 200,250);
-			msEmbed1('Movie1', 'Ben', 'Player/CBCode/English/Paul/Output/Ben_Files',200,250);
 		}
-
+		
 		function Talk(Movie,s)
 		{
 			Speak(Movie, s);
@@ -116,12 +115,6 @@
 		{
 			response(Movie, s);
 		}
-		
-		function response2(s)
-		{
-			response("Movie2", s);
-		}
-		
 		
 		function Play(movieID,Text)
 		{
@@ -143,6 +136,7 @@
 		function onSceneLoaded(id)
 		{
 			// CB content loaded and ready to accept commands - will get N of these where N is # of characters
+			
 		}
 		function onPresentingChange(id, p)
 		{
@@ -168,19 +162,9 @@
 		}
 		// Others
 		$(document).ready(function(){
-		  var url = qs("url","http://www.memphis.edu");
+		  var url = qs("url","https://adlnet.github.io");
 		  document.getElementById('innerframe').src = url;
 		});
 		</script>
-		<div class="TestSpeech">
-		<a href="javascript:Speak('Movie1','This is a test of dynamic Speech')">msSpeak('Movie1','This is a test of Dynamic Speech')</a><br>
-		<hr/>
-		<a href="javascript:Speak('Movie2','This is a test of dynamic Speech')">msSpeak('Movie2','This is a test of Dynamic Speech')</a><br>
-		<hr/>
-		<a href="javascript:Speak('Movie3','This is a test of dynamic Speech')">msSpeak('Movie3','This is a test of Dynamic Speech')</a><br>
-		<hr/>
-		<a href="javascript:Speak('Movie4','This is a test of dynamic Speech')">msSpeak('Movie4','This is a test of Dynamic Speech')</a><br>
-		<hr/>
-		</div>
 	</body>
 </html>
