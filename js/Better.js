@@ -1451,6 +1451,8 @@ function MSHTML5Control(idDiv, project, base, widthEmbed, heightEmbed)
 
     function filterDomain(s)
     {
+		return s;
+		/* 
         var tdom = "";
         var t = qualifyURL(base);
         if (t.substr(0,8)=="https://") {t = t.substr(8); tdom = t.substr(0, t.indexOf("/"));}
@@ -1468,7 +1470,7 @@ function MSHTML5Control(idDiv, project, base, widthEmbed, heightEmbed)
             debugTrace(" -> remapping "+s+" to "+salt);
             return salt;
         }    
-        else return s;
+        else return s; */
     }
     
     function qualifyURL(url) 
@@ -1710,11 +1712,12 @@ function MSHTML5Control(idDiv, project, base, widthEmbed, heightEmbed)
 
     function getCSHTMLURL(csurl, file)
     {
-        // localhost/cs/cs.exe + foo.png -> // localhost/csdata/foo.png
-        var i = csurl.indexOf("cs.exe")
+		
+         //localhost/cs/cs.exe + foo.png -> // localhost/csdata/foo.png
+         var i = csurl.indexOf("cs.exe")
         if (i != -1)
             return csurl.substr(0,i-1) + "html/" + file;
-        else 
+         else 
             return null;
     }
     
