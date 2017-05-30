@@ -59,7 +59,7 @@
 		</style>
 
 		<div class="frame-loader">
-			<iframe src="" style="height: 100%; width: 100%" id="innerframe"></iframe>
+			<iframe src="" style="height: 100%; width: 100%;border:none" id="innerframe"></iframe>
 		</div>
 		<div id="TopDiv">
 		</div>
@@ -98,7 +98,7 @@
 			msAttach('Movie1', 'Ben', 'Player/CBCode/English/Paul/Output/Ben_Files',200,250);
 			msAttach('Movie2', 'Angela','Player/CBCode/English/Julie/Output/Angela_Files', 200,250);
 			msAttach('Movie3', 'Lily','Player/CBCode/English/Julie/Output/Lily_Files', 200,250);
-			msAttach('Movie4', 'Carla','Player//CBCode/English/Julie/Output/Carla_Files', 200,250);
+			msAttach('Movie4', 'Anna','Player//CBCode/English/Kate/Output/Anna_Files', 200,250);
 		}
 		
 		function Talk(Movie,s)
@@ -137,11 +137,13 @@
 		{
 			// CB content loaded and ready to accept commands - will get N of these where N is # of characters
 			
+		
 		}
 		function onPresentingChange(id, p)
 		{
 			// Presenting state changed, e.g. as a result of going idle
 			//if (p == false) alert("Character idle");
+		
 		}
 		function onFocusChange(id, f)
 		{
