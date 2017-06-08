@@ -9,17 +9,112 @@
 	</head>
 	<body onload="onContentLoaded()" onresize="doResize()" style="margin:0;padding:0;overflow:hidden">
 
-		<div class="frame-loader">
-			<iframe src="" style="height: 100%; width: 100%;border:none" id="innerframe"></iframe>
+		 <div class="frame-loader">
+			<iframe src="" style="height: 70%; width: 100%;border:none" id="innerframe"></iframe>
 		</div>
 		<div id="TopDiv">
 		</div>
-		<div>
+		<div> 
+		
 		<script type="text/javascript" language="JavaScript">
 		$(document).ready(function(){
 		  var url = qs("url","https://adlnet.github.io");
 		  document.getElementById('innerframe').src = url;
 		});
+		
+		var iputObj={
+		"Id":qs("ID","Chinese-test"),
+		"ScriptURL":qs("ScriptURL","https://goo.gl/G6kqGS"),
+		"User":qs("User","Carl"),
+		"Text":qs("Text","不知道"),
+		"language":qs("language","Chinese")
+		}
+		
+		function processingReturn(data){
+		    var actionLength, text, i;
+		    actionLength=data.ACEActions.length;
+			text="<ul>";
+			for (i = 0; i < actionLength; i++) {
+				if (data.ACEActions[i].Act=="Speak"){
+					if (data.ACEActions[i].Agent=="ComputerStudent"){
+						text += "<li> Student: " + JSON.stringify(data.ACEActions[i].Data) + "</li>";
+						}
+					if (data.ACEActions[i].Agent=="ComputerTutor"){
+						text += "<li> Tutor: " + JSON.stringify(data.ACEActions[i].Data) + "</li>";
+						}
+					}
+			}
+			text +="</ul>";
+			document.getElementById("outputJSON").innerHTML = text;
+		}
+		
+		function POSTtoACE(Method){
+		var getUrl = $.ajax({
+			type: Method,
+			url: qs("aceurl","http://ace.autotutor.org/aceapi2017/api/aceaction"),
+			data: iputObj,
+			success: function()
+			{
+				var x = document.getElementById('outputJSON');
+				x.style.display = 'block';
+				var y = document.getElementById('inputText');
+				y.style.display = 'block';
+				var z = document.getElementById('SubmitAnswer');
+				z.style.display = 'block';
+				var s = document.getElementById('Initialize');
+				s.style.display = 'none';
+				PuttoACE("不知道");
+			}
+			})
+		}
+		
+		function PuttoACE(Inputtext){
+		var iputObj={
+		"Id":qs("ID","Chinese-test"),
+		"ScriptURL":qs("ScriptURL","http://ace.autotutor.org/aceapi2017/SampleScript_CN_1.xml"),
+		"User":qs("User","Carl"),
+		"Text":Inputtext,
+		"language":qs("language","Chinese")
+		}
+		var getUrl = $.ajax({
+			type: "PUT",
+			url: qs("aceurl","http://ace.autotutor.org/aceapi2017/api/aceaction"),
+			data: iputObj,
+			success: function (data) {
+			    processingReturn(data);
+		//		$('#outputJSON').text(JSON.stringify(data.ACEActions));
+			}
+		})
+		}
+		
+        $(document).ready(function () {
+            $('input#Initialize').click(
+                function (event) {
+                    event.preventDefault();
+					POSTtoACE("POST");
+                    });
+				$('input#SubmitAnswer').click(
+                function (event) {
+                    event.preventDefault();
+					PuttoACE($('textarea#inputText').val());
+                    });
+                });
+		
+		
 		</script>
+		
+		<form role='form' style='padding:50px'>
+
+        <input type='submit' id='Initialize' value="Initialize"/><br>
+		
+		 <textarea id='inputText'>不知道.
+         </textarea></br>
+		
+		<input type='submit' id='SubmitAnswer'value="Submit yoour Answer" align="right"/><br>
+        <div id='outputJSON'>
+        </div>
+    </form>
+
+		 
 	</body>
 </html>

@@ -7,6 +7,7 @@
 	position: absolute;
 	left: 0;
 	margin-top: -68px;
+	display:none;
 }
 .tr-agent{
 	width: 200px;
@@ -15,6 +16,7 @@
 	position: absolute;
 	right: 0;
 	margin-top: -68px;
+	display:none;
 }
 .bl-agent{
 	width: 200px;
@@ -22,6 +24,7 @@
 	bottom: 0;
 	position: absolute;
 	left: 0;
+	display:none;
 }
 .br-agent{
 	width: 200px;
@@ -29,6 +32,7 @@
 	bottom: 0;
 	position: absolute;
 	right: 0;
+	display:none;
 }
 .frame-loader{
 	border: 0px solid #ccc;
@@ -38,6 +42,7 @@
 	top: 10px;
 	bottom: 10px;
 	height: 100%;
+	display:none;
 }
 
 .TestSpeech{
@@ -47,4 +52,21 @@
 	position: absolute;
 	left: 0;
 	margin-bottom: 9%;
+}
+#SubmitAnswer{
+    display: none;
+	align:right;
+}
+#inputText{ 
+    width: 100%;
+    text-align: left;
+    display: none;
+}
+#outputJSON{
+    width: 100%;
+    padding: 50px 0;
+    text-align: left;
+    background-color: lightblue;
+    margin-top:20px;
+    display: none;
 }
