@@ -1,0 +1,50 @@
+#Movie2Obj2Inner, #Movie2btn0Back
+{ display: none !important; }
+.tl-agent{
+	width: 200px;
+	height: 250px;
+	top: 0;
+	position: absolute;
+	left: 0;
+	margin-top: -68px;
+}
+.tr-agent{
+	width: 200px;
+	top: 0;
+	height: 250px;
+	position: absolute;
+	right: 0;
+	margin-top: -68px;
+}
+.bl-agent{
+	width: 200px;
+	height: 250px;
+	bottom: 0;
+	position: absolute;
+	left: 0;
+}
+.br-agent{
+	width: 200px;
+	height: 250px;
+	bottom: 0;
+	position: absolute;
+	right: 0;
+}
+.frame-loader{
+	border: 0px solid #ccc;
+	width: 80%;
+	margin-left: 9%;
+	position: absolute;
+	top: 10px;
+	bottom: 10px;
+	height: 100%;
+}
+
+.TestSpeech{
+	width: 100%;
+	height: 250px;
+	bottom: 0;
+	position: absolute;
+	left: 0;
+	margin-bottom: 9%;
+}
