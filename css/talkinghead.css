@@ -63,6 +63,7 @@
 	bottom: 450px;
 	position: absolute;
 	left: 40px;
+	display: none;
 }
 #inputText{ 
     bottom: 500px;
@@ -76,10 +77,9 @@
 
 
 #outputJSON{
-    width: 80%;
+    width: 100%;
 	left: 20px;
     text-align: left;
-    background-color: lightblue;
     margin-top:400px;
     display: none;
 }

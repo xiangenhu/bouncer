@@ -61,8 +61,17 @@ function Play(movieID,Text)
 
 function Speak(movieID,Text)
 {
-
 //	msSpeakQueued(movieID, Text);
+	var atext="";
+	if (movieID=="Movie1"){
+			atext="<b>Tutor:</b> " + Text;
+		}
+	if (movieID=="Movie2"){
+			atext="<b>Student:</b> " + Text;
+		}
+	var OldText=document.getElementById("outputJSON").innerHTML;
+	document.getElementById("outputJSON").innerHTML = atext+"<br/>"+OldText;
+	
 	msSpeak(movieID, Text);
 }
 function response(movieID,Text)
@@ -80,18 +89,21 @@ function onSceneLoaded(id)
 function onPresentingChange(id, p)
 {
 	aIndex++;
+	
+	if (aIndex==SpeakList.length-1) {
+		document.getElementById("SubmitAnswer").style.display = "block";
+		document.getElementById("inputText").style.display = "block";
+	}
+		
 	msStop("Movie1");
 	msStop("Movie2");
 	if (SpeakList.length==0) return;
-	document.getElementById("Accounting4").innerHTML =aIndex+" "+SpeakList.length;
-	if (SpeakList.length < aIndex) 
+	if (SpeakList.length < aIndex) aIndex=0;
+	if (aIndex>SpeakList.length-1) 
 	{
 		aIndex=0;
-//		alert("done");
-		document.getElementById("Accounting4").innerHTML =aIndex;
-//		return;
+		return;
 	}
-	if (aIndex>SpeakList.length-1) return;
 	var obj = JSON.parse(SpeakList[aIndex]); 
 	if (obj.Agent=="ComputerTutor") 
 	{

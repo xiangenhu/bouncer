@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="stylesheet" type="text/css" href="css/talkinghead.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+		<script src="js/jquery.min.js"></script>
 		<script src="js/Better.js" type="text/javascript"></script>
 		<script src="js/bouncer.js" type="text/javascript"></script>
 	</head>
@@ -45,29 +45,24 @@
 		function processingReturn(data){
 		    var actionLength, text, i;
 		    actionLength=data.ACEActions.length;
-			text="<ul>";
 			SpeakList=[];
 			aIndex=0;
+			document.getElementById("outputJSON").innerHTML="";
 			for (i = 0; i < actionLength; i++) {
 				if (data.ACEActions[i].Act=="Speak"){
-					document.getElementById("Accounting4").innerHTML =aIndex+" "+SpeakList.length;
 				    SpeakList.push(JSON.stringify(data.ACEActions[i]));
 					if (data.ACEActions[i].Agent=="ComputerStudent"){
 					    if (SpeakList.length==1) {
 								Talk("Movie2",JSON.stringify(data.ACEActions[i].Data));
 							}
-						text += "<li> Student: " + JSON.stringify(data.ACEActions[i].Data) + "</li>";
 						}
 					if (data.ACEActions[i].Agent=="ComputerTutor"){
 					     if (SpeakList.length==1) {
 								Talk("Movie1",JSON.stringify(data.ACEActions[i].Data));
 							 }
-						text += "<li> Tutor: " + JSON.stringify(data.ACEActions[i].Data) + "</li>";
 						}
 					}
 			}
-			text +="</ul>";
-			document.getElementById("outputJSON").innerHTML = text+SpeakList;
 		}
 		
 		function POSTtoACE(Method){
@@ -85,10 +80,6 @@
 				success: function() {
 					var x = document.getElementById('outputJSON');
 					x.style.display = 'block';
-					var y = document.getElementById('inputText');
-					y.style.display = 'block';
-					var z = document.getElementById('SubmitAnswer');
-					z.style.display = 'block';
 					var s = document.getElementById('Initialize');
 					s.style.display = 'none';
 					PuttoACE("不知道");
@@ -138,8 +129,7 @@
 		 <textarea id='inputText'>No idea.
          </textarea></br>
 		
-		<input type='submit' id='SubmitAnswer'value="Submit yoour Answer" align="right"/><br>
-        <p/> dasdasd <p/>dasdasdasd <p/> asdasdasd<p/>  
+		<input type='submit' id='SubmitAnswer'value="Submit your Answer" align="right"/><br>
 	   <div id='Accounting1'>
         </div>
 		<div id='Accounting2'>
