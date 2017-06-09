@@ -32,7 +32,7 @@
 	bottom: 0;
 	position: absolute;
 	right: 0;
-	display:block;
+	display:none;
 }
 .frame-loader{
 	border: 0px solid #ccc;
