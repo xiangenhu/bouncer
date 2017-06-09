@@ -22,7 +22,9 @@
 		  document.getElementById('innerframe').src = url;
 		});
 		
-		
+		function Sequencing(ActionArray){
+			
+		}
 		
 		
 	    function ComposeSKOLink()
@@ -38,7 +40,7 @@
 			text= "http://"+school+"/retrieve?json="+JSON.stringify(SKO);
 			return text;
 		}
-	
+	    
 		function processingReturn(data){
 		    var actionLength, text, i;
 		    actionLength=data.ACEActions.length;
@@ -50,7 +52,7 @@
 						text += "<li> Student: " + JSON.stringify(data.ACEActions[i].Data) + "</li>";
 						}
 					if (data.ACEActions[i].Agent=="ComputerTutor"){
-						Talk("Movie1",JSON.stringify(data.ACEActions[i].Data))
+						Talk("Movie1",JSON.stringify(data.ACEActions[i].Data));
 						text += "<li> Tutor: " + JSON.stringify(data.ACEActions[i].Data) + "</li>";
 						}
 					}

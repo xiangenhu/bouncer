@@ -15,6 +15,8 @@ function doResize()
 {
 }
 
+var speakList = ["One","Two","Three","Four"]
+var Index=0;
 var responses = [];
 
 function onContentLoaded()
@@ -73,9 +75,10 @@ function onSceneLoaded(id)
 }
 function onPresentingChange(id, p)
 {
-	// Presenting state changed, e.g. as a result of going idle
-	//if (p == false) alert("Character idle");
-
+	if (p == false) 
+	{
+		
+	}
 }
 function onFocusChange(id, f)
 {
