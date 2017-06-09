@@ -41,28 +41,27 @@
 			return text;
 		}
 	    
+		
 		function processingReturn(data){
 		    var actionLength, text, i;
 		    actionLength=data.ACEActions.length;
 			text="<ul>";
 			SpeakList=[];
+			aIndex=0;
 			for (i = 0; i < actionLength; i++) {
 				if (data.ACEActions[i].Act=="Speak"){
+					document.getElementById("Accounting4").innerHTML =aIndex+" "+SpeakList.length;
 				    SpeakList.push(JSON.stringify(data.ACEActions[i]));
 					if (data.ACEActions[i].Agent=="ComputerStudent"){
-					    if (SpeakList.length==1) 
-						{
-							aIndex=0;
-							Talk("Movie2",JSON.stringify(data.ACEActions[i].Data));
-						}
+					    if (SpeakList.length==1) {
+								Talk("Movie2",JSON.stringify(data.ACEActions[i].Data));
+							}
 						text += "<li> Student: " + JSON.stringify(data.ACEActions[i].Data) + "</li>";
 						}
 					if (data.ACEActions[i].Agent=="ComputerTutor"){
-					     if (SpeakList.length==1) 
-						 {
-							aIndex=0;
-							Talk("Movie1",JSON.stringify(data.ACEActions[i].Data));
-						 }
+					     if (SpeakList.length==1) {
+								Talk("Movie1",JSON.stringify(data.ACEActions[i].Data));
+							 }
 						text += "<li> Tutor: " + JSON.stringify(data.ACEActions[i].Data) + "</li>";
 						}
 					}
