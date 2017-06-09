@@ -22,14 +22,23 @@
 		  document.getElementById('innerframe').src = url;
 		});
 		
-		var iputObj={
-		"Id":qs("ID","Chinese-test"),
-		"ScriptURL":qs("ScriptURL","https://goo.gl/fyU8QA"),
-		"User":qs("User","Carl"),
-		"Text":qs("Text","不知道"),
-		"language":qs("language","Chinese")
-		}
 		
+		
+		
+	    function ComposeSKOLink()
+		{
+			var SKO ={
+			guid:qs("guid","ef09a0a7-5e35-47c6-b19e-2dc1739b4c75"),
+			TagName:"AutoTutorScript",
+			source:"ScriptOnly",
+			authorname:"xiangenhu"
+			}
+		    var school,text;
+			school=qs("school","onrstem.skoonline.org");
+			text= "http://"+school+"/retrieve?json="+JSON.stringify(SKO);
+			return text;
+		}
+	
 		function processingReturn(data){
 		    var actionLength, text, i;
 		    actionLength=data.ACEActions.length;
@@ -49,40 +58,45 @@
 		}
 		
 		function POSTtoACE(Method){
+		var iputObj={
+			Id:qs("ID","Chinese-test"),
+			ScriptURL:qs("ScriptURL",ComposeSKOLink()),
+			User:qs("User","Carl"),
+			Text:qs("Text","不知道"),
+			language:qs("language","Chinese")
+		}
 		var getUrl = $.ajax({
 			type: Method,
 			url: qs("aceurl","http://ace.autotutor.org/aceapi2017/api/aceaction"),
 			data: iputObj,
-			success: function()
-			{
-				var x = document.getElementById('outputJSON');
-				x.style.display = 'block';
-				var y = document.getElementById('inputText');
-				y.style.display = 'block';
-				var z = document.getElementById('SubmitAnswer');
-				z.style.display = 'block';
-				var s = document.getElementById('Initialize');
-				s.style.display = 'none';
-				PuttoACE("不知道");
-			}
+				success: function() {
+					var x = document.getElementById('outputJSON');
+					x.style.display = 'block';
+					var y = document.getElementById('inputText');
+					y.style.display = 'block';
+					var z = document.getElementById('SubmitAnswer');
+					z.style.display = 'block';
+					var s = document.getElementById('Initialize');
+					s.style.display = 'none';
+					PuttoACE("不知道");
+				}
 			})
 		}
 		
 		function PuttoACE(Inputtext){
-		var iputObj={
-		"Id":qs("ID","Chinese-test"),
-		"ScriptURL":qs("ScriptURL","https://goo.gl/fyU8QA"),
-		"User":qs("User","Carl"),
-		"Text":Inputtext,
-		"language":qs("language","Chinese")
-		}
+			var iputObj={
+				Id:qs("ID","Chinese-test"),
+				ScriptURL:qs("ScriptURL",ComposeSKOLink()),
+				User:qs("User","Carl"),
+				Text:Inputtext,
+				language:qs("language","Chinese")
+			}
 		var getUrl = $.ajax({
 			type: "PUT",
 			url: qs("aceurl","http://ace.autotutor.org/aceapi2017/api/aceaction"),
 			data: iputObj,
 			success: function (data) {
 			    processingReturn(data);
-		//		$('#outputJSON').text(JSON.stringify(data.ACEActions));
 			}
 		})
 		}
@@ -107,7 +121,7 @@
 
         <input type='submit' id='Initialize' value="Initialize"/><br>
 		
-		 <textarea id='inputText'>不知道.
+		 <textarea id='inputText'>No idea.
          </textarea></br>
 		
 		<input type='submit' id='SubmitAnswer'value="Submit yoour Answer" align="right"/><br>
