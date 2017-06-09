@@ -15,8 +15,11 @@ function doResize()
 {
 }
 
-var speakList = ["One","Two","Three","Four"]
-var Index=0;
+
+var SpeakList = [];
+
+var aIndex = 0;
+
 var responses = [];
 
 function onContentLoaded()
@@ -59,6 +62,7 @@ function Play(movieID,Text)
 function Speak(movieID,Text)
 {
 
+//	msSpeakQueued(movieID, Text);
 	msSpeak(movieID, Text);
 }
 function response(movieID,Text)
@@ -75,9 +79,23 @@ function onSceneLoaded(id)
 }
 function onPresentingChange(id, p)
 {
-	if (p == false) 
+	aIndex++;
+	document.getElementById("Accounting4").innerHTML =aIndex;
+	if (SpeakList.length < aIndex) 
 	{
-		
+		aIndex=0;
+		return;
+	}
+	var obj = JSON.parse(SpeakList[aIndex]); 
+	if (obj.Agent=="ComputerTutor") 
+	{
+		Talk("Movie1",obj.Data);
+		Play("Movie1", "normal");
+	}
+	if (obj.Agent=="ComputerStudent") 
+	{
+		Talk("Movie2",obj.Data);
+		Play("Movie2", "normal");
 	}
 }
 function onFocusChange(id, f)
@@ -92,9 +110,19 @@ function onExternalCommand(id, cmd, args)
 function onQueueLengthChange(id, n)
 {
 	// msSpeakQueued queue length change
+	if (id=="Movie1")
+	document.getElementById("Accounting1").innerHTML =n+ " "+id;
+	if (id=="Movie2")
+	document.getElementById("Accounting2").innerHTML =n+ " "+id;
+	if (id=="Movie3")
+	document.getElementById("Accounting3").innerHTML =n+ " "+id;
+	if (id=="Movie4")
+	document.getElementById("Accounting4").innerHTML =n+ " "+id;
+
 }
 function onVariableChange(id, n)
 {
 	// One or more variables changed
+	
 }
 // Others

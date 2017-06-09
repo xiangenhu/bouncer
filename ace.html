@@ -45,20 +45,30 @@
 		    var actionLength, text, i;
 		    actionLength=data.ACEActions.length;
 			text="<ul>";
+			SpeakList=[];
 			for (i = 0; i < actionLength; i++) {
 				if (data.ACEActions[i].Act=="Speak"){
+				    SpeakList.push(JSON.stringify(data.ACEActions[i]));
 					if (data.ACEActions[i].Agent=="ComputerStudent"){
-					    Talk("Movie2",JSON.stringify(data.ACEActions[i].Data))
+					    if (SpeakList.length==1) 
+						{
+							aIndex=0;
+							Talk("Movie2",JSON.stringify(data.ACEActions[i].Data));
+						}
 						text += "<li> Student: " + JSON.stringify(data.ACEActions[i].Data) + "</li>";
 						}
 					if (data.ACEActions[i].Agent=="ComputerTutor"){
-						Talk("Movie1",JSON.stringify(data.ACEActions[i].Data));
+					     if (SpeakList.length==1) 
+						 {
+							aIndex=0;
+							Talk("Movie1",JSON.stringify(data.ACEActions[i].Data));
+						 }
 						text += "<li> Tutor: " + JSON.stringify(data.ACEActions[i].Data) + "</li>";
 						}
 					}
 			}
 			text +="</ul>";
-			document.getElementById("outputJSON").innerHTML = text;
+			document.getElementById("outputJSON").innerHTML = text+SpeakList;
 		}
 		
 		function POSTtoACE(Method){
@@ -100,7 +110,8 @@
 			url: qs("aceurl","http://ace.autotutor.org/aceapi2017/api/aceaction"),
 			data: iputObj,
 			success: function (data) {
-			    processingReturn(data);
+			    speakerData=data;
+			    processingReturn(speakerData);
 			}
 		})
 		}
@@ -129,7 +140,16 @@
          </textarea></br>
 		
 		<input type='submit' id='SubmitAnswer'value="Submit yoour Answer" align="right"/><br>
-        <div id='outputJSON'>
+        <p/> dasdasd <p/>dasdasdasd <p/> asdasdasd<p/>  
+	   <div id='Accounting1'>
+        </div>
+		<div id='Accounting2'>
+        </div>
+		<div id='Accounting3'>
+        </div>
+		<div id='Accounting4'>
+        </div>
+		 <div id='outputJSON'>
         </div>
     </form>
 
