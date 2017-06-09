@@ -7,7 +7,7 @@
 	position: absolute;
 	left: 0;
 	margin-top: -68px;
-	display:none;
+	display:block;
 }
 .tr-agent{
 	width: 200px;
@@ -16,7 +16,7 @@
 	position: absolute;
 	right: 0;
 	margin-top: -68px;
-	display:none;
+	display:block;
 }
 .bl-agent{
 	width: 200px;
@@ -53,20 +53,30 @@
 	left: 0;
 	margin-bottom: 9%;
 }
+#Initialize{
+	bottom: 300px;
+	position: absolute;
+	left: 40px;
+}
 #SubmitAnswer{
     display: none;
-	align:right;
+	bottom: 450px;
+	position: absolute;
+	left: 40px;
 }
 #inputText{ 
-    width: 100%;
+    bottom: 500px;
+    width: 80%;
     text-align: left;
+	position: absolute;
+	left: 40px;
     display: none;
 }
 #outputJSON{
-    width: 100%;
-    padding: 50px 0;
+    width: 80%;
+	left: 20px;
     text-align: left;
     background-color: lightblue;
-    margin-top:20px;
+    margin-top:400px;
     display: none;
 }

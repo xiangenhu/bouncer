@@ -46,9 +46,11 @@
 			for (i = 0; i < actionLength; i++) {
 				if (data.ACEActions[i].Act=="Speak"){
 					if (data.ACEActions[i].Agent=="ComputerStudent"){
+					    Talk("Movie2",JSON.stringify(data.ACEActions[i].Data))
 						text += "<li> Student: " + JSON.stringify(data.ACEActions[i].Data) + "</li>";
 						}
 					if (data.ACEActions[i].Agent=="ComputerTutor"){
+						Talk("Movie1",JSON.stringify(data.ACEActions[i].Data))
 						text += "<li> Tutor: " + JSON.stringify(data.ACEActions[i].Data) + "</li>";
 						}
 					}
