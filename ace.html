@@ -22,10 +22,10 @@
 		  document.getElementById('innerframe').src = url;
 		});
 		
-		function Sequencing(ActionArray){
-			
-		}
 		
+		function StartConversation(guid,school){
+			POSTtoACE("POST");
+		}
 		
 	    function ComposeSKOLink()
 		{
@@ -87,6 +87,8 @@
 					x.style.display = 'block';
 					var s = document.getElementById('InputArea');
 					s.style.display = 'none';
+					var s = document.getElementById('Initialize');
+					s.style.display = 'none';
 					PuttoACE("不知道");
 				}
 			})
@@ -126,11 +128,13 @@
 		
 		
 		</script>
+		<div align="center">
+			<input type='submit' id='Initialize' value="Initialize"/><br>	
+		</div>
 		<div id="InputArea"align="center">
 			<form role='form'>
-			<textarea id='inputText' rows="2",cols="50">No idea. </textarea></br>		
+			<textarea id='inputText' rows="2" cols="50">No idea. </textarea></br>		
 			<input type='submit' id='SubmitAnswer'value="Submit your Answer" align="right"/><br>	
-			<input type='submit' id='Initialize' value="Initialize"/><br>	
 			</form>
 		</div>
 	     <ul>
