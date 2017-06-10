@@ -71,17 +71,18 @@ function Play(movieID,Text)
 function repeat(movieID, Text){
 	document.getElementById("outputJSON").innerHTML="";
 	Speak(movieID, Text);
+	aIndex=0;
 }
 
 function Speak(movieID,Text)
 {
 	var atext="";
-	var alink = ' <input type="button" onclick="repeat(&#39;'+movieID+'&#39;,&#39;'+Text+'&#39;)" value="Try again" />';
+	var alink = ' <input type="button" onclick="repeat(&#39;'+movieID+'&#39;,&#39;'+Text+'&#39;)" value="Repeat" />';
 	if (movieID=="Movie1"){
-			atext="<b>Tutor:</b> " + Text+alink;
+			atext="<li><b>Tutor:</b> " + Text+alink+"</li>";
 		}
 	if (movieID=="Movie2"){
-			atext="<b>Student:</b> " + Text+alink;
+			atext="<li><b>Student:</b> " + Text+alink+"</li>";
 		}
 	var OldText=document.getElementById("outputJSON").innerHTML;
 	document.getElementById("outputJSON").innerHTML = atext+"<br/>"+OldText;
@@ -104,8 +105,8 @@ function onPresentingChange(id, p)
 	aIndex++;
 	
 	if (aIndex==SpeakList.length) {
-		document.getElementById("SubmitAnswer").style.display = "block";
-		document.getElementById("inputText").style.display = "block";
+		document.getElementById("InputArea").style.display = "block";
+		document.getElementById("Initialize").style.display = "none";
 		return;
 	}
 		
