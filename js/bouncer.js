@@ -68,19 +68,22 @@ function Play(movieID,Text)
 	msPlay(movieID, Text);
 }
 
+
+
 function Speak(movieID,Text)
 {
 //	msSpeakQueued(movieID, Text);
 	var atext="";
+	var alink = '<input type="button" onclick="msSpeak(&#39;'+movieID+'&#39;,&#39;'+Text+'&#39;)" value="Try again" />';
+//	alert(alink);
 	if (movieID=="Movie1"){
-			atext="<b>Tutor:</b> " + Text;
+			atext="<b>Tutor:</b> " + Text+alink;
 		}
 	if (movieID=="Movie2"){
-			atext="<b>Student:</b> " + Text;
+			atext="<b>Student:</b> " + Text+alink;
 		}
 	var OldText=document.getElementById("outputJSON").innerHTML;
 	document.getElementById("outputJSON").innerHTML = atext+"<br/>"+OldText;
-	
 	msSpeak(movieID, Text);
 }
 function response(movieID,Text)
