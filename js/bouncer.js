@@ -11,12 +11,66 @@ function qs(search_for,defaultstr) {
 		}
 		return defaultstr;
 	}
-function doResize()
-{
-}
-
+	
 
 var SpeakList = [];
+
+var c1=qs("c1","Ben");
+var c2=qs("c2","Angela");
+var c3=qs("c3","Angela");
+var c4=qs("c4","Anna");
+
+var p1=qs("p1","Player/CBCode/English/Paul/Output/Ben_Files");
+var p2=qs("p2","Player/CBCode/English/Julie/Output/Angela_Files");
+var p3=qs("p3","Player/CBCode/English/Julie/Output/Lily_Files");
+var p4=qs("p4","Player/CBCode/English/Kate/Output/Anna_Files");
+
+var urlPageForIFrame = qs("url","https://adlnet.github.io");
+
+var SKOGuid=qs("guid","ef09a0a7-5e35-47c6-b19e-2dc1739b4c75");
+var SKOSchool=qs("school","onrstem.skoonline.org");
+
+var IDtoACE=qs("ID","Chinese-test");
+var UserStudent=qs("UserStudent","Carl");
+var IntitalText =qs("Text","No idea");
+var Defaultlanguage=qs("language","Chinese");
+
+
+function ComposeSKOLink()
+		{
+			var SKO ={
+			guid:SKOGuid,
+			TagName:"AutoTutorScript",
+			source:"ScriptOnly",
+			authorname:"xiangenhu"
+			}
+		    var school,text;
+			school=SKOSchool;
+			text= "http://"+school+"/retrieve?json="+JSON.stringify(SKO);
+			return text;
+		}
+var ScriptURL=qs("ScriptURL",ComposeSKOLink());
+
+var iputObj={
+			Id:IDtoACE,
+			ScriptURL:ScriptURL,
+			User:UserStudent,
+			language:Defaultlanguage
+		};
+
+function refreshSKO(){
+    ScriptURL=qs("ScriptURL",ComposeSKOLink());
+    iputObj={
+			Id:IDtoACE,
+			ScriptURL:ScriptURL,
+			User:UserStudent,
+			language:Defaultlanguage
+		};
+}		
+		
+var aceurl=qs("aceurl","http://ace.autotutor.org/aceapi2017/api/aceaction");
+
+
 
 var aIndex = 0;
 
@@ -31,21 +85,13 @@ function onContentLoaded()
 	s += '<div id="Movie4" class="br-agent"></div>';
 	document.getElementById('TopDiv').innerHTML = s;
 	
-	var c1=qs("c1","Ben");
-	var c2=qs("c2","Angela");
-	var c3=qs("c3","Angela");
-	var C4=qs("c4","Anna");
-	
-	var p1=qs("p1","Player/CBCode/English/Paul/Output/Ben_Files");
-	var p2=qs("p2","Player/CBCode/English/Julie/Output/Angela_Files");
-	var p3=qs("p3","Player/CBCode/English/Julie/Output/Lily_Files");
-	var p4=qs("p4","Player/CBCode/English/Kate/Output/Anna_Files");
 	
 	msAttach('Movie1', c1,p1,200,250);
 	msAttach('Movie2', c2,p2, 200,250);
 	msAttach('Movie3', c3,p3, 200,250);
 	msAttach('Movie4', c4,p4, 200,250);
 }
+
 
 function Talk(Movie,s)
 {

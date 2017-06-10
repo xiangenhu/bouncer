@@ -18,28 +18,17 @@
 		
 		<script type="text/javascript" language="JavaScript">
 		$(document).ready(function(){
-		  var url = qs("url","https://adlnet.github.io");
-		  document.getElementById('innerframe').src = url;
+		  document.getElementById('innerframe').src = urlPageForIFrame;
 		});
 		
 		
-		function StartConversation(guid,school){
+		function StartConversation(school,guid){	
+			SKOGuid=guid;
+			SKOSchool=school;
+			refreshSKO();
 			POSTtoACE("POST");
 		}
 		
-	    function ComposeSKOLink()
-		{
-			var SKO ={
-			guid:qs("guid","ef09a0a7-5e35-47c6-b19e-2dc1739b4c75"),
-			TagName:"AutoTutorScript",
-			source:"ScriptOnly",
-			authorname:"xiangenhu"
-			}
-		    var school,text;
-			school=qs("school","onrstem.skoonline.org");
-			text= "http://"+school+"/retrieve?json="+JSON.stringify(SKO);
-			return text;
-		}
 	    
 		
 		function processingReturn(data){
@@ -69,18 +58,15 @@
 					}
 			}
 		}
+
 		
 		function POSTtoACE(Method){
-		var iputObj={
-			Id:qs("ID","Chinese-test"),
-			ScriptURL:qs("ScriptURL",ComposeSKOLink()),
-			User:qs("User","Carl"),
-			Text:qs("Text","不知道"),
-			language:qs("language","Chinese")
-		}
+		
+		iputObj.Text=IntitalText;
+		
 		var getUrl = $.ajax({
 			type: Method,
-			url: qs("aceurl","http://ace.autotutor.org/aceapi2017/api/aceaction"),
+			url: aceurl,
 			data: iputObj,
 				success: function() {
 					var x = document.getElementById('outputJSON');
@@ -96,16 +82,12 @@
 		
 		
 		function PuttoACE(Inputtext){
-			var iputObj={
-				Id:qs("ID","Chinese-test"),
-				ScriptURL:qs("ScriptURL",ComposeSKOLink()),
-				User:qs("User","Carl"),
-				Text:Inputtext,
-				language:qs("language","Chinese")
-			}
+		
+			iputObj.Text=Inputtext;
+			
 		var getUrl = $.ajax({
 			type: "PUT",
-			url: qs("aceurl","http://ace.autotutor.org/aceapi2017/api/aceaction"),
+			url: aceurl,
 			data: iputObj,
 			success: function (data) {
 			    speakerData=data;
