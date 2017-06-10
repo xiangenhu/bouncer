@@ -53,12 +53,23 @@
 				    SpeakList.push(JSON.stringify(data.ACEActions[i]));
 					if (data.ACEActions[i].Agent=="ComputerStudent"){
 					    if (SpeakList.length==1) {
-								Talk("Movie2",JSON.stringify(data.ACEActions[i].Data));
+							//	Talk("Movie2",JSON.stringify(data.ACEActions[i].Data));
+								Talk("Movie2",data.ACEActions[i].Data);
+								var x = document.getElementById('inputText');
+								x.style.display = 'none';
+								var y = document.getElementById('SubmitAnswer');
+								y.style.display = 'none';
+								
 							}
 						}
 					if (data.ACEActions[i].Agent=="ComputerTutor"){
 					     if (SpeakList.length==1) {
-								Talk("Movie1",JSON.stringify(data.ACEActions[i].Data));
+							//	Talk("Movie1",JSON.stringify(data.ACEActions[i].Data));
+								Talk("Movie1",data.ACEActions[i].Data);
+								var x = document.getElementById('inputText');
+								x.style.display = 'none';
+								var y = document.getElementById('SubmitAnswer');
+								y.style.display = 'none';
 							 }
 						}
 					}

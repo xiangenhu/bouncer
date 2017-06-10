@@ -90,9 +90,10 @@ function onPresentingChange(id, p)
 {
 	aIndex++;
 	
-	if (aIndex==SpeakList.length-1) {
+	if (aIndex==SpeakList.length) {
 		document.getElementById("SubmitAnswer").style.display = "block";
 		document.getElementById("inputText").style.display = "block";
+		return;
 	}
 		
 	msStop("Movie1");

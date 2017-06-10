@@ -60,21 +60,19 @@
 }
 #SubmitAnswer{
     display: none;
-	bottom: 450px;
+	bottom: 150px;
 	position: absolute;
 	left: 40px;
 	display: none;
 }
 #inputText{ 
-    bottom: 500px;
+    bottom: 200px;
     width: 80%;
     text-align: left;
 	position: absolute;
 	left: 40px;
     display: none;
 }
-
-
 
 #outputJSON{
     width: 100%;
