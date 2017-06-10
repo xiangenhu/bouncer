@@ -68,14 +68,15 @@ function Play(movieID,Text)
 	msPlay(movieID, Text);
 }
 
-
+function repeat(movieID, Text){
+	document.getElementById("outputJSON").innerHTML="";
+	Speak(movieID, Text);
+}
 
 function Speak(movieID,Text)
 {
-//	msSpeakQueued(movieID, Text);
 	var atext="";
-	var alink = '<input type="button" onclick="msSpeak(&#39;'+movieID+'&#39;,&#39;'+Text+'&#39;)" value="Try again" />';
-//	alert(alink);
+	var alink = ' <input type="button" onclick="repeat(&#39;'+movieID+'&#39;,&#39;'+Text+'&#39;)" value="Try again" />';
 	if (movieID=="Movie1"){
 			atext="<b>Tutor:</b> " + Text+alink;
 		}
