@@ -94,6 +94,7 @@
 			})
 		}
 		
+		
 		function PuttoACE(Inputtext){
 			var iputObj={
 				Id:qs("ID","Chinese-test"),
@@ -116,12 +117,12 @@
         $(document).ready(function () {
             $('input#Initialize').click(
                 function (event) {
-                    event.preventDefault();
+					event.preventDefault();
 					POSTtoACE("POST");
                     });
 				$('input#SubmitAnswer').click(
                 function (event) {
-                    event.preventDefault();
+					event.preventDefault();
 					PuttoACE($('textarea#inputText').val());
                     });
                 });
@@ -132,10 +133,8 @@
 			<input type='submit' id='Initialize' value="Initialize"/><br>	
 		</div>
 		<div id="InputArea"align="center">
-			<form role='form'>
 			<textarea id='inputText' rows="2" cols="50">No idea. </textarea></br>		
 			<input type='submit' id='SubmitAnswer'value="Submit your Answer" align="right"/><br>	
-			</form>
 		</div>
 	     <ul>
 		 <div id='outputJSON'>
