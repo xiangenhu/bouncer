@@ -31,11 +31,20 @@ function onContentLoaded()
 	s += '<div id="Movie4" class="br-agent"></div>';
 	document.getElementById('TopDiv').innerHTML = s;
 	
+	var c1=qs("c1","Ben");
+	var c2=qs("c2","Angela");
+	var c3=qs("c3","Angela");
+	var C4=qs("c4","Anna");
 	
-	msAttach('Movie1', 'Ben', 'Player/CBCode/English/Paul/Output/Ben_Files',200,250);
-	msAttach('Movie2', 'Angela','Player/CBCode/English/Julie/Output/Angela_Files', 200,250);
-	msAttach('Movie3', 'Lily','Player/CBCode/English/Julie/Output/Lily_Files', 200,250);
-	msAttach('Movie4', 'Anna','Player/CBCode/English/Kate/Output/Anna_Files', 200,250);
+	var p1=qs("p1","Player/CBCode/English/Paul/Output/Ben_Files");
+	var p2=qs("p2","Player/CBCode/English/Julie/Output/Angela_Files");
+	var p3=qs("p3","Player/CBCode/English/Julie/Output/Lily_Files");
+	var p4=qs("p4","Player/CBCode/English/Kate/Output/Anna_Files");
+	
+	msAttach('Movie1', c1,p1,200,250);
+	msAttach('Movie2', c2,p2, 200,250);
+	msAttach('Movie3', c3,p3, 200,250);
+	msAttach('Movie4', c4,p4, 200,250);
 }
 
 function Talk(Movie,s)
