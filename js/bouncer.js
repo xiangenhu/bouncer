@@ -76,6 +76,7 @@ var aIndex = 0;
 
 var responses = [];
 
+
 function onContentLoaded()
 {
 	var s = '';
@@ -127,10 +128,10 @@ function Speak(movieID,Text,index)
 		}
 	var OldText=document.getElementById("Coversation").innerHTML;
 	document.getElementById("Coversation").innerHTML = atext+"<br/>"+OldText;
-	
 	var newText=Text+' <pause/> <externalcommand command="next" args="'+index+'"/>';
 	msSpeak(movieID, newText);
 }
+
 function response(movieID,Text)
 {
 //     alert("Response "+" " +movieID+"   "+Text+" Not implemented yet ");
@@ -144,20 +145,10 @@ function onSceneLoaded(id)
 
 function AgentTalk(obj,aIndex){
 	if (obj.Agent=="ComputerTutor"){
-		try {
-			Speak("Movie1",obj.Data,aIndex+1);
-		}
-		catch(err){
-			alert('server too slow');
-		}
+		Speak("Movie1",obj.Data,aIndex+1);
 	}	
 	if (obj.Agent=="ComputerStudent"){
-		try {
-			Speak("Movie2",obj.Data,aIndex+1);
-		}
-		catch(err){
-			alert('server too slow');
-		}
+		Speak("Movie2",obj.Data,aIndex+1);
 	}
 	
 }
@@ -171,18 +162,14 @@ function onFocusChange(id, f)
 }
 function onExternalCommand(id, cmd, args)
 {
-	if (cmd=="next")	{
+	if (cmd=="next"){
 		var aIndex=Number(args);
 		if (aIndex==SpeakList.length) {
 			document.getElementById("InputArea").style.display = "block";
 			document.getElementById("Initialize").style.display = "none";
 			return;
 		}
-		
-		do {  
-			AgentTalk(SpeakList[aIndex],aIndex);
-		}  
-		while (talking==true) ; 
+		AgentTalk(SpeakList[aIndex],aIndex);
 	}
 }
 function onQueueLengthChange(id, n)
