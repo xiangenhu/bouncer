@@ -35,28 +35,15 @@
 		    var actionLength, text, i;
 		    actionLength=data.ACEActions.length;
 			SpeakList=[];
-			aIndex=0;
-			document.getElementById("outputJSON").innerHTML="";
+			OldText=document.getElementById("Coversation").innerHTML="";
+			var x = document.getElementById('InputArea');
+			x.style.display = 'none';
 			for (i = 0; i < actionLength; i++) {
 				if (data.ACEActions[i].Act=="Speak"){
-				    SpeakList.push(JSON.stringify(data.ACEActions[i]));
-					if (data.ACEActions[i].Agent=="ComputerStudent"){
-					    if (SpeakList.length==1) {
-								Talk("Movie2",data.ACEActions[i].Data);
-								var x = document.getElementById('InputArea');
-								x.style.display = 'none';
-								
-							}
-						}
-					if (data.ACEActions[i].Agent=="ComputerTutor"){
-					     if (SpeakList.length==1) {
-								Talk("Movie1",data.ACEActions[i].Data);
-								var x = document.getElementById('InputArea');
-								x.style.display = 'none';
-							 }
-						}
+				    SpeakList.push(data.ACEActions[i]);
 					}
 			}
+			AgentTalk(SpeakList[0],0);		
 		}
 
 		
@@ -69,7 +56,7 @@
 			url: aceurl,
 			data: iputObj,
 				success: function() {
-					var x = document.getElementById('outputJSON');
+					var x = document.getElementById('Coversation');
 					x.style.display = 'block';
 					var s = document.getElementById('InputArea');
 					s.style.display = 'none';
@@ -119,8 +106,9 @@
 			<input type='submit' id='SubmitAnswer'value="Submit your Answer" align="right"/><br>	
 		</div>
 	     <ul>
-		 <div id='outputJSON'>
+		  <div id='Coversation'>
 		 </div>
+		 
 		 </ul>
         </div>
 

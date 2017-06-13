@@ -66,7 +66,7 @@
     display: none;
 }
 
-#outputJSON{
+#Coversation{
 	left: 200px;
 	right: 200px;
     top: 300px;
@@ -77,4 +77,16 @@
 	overflow:hidden;
 	padding:5px;
     display: none;
+}
+#outputJSON{
+	left: 200px;
+	right: 200px;
+    top: 500px;
+	position: absolute;
+	opacity:0.95;
+	background:lightGrey; 
+	border-radius: 10px 10px 10px 10px;
+	overflow:hidden;
+	padding:5px;
+    display: block;
 }

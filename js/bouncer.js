@@ -70,7 +70,7 @@ function refreshSKO(){
 		
 var aceurl=qs("aceurl","http://ace.autotutor.org/aceapi2017/api/aceaction");
 
-
+var talking=true;
 
 var aIndex = 0;
 
@@ -93,11 +93,6 @@ function onContentLoaded()
 }
 
 
-function Talk(Movie,s)
-{
-	Speak(Movie, s);
-}
-
 function Playing(Movie,s)
 {
 	Play(Movie, s);
@@ -115,24 +110,26 @@ function Play(movieID,Text)
 }
 
 function repeat(movieID, Text){
-	document.getElementById("outputJSON").innerHTML="";
-	Speak(movieID, Text);
+	document.getElementById("Coversation").innerHTML="";
+	msSpeak(movieID, Text);
 	aIndex=0;
 }
 
-function Speak(movieID,Text)
+function Speak(movieID,Text,index)
 {
 	var atext="";
-	var alink = ' <input type="button" onclick="repeat(&#39;'+movieID+'&#39;,&#39;'+Text+'&#39;)" value="Repeat" />';
+	var alink = ' <input type="button" onclick="Speak(&#39;'+movieID+'&#39;,&#39;'+Text+'&#39;,&#39;'+index+'&#39;)" value="Repeat" />';
 	if (movieID=="Movie1"){
 			atext="<li><b>Tutor:</b> " + Text+alink+"</li>";
 		}
 	if (movieID=="Movie2"){
 			atext="<li><b>Student:</b> " + Text+alink+"</li>";
 		}
-	var OldText=document.getElementById("outputJSON").innerHTML;
-	document.getElementById("outputJSON").innerHTML = atext+"<br/>"+OldText;
-	msSpeak(movieID, Text);
+	var OldText=document.getElementById("Coversation").innerHTML;
+	document.getElementById("Coversation").innerHTML = atext+"<br/>"+OldText;
+	
+	var newText=Text+' <pause/> <externalcommand command="next" args="'+index+'"/>';
+	msSpeak(movieID, newText);
 }
 function response(movieID,Text)
 {
@@ -143,37 +140,30 @@ function response(movieID,Text)
 function onSceneLoaded(id)
 {
 	// CB content loaded and ready to accept commands - will get N of these where N is # of characters
-	
+}
 
+function AgentTalk(obj,aIndex){
+	if (obj.Agent=="ComputerTutor"){
+		try {
+			Speak("Movie1",obj.Data,aIndex+1);
+		}
+		catch(err){
+			alert('server too slow');
+		}
+	}	
+	if (obj.Agent=="ComputerStudent"){
+		try {
+			Speak("Movie2",obj.Data,aIndex+1);
+		}
+		catch(err){
+			alert('server too slow');
+		}
+	}
+	
 }
 function onPresentingChange(id, p)
 {
-	aIndex++;
-	
-	if (aIndex==SpeakList.length) {
-		document.getElementById("InputArea").style.display = "block";
-		document.getElementById("Initialize").style.display = "none";
-		return;
-	}
-		
-	msStop("Movie1");
-	msStop("Movie2");
-	if (SpeakList.length==0) return;
-	if (SpeakList.length < aIndex) aIndex=0;
-	if (aIndex>SpeakList.length-1) 
-	{
-		aIndex=0;
-		return;
-	}
-	var obj = JSON.parse(SpeakList[aIndex]); 
-	if (obj.Agent=="ComputerTutor") 
-	{
-		Talk("Movie1",obj.Data);
-	}
-	if (obj.Agent=="ComputerStudent") 
-	{
-		Talk("Movie2",obj.Data);
-	}
+	talking=p;
 }
 function onFocusChange(id, f)
 {
@@ -181,8 +171,19 @@ function onFocusChange(id, f)
 }
 function onExternalCommand(id, cmd, args)
 {
-	// External Command encountered in script
-	//alert("External Command cmd=" + cmd + ", args=" + args);
+	if (cmd=="next")	{
+		var aIndex=Number(args);
+		if (aIndex==SpeakList.length) {
+			document.getElementById("InputArea").style.display = "block";
+			document.getElementById("Initialize").style.display = "none";
+			return;
+		}
+		
+		do {  
+			AgentTalk(SpeakList[aIndex],aIndex);
+		}  
+		while (talking==true) ; 
+	}
 }
 function onQueueLengthChange(id, n)
 {
