@@ -110,24 +110,25 @@ function Play(movieID,Text)
 	msPlay(movieID, Text);
 }
 
-function repeat(movieID, Text){
-	document.getElementById("Coversation").innerHTML="";
-	msSpeak(movieID, Text);
+function repeat(movieID, Text,index){
+	msSpeak(movieID, Text,index,false);
 	aIndex=0;
 }
 
-function Speak(movieID,Text,index)
+function Speak(movieID,Text,index,print)
 {
-	var atext="";
-	var alink = ' <input type="button" onclick="Speak(&#39;'+movieID+'&#39;,&#39;'+Text+'&#39;,&#39;'+index+'&#39;)" value="Repeat" />';
-	if (movieID=="Movie1"){
-			atext="<li><b>Tutor:</b> " + Text+alink+"</li>";
-		}
-	if (movieID=="Movie2"){
-			atext="<li><b>Student:</b> " + Text+alink+"</li>";
-		}
-	var OldText=document.getElementById("Coversation").innerHTML;
-	document.getElementById("Coversation").innerHTML = atext+"<br/>"+OldText;
+	if (print==true) {
+		var atext="";
+		var alink = ' <input type="button" onclick="repeat(&#39;'+movieID+'&#39;,&#39;'+Text+'&#39;,&#39;'+index+'&#39;)" value="Repeat" />';
+		if (movieID=="Movie1"){
+				atext="<li><b>Tutor:</b> " + Text+alink+"</li>";
+			}
+		if (movieID=="Movie2"){
+				atext="<li><b>Student:</b> " + Text+alink+"</li>";
+			}
+		var OldText=document.getElementById("Coversation").innerHTML;
+		document.getElementById("Coversation").innerHTML = atext+"<br/>"+OldText;
+	}
 	var newText=Text+' <pause/> <externalcommand command="next" args="'+index+'"/>';
 	msSpeak(movieID, newText);
 }
@@ -145,10 +146,10 @@ function onSceneLoaded(id)
 
 function AgentTalk(obj,aIndex){
 	if (obj.Agent=="ComputerTutor"){
-		Speak("Movie1",obj.Data,aIndex+1);
+		Speak("Movie1",obj.Data,aIndex+1,true);
 	}	
 	if (obj.Agent=="ComputerStudent"){
-		Speak("Movie2",obj.Data,aIndex+1);
+		Speak("Movie2",obj.Data,aIndex+1,true);
 	}
 	
 }
