@@ -111,7 +111,7 @@ function Play(movieID,Text)
 }
 
 function repeat(movieID, Text,index){
-	msSpeak(movieID, Text,index,false);
+	Speak(movieID, Text,index,false);
 	aIndex=0;
 }
 
@@ -129,7 +129,7 @@ function Speak(movieID,Text,index,print)
 		var OldText=document.getElementById("Coversation").innerHTML;
 		document.getElementById("Coversation").innerHTML = atext+"<br/>"+OldText;
 	}
-	var newText=Text+' <pause/> <externalcommand command="next" args="'+index+'"/>';
+	var newText=Text+'<pause/> <pause/> <externalcommand command="next" args="'+index+'"/>';
 	msSpeak(movieID, newText);
 }
 
