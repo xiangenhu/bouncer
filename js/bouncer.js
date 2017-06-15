@@ -115,16 +115,31 @@ function repeat(movieID, Text,index){
 //	aIndex=0;
 }
 
+function ShowWindow(chkbox,targetw) {
+	
+    var x = document.getElementById(chkbox);
+	if (x.checked == true) {
+    document.getElementById(targetw).style.display = "block";
+	}
+	if (x.checked == false) {
+    document.getElementById(targetw).style.display = "none";
+	}
+}
+
+function ShowLog(){
+	ShowWindow("ShowLogs","Coversation");
+}
+
 function Speak(movieID,Text,index,print)
 {
 	if (print==true) {
 		var atext="";
 		var alink = ' <input type="button" onclick="repeat(&#39;'+movieID+'&#39;,&#39;'+Text+'&#39;,&#39;'+index+'&#39;)" value="Repeat" />';
 		if (movieID=="Movie1"){
-				atext="<li><b>Tutor:</b> " + Text+alink+"</li>";
+				atext="<li><b>Tutor:</b> " + Text+"</li>";
 			}
 		if (movieID=="Movie2"){
-				atext="<li><b>Student:</b> " + Text+alink+"</li>";
+				atext="<li><b>Student:</b> " + Text+"</li>";
 			}
 		var OldText=document.getElementById("Coversation").innerHTML;
 		document.getElementById("Coversation").innerHTML = atext+"<br/>"+OldText;
@@ -154,6 +169,13 @@ function AgentTalk(obj,aIndex){
 	}
 	
 }
+
+function displayMedia(MediaContainer,MediaBase,MediaURL){
+	var text='<img align="center" width="480" src="'+MediaURL+'"/>';
+	document.getElementById(MediaContainer).innerHTML=text;
+//	document.getElementById(MediaContainer).style.display = "block";
+}
+
 function onPresentingChange(id, p)
 {
 	talking=p;
@@ -169,6 +191,7 @@ function onExternalCommand(id, cmd, args)
 		if (aIndex==SpeakList.length) {
 			document.getElementById("InputArea").style.display = "block";
 			document.getElementById("Initialize").style.display = "none";
+//			displayMedia("MediaContainer","","https://xiangenhu.github.io/ATMedia/IMG/CAT/Down2andTone.png");
 			return;
 		}
 		AgentTalk(SpeakList[aIndex],aIndex);

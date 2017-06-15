@@ -54,9 +54,9 @@
 	margin-bottom: 9%;
 }
 #InputArea{ 
-    left: 200px;
-	right: 200px;
-    top: 100px;
+    left: 300px;
+	right: 300px;
+    top: 300px;
 	height:100px;
 	position: absolute;
 	opacity:0.95;
@@ -69,7 +69,7 @@
 #Coversation{
 	left: 200px;
 	right: 200px;
-    top: 300px;
+    top: 450px;
 	position: absolute;
 	opacity:0.95;
 	background:lightGrey; 
@@ -78,15 +78,39 @@
 	padding:5px;
     display: none;
 }
+
+
+#MediaContainer{
+    display: block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:480px;  /* adjust as per your needs */
+	height:640px;   /* adjust as per your needs */
+	margin-left:-200px;   /* negative half of width above */
+	margin-top:-200px;   /* negative half of height above */
+}
+
 #outputJSON{
 	left: 200px;
 	right: 200px;
-    top: 500px;
+    bottom: 200px;
 	position: absolute;
 	opacity:0.95;
 	background:lightGrey; 
 	border-radius: 10px 10px 10px 10px;
 	overflow:hidden;
 	padding:5px;
+    display: block;
+}
+
+#utilityBar{
+	width:100%;
+    bottom: 0px;
+	height:20px;
+	position: absolute;
+	opacity:0.95;
+	background:lightBlue; 
+	overflow:hidden;
     display: block;
 }
