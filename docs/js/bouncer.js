@@ -27,8 +27,8 @@ var p4=qs("p4","Player/CBCode/English/Kate/Output/Anna_Files");
 
 var urlPageForIFrame = qs("url","https://adlnet.github.io");
 
-var SKOGuid=qs("guid","5bd2843c-7b83-44ba-9501-453a99007df7");
-var SKOSchool=qs("school","class.skoonline.org");
+var SKOGuid=qs("guid","50ed8af1-3fd1-4ca2-ab1d-3b5cc97fbfbf");
+var SKOSchool=qs("school","ccnu.x-in-y.com:8889");
 
 var IDtoACE=qs("ID","Chinese-test");
 var UserStudent=qs("UserStudent","小明");
