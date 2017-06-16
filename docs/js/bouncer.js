@@ -36,12 +36,11 @@ var IntitalText =qs("Text","No idea");
 var Defaultlanguage=qs("language","Chinese");
 
 
-function ComposeSKOLink()
+function ComposeSKOLink()  //for none gae only
 		{
 			var SKO ={
 			guid:SKOGuid,
-			TagName:"AutoTutorScript",
-			source:"ScriptOnly",
+			return:"scriptContent",
 			authorname:"xiangenhu"
 			}
 		    var school,text;
@@ -49,6 +48,9 @@ function ComposeSKOLink()
 			text= "http://"+school+"/retrieve?json="+JSON.stringify(SKO);
 			return text;
 		}
+		
+		
+		
 var ScriptURL=qs("ScriptURL",ComposeSKOLink());
 
 var iputObj={
