@@ -7,7 +7,7 @@
 		<script src="js/Better.js" type="text/javascript"></script>
 		<script src="js/bouncer.js" type="text/javascript"></script>
 	</head>
-	<body onload="onContentLoaded()" style="margin:0;padding:0;overflow:hidden">
+	<body onload="onContentLoaded()" style="margin:0;padding:0;overflow:hidden" background="bgimage.jpg">
 
 		 <div class="frame-loader">
 			<iframe src="" style="height: 100%; width: 100%;border:none" id="innerframe"></iframe>
@@ -38,12 +38,18 @@
 			OldText=document.getElementById("Coversation").innerHTML="";
 			var x = document.getElementById('InputArea');
 			x.style.display = 'none';
+			
+		//	var y = document.getElementById('Coversation');
+			
+		//	y.style.display = 'block';
+		//	text="";
 			for (i = 0; i < actionLength; i++) {
-				if (data.ACEActions[i].Act=="Speak"){
-				    SpeakList.push(data.ACEActions[i]);
+				if ((data.ACEActions[i].Act=="Speak") || (data.ACEActions[i].Act=="ShowMedia")){
+					SpeakList.push(data.ACEActions[i]); 
 					}
 			}
-			AgentTalk(SpeakList[0],0);		
+			
+			Action(SpeakList[0],0);		
 		}
 
 		

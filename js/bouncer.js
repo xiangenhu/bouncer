@@ -15,23 +15,23 @@ function qs(search_for,defaultstr) {
 
 var SpeakList = [];
 
-var c1=qs("c1","Ben");
-var c2=qs("c2","Angela");
+var c1=qs("c1","Lee");
+var c2=qs("c2","Lily");
 var c3=qs("c3","Angela");
 var c4=qs("c4","Anna");
 
-var p1=qs("p1","Player/CBCode/English/Paul/Output/Ben_Files");
-var p2=qs("p2","Player/CBCode/English/Julie/Output/Angela_Files");
+var p1=qs("p1","Player/CBCode/Chinese/Liang/Output/Lee_Files");
+var p2=qs("p2","Player/CBCode/Chinese/Hui/Output/Lily_Files");
 var p3=qs("p3","Player/CBCode/English/Julie/Output/Lily_Files");
 var p4=qs("p4","Player/CBCode/English/Kate/Output/Anna_Files");
 
 var urlPageForIFrame = qs("url","https://adlnet.github.io");
 
-var SKOGuid=qs("guid","ef09a0a7-5e35-47c6-b19e-2dc1739b4c75");
-var SKOSchool=qs("school","onrstem.skoonline.org");
+var SKOGuid=qs("guid","5bd2843c-7b83-44ba-9501-453a99007df7");
+var SKOSchool=qs("school","class.skoonline.org");
 
 var IDtoACE=qs("ID","Chinese-test");
-var UserStudent=qs("UserStudent","Carl");
+var UserStudent=qs("UserStudent","小明");
 var IntitalText =qs("Text","No idea");
 var Defaultlanguage=qs("language","Chinese");
 
@@ -135,7 +135,7 @@ function Speak(movieID,Text,index,print)
 	if (print==true) {
 		var atext="";
 		var alink = ' <input type="button" onclick="repeat(&#39;'+movieID+'&#39;,&#39;'+Text+'&#39;,&#39;'+index+'&#39;)" value="Repeat" />';
-		if (movieID=="Movie1"){
+		if (movieID=="Movie1"){ 
 				atext="<li><b>Tutor:</b> " + Text+"</li>";
 			}
 		if (movieID=="Movie2"){
@@ -170,10 +170,25 @@ function AgentTalk(obj,aIndex){
 	
 }
 
+function Action(obj,aIndex){
+	if (obj.Act=="Speak") {
+		AgentTalk(obj,aIndex);
+	}
+	if (obj.Act=="ShowMedia") {
+		var newID=aIndex+1;
+		displayMedia("MediaContainer",qs("MediaBase","https://xiangenhu.github.io/ATMedia/IMG/CAT/"),obj.Data);
+		var newText ='<externalcommand command="next" args="'+newID+'"/>';
+		msSpeak("Movie1",newText);
+	}
+}
+
 function displayMedia(MediaContainer,MediaBase,MediaURL){
-	var text='<img align="center" width="480" src="'+MediaURL+'"/>';
+	var text='<img align="center" width="480" src="'+MediaBase+MediaURL+'"/>';
+	if (MediaURL.toUpperCase().includes("HTTP")==true) {
+		text='<img align="center" width="480" src="'+MediaURL+'"/>';
+	}
 	document.getElementById(MediaContainer).innerHTML=text;
-//	document.getElementById(MediaContainer).style.display = "block";
+	document.getElementById(MediaContainer).style.display = "block";
 }
 
 function onPresentingChange(id, p)
@@ -194,7 +209,7 @@ function onExternalCommand(id, cmd, args)
 //			displayMedia("MediaContainer","","https://xiangenhu.github.io/ATMedia/IMG/CAT/Down2andTone.png");
 			return;
 		}
-		AgentTalk(SpeakList[aIndex],aIndex);
+		Action(SpeakList[aIndex],aIndex);
 	}
 }
 function onQueueLengthChange(id, n)

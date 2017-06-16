@@ -42,7 +42,7 @@
 	top: 10px;
 	bottom: 10px;
 	height: 100%;
-	display:block;
+	display:none;
 }
 
 .TestSpeech{
@@ -56,7 +56,7 @@
 #InputArea{ 
     left: 300px;
 	right: 300px;
-    top: 300px;
+    bottom: 30px;
 	height:100px;
 	position: absolute;
 	opacity:0.95;
