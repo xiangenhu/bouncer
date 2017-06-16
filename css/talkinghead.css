@@ -91,6 +91,21 @@
 	margin-top:-200px;   /* negative half of height above */
 }
 
+
+
+#WorkingArea{
+    display: block;
+	position: absolute;
+	top:50%;
+	left:50%;
+	background:lightGrey; 
+	width:1024px;  /* adjust as per your needs */
+	height:768px;   /* adjust as per your needs */
+	margin-left:-512px;   /* negative half of width above */
+	margin-top:-384px;   /* negative half of height above */
+	background-image: url("https://xiangenhu.github.io/ATMedia/IMG/CAT/BKG1.jpg");
+}
+
 #outputJSON{
 	left: 200px;
 	right: 200px;
