@@ -144,7 +144,7 @@ function Speak(movieID,Text,index,print)
 				atext="<li><b>Student:</b> " + Text+"</li>";
 			}
 		var OldText=document.getElementById("Coversation").innerHTML;
-		document.getElementById("Coversation").innerHTML = atext+"<br/>"+OldText;
+		document.getElementById("Coversation").innerHTML = atext+"<br/>"+OldText+alink;
 	}
 	var newText ='<externalcommand command="next" args="'+index+'"/>';
 	msSpeak(movieID, Text);
