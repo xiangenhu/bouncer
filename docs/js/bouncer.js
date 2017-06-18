@@ -27,8 +27,8 @@ var p4=qs("p4","Player/CBCode/English/Kate/Output/Anna_Files");
 
 var urlPageForIFrame = qs("url","https://adlnet.github.io");
 
-var SKOGuid=qs("guid","50ed8af1-3fd1-4ca2-ab1d-3b5cc97fbfbf");
-var SKOSchool=qs("school","ccnu.x-in-y.com:8889");
+var SKOGuid=qs("guid","5bd2843c-7b83-44ba-9501-453a99007df7");
+var SKOSchool=qs("school","class.skoonline.org");
 
 var IDtoACE=qs("ID","Chinese-test");
 var UserStudent=qs("UserStudent","小明");
@@ -36,11 +36,12 @@ var IntitalText =qs("Text","No idea");
 var Defaultlanguage=qs("language","Chinese");
 
 
-function ComposeSKOLink()  //for none gae only
+function ComposeSKOLink()
 		{
 			var SKO ={
 			guid:SKOGuid,
-			return:"scriptContent",
+			TagName:"AutoTutorScript",
+			source:"ScriptOnly",
 			authorname:"xiangenhu"
 			}
 		    var school,text;
@@ -48,9 +49,6 @@ function ComposeSKOLink()  //for none gae only
 			text= "http://"+school+"/retrieve?json="+JSON.stringify(SKO);
 			return text;
 		}
-		
-		
-		
 var ScriptURL=qs("ScriptURL",ComposeSKOLink());
 
 var iputObj={
@@ -144,7 +142,7 @@ function Speak(movieID,Text,index,print)
 				atext="<li><b>Student:</b> " + Text+"</li>";
 			}
 		var OldText=document.getElementById("Coversation").innerHTML;
-		document.getElementById("Coversation").innerHTML = atext+"<br/>"+OldText+alink;
+		document.getElementById("Coversation").innerHTML = atext+"<br/>"+OldText;
 	}
 	var newText ='<externalcommand command="next" args="'+index+'"/>';
 	msSpeak(movieID, Text);

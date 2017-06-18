@@ -1466,7 +1466,7 @@ function MSHTML5Control(idDiv, project, base, widthEmbed, heightEmbed)
         {
             temparray = s.split(sdom);
             salt = temparray.join(tdom);
-            //salt = temparray.join("www.auto-tutor.com");
+            //salt = temparray.join("www.x-in-y.com");
             debugTrace(" -> remapping "+s+" to "+salt);
             return salt;
         }    
