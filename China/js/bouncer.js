@@ -144,7 +144,7 @@ function Speak(movieID,Text,index,print)
 		var OldText=document.getElementById("Coversation").innerHTML;
 		document.getElementById("Coversation").innerHTML = atext+"<br/>"+OldText;
 	}
-	var newText ='<externalcommand command="next" args="'+index+'"/>';
+	var newText ='<externalcommand command="next" args="'+index+'"/>.';
 	msSpeak(movieID, Text);
 	msSpeakQueued(movieID,newText);
 }
@@ -177,7 +177,7 @@ function Action(obj,aIndex){
 	if (obj.Act=="ShowMedia") {
 		var newID=aIndex+1;
 		displayMedia("MediaContainer",qs("MediaBase","https://xiangenhu.github.io/ATMedia/IMG/CAT/"),obj.Data);
-		var newText ='<externalcommand command="next" args="'+newID+'"/>';
+		var newText ='<externalcommand command="next" args="'+newID+'"/>.';
 		msSpeak("Movie1",newText);
 	}
 }
