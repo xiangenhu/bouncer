@@ -129,3 +129,16 @@
 	overflow:hidden;
     display: block;
 }
+
+#container{
+	width:600px;
+	height:600px;
+	border:2px solid #888888;
+	position:absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	text-align:center;
+}

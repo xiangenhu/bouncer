@@ -7,6 +7,7 @@
 		<script src="js/Better.js" type="text/javascript"></script>
 		<script src="js/bouncer.js" type="text/javascript"></script>
 	</head>
+	
 	<body onload="onContentLoaded()" style="margin:0;padding:0;overflow:hidden" background="bgimage.jpg">
      
 		<div id="WorkingArea">
@@ -17,6 +18,14 @@
 		<div id="TopDiv">
 		</div>
 		<div> 
+		
+		<div id="container">
+	
+			<button onclick="displayVideo()">Click me</button>
+
+			<iframe id="myiFrame" width="560" height="315" data-src="https://www.youtube.com/embed/OEE5-M4aY4k?ecver=1" src="about:blank" frameborder="0"></iframe>
+
+		</div>
 		
 		<script type="text/javascript" language="JavaScript">
 		$(document).ready(function(){
@@ -104,6 +113,12 @@
                     });
                 });
 		
+		function displayVideo() {
+		
+			var iframe = $("#myiFrame");
+			iframe.attr("src", iframe.data("src"));
+				
+		} 
 		
 		</script>
 		
