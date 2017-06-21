@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project html5="true" singlefile="true" size="200,250" htmlextctl="true" htmlextevt="true" initialpresenting="false" variables="Text=&quot;0&quot;;" flashversion="8" loader="standard" template="AIChatProgramD">
+	<include ref="Library/Objects/Bubbles/Bubble2.xml"/>
+	<include ref="Library/Objects/AudioButton/MuteBtn1.xml"/>
+	<include ref="Library/Objects/EntryPanels/ChatEntry1.xml"/>
+	
+	<stage id="Stage1">
+		<scene id="Scene1" name="Scene 1">
+			<character id="Char1" name="Kara" position="0,67" size="200,160" animationlibrary="Library/Characters/Kara/Kara.xml" defaultvoice="Loquendo Allison" defaultidle="eyetracker"/>
+			<bubble2 autosize="2" id="Obj1" name="Bubble" position="8,3" target="" size="188,68" authorinfo="Library/Objects/Bubbles/Bubbles.msx[Bubble2]"/>
+			<mutebtn1 id="Btn1" name="Mute Button" position="146,76"/>
+			<chatentry1 id="Obj2" name="Panel 1" position="-2,226" hidden="true" size="248,23" authorinfo="Library/Objects/EntryPanels/EntryPanels.msx[ChatEntry1]" variableedit="Text" targetedit="Msg1"/>
+			<message id="Msg1" name="Respond" externalfile="http://localhost/cs/cs.exe" externalfiletemplate="Library/Templates/Server/Speech.xml" externalfilecharacter="true" externalfilevoice="true" externalfilesize="true" externalfileautoactionlevel="true" externalfilesharedlibpath="http://localhost/Projects/SKOChar2/Output" externalfilecustom="true" externalfilevoiceparams="true" externalfileaddons="true" externalfileversion="true" externalfileaiengine="programd" externalfileaimldatabase="SampleBot" externalfileaimluser="true" externalfileaimlsession="true" externalfileaimltimezone="true" externalfilevariables="Text" character="Char1">
+			</message>
+			
+			<message id="Msg2" name="Speak" externalfile="http://localhost/cs/cs.exe" externalfiletemplate="Library/Templates/Server/Speech.xml" externalfilecharacter="true" externalfilevoice="true" externalfilesize="true" externalfileautoactionlevel="true" externalfilesharedlibpath="http://localhost/Projects/SKOChar2/Output" externalfilecustom="true" externalfilevoiceparams="true" externalfileaddons="true" externalfileversion="true" externalfilevariables="Text" character="Char1">
+			</message>
+			<message id="Msg3" name="Eyenormal">				
+				<eyesnormal/> 
+			</message>
+
+		</scene>
+	</stage>
+</project>
