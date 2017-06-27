@@ -31,30 +31,33 @@ var Cp4=qs("Cp4","Player/CBCode/Chinese/Kate/Output/Anna_Files");
 // English Character and SKO Default
 
 var Ec1=qs("Ec1","Ben");
-var Ec2=qs("Ec2","Lily");
-var Ec3=qs("Ec3","Angela");
+var Ec2=qs("Ec2","Angela");
+var Ec3=qs("Ec3","Lily");
 var Ec4=qs("Ec4","Anna");
 
 var Ep1=qs("Ep1","Player/CBCode/English/Paul/Output/Ben_Files");
-var Ep2=qs("Ep2","Player/CBCode/English/Julie/Output/Lily_Files");
-var Ep3=qs("Ep3","Player/CBCode/English/Julie/Output/Angela_Files");
+var Ep2=qs("Ep2","Player/CBCode/English/Julie/Output/Angela_Files");
+var Ep3=qs("Ep3","Player/CBCode/English/Julie/Output/Lily_Files");
 var Ep4=qs("Ep4","Player/CBCode/English/Kate/Output/Anna_Files");
 
 var urlPageForIFrame = qs("url","");
 
 
-var UserStudent=qs("UserStudent","小明");
+// var UserStudent=qs("UserStudent","小明");
 
-var SKOGuid=qs("guid","50ed8af1-3fd1-4ca2-ab1d-3b5cc97fbfbf");
+// var SKOGuid=qs("guid","50ed8af1-3fd1-4ca2-ab1d-3b5cc97fbfbf");
+
+var UserStudent=qs("UserStudent","Carl");
+var SKOGuid=qs("guid","bf406af8-b18a-4b2f-b03b-1d285ef19b7e");
 
 if (qs("lang","chn")=="chn")
 	{
-		var SKOGuid=qs("guid","50ed8af1-3fd1-4ca2-ab1d-3b5cc97fbfbf");
+		UserStudent=qs("UserStudent","小明");
+		SKOGuid=qs("guid","50ed8af1-3fd1-4ca2-ab1d-3b5cc97fbfbf");
 	}
 	if  (qs("lang","chn")=="eng") {
-		
 		var UserStudent=qs("UserStudent","Carl");
-		var SKOGuid=qs("guid","c1f3a82c-98c2-4658-b106-18a391c7a817");
+		SKOGuid=qs("guid","bf406af8-b18a-4b2f-b03b-1d285ef19b7e");
 	}
 
 var SKOSchool=qs("school","ccnu.x-in-y.com:8889");
