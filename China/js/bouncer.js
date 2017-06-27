@@ -15,23 +15,51 @@ function qs(search_for,defaultstr) {
 
 var SpeakList = [];
 
-var c1=qs("c1","Lee");
-var c2=qs("c2","Lily");
-var c3=qs("c3","Angela");
-var c4=qs("c4","Anna");
+// English Character and SKO Default
 
-var p1=qs("p1","Player/CBCode/Chinese/Liang/Output/Lee_Files");
-var p2=qs("p2","Player/CBCode/Chinese/Hui/Output/Lily_Files");
-var p3=qs("p3","Player/CBCode/English/Julie/Output/Lily_Files");
-var p4=qs("p4","Player/CBCode/English/Kate/Output/Anna_Files");
+var Cc1=qs("Cc1","Lee");
+var Cc2=qs("Cc2","Lily");
+var Cc3=qs("Cc3","Angela");
+var Cc4=qs("Cc4","Anna");
 
-var urlPageForIFrame = qs("url","https://adlnet.github.io");
+
+var Cp1=qs("Cp1","Player/CBCode/Chinese/Liang/Output/Lee_Files");
+var Cp2=qs("Cp2","Player/CBCode/Chinese/Hui/Output/Lily_Files");
+var Cp3=qs("Cp3","Player/CBCode/Chinese/Julie/Output/Angela_Files");
+var Cp4=qs("Cp4","Player/CBCode/Chinese/Kate/Output/Anna_Files");
+
+// English Character and SKO Default
+
+var Ec1=qs("Ec1","Ben");
+var Ec2=qs("Ec2","Lily");
+var Ec3=qs("Ec3","Angela");
+var Ec4=qs("Ec4","Anna");
+
+var Ep1=qs("Ep1","Player/CBCode/English/Paul/Output/Ben_Files");
+var Ep2=qs("Ep2","Player/CBCode/English/Julie/Output/Lily_Files");
+var Ep3=qs("Ep3","Player/CBCode/English/Julie/Output/Angela_Files");
+var Ep4=qs("Ep4","Player/CBCode/English/Kate/Output/Anna_Files");
+
+var urlPageForIFrame = qs("url","");
+
+
+var UserStudent=qs("UserStudent","小明");
 
 var SKOGuid=qs("guid","50ed8af1-3fd1-4ca2-ab1d-3b5cc97fbfbf");
+
+if (qs("lang","chn")=="chn")
+	{
+		var SKOGuid=qs("guid","50ed8af1-3fd1-4ca2-ab1d-3b5cc97fbfbf");
+	}
+	if  (qs("lang","chn")=="eng") {
+		
+		var UserStudent=qs("UserStudent","Carl");
+		var SKOGuid=qs("guid","c1f3a82c-98c2-4658-b106-18a391c7a817");
+	}
+
 var SKOSchool=qs("school","ccnu.x-in-y.com:8889");
 
 var IDtoACE=qs("ID","Chinese-test");
-var UserStudent=qs("UserStudent","小明");
 var IntitalText =qs("Text","No idea");
 var Defaultlanguage=qs("language","Chinese");
 
@@ -100,11 +128,19 @@ function onContentLoaded()
 	s += '<div id="Movie4" class="br-agent"></div>';
 	document.getElementById('TopDiv').innerHTML = s;
 	
-	
-	msAttach('Movie1', c1,p1,200,250);
-	msAttach('Movie2', c2,p2, 200,250);
-	msAttach('Movie3', c3,p3, 200,250);
-	msAttach('Movie4', c4,p4, 200,250);
+	if (qs("lang","chn")=="chn")
+	{
+		msAttach('Movie1', Cc1,Cp1,200,250);
+		msAttach('Movie2', Cc2,Cp2, 200,250);
+//		msAttach('Movie3', Cc3,Cp3, 200,250);
+//		msAttach('Movie4', Cc4,Cp4, 200,250);
+	}
+	if  (qs("lang","chn")=="eng") {
+		msAttach('Movie1', Ec1,Ep1,200,250);
+		msAttach('Movie2', Ec2,Ep2, 200,250);
+//		msAttach('Movie3', Ec3,Ep3, 200,250);
+//		msAttach('Movie4', Ec4,Ep4, 200,250);
+	}
 }
 
 
