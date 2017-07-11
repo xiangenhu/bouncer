@@ -135,14 +135,14 @@ function onContentLoaded()
 	{
 		msAttach('Movie1', Cc1,Cp1,200,250);
 		msAttach('Movie2', Cc2,Cp2, 200,250);
-//		msAttach('Movie3', Cc3,Cp3, 200,250);
-//		msAttach('Movie4', Cc4,Cp4, 200,250);
+		msAttach('Movie3', Cc3,Cp3, 200,250);
+		msAttach('Movie4', Cc4,Cp4, 200,250);
 	}
 	if  (qs("lang","chn")=="eng") {
 		msAttach('Movie1', Ec1,Ep1,200,250);
 		msAttach('Movie2', Ec2,Ep2, 200,250);
-//		msAttach('Movie3', Ec3,Ep3, 200,250);
-//		msAttach('Movie4', Ec4,Ep4, 200,250);
+		msAttach('Movie3', Ec3,Ep3, 200,250);
+		msAttach('Movie4', Ec4,Ep4, 200,250);
 	}
 }
 
