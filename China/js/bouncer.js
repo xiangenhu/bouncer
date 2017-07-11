@@ -121,6 +121,29 @@ var aIndex = 0;
 
 var responses = [];
 
+function AttachTalkingHeads(c1,p1,c2,p2,c3,p3,c4,p4,lang){	
+	document.getElementById('TopDiv').innerHTML ="";
+	var s = '';
+	s += '<div id="Movie11" class="tl-agent"></div>';
+	s += '<div id="Movie12" class="tr-agent"></div>';
+	s += '<div id="Movie13" class="bl-agent"></div>';
+	s += '<div id="Movie14" class="br-agent"></div>';
+	document.getElementById('TopDiv').innerHTML = s;
+	
+	if (lang=="chn")
+	{
+		msAttach('Movie11', c1,p1,200,250);
+		msAttach('Movie12', c2,p2, 200,250);
+		msAttach('Movie13', c3,p3, 200,250);
+		msAttach('Movie14', c4,p4, 200,250);
+	}
+	if  (lang=="eng") {
+		msAttach('Movie11', c1,p1,200,250);
+		msAttach('Movie12', c2,p2, 200,250);
+		msAttach('Movie13', c3,p3, 200,250);
+		msAttach('Movie14', c4,p4, 200,250);
+	}
+}
 
 function onContentLoaded()
 {
