@@ -17,6 +17,11 @@ var SpeakList = [];
 
 // English Character and SKO Default
 
+var CharactorA = "Movie1";
+var CharactorB = "Movie2";
+var CharactorC = "Movie3";
+var CharactorD = "Movie4";
+
 var Cc1=qs("Cc1","Lee");
 var Cc2=qs("Cc2","Lily");
 var Cc3=qs("Cc3","Angela");
@@ -124,48 +129,48 @@ var responses = [];
 function AttachTalkingHeads(c1,p1,c2,p2,c3,p3,c4,p4,lang){	
 	document.getElementById('TopDiv').innerHTML ="";
 	var s = '';
-	s += '<div id="Movie11" class="tl-agent"></div>';
-	s += '<div id="Movie12" class="tr-agent"></div>';
-	s += '<div id="Movie13" class="bl-agent"></div>';
-	s += '<div id="Movie14" class="br-agent"></div>';
+	s += '<div id="'+CharactorA+'" class="tl-agent"></div>';
+	s += '<div id="'+CharactorB+'" class="tr-agent"></div>';
+	s += '<div id="'+CharactorC+'" class="bl-agent"></div>';
+	s += '<div id="'+CharactorD+'" class="br-agent"></div>';
 	document.getElementById('TopDiv').innerHTML = s;
 	
 	if (lang=="chn")
 	{
-		msAttach('Movie11', c1,p1,200,250);
-		msAttach('Movie12', c2,p2, 200,250);
-		msAttach('Movie13', c3,p3, 200,250);
-		msAttach('Movie14', c4,p4, 200,250);
+		msAttach(CharactorA, c1,p1,200,250);
+		msAttach(CharactorB, c2,p2, 200,250);
+		msAttach(CharactorC, c3,p3, 200,250);
+		msAttach(CharactorD, c4,p4, 200,250);
 	}
 	if  (lang=="eng") {
-		msAttach('Movie11', c1,p1,200,250);
-		msAttach('Movie12', c2,p2, 200,250);
-		msAttach('Movie13', c3,p3, 200,250);
-		msAttach('Movie14', c4,p4, 200,250);
+		msAttach(CharactorA, c1,p1,200,250);
+		msAttach(CharactorB, c2,p2, 200,250);
+		msAttach(CharactorC, c3,p3, 200,250);
+		msAttach(CharactorD, c4,p4, 200,250);
 	}
 }
 
 function onContentLoaded()
 {
 	var s = '';
-	s += '<div id="Movie1" class="tl-agent"></div>';
-	s += '<div id="Movie2" class="tr-agent"></div>';
-	s += '<div id="Movie3" class="bl-agent"></div>';
-	s += '<div id="Movie4" class="br-agent"></div>';
+	s += '<div id="'+CharactorA+'" class="tl-agent"></div>';
+	s += '<div id="'+CharactorB+'" class="tr-agent"></div>';
+	s += '<div id="'+CharactorC+'" class="bl-agent"></div>';
+	s += '<div id="'+CharactorD+'" class="br-agent"></div>';
 	document.getElementById('TopDiv').innerHTML = s;
 	
 	if (qs("lang","chn")=="chn")
 	{
-		msAttach('Movie1', Cc1,Cp1,200,250);
-		msAttach('Movie2', Cc2,Cp2, 200,250);
-		msAttach('Movie3', Cc3,Cp3, 200,250);
-		msAttach('Movie4', Cc4,Cp4, 200,250);
+		msAttach(CharactorA, Cc1,Cp1,200,250);
+		msAttach(CharactorB, Cc2,Cp2, 200,250);
+		msAttach(CharactorC, Cc3,Cp3, 200,250);
+		msAttach(CharactorD, Cc4,Cp4, 200,250);
 	}
 	if  (qs("lang","chn")=="eng") {
-		msAttach('Movie1', Ec1,Ep1,200,250);
-		msAttach('Movie2', Ec2,Ep2, 200,250);
-		msAttach('Movie3', Ec3,Ep3, 200,250);
-		msAttach('Movie4', Ec4,Ep4, 200,250);
+		msAttach(CharactorA, Ec1,Ep1,200,250);
+		msAttach(CharactorB, Ec2,Ep2, 200,250);
+		msAttach(CharactorC, Ec3,Ep3, 200,250);
+		msAttach(CharactorD, Ec4,Ep4, 200,250);
 	}
 }
 
@@ -211,10 +216,10 @@ function Speak(movieID,Text,index,print)
 	if (print==true) {
 		var atext="";
 		var alink = ' <input type="button" onclick="repeat(&#39;'+movieID+'&#39;,&#39;'+Text+'&#39;,&#39;'+index+'&#39;)" value="Repeat" />';
-		if (movieID=="Movie1"){ 
+		if (movieID==CharactorA){ 
 				atext="<li><b>Tutor:</b> " + Text+"</li>";
 			}
-		if (movieID=="Movie2"){
+		if (movieID==CharactorB){
 				atext="<li><b>Student:</b> " + Text+"</li>";
 			}
 		var OldText=document.getElementById("Coversation").innerHTML;
@@ -238,11 +243,11 @@ function onSceneLoaded(id)
 
 function AgentTalk(obj,aIndex){
 	if (obj.Agent=="ComputerTutor"){
-		Speak("Movie1",obj.Data,aIndex+1,true);
+		Speak(CharactorA,obj.Data,aIndex+1,true);
 	}	
 	if (obj.Agent=="ComputerStudent"){
-		Speak("Movie2",obj.Data,aIndex+1,true);
-	}
+		Speak(CharactorB,obj.Data,aIndex+1,true);
+	}CharactorA
 	
 }
 
