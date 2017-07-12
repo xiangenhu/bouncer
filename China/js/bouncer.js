@@ -30,8 +30,8 @@ var Cc4=qs("Cc4","Anna");
 
 var Cp1=qs("Cp1","Player/CBCode/Chinese/Liang/Output/Lee_Files");
 var Cp2=qs("Cp2","Player/CBCode/Chinese/Hui/Output/Lily_Files");
-var Cp3=qs("Cp3","Player/CBCode/Chinese/Julie/Output/Angela_Files");
-var Cp4=qs("Cp4","Player/CBCode/Chinese/Kate/Output/Anna_Files");
+var Cp3=qs("Cp3","Player/CBCode/Chinese/Hui/Output/Angela_Files");
+var Cp4=qs("Cp4","Player/CBCode/Chinese/Hui/Output/Anna_Files");
 
 // English Character and SKO Default
 
@@ -126,26 +126,28 @@ var aIndex = 0;
 
 var responses = [];
 
-function AttachTalkingHeads(c1,p1,c2,p2,c3,p3,c4,p4,lang){	
+function AttachTalkingHeads(c1,p1,s1,c2,p2,s2,c3,p3,s3,c4,p4,s4){	
 	document.getElementById('TopDiv').innerHTML ="";
+	CharactorA="MovieA";
+	CharactorB="MovieB";
+	CharactorC="MovieC";
+	CharactorD="MovieD";
 	var s = '';
 	s += '<div id="'+CharactorA+'" class="tl-agent"></div>';
 	s += '<div id="'+CharactorB+'" class="tr-agent"></div>';
 	s += '<div id="'+CharactorC+'" class="bl-agent"></div>';
 	s += '<div id="'+CharactorD+'" class="br-agent"></div>';
 	document.getElementById('TopDiv').innerHTML = s;
-	
-	if (lang=="chn")
-	{
+	if (s1=="true") {
 		msAttach(CharactorA, c1,p1,200,250);
-		msAttach(CharactorB, c2,p2, 200,250);
-		msAttach(CharactorC, c3,p3, 200,250);
-		msAttach(CharactorD, c4,p4, 200,250);
 	}
-	if  (lang=="eng") {
-		msAttach(CharactorA, c1,p1,200,250);
+	if (s2=="true") {
 		msAttach(CharactorB, c2,p2, 200,250);
+	}
+	if (s3=="true") {
 		msAttach(CharactorC, c3,p3, 200,250);
+	}
+	if (s4=="true") {
 		msAttach(CharactorD, c4,p4, 200,250);
 	}
 }
