@@ -1,5 +1,5 @@
 window.Lily_Dir = {
-	"width":200, "height":250, "presenting":false, "fps":12, "modules":"rasterctl,bubble", "version":"5.4.7.0", "project":"Lily", "allowautoplay":"detect", "variables":"c.Text=\"0\";",
+	"width":200, "height":250, "presenting":false, "fps":12, "blankfile":"blank.mp3", "modules":"rasterctl,bubble", "version":"5.4.5.0", "project":"Lily", "allowautoplay":"detect", "variables":"c.Text=\"0\";",
 	"items":{
 		"Scene1":{
 			"type":"scene", "name":"Scene 1",
@@ -21,8 +21,8 @@ window.Lily_Dir = {
 				"Btn1":{
 					"type":"grid", "name":"Mute Button", "left":146, "top":76, "width":37, "height":37, "hidden":false,
 					"items":{
-						"btn0":{"type":"button", "name":"", "left":0, "top":0, "width":26, "height":26, "backfile":"MuteBtn1Up.png", "xfore":0, "yfore":0, "xdown":0, "ydown":0, "hideondisabled":true, "onclick":"c.mute()", "behavior":"mute"},
-						"btn1":{"type":"button", "name":"", "left":0, "top":0, "width":26, "height":26, "backfile":"MuteBtn1Dn.png", "xfore":0, "yfore":0, "xdown":0, "ydown":0, "hideondisabled":true, "onclick":"c.unmute()", "behavior":"unmute"}
+						"btn0":{"type":"button", "name":"(null)", "left":0, "top":0, "width":26, "height":26, "backfile":"MuteBtn1Up.png", "xfore":0, "yfore":0, "xdown":0, "ydown":0, "hideondisabled":true, "onclick":"c.mute()", "behavior":"mute"},
+						"btn1":{"type":"button", "name":"(null)", "left":0, "top":0, "width":26, "height":26, "backfile":"MuteBtn1Dn.png", "xfore":0, "yfore":0, "xdown":0, "ydown":0, "hideondisabled":true, "onclick":"c.unmute()", "behavior":"unmute"}
 					}
 				},
 				"Msg1":{"type":"message", "name":"Respond", "external":true, "url":"http://www.auto-tutor.com/cs/cs.exe?template=Library%2FTemplates%2FServer%2FSpeech.xml&character=LilyHead&addons=RW2HeadClothesPack1,RW2HeadClothesPack2,RW2HeadHairPack1,RW2HeadHairPack2,RW2HeadHairPack3,RW2HeadMedicalPack,RW2HeadPropPack1&voice=Neo%20Julie&size=200,160&autoactionlevel=2&customtop=shirt1&customover=jacket1&customhair=brittanydark&flashversion=8&actionscript=3&aiengine=programd&aimldatabase=SampleBot", "method":"get", "addvariables":"Text,AIMLUser,AIMLSession,AIMLTimezone", "character":"Char1"},
