@@ -14,6 +14,21 @@
   */
   
 // Creation API
+
+// URL Parser
+function qs(search_for,defaultstr) {
+	var query = window.location.search.substring(1);
+	var parms = query.split('&');
+	for (var i = 0; i<parms.length; i++) {
+		var pos = parms[i].indexOf('=');
+		if (pos > 0  && search_for == parms[i].substring(0,pos)) {
+			return parms[i].substring(pos+1);
+			}
+		}
+		return defaultstr;
+	}
+var defaultCSServer=qs("sv","http://www.auto-tutor.com/cs");
+
 function msEmbed(idDiv, project, base, widthEmbed, heightEmbed)
 {
     // MSHTML5Control is a little "controller" object attached to the div
@@ -1451,7 +1466,14 @@ function MSHTML5Control(idDiv, project, base, widthEmbed, heightEmbed)
 
     function filterDomain(s)
     {
-		return s;
+		url=s;
+		if (url){
+			var i = url.indexOf("cs.exe");	
+			if (i!=-1){
+				url=defaultCSServer+"/"+url.substr(i,url.length-1);
+			}
+		}
+		return url;
 		/* 
         var tdom = "";
         var t = qualifyURL(base);
@@ -1661,7 +1683,7 @@ function MSHTML5Control(idDiv, project, base, widthEmbed, heightEmbed)
                 if (objMsg.external)
                 {
 					// Prefetch audio - cs knows how to handle two near-concurrent requests properly
-					var s = getURLWithParams(objMsg);
+					var s = getURLWithParams(objMsg);		
 					if (ctl.AIMLSequence)   
 					{
 						s += "&AIMLSequence=" + ctl.AIMLSequence;   // but don't increment
@@ -1682,6 +1704,13 @@ function MSHTML5Control(idDiv, project, base, widthEmbed, heightEmbed)
 
 	function startAudioLoadActual(idChar, file, altfile)
 	{
+		if (file){
+			var i = file.indexOf("cs.exe");	
+			if (i!=-1){
+				file=defaultCSServer+"/"+file.substr(i,file.length-1);
+			}
+		}
+			
 		var a = document.getElementById(idDiv + idChar + "Audio");
 		if (!android && !iPhone && !iPad && !a.canPlayType("audio/mp3") && a.canPlayType("audio/ogg")) 
 			file = altfile;
@@ -1715,8 +1744,10 @@ function MSHTML5Control(idDiv, project, base, widthEmbed, heightEmbed)
 		
          //localhost/cs/cs.exe + foo.png -> // localhost/csdata/foo.png
          var i = csurl.indexOf("cs.exe")
-        if (i != -1)
-            return csurl.substr(0,i-1) + "html/" + file;
+        if (i != -1){
+			return defaultCSServer + "html/" + file;
+	//		return csurl.substr(0,i-1) + "html/" + file;
+		}
          else 
             return null;
     }
