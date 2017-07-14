@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="China/js/jquery.min.js"></script>
+		<script src="China/js/bouncer.js" type="text/javascript"></script>
+        <script type="text/javascript">
+		  var lang=qs('lang','English');
+		  var chara=qs('chara','Anna');
+		  var voice=qs('voice','Julie');
+		  var country=qs('country','China');
+		  var mprFile=country+"/Player/CBCode/"+lang+"/"+voice+"/"+chara+".mpr";
+		  var path = "compile.asp?Folder="+country+"/Player/CBCode/"+lang+"/"+voice+"/Output/"+chara+"_files&File="+chara;
+          jQuery.get(qs('file',mprFile), function(data) {
+			document.getElementById('Data').value=data;
+			var form = document.getElementById("form");
+			form.setAttribute("action", path);
+			document.body.appendChild(form);
+			form.submit();
+			});
+        </script>
+</head>
+<body>
+<form id="form" method="post">
+ 
+ <textarea name="Data" cols="40" rows="20" id="Data">
+ </textarea>
+<br/>
+ <input type="submit" value="Submit">
+</form>
+</body>
+</html>
