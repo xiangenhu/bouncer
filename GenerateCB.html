@@ -6,9 +6,8 @@
 		  var lang=qs('lang','English');
 		  var chara=qs('chara','Anna');
 		  var voice=qs('voice','Julie');
-		  var country=qs('country','China');
-		  var mprFile=country+"/Player/CBCode/"+lang+"/"+voice+"/"+chara+".mpr";
-		  var path = "compile.asp?Folder="+country+"/Player/CBCode/"+lang+"/"+voice+"/Output/"+chara+"_files&File="+chara;
+		  var mprFile="CBCode/"+lang+"/"+voice+"/"+chara+".mpr";
+		  var path = "compile.asp?Folder="CBCode/"+lang+"/"+voice+"/Output/"+chara+"_files&File="+chara;
           jQuery.get(qs('file',mprFile), function(data) {
 			document.getElementById('Data').value=data;
 			var form = document.getElementById("form");
