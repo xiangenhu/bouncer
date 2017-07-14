@@ -15,29 +15,67 @@ function qs(search_for,defaultstr) {
 
 var SpeakList = [];
 
-var c1=qs("c1","Lee");
-var c2=qs("c2","Lily");
-var c3=qs("c3","Angela");
-var c4=qs("c4","Anna");
+// English Character and SKO Default
 
-var p1=qs("p1","Player/CBCode/Chinese/Liang/Output/Lee_Files");
-var p2=qs("p2","Player/CBCode/Chinese/Hui/Output/Lily_Files");
-var p3=qs("p3","Player/CBCode/English/Julie/Output/Lily_Files");
-var p4=qs("p4","Player/CBCode/English/Kate/Output/Anna_Files");
+var CharactorA = "Movie1";
+var CharactorB = "Movie2";
+var CharactorC = "Movie3";
+var CharactorD = "Movie4";
 
-var urlPageForIFrame = qs("url","https://adlnet.github.io");
+var Cc1=qs("Cc1","Lee");
+var Cc2=qs("Cc2","Lily");
+var Cc3=qs("Cc3","Angela");
+var Cc4=qs("Cc4","Anna");
 
-var SKOGuid=qs("guid","5bd2843c-7b83-44ba-9501-453a99007df7");
-var SKOSchool=qs("school","class.skoonline.org");
+
+var Cp1=qs("Cp1","Player/CBCode/Chinese/Liang/Output/Lee_Files");
+var Cp2=qs("Cp2","Player/CBCode/Chinese/Hui/Output/Lily_Files");
+var Cp3=qs("Cp3","Player/CBCode/Chinese/Hui/Output/Angela_Files");
+var Cp4=qs("Cp4","Player/CBCode/Chinese/Hui/Output/Anna_Files");
+
+// English Character and SKO Default
+
+var Ec1=qs("Ec1","Ben");
+var Ec2=qs("Ec2","Angela");
+var Ec3=qs("Ec3","Lily");
+var Ec4=qs("Ec4","Anna");
+
+var Ep1=qs("Ep1","Player/CBCode/English/Paul/Output/Ben_Files");
+var Ep2=qs("Ep2","Player/CBCode/English/Julie/Output/Angela_Files");
+var Ep3=qs("Ep3","Player/CBCode/English/Julie/Output/Lily_Files");
+var Ep4=qs("Ep4","Player/CBCode/English/Kate/Output/Anna_Files");
+
+var urlPageForIFrame = qs("url","");
+
+
+// var UserStudent=qs("UserStudent","小明");
+
+// var SKOGuid=qs("guid","50ed8af1-3fd1-4ca2-ab1d-3b5cc97fbfbf");
+
+var UserStudent=qs("UserStudent","Carl");
+var SKOGuid=qs("guid","bf406af8-b18a-4b2f-b03b-1d285ef19b7e");
+
+if (qs("lang","chn")=="chn")
+	{
+		UserStudent=qs("UserStudent","小明");
+		SKOGuid=qs("guid","50ed8af1-3fd1-4ca2-ab1d-3b5cc97fbfbf");
+	}
+	if  (qs("lang","chn")=="eng") {
+		var UserStudent=qs("UserStudent","Carl");
+		SKOGuid=qs("guid","bf406af8-b18a-4b2f-b03b-1d285ef19b7e");
+	}
+
+var SKOSchool=qs("school","ccnu.x-in-y.com:8889");
 
 var IDtoACE=qs("ID","Chinese-test");
-var UserStudent=qs("UserStudent","小明");
 var IntitalText =qs("Text","No idea");
 var Defaultlanguage=qs("language","Chinese");
 
 
-function ComposeSKOLink()
-		{
+
+function ComposeSKOLink(){
+	    if (qs('SType','NGAE')=="GAE")
+     	{
 			var SKO ={
 			guid:SKOGuid,
 			TagName:"AutoTutorScript",
@@ -49,6 +87,18 @@ function ComposeSKOLink()
 			text= "http://"+school+"/retrieve?json="+JSON.stringify(SKO);
 			return text;
 		}
+		if (qs('SType','NGAE')=="NGAE")
+     	{
+			var SKO ={
+			guid:SKOGuid,
+			return:"scriptContent"
+			}
+		    var school,text;
+			school=SKOSchool;
+			text= "http://"+school+"/retrieve?json="+JSON.stringify(SKO);
+			return text;
+		}
+}
 var ScriptURL=qs("ScriptURL",ComposeSKOLink());
 
 var iputObj={
@@ -76,21 +126,54 @@ var aIndex = 0;
 
 var responses = [];
 
+function AttachTalkingHeads(c1,p1,s1,c2,p2,s2,c3,p3,s3,c4,p4,s4){	
+	document.getElementById('TopDiv').innerHTML ="";
+	CharactorA="MovieA";
+	CharactorB="MovieB";
+	CharactorC="MovieC";
+	CharactorD="MovieD";
+	var s = '';
+	s += '<div id="'+CharactorA+'" class="tl-agent"></div>';
+	s += '<div id="'+CharactorB+'" class="tr-agent"></div>';
+	s += '<div id="'+CharactorC+'" class="bl-agent"></div>';
+	s += '<div id="'+CharactorD+'" class="br-agent"></div>';
+	document.getElementById('TopDiv').innerHTML = s;
+	if (s1=="true") {
+		msAttach(CharactorA, c1,p1,200,250);
+	}
+	if (s2=="true") {
+		msAttach(CharactorB, c2,p2, 200,250);
+	}
+	if (s3=="true") {
+		msAttach(CharactorC, c3,p3, 200,250);
+	}
+	if (s4=="true") {
+		msAttach(CharactorD, c4,p4, 200,250);
+	}
+}
 
 function onContentLoaded()
 {
 	var s = '';
-	s += '<div id="Movie1" class="tl-agent"></div>';
-	s += '<div id="Movie2" class="tr-agent"></div>';
-	s += '<div id="Movie3" class="bl-agent"></div>';
-	s += '<div id="Movie4" class="br-agent"></div>';
+	s += '<div id="'+CharactorA+'" class="tl-agent"></div>';
+	s += '<div id="'+CharactorB+'" class="tr-agent"></div>';
+	s += '<div id="'+CharactorC+'" class="bl-agent"></div>';
+	s += '<div id="'+CharactorD+'" class="br-agent"></div>';
 	document.getElementById('TopDiv').innerHTML = s;
 	
-	
-	msAttach('Movie1', c1,p1,200,250);
-	msAttach('Movie2', c2,p2, 200,250);
-	msAttach('Movie3', c3,p3, 200,250);
-	msAttach('Movie4', c4,p4, 200,250);
+	if (qs("lang","chn")=="chn")
+	{
+		msAttach(CharactorA, Cc1,Cp1,200,250);
+		msAttach(CharactorB, Cc2,Cp2, 200,250);
+		msAttach(CharactorC, Cc3,Cp3, 200,250);
+		msAttach(CharactorD, Cc4,Cp4, 200,250);
+	}
+	if  (qs("lang","chn")=="eng") {
+		msAttach(CharactorA, Ec1,Ep1,200,250);
+		msAttach(CharactorB, Ec2,Ep2, 200,250);
+		msAttach(CharactorC, Ec3,Ep3, 200,250);
+		msAttach(CharactorD, Ec4,Ep4, 200,250);
+	}
 }
 
 
@@ -135,16 +218,16 @@ function Speak(movieID,Text,index,print)
 	if (print==true) {
 		var atext="";
 		var alink = ' <input type="button" onclick="repeat(&#39;'+movieID+'&#39;,&#39;'+Text+'&#39;,&#39;'+index+'&#39;)" value="Repeat" />';
-		if (movieID=="Movie1"){ 
+		if (movieID==CharactorA){ 
 				atext="<li><b>Tutor:</b> " + Text+"</li>";
 			}
-		if (movieID=="Movie2"){
+		if (movieID==CharactorB){
 				atext="<li><b>Student:</b> " + Text+"</li>";
 			}
 		var OldText=document.getElementById("Coversation").innerHTML;
 		document.getElementById("Coversation").innerHTML = atext+"<br/>"+OldText;
 	}
-	var newText ='<externalcommand command="next" args="'+index+'"/>';
+	var newText ='<externalcommand command="next" args="'+index+'"/>.';
 	msSpeak(movieID, Text);
 	msSpeakQueued(movieID,newText);
 }
@@ -162,11 +245,11 @@ function onSceneLoaded(id)
 
 function AgentTalk(obj,aIndex){
 	if (obj.Agent=="ComputerTutor"){
-		Speak("Movie1",obj.Data,aIndex+1,true);
+		Speak(CharactorA,obj.Data,aIndex+1,true);
 	}	
 	if (obj.Agent=="ComputerStudent"){
-		Speak("Movie2",obj.Data,aIndex+1,true);
-	}
+		Speak(CharactorB,obj.Data,aIndex+1,true);
+	}CharactorA
 	
 }
 
@@ -177,7 +260,7 @@ function Action(obj,aIndex){
 	if (obj.Act=="ShowMedia") {
 		var newID=aIndex+1;
 		displayMedia("MediaContainer",qs("MediaBase","https://xiangenhu.github.io/ATMedia/IMG/CAT/"),obj.Data);
-		var newText ='<externalcommand command="next" args="'+newID+'"/>';
+		var newText ='<externalcommand command="next" args="'+newID+'"/>.';
 		msSpeak("Movie1",newText);
 	}
 }

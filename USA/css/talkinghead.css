@@ -24,7 +24,7 @@
 	bottom: 0;
 	position: absolute;
 	left: 0;
-	display:none;
+	display:block;
 }
 .br-agent{
 	width: 200px;
@@ -32,7 +32,7 @@
 	bottom: 0;
 	position: absolute;
 	right: 0;
-	display:none;
+	display:block;
 }
 .frame-loader{
 	border: 0px solid #ccc;
@@ -42,7 +42,7 @@
 	top: 10px;
 	bottom: 10px;
 	height: 100%;
-	display:none;
+	display:block;
 }
 
 .TestSpeech{
@@ -128,17 +128,4 @@
 	background:lightBlue; 
 	overflow:hidden;
     display: block;
-}
-
-#container{
-	width:600px;
-	height:600px;
-	border:2px solid #888888;
-	position:absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
-	text-align:center;
 }
