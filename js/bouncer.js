@@ -108,6 +108,19 @@ var iputObj={
 			language:Defaultlanguage
 		};
 
+function AvatarsAction(data){
+		var actionLength, text, i;
+		actionLength=data.length;
+		SpeakList=[];
+		OldText=document.getElementById("Coversation").innerHTML="";
+		for (i = 0; i < actionLength; i++) {
+			if ((data[i].Act=="Speak") || (data[i].Act=="ShowMedia")){
+				SpeakList.push(data[i]); 
+				}
+		}
+		Action(SpeakList[0],0);		
+}
+		
 function refreshSKO(){
     ScriptURL=qs("ScriptURL",ComposeSKOLink());
     iputObj={
@@ -127,7 +140,8 @@ var aIndex = 0;
 var responses = [];
 
 function AttachTalkingHeads(c1,p1,s1,c2,p2,s2,c3,p3,s3,c4,p4,s4){	
-	document.getElementById('TopDiv').innerHTML ="";
+	var Avatars = document.getElementById("TopDiv");
+	Avatars.innerHTML ="";
 	CharactorA="MovieA";
 	CharactorB="MovieB";
 	CharactorC="MovieC";
@@ -137,7 +151,7 @@ function AttachTalkingHeads(c1,p1,s1,c2,p2,s2,c3,p3,s3,c4,p4,s4){
 	s += '<div id="'+CharactorB+'" class="tr-agent"></div>';
 	s += '<div id="'+CharactorC+'" class="bl-agent"></div>';
 	s += '<div id="'+CharactorD+'" class="br-agent"></div>';
-	document.getElementById('TopDiv').innerHTML = s;
+	Avatars.innerHTML = s;
 	if (s1=="true") {
 		msAttach(CharactorA, c1,p1,200,250);
 	}
@@ -150,6 +164,7 @@ function AttachTalkingHeads(c1,p1,s1,c2,p2,s2,c3,p3,s3,c4,p4,s4){
 	if (s4=="true") {
 		msAttach(CharactorD, c4,p4, 200,250);
 	}
+//	document.body.appendChild(Avatars);
 }
 
 function onContentLoaded()
@@ -249,7 +264,7 @@ function AgentTalk(obj,aIndex){
 	}	
 	if (obj.Agent=="ComputerStudent"){
 		Speak(CharactorB,obj.Data,aIndex+1,true);
-	}CharactorA
+	}
 	
 }
 
@@ -261,7 +276,7 @@ function Action(obj,aIndex){
 		var newID=aIndex+1;
 		displayMedia("MediaContainer",qs("MediaBase","https://xiangenhu.github.io/ATMedia/IMG/CAT/"),obj.Data);
 		var newText ='<externalcommand command="next" args="'+newID+'"/>.';
-		msSpeak("Movie1",newText);
+		msSpeak(CharactorA,newText);
 	}
 }
 
