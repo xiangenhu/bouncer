@@ -28,10 +28,10 @@ var Cc3=qs("Cc3","Angela");
 var Cc4=qs("Cc4","Anna");
 
 
-var Cp1=qs("Cp1","Player/CBCode/Chinese/Liang/Output/Lee_Files");
-var Cp2=qs("Cp2","Player/CBCode/Chinese/Hui/Output/Lily_Files");
-var Cp3=qs("Cp3","Player/CBCode/Chinese/Hui/Output/Angela_Files");
-var Cp4=qs("Cp4","Player/CBCode/Chinese/Hui/Output/Anna_Files");
+var Cp1=qs("Cp1","CBCode/Chinese/Liang/Output/Lee_Files");
+var Cp2=qs("Cp2","CBCode/Chinese/Hui/Output/Lily_Files");
+var Cp3=qs("Cp3","CBCode/Chinese/Hui/Output/Angela_Files");
+var Cp4=qs("Cp4","CBCode/Chinese/Hui/Output/Anna_Files");
 
 // English Character and SKO Default
 
@@ -40,10 +40,10 @@ var Ec2=qs("Ec2","Angela");
 var Ec3=qs("Ec3","Lily");
 var Ec4=qs("Ec4","Anna");
 
-var Ep1=qs("Ep1","Player/CBCode/English/Paul/Output/Ben_Files");
-var Ep2=qs("Ep2","Player/CBCode/English/Julie/Output/Angela_Files");
-var Ep3=qs("Ep3","Player/CBCode/English/Julie/Output/Lily_Files");
-var Ep4=qs("Ep4","Player/CBCode/English/Kate/Output/Anna_Files");
+var Ep1=qs("Ep1","CBCode/English/Paul/Output/Ben_Files");
+var Ep2=qs("Ep2","CBCode/English/Julie/Output/Angela_Files");
+var Ep3=qs("Ep3","CBCode/English/Julie/Output/Lily_Files");
+var Ep4=qs("Ep4","CBCode/English/Kate/Output/Anna_Files");
 
 var urlPageForIFrame = qs("url","");
 
