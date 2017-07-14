@@ -5,11 +5,11 @@
 		 <script type="text/javascript">
 		 function AgentTalk(){
 		 var TalkData=[];
-		 var text1 = '{ "Act":"Speak", "Agent":"ComputerTutor", "Data":"你好！"}';
+		 var text1 = '{ "Act":"Speak", "Agent":"ComputerTutor", "Data":"How are you!"}';
 		 var obj1 = JSON.parse(text1);
 		 TalkData.push(obj1); 
 		 
-		 var text2 = '{ "Act":"Speak", "Agent":"ComputerStudent", "Data":"你好！"}';
+		 var text2 = '{ "Act":"Speak", "Agent":"ComputerStudent", "Data":"How do you do!"}';
 		 var obj2 = JSON.parse(text2);
 		 TalkData.push(obj2); 
 		 parent.AvatarsAction(TalkData);

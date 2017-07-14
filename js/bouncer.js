@@ -17,10 +17,10 @@ var SpeakList = [];
 
 // English Character and SKO Default
 
-var CharactorA = "Movie1";
-var CharactorB = "Movie2";
-var CharactorC = "Movie3";
-var CharactorD = "Movie4";
+var CharactorA = "MovieA";
+var CharactorB = "MovieB";
+var CharactorC = "MovieC";
+var CharactorD = "MovieD";
 
 var Cc1=qs("Cc1","Lee");
 var Cc2=qs("Cc2","Lily");
@@ -140,8 +140,12 @@ var aIndex = 0;
 var responses = [];
 
 function AttachTalkingHeads(c1,p1,s1,c2,p2,s2,c3,p3,s3,c4,p4,s4){	
-	var Avatars = document.getElementById("TopDiv");
-	Avatars.innerHTML ="";
+	 var Avatars = document.getElementById("TopDiv");
+	document.getElementById(CharactorA).remove();
+	document.getElementById(CharactorB).remove();
+	document.getElementById(CharactorC).remove();
+	document.getElementById(CharactorD).remove();
+    Avatars.innerHTML ="";
 	CharactorA="MovieA";
 	CharactorB="MovieB";
 	CharactorC="MovieC";
@@ -151,7 +155,7 @@ function AttachTalkingHeads(c1,p1,s1,c2,p2,s2,c3,p3,s3,c4,p4,s4){
 	s += '<div id="'+CharactorB+'" class="tr-agent"></div>';
 	s += '<div id="'+CharactorC+'" class="bl-agent"></div>';
 	s += '<div id="'+CharactorD+'" class="br-agent"></div>';
-	Avatars.innerHTML = s;
+	Avatars.innerHTML = s; 
 	if (s1=="true") {
 		msAttach(CharactorA, c1,p1,200,250);
 	}
@@ -164,7 +168,7 @@ function AttachTalkingHeads(c1,p1,s1,c2,p2,s2,c3,p3,s3,c4,p4,s4){
 	if (s4=="true") {
 		msAttach(CharactorD, c4,p4, 200,250);
 	}
-//	document.body.appendChild(Avatars);
+	document.body.appendChild(Avatars);
 }
 
 function onContentLoaded()
