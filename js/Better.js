@@ -27,7 +27,7 @@ function qs(search_for,defaultstr) {
 		}
 		return defaultstr;
 	}
-var defaultCSServer=qs("sv","http://www.auto-tutor.com/cs");
+var defaultCSServer=qs("sv","http://www.x-in-y.com/cs");
 
 function msEmbed(idDiv, project, base, widthEmbed, heightEmbed)
 {
