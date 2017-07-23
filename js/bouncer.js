@@ -17,11 +17,6 @@ var SpeakList = [];
 
 // English Character and SKO Default
 
-var CharactorA = "MovieA";
-var CharactorB = "MovieB";
-var CharactorC = "MovieC";
-var CharactorD = "MovieD";
-
 var Cc1=qs("Cc1","Lee");
 var Cc2=qs("Cc2","Lily");
 var Cc3=qs("Cc3","Angela");
@@ -146,10 +141,10 @@ function AttachTalkingHeads(c1,p1,s1,c2,p2,s2,c3,p3,s3,c4,p4,s4){
 	document.getElementById(CharactorC).remove();
 	document.getElementById(CharactorD).remove();
     Avatars.innerHTML ="";
-	CharactorA="MovieA";
-	CharactorB="MovieB";
-	CharactorC="MovieC";
-	CharactorD="MovieD";
+	CharactorA=c1;
+	CharactorB=c2;
+	CharactorC=c3;
+	CharactorD=c4;
 	var s = '';
 	s += '<div id="'+CharactorA+'" class="tl-agent"></div>';
 	s += '<div id="'+CharactorB+'" class="tr-agent"></div>';
@@ -173,6 +168,20 @@ function AttachTalkingHeads(c1,p1,s1,c2,p2,s2,c3,p3,s3,c4,p4,s4){
 
 function onContentLoaded()
 {
+	if (qs("lang","chn")=="chn")
+	{
+		CharactorA = Cc1;
+		CharactorB = Cc2;
+		CharactorC = Cc3;
+		CharactorD = Cc4;
+	}
+	if  (qs("lang","chn")=="eng") {
+		CharactorA = Ec1;
+		CharactorB = Ec2;
+		CharactorC = Ec3;
+		CharactorD = Ec4;
+	}
+
 	var s = '';
 	s += '<div id="'+CharactorA+'" class="tl-agent"></div>';
 	s += '<div id="'+CharactorB+'" class="tr-agent"></div>';
@@ -228,26 +237,38 @@ function ShowWindow(chkbox,targetw) {
 	}
 }
 
+function ReplaceTest(MoveID,Text){
+	var Res=Text;
+	Res=Res.replace("_NAMES1_", CharactorB);
+	Res=Res.replace("_NAMES2_", CharactorC);
+	Res=Res.replace("_NAMES3_", CharactorD);
+	Res=Res.replace("_NAMET_", CharactorA);
+	Res=Res.replace("_SELF_", MoveID);
+	return Res;
+}
+
 function ShowLog(){
 	ShowWindow("ShowLogs","Coversation");
 }
 
 function Speak(movieID,Text,index,print)
 {
+	var SText= ReplaceTest(movieID,Text);
+	
 	if (print==true) {
 		var atext="";
 		var alink = ' <input type="button" onclick="repeat(&#39;'+movieID+'&#39;,&#39;'+Text+'&#39;,&#39;'+index+'&#39;)" value="Repeat" />';
 		if (movieID==CharactorA){ 
-				atext="<li><b>Tutor:</b> " + Text+"</li>";
+				atext="<li><b>Tutor:</b> " + SText+"</li>";
 			}
 		if (movieID==CharactorB){
-				atext="<li><b>Student:</b> " + Text+"</li>";
+				atext="<li><b>Student:</b> " + SText+"</li>";
 			}
 		var OldText=document.getElementById("Coversation").innerHTML;
 		document.getElementById("Coversation").innerHTML = atext+"<br/>"+OldText;
 	}
 	var newText ='<externalcommand command="next" args="'+index+'"/>.';
-	msSpeak(movieID, Text);
+	msSpeak(movieID,SText);
 	msSpeakQueued(movieID,newText);
 }
 
