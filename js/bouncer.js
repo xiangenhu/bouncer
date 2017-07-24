@@ -23,6 +23,11 @@ var Cc3=qs("Cc3","Angela");
 var Cc4=qs("Cc4","Anna");
 
 
+var CharactorA=Cc1;
+var CharactorB=Cc2;
+var CharactorC=Cc3;
+var CharactorD=Cc4;
+
 var Cp1=qs("Cp1","CBCode/Chinese/Liang/Output/Lee_Files");
 var Cp2=qs("Cp2","CBCode/Chinese/Hui/Output/Lily_Files");
 var Cp3=qs("Cp3","CBCode/Chinese/Hui/Output/Angela_Files");
@@ -165,43 +170,36 @@ function AttachTalkingHeads(c1,p1,s1,c2,p2,s2,c3,p3,s3,c4,p4,s4){
 	}
 	document.body.appendChild(Avatars);
 }
+function Attache(Att,ChName,Agent,Path){
+	if (Att){
+		msAttach(Agent, ChName,Path,200,250);
+    }
+}
+
 
 function onContentLoaded()
 {
+	var Avatars = document.getElementById("TopDiv");
+	var s = '';
+	s += '<div id="'+Cc1+'" class="tl-agent"></div>';
+	s += '<div id="'+Cc2+'" class="tr-agent"></div>';
+	s += '<div id="'+Cc3+'" class="bl-agent"></div>';
+	s += '<div id="'+Cc4+'" class="br-agent"></div>';
+	Avatars.innerHTML = s; 
 	if (qs("lang","chn")=="chn")
 	{
-		CharactorA = Cc1;
-		CharactorB = Cc2;
-		CharactorC = Cc3;
-		CharactorD = Cc4;
+		Attache((qs("C1","0")=="1"),Cc1,CharactorA,Cp1);
+		Attache((qs("C2","0")=="1"),Cc2,CharactorB,Cp2);
+		Attache((qs("C3","0")=="1"),Cc3,CharactorC,Cp3);
+		Attache((qs("C4","0")=="1"),Cc4,CharactorD,Cp4);
 	}
 	if  (qs("lang","chn")=="eng") {
-		CharactorA = Ec1;
-		CharactorB = Ec2;
-		CharactorC = Ec3;
-		CharactorD = Ec4;
+		Attache((qs("C1","0")=="1"),Ec1,CharactorA,Ep1);
+		Attache((qs("C2","0")=="1"),Ec2,CharactorB,Ep2);
+		Attache((qs("C3","0")=="1"),Ec3,CharactorC,Ep3);
+		Attache((qs("C4","0")=="1"),Ec4,CharactorD,Ep4);
 	}
 
-	var s = '';
-	s += '<div id="'+CharactorA+'" class="tl-agent"></div>';
-	s += '<div id="'+CharactorB+'" class="tr-agent"></div>';
-	s += '<div id="'+CharactorC+'" class="bl-agent"></div>';
-	s += '<div id="'+CharactorD+'" class="br-agent"></div>';
-	document.getElementById('TopDiv').innerHTML = s;
-	
-	if (qs("lang","chn")=="chn")
-	{
-		msAttach(CharactorA, Cc1,Cp1,200,250);
-		msAttach(CharactorB, Cc2,Cp2, 200,250);
-		msAttach(CharactorC, Cc3,Cp3, 200,250);
-		msAttach(CharactorD, Cc4,Cp4, 200,250);
-	}
-	if  (qs("lang","chn")=="eng") {
-		msAttach(CharactorA, Ec1,Ep1,200,250);
-		msAttach(CharactorB, Ec2,Ep2, 200,250);
-		msAttach(CharactorC, Ec3,Ep3, 200,250);
-		msAttach(CharactorD, Ec4,Ep4, 200,250);
-	}
 }
 
 
