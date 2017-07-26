@@ -6,9 +6,11 @@
 	top: 0;
 	position: absolute;
 	left: 0;
-	margin-top: -50px;
+	margin-top: -30px;
 	display:block;
 	padding: 35px;
+	text-align: center;
+	vertical-align: middle;
 	background: url("img/BKG1.png") no-repeat bottom center;
 }
 .tr-agent{
@@ -17,7 +19,7 @@
 	height: 250px;
 	position: absolute;
 	right: 0;
-	margin-top: -50px;
+	margin-top: -30px;
 	display:block;
 	padding: 35px;
 	background: url("img/BKG1.png") no-repeat bottom center;
