@@ -6,8 +6,10 @@
 	top: 0;
 	position: absolute;
 	left: 0;
-	margin-top: -68px;
+	margin-top: -50px;
 	display:block;
+	padding: 35px;
+	background: url("img/BKG1.png") no-repeat bottom center;
 }
 .tr-agent{
 	width: 200px;
@@ -15,8 +17,10 @@
 	height: 250px;
 	position: absolute;
 	right: 0;
-	margin-top: -68px;
+	margin-top: -50px;
 	display:block;
+	padding: 35px;
+	background: url("img/BKG1.png") no-repeat bottom center;
 }
 .bl-agent{
 	width: 200px;
@@ -24,7 +28,10 @@
 	bottom: 0;
 	position: absolute;
 	left: 0;
+	margin-bottom: 20px;
 	display:block;
+	padding: 35px;
+	background: url("img/BKG1.png") no-repeat bottom center;
 }
 .br-agent{
 	width: 200px;
@@ -33,6 +40,9 @@
 	position: absolute;
 	right: 0;
 	display:block;
+	padding: 35px;
+	margin-bottom: 20px;
+	background: url("img/BKG1.png") no-repeat bottom center;
 }
 .frame-loader{
 	border: 0px solid #ccc;
