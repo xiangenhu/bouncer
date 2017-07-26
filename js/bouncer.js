@@ -181,10 +181,18 @@ function onContentLoaded()
 {
 	var Avatars = document.getElementById("TopDiv");
 	var s = '';
-	s += '<div id="'+Cc1+'" class="tl-agent"></div>';
-	s += '<div id="'+Cc2+'" class="tr-agent"></div>';
-	s += '<div id="'+Cc3+'" class="bl-agent"></div>';
-	s += '<div id="'+Cc4+'" class="br-agent"></div>';
+	if (qs("C1","0")=="1")	{
+		s += '<div id="'+Cc1+'" class="tl-agent"></div>';
+	}
+	if (qs("C2","0")=="1")	{
+		s += '<div id="'+Cc2+'" class="tr-agent"></div>';
+	}
+	if (qs("C3","0")=="1")	{
+		s += '<div id="'+Cc3+'" class="bl-agent"></div>';
+	}
+	if (qs("C4","0")=="1")	{
+		s += '<div id="'+Cc4+'" class="br-agent"></div>';
+	}
 	Avatars.innerHTML = s; 
 	if (qs("lang","chn")=="chn")
 	{
