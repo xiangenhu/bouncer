@@ -182,16 +182,16 @@ function onContentLoaded()
 	var Avatars = document.getElementById("TopDiv");
 	var s = '';
 	if (qs("C1","0")=="1")	{
-		s += '<div id="'+Cc1+'" class="tl-agent"></div>';
+		s += '<div id="'+Cc1+'" class="tl-agent">'+Cc1+'</div>';
 	}
 	if (qs("C2","0")=="1")	{
-		s += '<div id="'+Cc2+'" class="tr-agent"></div>';
+		s += '<div id="'+Cc2+'" class="tr-agent">'+Cc2+'</div>';
 	}
 	if (qs("C3","0")=="1")	{
-		s += '<div id="'+Cc3+'" class="bl-agent"></div>';
+		s += '<div id="'+Cc3+'" class="bl-agent">'+Cc3+'</div>';
 	}
 	if (qs("C4","0")=="1")	{
-		s += '<div id="'+Cc4+'" class="br-agent"></div>';
+		s += '<div id="'+Cc4+'" class="br-agent">'+Cc4+'</div>';
 	}
 	Avatars.innerHTML = s; 
 	if (qs("lang","chn")=="chn")
