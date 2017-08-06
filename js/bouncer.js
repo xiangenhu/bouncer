@@ -57,9 +57,9 @@ var SKOGuid=qs("guid","bf406af8-b18a-4b2f-b03b-1d285ef19b7e");
 var SKOSchool=qs("school","ccnu.x-in-y.com:8889");
 if (qs("lang","chn")=="chn")
 	{
-		UserStudent=qs("UserStudent","小明");
+		UserStudent=qs("UserStudent","沛沛");
 		SKOSchool="class.skoonline.org";
-		SKOGuid=qs("guid","3674d2d9-1c35-4046-a227-e431302f804d");
+		SKOGuid=qs("guid","02989a6a-b50b-4292-abb9-d496ddda3963");
 	}
 	if  (qs("lang","chn")=="eng") {
 		var UserStudent=qs("UserStudent","Carl");
