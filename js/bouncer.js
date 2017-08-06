@@ -58,7 +58,7 @@ var SKOGuid=qs("guid","bf406af8-b18a-4b2f-b03b-1d285ef19b7e");
 if (qs("lang","chn")=="chn")
 	{
 		UserStudent=qs("UserStudent","小明");
-		SKOGuid=qs("guid","50ed8af1-3fd1-4ca2-ab1d-3b5cc97fbfbf");
+		SKOGuid=qs("guid","4caa3ab5-6267-4b57-b18c-c1bcd073a3b2");
 	}
 	if  (qs("lang","chn")=="eng") {
 		var UserStudent=qs("UserStudent","Carl");
@@ -305,10 +305,22 @@ function Action(obj,aIndex){
 	}
 	if (obj.Act=="ShowMedia") {
 		var newID=aIndex+1;
-		displayMedia("MediaContainer",qs("MediaBase","https://xiangenhu.github.io/ATMedia/IMG/CAT/"),obj.Data);
+		if (obj.Data.indexOf('.') == -1){
+			displayYoutube("YoutubeContainer",obj.Data);
+		}else{
+			displayMedia("MediaContainer",qs("MediaBase","https://xiangenhu.github.io/ATMedia/IMG/CAT/"),obj.Data);
+		}
 		var newText ='<externalcommand command="next" args="'+newID+'"/>.';
 		msSpeak(CharactorA,newText);
 	}
+}
+
+
+function displayYoutube(YoutubContainer,YoutubeID){
+	var text='<iframe id="player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/'+YoutubeID+'?enablejsapi=1" frameborder="0"></iframe>';
+	document.getElementById(YoutubContainer).innerHTML=text;
+	document.getElementById(YoutubContainer).style.display = "block";
+	alert('hi');
 }
 
 function displayMedia(MediaContainer,MediaBase,MediaURL){

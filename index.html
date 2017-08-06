@@ -36,6 +36,7 @@
 	    
 		
 		function processingReturn(data){
+		    
 		    var actionLength, text, i;
 		    actionLength=data.ACEActions.length;
 			SpeakList=[];
@@ -43,11 +44,15 @@
 			OldText=document.getElementById("Coversation").innerHTML="";
 			var x = document.getElementById('InputArea');
 			x.style.display = 'none';
-			console.log(JSON.stringify(data));
-			console.log("=============================================================");
+			
+//			console.log("++=============================================================");
+//			console.log(JSON.stringify(data));
+//			console.log("=============================================================++++");
+			
 			for (i = 0; i < actionLength; i++) {
 				if ((data.ACEActions[i].Act=="Speak") || (data.ACEActions[i].Act=="ShowMedia")){
 					SpeakList.push(data.ACEActions[i]); 
+					console.log(JSON.stringify(data.ACEActions[i]));
 					}
 			}
 			Action(SpeakList[0],0);		
@@ -70,6 +75,7 @@
 					var s = document.getElementById('Initialize');
 					s.style.display = 'none';
 					PuttoACE("不知道");
+					
 				}
 			})
 		}
@@ -109,6 +115,8 @@
 		
 		 
 		 <div id='MediaContainer'>
+		 </div>
+		 <div id='YoutubeContainer'>
 		 </div>
 		   <div id='Coversation'>
 		 </div>
