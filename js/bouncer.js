@@ -54,18 +54,19 @@ var urlPageForIFrame = qs("url","");
 
 var UserStudent=qs("UserStudent","Carl");
 var SKOGuid=qs("guid","bf406af8-b18a-4b2f-b03b-1d285ef19b7e");
-
+var SKOSchool=qs("school","ccnu.x-in-y.com:8889");
 if (qs("lang","chn")=="chn")
 	{
 		UserStudent=qs("UserStudent","小明");
-		SKOGuid=qs("guid","4caa3ab5-6267-4b57-b18c-c1bcd073a3b2");
+		SKOSchool="class.skoonline.org";
+		SKOGuid=qs("guid","3674d2d9-1c35-4046-a227-e431302f804d");
 	}
 	if  (qs("lang","chn")=="eng") {
 		var UserStudent=qs("UserStudent","Carl");
 		SKOGuid=qs("guid","bf406af8-b18a-4b2f-b03b-1d285ef19b7e");
 	}
 
-var SKOSchool=qs("school","ccnu.x-in-y.com:8889");
+
 
 var IDtoACE=qs("ID","Chinese-test");
 var IntitalText =qs("Text","No idea");
@@ -74,7 +75,7 @@ var Defaultlanguage=qs("language","Chinese");
 
 
 function ComposeSKOLink(){
-	    if (qs('SType','NGAE')=="GAE")
+	    if (qs('SType','GAE')=="GAE")
      	{
 			var SKO ={
 			guid:SKOGuid,
@@ -87,7 +88,7 @@ function ComposeSKOLink(){
 			text= "http://"+school+"/retrieve?json="+JSON.stringify(SKO);
 			return text;
 		}
-		if (qs('SType','NGAE')=="NGAE")
+		if (qs('SType','NGAE')=="GAE")
      	{
 			var SKO ={
 			guid:SKOGuid,
