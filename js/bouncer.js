@@ -401,3 +401,12 @@ function runDisplay() {
 	Action(SpeakList[currentIndex],currentIndex);
 }
 
+function pauseSession() {
+	isRunning = true;
+	currentIndex+=1;
+}
+
+function resumeSession() {
+	isRunning = false;
+	Action(SpeakList[currentIndex],currentIndex);
+}
