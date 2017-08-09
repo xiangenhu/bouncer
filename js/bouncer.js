@@ -142,6 +142,8 @@ var talking=true;
 
 var aIndex = 0;
 
+var currentIndex=0;
+
 var responses = [];
 
 function AttachTalkingHeads(c1,p1,s1,c2,p2,s2,c3,p3,s3,c4,p4,s4){	
@@ -307,7 +309,7 @@ function AgentTalk(obj,aIndex){
 //Speaklist contains an array of objects {Agent, Act, Data}
 function Action(obj,aIndex){
 	actionMethods.ifShowMedia(obj,aIndex);
-	actionMethods.ifSpeakTalk(obj, aIndex);
+	actionMethods.ifSpeakTalk(obj,aIndex);
 }
 //When isRunning === true, agents stop talking
 var isRunning = false;
@@ -327,6 +329,7 @@ var actionMethods = {
 			var newID=aIndex+1;
 			if (obj.Data.indexOf('.') == -1){
 				displayYoutube("YoutubeContainer",obj.Data);
+				currentIndex=newID;
 			}else{
 				displayMedia("MediaContainer",qs("MediaBase","https://xiangenhu.github.io/ATMedia/IMG/CAT/"),obj.Data);
 			}
@@ -337,16 +340,15 @@ var actionMethods = {
 }
 
 function displayYoutube(YoutubContainer,YoutubeID){
-	closeYoutube();
+//	closeYoutube();
 	isRunning = true;
-	var text='<iframe id="player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/'+YoutubeID+'?enablejsapi=1" frameborder="0"></iframe>';
+	var text='<center><iframe id="player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/'+YoutubeID+'?enablejsapi=1" frameborder="0"></iframe><br/><button id="closeYoutube" onclick="closeYoutube()">Close Youtube Video</button> <button onclick="runDisplay()">Continue</button></center>';
 	document.getElementById(YoutubContainer).innerHTML=text;
 	document.getElementById(YoutubContainer).style.display = "block";
-	alert('hi');
 }
 
 function displayMedia(MediaContainer,MediaBase,MediaURL){
-	isRunning = true;
+//	isRunning = true;
 	var text='<img align="center" width="480" src="'+MediaBase+MediaURL+'"/>';
 	if (MediaURL.toUpperCase().includes("HTTP")==true) {
 		text='<img align="center" width="480" src="'+MediaURL+'"/>';
@@ -388,20 +390,14 @@ function onVariableChange(id, n)
 // Others
 
 function closeYoutube() {
-	//closeYoutube button
-	var closeYoutube = document.getElementById("closeYoutube")
-	//contains iframe
-	var youtubeContainer = document.getElementById('youtubeContainer')
-
-	if(closeYoutube) {
-		closeYoutube.addEventListener("click", function(){
-			youtubeContainer.innerHTML="";
-			isRunning = false;
-		});
-	}
+	var youtubeContainer = document.getElementById('YoutubeContainer')
+    youtubeContainer.style.display = "none";
+	isRunning = false;
+	Action(SpeakList[currentIndex],currentIndex);
 }
 
 function runDisplay() {
-	alert("test");
+	isRunning = false;
+	Action(SpeakList[currentIndex],currentIndex);
 }
 
