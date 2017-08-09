@@ -342,16 +342,16 @@ var actionMethods = {
 function displayYoutube(YoutubContainer,YoutubeID){
 //	closeYoutube();
 	isRunning = true;
-	var text='<center><iframe id="player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/'+YoutubeID+'?enablejsapi=1" frameborder="0"></iframe><br/><button id="closeYoutube" onclick="closeYoutube()">Close Youtube Video</button> <button onclick="runDisplay()">Continue</button></center>';
+	var text='<center><iframe id="player" type="text/html" width="640" height="480" src="http://www.youtube.com/embed/'+YoutubeID+'?enablejsapi=1" frameborder="0"></iframe><br/><button id="closeYoutube" onclick="closeYoutube()">Close Youtube Video</button> <button onclick="runDisplay()">Continue</button></center>';
 	document.getElementById(YoutubContainer).innerHTML=text;
 	document.getElementById(YoutubContainer).style.display = "block";
 }
 
 function displayMedia(MediaContainer,MediaBase,MediaURL){
 //	isRunning = true;
-	var text='<img align="center" width="480" src="'+MediaBase+MediaURL+'"/>';
+	var text='<img align="center" width="640" src="'+MediaBase+MediaURL+'"/>';
 	if (MediaURL.toUpperCase().includes("HTTP")==true) {
-		text='<img align="center" width="480" src="'+MediaURL+'"/>';
+		text='<img align="center" width="640" src="'+MediaURL+'"/>';
 	}
 	document.getElementById(MediaContainer).innerHTML=text;
 	document.getElementById(MediaContainer).style.display = "block";

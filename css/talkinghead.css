@@ -97,10 +97,10 @@
 	position:absolute;
 	top:50%;
 	left:50%;
-	width:480px;  /* adjust as per your needs */
-	height:640px;   /* adjust as per your needs */
-	margin-left:-200px;   /* negative half of width above */
-	margin-top:-200px;   /* negative half of height above */
+	width:640px;  /* adjust as per your needs */
+	height:480px;   /* adjust as per your needs */
+	margin-left:-320px;   /* negative half of width above */
+	margin-top:-240px;   /* negative half of height above */
 }
 
 
@@ -109,10 +109,10 @@
 	position:absolute;
 	top:50%;
 	left:50%;
-	width:480px;  /* adjust as per your needs */
-	height:640px;   /* adjust as per your needs */
-	margin-left:-200px;   /* negative half of width above */
-	margin-top:-200px;   /* negative half of height above */
+	width:640px;  /* adjust as per your needs */
+	height:480px;   /* adjust as per your needs */
+	margin-left:-320px;   /* negative half of width above */
+	margin-top:-240px;   /* negative half of height above */
 }
 
 
