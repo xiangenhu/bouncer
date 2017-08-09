@@ -1,5 +1,9 @@
 var xhttp;
 // URL Parser
+
+//search_for is phrase on left of =
+//returns phrase on right of = for search_for
+//If not found, return defaultstr
 function qs(search_for,defaultstr) {
 	var query = window.location.search.substring(1);
 	var parms = query.split('&');
@@ -258,8 +262,7 @@ function ShowLog(){
 	ShowWindow("ShowLogs","Coversation");
 }
 
-function Speak(movieID,Text,index,print)
-{
+function Speak(movieID,Text,index,print) {
 	var SText= ReplaceTest(movieID,Text);
 	
 	if (print==true) {
@@ -300,24 +303,42 @@ function AgentTalk(obj,aIndex){
 	
 }
 
+//Action(Speaklist). 
+//Speaklist contains an array of objects {Agent, Act, Data}
 function Action(obj,aIndex){
-	if (obj.Act=="Speak") {
-		AgentTalk(obj,aIndex);
-	}
-	if (obj.Act=="ShowMedia") {
-		var newID=aIndex+1;
-		if (obj.Data.indexOf('.') == -1){
-			displayYoutube("YoutubeContainer",obj.Data);
-		}else{
-			displayMedia("MediaContainer",qs("MediaBase","https://xiangenhu.github.io/ATMedia/IMG/CAT/"),obj.Data);
+	actionMethods.ifShowMedia(obj,aIndex);
+	actionMethods.ifSpeakTalk(obj, aIndex);
+}
+//When isRunning === true, agents stop talking
+var isRunning = false;
+
+var actionMethods = {
+	
+	ifSpeakTalk: function(obj, aIndex) {
+		//Only runs if isRunning is false
+		if (obj.Act=="Speak" && isRunning === false) {
+			AgentTalk(obj,aIndex);
 		}
-		var newText ='<externalcommand command="next" args="'+newID+'"/>.';
-		msSpeak(CharactorA,newText);
+	},
+
+	ifShowMedia: function(obj, aIndex) {
+
+		if (obj.Act=="ShowMedia") {
+			var newID=aIndex+1;
+			if (obj.Data.indexOf('.') == -1){
+				displayYoutube("YoutubeContainer",obj.Data);
+			}else{
+				displayMedia("MediaContainer",qs("MediaBase","https://xiangenhu.github.io/ATMedia/IMG/CAT/"),obj.Data);
+			}
+			var newText ='<externalcommand command="next" args="'+newID+'"/>.';
+			msSpeak(CharactorA,newText);
+		}
 	}
 }
 
-
 function displayYoutube(YoutubContainer,YoutubeID){
+	closeYoutube();
+	isRunning = true;
 	var text='<iframe id="player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/'+YoutubeID+'?enablejsapi=1" frameborder="0"></iframe>';
 	document.getElementById(YoutubContainer).innerHTML=text;
 	document.getElementById(YoutubContainer).style.display = "block";
@@ -325,6 +346,7 @@ function displayYoutube(YoutubContainer,YoutubeID){
 }
 
 function displayMedia(MediaContainer,MediaBase,MediaURL){
+	isRunning = true;
 	var text='<img align="center" width="480" src="'+MediaBase+MediaURL+'"/>';
 	if (MediaURL.toUpperCase().includes("HTTP")==true) {
 		text='<img align="center" width="480" src="'+MediaURL+'"/>';
@@ -364,3 +386,22 @@ function onVariableChange(id, n)
 	
 }
 // Others
+
+function closeYoutube() {
+	//closeYoutube button
+	var closeYoutube = document.getElementById("closeYoutube")
+	//contains iframe
+	var youtubeContainer = document.getElementById('youtubeContainer')
+
+	if(closeYoutube) {
+		closeYoutube.addEventListener("click", function(){
+			youtubeContainer.innerHTML="";
+			isRunning = false;
+		});
+	}
+}
+
+function runDisplay() {
+	alert("test");
+}
+

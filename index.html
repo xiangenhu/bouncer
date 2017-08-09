@@ -12,8 +12,10 @@
 		 <div class="frame-loader">
 			<iframe src="" style="height: 100%; width: 100%;border:none" id="innerframe"></iframe>
 		</div>
+
 		<div id="TopDiv">
 		</div>
+
 		<div> 
 		
 		<script type="text/javascript" language="JavaScript">
@@ -36,7 +38,6 @@
 	    
 		
 		function processingReturn(data){
-		    
 		    var actionLength, text, i;
 		    actionLength=data.ACEActions.length;
 			SpeakList=[];
@@ -116,19 +117,31 @@
 		 
 		 <div id='MediaContainer'>
 		 </div>
-		 <div id='YoutubeContainer'>
+
+		 <div id='YoutubeandClose'>
+		 	<button id="closeYoutube">Close Youtube Video</button>
+		 	<div id='YoutubeContainer'>
+		 	</div>
 		 </div>
+
+		 <button onclick="runDisplay()">Test</button>
+
+
 		   <div id='Coversation'>
 		 </div>
-        </div>
+
+    </div>
+
 		<div id="InputArea"align="center">
 		<p> </p>
 			<textarea id='inputText' rows="2" cols="50">No idea. </textarea></br>		
 			<input type='submit' id='SubmitAnswer'value="Submit your Answer" align="right"/><br>	
 		</div>
+
 		<div id="utilityBar">
 		 Show Logs <input type="checkbox" id="ShowLogs" onclick="ShowLog()">
 		 <input type='submit' id='Initialize' value="Initialize"/><br>	
 		</div>
+
 	</body>
 </html>
