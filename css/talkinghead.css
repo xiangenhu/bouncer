@@ -153,4 +153,5 @@
 	background:lightBlue; 
 	overflow:hidden;
     display: block;
+    z-index:2;
 }

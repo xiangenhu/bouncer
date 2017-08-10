@@ -308,6 +308,7 @@ var actionMethods = {
 	}
 }
 
+//parameters are div and youtube id (obj,Data)
 function displayYoutube(YoutubContainer,YoutubeID){
 
 	isRunning = true;
@@ -402,9 +403,23 @@ function GetYoutubeVideo(VideoPlaceHolder,VideoID){
             playlist: ''
         },
         events: {
-            onReady: initialize
+            onReady: initialize,
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange
         }
     });
+}
+
+// autoplay video
+function onPlayerReady(event) {
+    event.target.playVideo();
+}
+
+// when video ends
+function onPlayerStateChange(event) {        
+    if(event.data === 0) {          
+        alert('done');
+    }
 }
  
 function onYouTubeIframeAPIReady() {
