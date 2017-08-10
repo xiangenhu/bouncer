@@ -358,8 +358,8 @@ function onVariableChange(id, n)
 }
 // Others
 
-function closeYoutube(VideoPlaceHolder) {
-	var youtubeContainer = document.getElementById(VideoPlaceHolder)
+function closeYoutube() {
+	var youtubeContainer = document.getElementById('video-placeholder')
     youtubeContainer.style.display = "none";
 	isRunning = false;
 	player.pauseVideo();
@@ -394,7 +394,6 @@ function resumeSession() {
 var player;
 
 function GetYoutubeVideo(VideoPlaceHolder,VideoID){
-	debugger;
 	 player = new YT.Player(VideoPlaceHolder, {
         width: 640,
         height: 480,
@@ -418,15 +417,17 @@ function onPlayerReady(event) {
 }
 
 // when video ends
-function onPlayerStateChange(event) {        
-    if(event.data === 0) {          
-        closeYoutube('video-placeholder');
+var done = false;
+function onPlayerStateChange(event) {    
+    if(event.data == YT.PlayerState.PLAYING && !done) { 
+        setTimeout(closeYoutube, 5000);
+        done = true;
     }
 }
 
 //play at specific time
 function seekTo(event) {
-	event.target.seekTo(100,true);
+	event.target.seekTo(100);
 }
  
 function onYouTubeIframeAPIReady() {
