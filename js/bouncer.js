@@ -394,6 +394,7 @@ function resumeSession() {
 var player;
 
 function GetYoutubeVideo(VideoPlaceHolder,VideoID){
+	debugger;
 	 player = new YT.Player(VideoPlaceHolder, {
         width: 640,
         height: 480,
@@ -405,6 +406,7 @@ function GetYoutubeVideo(VideoPlaceHolder,VideoID){
         events: {
             onReady: initialize,
             onReady: onPlayerReady,
+            //onReady: seekTo,
             onStateChange: onPlayerStateChange
         }
     });
@@ -418,8 +420,13 @@ function onPlayerReady(event) {
 // when video ends
 function onPlayerStateChange(event) {        
     if(event.data === 0) {          
-        alert('done');
+        closeYoutube('video-placeholder');
     }
+}
+
+//play at specific time
+function seekTo() {
+	event.target.seekto(100,true);
 }
  
 function onYouTubeIframeAPIReady() {
