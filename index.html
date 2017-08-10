@@ -6,6 +6,8 @@
 		<script src="js/jquery.min.js"></script>
 		<script src="js/Better.js" type="text/javascript"></script>
 		<script src="js/bouncer.js" type="text/javascript"></script>
+		<script src="https://www.youtube.com/iframe_api"></script>
+		<script src="js/YouTubescript.js" type="text/javascript"></script>
 	</head>
 	<body onload="onContentLoaded()" style="margin:0;padding:0;overflow:hidden" background="bgimage.jpg">
      
@@ -31,9 +33,6 @@
 			POSTtoACE("POST");
 		}
 		
-		function ResetTalkingHeads(c1,p1,s1,c2,p2,s2,c3,p3,s3,c4,p4,s4){	
-			AttachTalkingHeads(c1,p1,s1,c2,p2,s2,c3,p3,s3,c4,p4,s4)
-		}
 		
 	    
 		
@@ -114,10 +113,9 @@
 		</script>
 		
 		
+        <div id="video-placeholder"></div>
 		 
 		 <div id='MediaContainer'>
-		 </div>
-		 <div id='YoutubeContainer'>
 		 </div>
 		 <div id='Coversation'>
 		 </div>
@@ -134,7 +132,11 @@
 		 Show Logs <input type="checkbox" id="ShowLogs" onclick="ShowLog()">
 		 <input type='submit' id='Initialize' value="Initialize"/>
 		 <button onclick="pauseSession()">Pause Session</button>
-		 <button onclick="resumeSession()">Resume</button>
+		 <button onclick="player.playVideo()">Play</button> 
+		 <button onclick="player.pauseVideo()">Pause</button> 
+		 <button onclick="player.mute()">Mute</button> 
+		 <button onclick="player.unMute()">UnMute</button> 
+		 <button onclick="closeYoutube('video-placeholder')">RemoveVideo</button> 
 		 <br>	
 		</div>
 

@@ -146,37 +146,6 @@ var currentIndex=0;
 
 var responses = [];
 
-function AttachTalkingHeads(c1,p1,s1,c2,p2,s2,c3,p3,s3,c4,p4,s4){	
-	 var Avatars = document.getElementById("TopDiv");
-	document.getElementById(CharactorA).remove();
-	document.getElementById(CharactorB).remove();
-	document.getElementById(CharactorC).remove();
-	document.getElementById(CharactorD).remove();
-    Avatars.innerHTML ="";
-	CharactorA=c1;
-	CharactorB=c2;
-	CharactorC=c3;
-	CharactorD=c4;
-	var s = '';
-	s += '<div id="'+CharactorA+'" class="tl-agent"></div>';
-	s += '<div id="'+CharactorB+'" class="tr-agent"></div>';
-	s += '<div id="'+CharactorC+'" class="bl-agent"></div>';
-	s += '<div id="'+CharactorD+'" class="br-agent"></div>';
-	Avatars.innerHTML = s; 
-	if (s1=="true") {
-		msAttach(CharactorA, c1,p1,200,250);
-	}
-	if (s2=="true") {
-		msAttach(CharactorB, c2,p2, 200,250);
-	}
-	if (s3=="true") {
-		msAttach(CharactorC, c3,p3, 200,250);
-	}
-	if (s4=="true") {
-		msAttach(CharactorD, c4,p4, 200,250);
-	}
-	document.body.appendChild(Avatars);
-}
 function Attache(Att,ChName,Agent,Path){
 	if (Att){
 		msAttach(Agent, ChName,Path,200,250);
@@ -328,7 +297,7 @@ var actionMethods = {
 		if (obj.Act=="ShowMedia") {
 			var newID=aIndex+1;
 			if (obj.Data.indexOf('.') == -1){
-				displayYoutube("YoutubeContainer",obj.Data);
+				displayYoutube("video-placeholder",obj.Data);
 				currentIndex=newID;
 			}else{
 				displayMedia("MediaContainer",qs("MediaBase","https://xiangenhu.github.io/ATMedia/IMG/CAT/"),obj.Data);
@@ -340,11 +309,9 @@ var actionMethods = {
 }
 
 function displayYoutube(YoutubContainer,YoutubeID){
-//	closeYoutube();
+
 	isRunning = true;
-	var text='<center><iframe id="player" type="text/html" width="640" height="480" src="http://www.youtube.com/embed/'+YoutubeID+'?enablejsapi=1" frameborder="0"></iframe><br/><button id="closeYoutube" onclick="closeYoutube()">Close Youtube Video</button> <button onclick="runDisplay()">Continue</button> <input id="playYoutube" type="submit" value="Play"> </center>';
-	//text+= "$('#play').on('click', function () {player.playVideo();})";
-	document.getElementById(YoutubContainer).innerHTML=text;
+	GetYoutubeVideo(YoutubContainer,YoutubeID);
 	document.getElementById(YoutubContainer).style.display = "block";
 }
 
@@ -390,10 +357,11 @@ function onVariableChange(id, n)
 }
 // Others
 
-function closeYoutube() {
-	var youtubeContainer = document.getElementById('YoutubeContainer')
+function closeYoutube(VideoPlaceHolder) {
+	var youtubeContainer = document.getElementById(VideoPlaceHolder)
     youtubeContainer.style.display = "none";
 	isRunning = false;
+	player.pauseVideo();
 	Action(SpeakList[currentIndex],currentIndex);
 }
 
@@ -420,6 +388,46 @@ function resumeSession() {
 		
 // 	});
 // }
+// Youtube Controls
 
+var player;
+
+function GetYoutubeVideo(VideoPlaceHolder,VideoID){
+	 player = new YT.Player(VideoPlaceHolder, {
+        width: 640,
+        height: 480,
+        videoId: VideoID,
+        playerVars: {
+            color: 'white',
+            playlist: ''
+        },
+        events: {
+            onReady: initialize
+        }
+    });
+}
+ 
+function onYouTubeIframeAPIReady() {
+	return;
+   
+} 
+
+function initialize(){
+
+    // Update the controls on load
+    updateTimerDisplay();
+    updateProgressBar();
+
+    // Clear any old interval.
+    clearInterval(time_update_interval);
+
+    // Start interval to update elapsed time display and
+    // the elapsed part of the progress bar every second.
+    time_update_interval = setInterval(function () {
+        updateTimerDisplay();
+        updateProgressBar();
+    }, 1000)
+
+}
 
 
