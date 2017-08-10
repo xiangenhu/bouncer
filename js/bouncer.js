@@ -342,7 +342,8 @@ var actionMethods = {
 function displayYoutube(YoutubContainer,YoutubeID){
 //	closeYoutube();
 	isRunning = true;
-	var text='<center><iframe id="player" type="text/html" width="640" height="480" src="http://www.youtube.com/embed/'+YoutubeID+'?enablejsapi=1" frameborder="0"></iframe><br/><button id="closeYoutube" onclick="closeYoutube()">Close Youtube Video</button> <button onclick="runDisplay()">Continue</button></center>';
+	var text='<center><iframe id="player" type="text/html" width="640" height="480" src="http://www.youtube.com/embed/'+YoutubeID+'?enablejsapi=1" frameborder="0"></iframe><br/><button id="closeYoutube" onclick="closeYoutube()">Close Youtube Video</button> <button onclick="runDisplay()">Continue</button> <input id="playYoutube" type="submit" value="Play"> </center>';
+	//text+= "$('#play').on('click', function () {player.playVideo();})";
 	document.getElementById(YoutubContainer).innerHTML=text;
 	document.getElementById(YoutubContainer).style.display = "block";
 }
@@ -410,3 +411,15 @@ function resumeSession() {
 	isRunning = false;
 	Action(SpeakList[currentIndex],currentIndex);
 }
+
+// function makeTlAgentBigger() {
+// 	var tlAgent = document.querySelector("tl-agent");
+
+// 	tlAgent.addEventListener('click', function(){
+		
+		
+// 	});
+// }
+
+
+
