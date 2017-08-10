@@ -406,7 +406,7 @@ function GetYoutubeVideo(VideoPlaceHolder,VideoID){
         events: {
             onReady: initialize,
             onReady: onPlayerReady,
-            //onReady: seekTo,
+            onReady: seekTo,
             onStateChange: onPlayerStateChange
         }
     });
@@ -425,8 +425,8 @@ function onPlayerStateChange(event) {
 }
 
 //play at specific time
-function seekTo() {
-	event.target.seekto(100,true);
+function seekTo(event) {
+	event.target.seekTo(100,true);
 }
  
 function onYouTubeIframeAPIReady() {
