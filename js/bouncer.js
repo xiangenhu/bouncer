@@ -452,5 +452,19 @@ function initialize(){
     }, 1000)
 
 }
+//Allows you to drag avatar with class tl-agent #Lee
+
+
+//Allows you to drag avatar with class tr-agent #Lily
+$(document).ready( function() {
+    $( function() {
+    	$(".tl-agent").draggable();
+	});
+
+	$( function() {
+    	$( ".tr-agent" ).draggable();
+	});
+
+)
 
 
