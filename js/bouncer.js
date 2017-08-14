@@ -464,7 +464,7 @@ $(document).ready( function() {
 	$( function() {
     	$( ".tr-agent" ).draggable();
 	});
-
+}
 )
 
 
