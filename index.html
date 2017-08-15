@@ -111,10 +111,10 @@
                     });
         });
 		
-		
+		var jsonOfXml;
 
 		function GetIDXML(){
-		
+
 		var RetriveIDObj={
 			guid:qs("IDguid","ec0d112f-35f0-4b85-b54d-ead66f1ab672"),
 			source:"ScriptOnly",
@@ -129,11 +129,32 @@
 		var IDRetrive  = new XMLHttpRequest();
 		IDRetrive.open('GET', url, true);
 		IDRetrive.onload = function () {
-		var ID = IDRetrive.responseText;
-		console.log(ID);
-		}
+			var ID = IDRetrive.responseText;
+			var parser, xmlDoc;
+
+			parser = new DOMParser();
+			xmlDoc = parser.parseFromString(ID,"text/xml");
+
+			jsonOfXml = xmlDoc;
+
+			console.log(xmlDoc)
+
+			}
 		IDRetrive.send(null);
+
 		}		
+
+
+		var xmlData = {
+			Agent: "",
+			Act: "",
+			Data: "",
+		}
+
+		
+
+
+
 		
 		</script>
 		
