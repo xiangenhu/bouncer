@@ -37,8 +37,12 @@
 		
 		
 	    
-		
+		//Agent is System, ComputerStudent, or ComputerTutor
+		//Act is ShowMedia or Speak. Showmedia only has System.
+		//Speak data is words. Showmedia data is youtube id or image.png
+
 		function processingReturn(data){
+			debugger;
 		    var actionLength, text, i;
 		    actionLength=data.ACEActions.length;
 			SpeakList=[];
@@ -129,33 +133,27 @@
 		var IDRetrive  = new XMLHttpRequest();
 		IDRetrive.open('GET', url, true);
 		IDRetrive.onload = function () {
+			//ID is a string
 			var ID = IDRetrive.responseText;
+			console.log(ID);
 			var parser, xmlDoc;
 
 			parser = new DOMParser();
+			//xmlDoc is an object #document
 			xmlDoc = parser.parseFromString(ID,"text/xml");
 
-			jsonOfXml = xmlDoc;
+			jsonOfXml = xmlToJson(xmlDoc);
 
-			console.log(xmlDoc)
+			//jsonOfXml is an object
+			console.log(jsonOfXml);
 
 			}
 		IDRetrive.send(null);
 
 		}		
+  
 
-
-		var xmlData = {
-			Agent: "",
-			Act: "",
-			Data: "",
-		}
-
-		
-
-
-
-		
+	
 		</script>
 		
 		

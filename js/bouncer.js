@@ -469,7 +469,7 @@ function initialize(){
 
 // Changes XML to JSON
 function xmlToJson(xml) {
-	
+	//debugger;
 	// Create the return object
 	var obj = {};
 
@@ -505,3 +505,36 @@ function xmlToJson(xml) {
 	}
 	return obj;
 };
+
+var xmlData = [];
+
+function (jsonOfXml) {
+
+	var item = jsonOfXml.ID.ITEM;
+
+	for(i=0; i<jsonOfXml.ID.ITEM.length; i++) {
+		var obj = {
+			Agent: "",
+			Act: "",
+			Data: "",
+		}
+		xmlData.push(obj);
+		//Obtain Agent info
+		if (item.agent[i] = tutor) {
+			xmlData[i].Agent = "ComputerTutor";
+		} else if (item.agent[i] = student) {
+			xmlData[i].Agent = "ComputerStudent";
+		} else {
+			xmlData[i].Agent = "System";
+		}
+		//Obtain ShowMedia info
+		if (item.media[i] != -1) {
+			xmlData[i].Act = "Speak";
+		} else {
+			xmlData[i].Act = "ShowMedia";
+		}
+
+		xmlData[i].Data = item.data[i];
+		
+	}
+}
