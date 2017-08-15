@@ -508,7 +508,6 @@ function xmlToJson(xml) {
 var xmlData = [];
 //Takes xml and converts it to json that can be used in processingReturn
 function getXmlData(jsonOfXml) {
-	debugger;
 	var item = jsonOfXml.ID.ITEM;
 
 	for(i=0; i<jsonOfXml.ID.ITEM.length; i++) {
@@ -530,7 +529,7 @@ function getXmlData(jsonOfXml) {
 			xmlData[i].Agent = "System";
 		}
 		//Obtain ShowMedia info
-		if (itemAct.MediaURLXML["#text"] !== -1) {
+		if (itemAct.mediaTypeXML["#text"] == "ImageOnly") {
 			xmlData[i].Act = "ShowMedia";
 		} else {
 			xmlData[i].Act = "Speak";
