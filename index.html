@@ -135,17 +135,15 @@
 		IDRetrive.onload = function () {
 			//ID is a string
 			var ID = IDRetrive.responseText;
-			console.log(ID);
 			var parser, xmlDoc;
 
 			parser = new DOMParser();
 			//xmlDoc is an object #document
 			xmlDoc = parser.parseFromString(ID,"text/xml");
-
+			//jsonOfXml is an object
 			jsonOfXml = xmlToJson(xmlDoc);
 
-			//jsonOfXml is an object
-			console.log(jsonOfXml);
+			getXmlData(jsonOfXml);
 
 			}
 		IDRetrive.send(null);

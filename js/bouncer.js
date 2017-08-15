@@ -469,17 +469,16 @@ function initialize(){
 
 // Changes XML to JSON
 function xmlToJson(xml) {
-	//debugger;
 	// Create the return object
 	var obj = {};
 
 	if (xml.nodeType == 1) { // element
 		// do attributes
 		if (xml.attributes.length > 0) {
-		obj["@attributes"] = {};
+		obj["currentAttributes"] = {};
 			for (var j = 0; j < xml.attributes.length; j++) {
 				var attribute = xml.attributes.item(j);
-				obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+				obj["currentAttributes"][attribute.nodeName] = attribute.nodeValue;
 			}
 		}
 	} else if (xml.nodeType == 3) { // text
@@ -507,9 +506,9 @@ function xmlToJson(xml) {
 };
 
 var xmlData = [];
-
-function (jsonOfXml) {
-
+//Takes xml and converts it to json that can be used in processingReturn
+function getXmlData(jsonOfXml) {
+	debugger;
 	var item = jsonOfXml.ID.ITEM;
 
 	for(i=0; i<jsonOfXml.ID.ITEM.length; i++) {
@@ -519,22 +518,27 @@ function (jsonOfXml) {
 			Data: "",
 		}
 		xmlData.push(obj);
+
+		var itemAgent = item[i].PageConfig.AVATAR.currentAttributes;
+		var itemAct = item[i].PageConfig;
 		//Obtain Agent info
-		if (item.agent[i] = tutor) {
+		if (itemAgent.useTeacher == "true") {
 			xmlData[i].Agent = "ComputerTutor";
-		} else if (item.agent[i] = student) {
+		} else if (itemAgent.useStudent1=="true" || itemAgent.useStudent2=="true" || itemAgent.useStudent3=="true") {
 			xmlData[i].Agent = "ComputerStudent";
 		} else {
 			xmlData[i].Agent = "System";
 		}
 		//Obtain ShowMedia info
-		if (item.media[i] != -1) {
-			xmlData[i].Act = "Speak";
-		} else {
+		if (itemAct.MediaURLXML["#text"] !== -1) {
 			xmlData[i].Act = "ShowMedia";
+		} else {
+			xmlData[i].Act = "Speak";
 		}
 
-		xmlData[i].Data = item.data[i];
-		
+		//xmlData[i].Data = item.data[i];
+
 	}
+
+	console.log(xmlData);
 }
