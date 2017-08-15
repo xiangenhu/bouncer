@@ -4,7 +4,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="stylesheet" type="text/css" href="css/talkinghead.css">
 		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.js"></script>
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script src="js/Better.js" type="text/javascript"></script>
@@ -12,7 +11,7 @@
 		<script src="https://www.youtube.com/iframe_api"></script>
 		<script src="js/YouTubescript.js" type="text/javascript"></script>
 	</head>
-	<body onload="onContentLoaded()" style="margin:0;padding:0;overflow:hidden" background="bgimage.jpg">
+	<body onload="onContentLoaded()" style="margin:0;padding:0;overflow:hidden">
      
 		 <div class="frame-loader">
 			<iframe src="" style="height: 100%; width: 100%;border:none" id="innerframe"></iframe>
@@ -113,6 +112,29 @@
         });
 		
 		
+
+		function GetIDXML(){
+		
+		var RetriveIDObj={
+			guid:qs("IDguid","ec0d112f-35f0-4b85-b54d-ead66f1ab672"),
+			source:"ScriptOnly",
+			TagName:"ID",
+			authorname:"xiangenhu"
+		};
+			
+		var url  = "http://mi.skoonline.org/retrieve?json="+JSON.stringify(RetriveIDObj);
+		
+//		console.log(url);
+		
+		var IDRetrive  = new XMLHttpRequest();
+		IDRetrive.open('GET', url, true);
+		IDRetrive.onload = function () {
+		var ID = IDRetrive.responseText;
+		console.log(ID);
+		}
+		IDRetrive.send(null);
+		}		
+		
 		</script>
 		
 		
@@ -141,6 +163,7 @@
 		 <button onclick="player.mute()">Mute</button> 
 		 <button onclick="player.unMute()">UnMute</button> 
 		 <button onclick="closeYoutube('video-placeholder')">RemoveVideo</button> 
+		 <button onclick="GetIDXML()">RetriveID</button> 
 		 <br>	
 		</div>
 
