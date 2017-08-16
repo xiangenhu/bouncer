@@ -520,6 +520,7 @@ function getXmlData(jsonOfXml) {
 
 		var itemAgent = item[i].PageConfig.AVATAR.currentAttributes;
 		var itemAct = item[i].PageConfig;
+		var itemData = item[i].mattextS["#cdata-section"]
 		//Obtain Agent info
 		if (itemAgent.useTeacher == "true") {
 			xmlData[i].Agent = "ComputerTutor";
@@ -534,10 +535,10 @@ function getXmlData(jsonOfXml) {
 		} else {
 			xmlData[i].Act = "Speak";
 		}
-
-		//xmlData[i].Data = item.data[i];
-
 	}
+}
 
-	console.log(xmlData);
+function addCdata(xml) {
+	for(var i=0; i<xml.getElementsByTagName("mattextS").length; i++)
+		xmlData[i].Data = xml.getElementsByTagName("mattextS")[i].childNodes[0].nodeValue;
 }

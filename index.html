@@ -116,37 +116,51 @@
         });
 		
 		var jsonOfXml;
+		var xmlDocCopy;
 
 		function GetIDXML(){
 
-		var RetriveIDObj={
-			guid:qs("IDguid","ec0d112f-35f0-4b85-b54d-ead66f1ab672"),
-			source:"ScriptOnly",
-			TagName:"ID",
-			authorname:"xiangenhu"
-		};
+			var RetriveIDObj={
+				guid:qs("IDguid","ec0d112f-35f0-4b85-b54d-ead66f1ab672"),
+				source:"ScriptOnly",
+				TagName:"ID",
+				authorname:"xiangenhu"
+			};
+				
+			var url  = "http://mi.skoonline.org/retrieve?json="+JSON.stringify(RetriveIDObj);
 			
-		var url  = "http://mi.skoonline.org/retrieve?json="+JSON.stringify(RetriveIDObj);
-		
-//		console.log(url);
-		
-		var IDRetrive  = new XMLHttpRequest();
-		IDRetrive.open('GET', url, true);
-		IDRetrive.onload = function () {
-			//ID is a string
-			var ID = IDRetrive.responseText;
-			var parser, xmlDoc;
+	//		console.log(url);
+			
+			var IDRetrive  = new XMLHttpRequest();
+			IDRetrive.open('GET', url, true);
+			IDRetrive.onload = function () {
+				//ID is a string
+				var ID = IDRetrive.responseText;
+				var parser, xmlDoc;
 
-			parser = new DOMParser();
-			//xmlDoc is an object #document
-			xmlDoc = parser.parseFromString(ID,"text/xml");
-			//jsonOfXml is an object
-			jsonOfXml = xmlToJson(xmlDoc);
+				parser = new DOMParser();
+				//xmlDoc is an object #document
+				//Converts ID text to xml
+				xmlDoc = parser.parseFromString(ID,"text/xml");
 
-			getXmlData(jsonOfXml);
+				//Cannot use xmlDoc to get Cdata because it has local scope
+				xmlDocCopy = xmlDoc;
 
-			}
-		IDRetrive.send(null);
+				//jsonOfXml is an object
+				//Converts xml to json
+				jsonOfXml = xmlToJson(xmlDoc);
+
+				//Gets data parameter from the json object
+				getXmlData(jsonOfXml);
+
+				//Obtains Cdata from the xmlDocCopy
+				addCdata(xmlDocCopy);
+
+					console.log(xmlData);
+
+
+				}
+			IDRetrive.send(null);
 
 		}		
   
