@@ -511,7 +511,7 @@ var xmlData = [];
 function getXmlData(jsonOfXml) {
 	var item = jsonOfXml.ID.ITEM;
 	var mediaIndex=0;
-	var positioni=0;
+	var mediaIndex=0;
 
 	//There should be 2 i's. One is for reading the file and seeing media type.
 	//The second i is to assign values into the xmlData object.
@@ -535,9 +535,9 @@ function getXmlData(jsonOfXml) {
 
 		//Obtain ShowMedia info
 		if (itemAct.mediaTypeXML["#text"] === "ImageOnly") {
-			xmlData[positioni].Agent = "System";
-			xmlData[positioni].Act = "ShowMedia";
-			xmlData[positioni].Data = itemAct.MediaURLXML["#text"];
+			xmlData[mediaIndex].Agent = "System";
+			xmlData[mediaIndex].Act = "ShowMedia";
+			xmlData[mediaIndex].Data = itemAct.MediaURLXML["#text"];
 
 			mediaIndex++;
 
@@ -548,19 +548,17 @@ function getXmlData(jsonOfXml) {
 			}
 			xmlData[mediaIndex].Act = "Speak";
 
-			positioni++;
 
 		} else {
-			xmlData[positioni].Act = "Speak";
+			xmlData[mediaIndex].Act = "Speak";
 			//Obtain Agent info
 			if (itemAgent.useTeacher == "true") {
-				xmlData[positioni].Agent = "ComputerTutor";
+				xmlData[mediaIndex].Agent = "ComputerTutor";
 			} else if (itemAgent.useStudent1=="true" || itemAgent.useStudent2=="true" || itemAgent.useStudent3=="true") {
-				xmlData[positioni].Agent = "ComputerStudent";
+				xmlData[mediaIndex].Agent = "ComputerStudent";
 			}
 		}
 		mediaIndex++;
-		positioni++;
 	}
 }
 
@@ -570,13 +568,12 @@ function addCdata(xml) {
 	for(var i=0; i<xml.getElementsByTagName("mattextS").length; i++) {
 		var mattextS = xml.getElementsByTagName("mattextS")[i];
 		var mediaTypeXML = xml.getElementsByTagName("mediaTypeXML")[i];
-		//If it has a childNode, run this command
-		if (mediaTypeXML.childNodes[0]) {
-		if(mediaTypeXML.childNodes[0].nodeValue === "ImageOnly") {
+
+		if(mediaTypeXML.textContent === "ImageOnly") {
 			mediaIndex++;
-			xmlData[mediaIndex].Data = mattextS.childNodes[0].nodeValue;
-		}} else {
-		xmlData[i].Data = mattextS.childNodes[0].nodeValue;
+			xmlData[mediaIndex].Data = mattextS.textContent;
+		} else {
+		xmlData[mediaIndex].Data = mattextS.textContent;
 		}
 		mediaIndex++;
 	}
