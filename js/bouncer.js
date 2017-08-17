@@ -506,39 +506,63 @@ function xmlToJson(xml) {
 };
 
 var xmlData = [];
+
 //Takes xml and converts it to json that can be used in processingReturn
 function getXmlData(jsonOfXml) {
 	var item = jsonOfXml.ID.ITEM;
+	var mediaIndex=0;
 
 	for(i=0; i<jsonOfXml.ID.ITEM.length; i++) {
 		var obj = {
 			Agent: "",
 			Act: "",
-			Data: "",
+			Data: ""
 		}
+		xmlData.push(obj);
 		xmlData.push(obj);
 
 		var itemAgent = item[i].PageConfig.AVATAR.currentAttributes;
 		var itemAct = item[i].PageConfig;
-		var itemData = item[i].mattextS["#cdata-section"]
-		//Obtain Agent info
-		if (itemAgent.useTeacher == "true") {
-			xmlData[i].Agent = "ComputerTutor";
-		} else if (itemAgent.useStudent1=="true" || itemAgent.useStudent2=="true" || itemAgent.useStudent3=="true") {
-			xmlData[i].Agent = "ComputerStudent";
-		} else {
-			xmlData[i].Agent = "System";
-		}
+
 		//Obtain ShowMedia info
 		if (itemAct.mediaTypeXML["#text"] == "ImageOnly") {
+			xmlData[i].Agent = "System";
 			xmlData[i].Act = "ShowMedia";
-		} else {
-			xmlData[i].Act = "Speak";
+			xmlData[i].Data = itemAct.MediaURLXML["#text"];
+
+		} 
+		mediaIndex++;
+
+		if (itemAgent.useTeacher == "true") {
+			xmlData[mediaIndex].Agent = "ComputerTutor";
+		} else if (itemAgent.useStudent1=="true" || itemAgent.useStudent2=="true" || itemAgent.useStudent3=="true") {
+			xmlData[mediaIndex].Agent = "ComputerStudent";
 		}
+		i++;
+		xmlData[mediaIndex].Act = "Speak";
+
+		if (itemAct.mediaTypeXML["#text"] !== "ImageOnly") {
+			xmlData[i].Act = "Speak";
+			//Obtain Agent info
+			if (itemAgent.useTeacher == "true") {
+				xmlData[i].Agent = "ComputerTutor";
+			} else if (itemAgent.useStudent1=="true" || itemAgent.useStudent2=="true" || itemAgent.useStudent3=="true") {
+				xmlData[i].Agent = "ComputerStudent";
+			}
+		}
+		mediaIndex++;
 	}
 }
 
 function addCdata(xml) {
-	for(var i=0; i<xml.getElementsByTagName("mattextS").length; i++)
-		xmlData[i].Data = xml.getElementsByTagName("mattextS")[i].childNodes[0].nodeValue;
+	var mediaIndex=0;
+	for(var i=0; i<xml.getElementsByTagName("mattextS").length; i++) {
+		if(xml.getElementsByTagName("mediaTypeXML")[i].childNodes[0].nodeValue === "ImageOnly") {
+			mediaIndex++;
+			xmlData[mediaIndex].Data = xml.getElementsByTagName("mattextS")[i].childNodes[0].nodeValue;
+		} else {
+		xmlData[mediaIndex].Data = xml.getElementsByTagName("mattextS")[i].childNodes[0].nodeValue;
+		}
+		mediaIndex++;
+	}
 }
