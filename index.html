@@ -134,6 +134,7 @@
 			IDRetrive.open('GET', url, true);
 			IDRetrive.onload = function () {
 				//ID is a string
+				//debugger;
 				var ID = IDRetrive.responseText;
 				var parser, xmlDoc;
 
@@ -160,9 +161,8 @@
 				console.log(xmlData);
 				
 				var actionLength=xmlData.length;
-				var i;
 				SpeakList=[];
-				for (i = 0; i < actionLength; i++) {
+				for (var i = 0; i < actionLength; i++) {
 						SpeakList.push(xmlData[i]); 
 						console.log(JSON.stringify(xmlData[i]));
 						}

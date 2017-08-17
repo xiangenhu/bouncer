@@ -268,8 +268,14 @@ function AgentTalk(obj,aIndex){
 	if (obj.Agent=="ComputerTutor"){
 		Speak(CharactorA,obj.Data,aIndex+1,true);
 	}	
-	if (obj.Agent=="ComputerStudent"){
+	if (obj.Agent=="ComputerStudent1"){
 		Speak(CharactorB,obj.Data,aIndex+1,true);
+	} 
+	if (obj.Agent=="ComputerStudent2"){
+		Speak(CharactorC,obj.Data,aIndex+1,true);
+	} 
+	if (obj.Agent=="ComputerStudent3"){
+		Speak(CharactorD,obj.Data,aIndex+1,true);
 	}
 	
 }
@@ -543,8 +549,12 @@ function getXmlData(jsonOfXml) {
 
 			if (itemAgent.useTeacher == "true") {
 				xmlData[mediaIndex].Agent = "ComputerTutor";
-			} else if (itemAgent.useStudent1=="true" || itemAgent.useStudent2=="true" || itemAgent.useStudent3=="true") {
-				xmlData[mediaIndex].Agent = "ComputerStudent";
+			} else if (itemAgent.useStudent1=="true") {
+				xmlData[mediaIndex].Agent = "ComputerStudent1";
+			} else if (itemAgent.useStudent2=="true") {
+				xmlData[mediaIndex].Agent = "ComputerStudent2";
+			} else if (itemAgent.useStudent3=="true") {
+				xmlData[mediaIndex].Agent = "ComputerStudent3";
 			}
 			xmlData[mediaIndex].Act = "Speak";
 
@@ -554,8 +564,12 @@ function getXmlData(jsonOfXml) {
 			//Obtain Agent info
 			if (itemAgent.useTeacher == "true") {
 				xmlData[mediaIndex].Agent = "ComputerTutor";
-			} else if (itemAgent.useStudent1=="true" || itemAgent.useStudent2=="true" || itemAgent.useStudent3=="true") {
-				xmlData[mediaIndex].Agent = "ComputerStudent";
+			} else if (itemAgent.useStudent1=="true") {
+				xmlData[mediaIndex].Agent = "ComputerStudent1";
+			} else if (itemAgent.useStudent2=="true") {
+				xmlData[mediaIndex].Agent = "ComputerStudent2";
+			} else if (itemAgent.useStudent3=="true") {
+				xmlData[mediaIndex].Agent = "ComputerStudent3";
 			}
 		}
 		mediaIndex++;
