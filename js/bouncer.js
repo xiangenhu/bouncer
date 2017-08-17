@@ -512,36 +512,41 @@ function getXmlData(jsonOfXml) {
 	var item = jsonOfXml.ID.ITEM;
 	var mediaIndex=0;
 
-	for(i=0; i<jsonOfXml.ID.ITEM.length; i++) {
+	for(var i=0; i<jsonOfXml.ID.ITEM.length; i++) {
+		//debugger;
 		var obj = {
 			Agent: "",
 			Act: "",
-			Data: ""
+			Data: "",
 		}
 		xmlData.push(obj);
+		var obj = {
+			Agent: "",
+			Act: "",
+			Data: "",
+		}
 		xmlData.push(obj);
 
 		var itemAgent = item[i].PageConfig.AVATAR.currentAttributes;
 		var itemAct = item[i].PageConfig;
 
 		//Obtain ShowMedia info
-		if (itemAct.mediaTypeXML["#text"] == "ImageOnly") {
+		if (itemAct.mediaTypeXML["#text"] === "ImageOnly") {
 			xmlData[i].Agent = "System";
 			xmlData[i].Act = "ShowMedia";
 			xmlData[i].Data = itemAct.MediaURLXML["#text"];
 
-		} 
-		mediaIndex++;
+			mediaIndex++;
 
-		if (itemAgent.useTeacher == "true") {
-			xmlData[mediaIndex].Agent = "ComputerTutor";
-		} else if (itemAgent.useStudent1=="true" || itemAgent.useStudent2=="true" || itemAgent.useStudent3=="true") {
-			xmlData[mediaIndex].Agent = "ComputerStudent";
-		}
-		i++;
-		xmlData[mediaIndex].Act = "Speak";
+			if (itemAgent.useTeacher == "true") {
+				xmlData[mediaIndex].Agent = "ComputerTutor";
+			} else if (itemAgent.useStudent1=="true" || itemAgent.useStudent2=="true" || itemAgent.useStudent3=="true") {
+				xmlData[mediaIndex].Agent = "ComputerStudent";
+			}
+			xmlData[mediaIndex].Act = "Speak";
+			
 
-		if (itemAct.mediaTypeXML["#text"] !== "ImageOnly") {
+		} else {
 			xmlData[i].Act = "Speak";
 			//Obtain Agent info
 			if (itemAgent.useTeacher == "true") {
