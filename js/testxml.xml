@@ -1,0 +1,1793 @@
+
+<ID UID="" play="">
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 1</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_0_2" play="Msg_3_0_2"><![CDATA[Welcome class. <pause/> When we ended last time, _NAMES1_ had a question about comparing more than two groups.]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" Student3="cb/English/Dave/Output/Stan.swf" Student3Pub="cb/English/Dave/Output/Stan_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play="">IntroSlide.png</MediaURLXML>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play="">ImageOnly</mediaTypeXML>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 2</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_1_2" play="Msg_3_1_2"><![CDATA[Yeah, a question you totally dodged.]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="true" useTeacher="false"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play="">TextOnly</mediaTypeXML>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">manual</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play="">
+          <PnQ UID="" play="">
+            <Title UID="" play="">Untitled</Title>
+            <X UID="" play="">316.55</X>
+            <Y UID="" play="">237.7</Y>
+            <W UID="" play="">378</W>
+            <H UID="" play="">137</H>
+            <EventDetails UID="" play="">Event Infomation</EventDetails>
+            <Enabled UID="" play="">true</Enabled>
+            <Agent UID="" play="">Teacher</Agent>
+            <InetractionType UID="" play="">Highlight</InetractionType>
+            <EventType UID="" play="">Information</EventType>
+          </PnQ>
+        </PnQs>
+      </PageConfig>
+      <PnQs UID="" play="">
+        <PnQ UID="" play="">
+          <Title UID="" play="">Untitled</Title>
+          <X UID="" play="">316.55</X>
+          <Y UID="" play="">237.7</Y>
+          <W UID="" play="">378</W>
+          <H UID="" play="">137</H>
+          <EventDetails UID="" play="">Event Infomation</EventDetails>
+          <Enabled UID="" play="">true</Enabled>
+          <Agent UID="" play="">Teacher</Agent>
+          <InetractionType UID="" play="">Highlight</InetractionType>
+          <EventType UID="" play="">Information</EventType>
+        </PnQ>
+      </PnQs>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 3</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_2_2" play="Msg_3_2_2"><![CDATA[_NAMES1_'s question was about using multiple t tests to compare multiple groups. <pause/> ]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play="">11.1_3_2.png</MediaURLXML>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play="">ImageOnly</mediaTypeXML>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 3-2</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_3_2" play="Msg_3_3_2"><![CDATA[For example, let's imagine we are comparing Freshmen, Sophomores, Juniors, and Seniors. We want to know if there is a difference in the amount of sleep they get per night. <pause/> ]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play="">11.1_ClassSleep.png</MediaURLXML>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play="">ImageOnly</mediaTypeXML>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 3-3</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_4_2" play="Msg_3_4_2"><![CDATA[In this case we have multiple groups, which means we need to make multiple comparisons. Specifically, we have four groups and six comparisons. ]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 3-4</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_5_2" play="Msg_3_5_2"><![CDATA[The four groups are Freshman, Sophomore, Junior, and Senior. ]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play="">11.1_2_7_2.png</MediaURLXML>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play="">ImageOnly</mediaTypeXML>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 3-5</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_6_2" play="Msg_3_6_2"><![CDATA[The six comparisons are Freshman vs. Sophomore, Freshman vs. Junior, Freshman vs. Senior, Sophomore vs. Junior, Sophomore vs. Senior, and Junior vs. Senior. ]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play="">11.1_2_8.png</MediaURLXML>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play="">ImageOnly</mediaTypeXML>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 4</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_7_2" play="Msg_3_7_2"><![CDATA[So, can you use multiple t tests to compare those groups?]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="true" useStudent2="false" useStudent3="false" useTeacher="false"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play="">11.1_3_2.png</MediaURLXML>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play="">ImageOnly</mediaTypeXML>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 5</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_8_2" play="Msg_3_8_2"><![CDATA[Actually, we should not use multiple t-tests to make multiple comparisons.]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play="">11.1_5.png</MediaURLXML>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play="">ImageOnly</mediaTypeXML>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 6</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_9_2" play="Msg_3_9_2"><![CDATA[Why not?]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="true" useStudent2="false" useStudent3="false" useTeacher="false"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 7</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_10_2" play="Msg_3_10_2"><![CDATA[Let me explain why not with an example. ]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 8</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_11_2" play="Msg_3_11_2"><![CDATA[Consider the following scenario in which you can pick between two games: <pause/> in game 1, you have a 5% chance of winning. <pause/> in game 2, you have a 5% chance of winning in addition to another 5% chance of winning. <pause/> Which game do you want to play? That is, which game gives you a higher chance of winning? ]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play="">11.1_6_v2.png</MediaURLXML>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play="">ImageOnly</mediaTypeXML>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 9</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_12_2" play="Msg_3_12_2"><![CDATA[<eyeswide/> I'm having trouble understanding this game. ]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="true" useStudent3="false" useTeacher="false"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 10</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_13_2" play="Msg_3_13_2"><![CDATA[Ok, let's make this hypothetical game more concrete. <pause/> ]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 10-1</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_14_2" play="Msg_3_14_2"><![CDATA[You have just over a 5% chance of rolling an 11 on a pair of dice, right?]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play="">11.1_7_v2.png</MediaURLXML>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play="">ImageOnly</mediaTypeXML>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">0</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 10-2</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_15_2" play="Msg_3_15_2"><![CDATA[I guess. ]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="true" useStudent3="false" useTeacher="false"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 11</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_16_2" play="Msg_3_16_2"><![CDATA[If you win by rolling an 11, would you rather get one chance to roll <pause/>--as represented in Game 1--<pause/> or two chances to roll<pause/>--as represented in Game 2?]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play="">11.1_8_4.png</MediaURLXML>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play="">ImageOnly</mediaTypeXML>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 12</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_17_2" play="Msg_3_17_2"><![CDATA[This is easily the dumbest question you've ever asked.]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="true" useTeacher="false"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 13</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_18_2" play="Msg_3_18_2"><![CDATA[Game 2, obviously.]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="true" useStudent3="false" useTeacher="false"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 14</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_19_2" play="Msg_3_19_2"><![CDATA[Okay. <pause/> Why?]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 15</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_20_2" play="Msg_3_20_2"><![CDATA[More chances to win. ]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="true" useStudent2="false" useStudent3="false" useTeacher="false"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 16</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_21_2" play="Msg_3_21_2"><![CDATA[Exactly. You're capitalizing on chance. <pause/> The more opportunities you get, the more chances you have to win.]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play="">11.1_9.png</MediaURLXML>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play="">ImageOnly</mediaTypeXML>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 17</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_22_2" play="Msg_3_22_2"><![CDATA[So what does this have to do with _NAMES1_'s original question? ]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="true" useTeacher="false"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play="">11.1_3_2.png</MediaURLXML>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play="">ImageOnly</mediaTypeXML>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 18</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_23_2" play="Msg_3_23_2"><![CDATA[When we're making multiple comparisons, each statistical test has a probability of error associated with it, right?]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 19</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_24_2" play="Msg_3_24_2"><![CDATA[You mean the p value?]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="true" useStudent2="false" useStudent3="false" useTeacher="false"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 20</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_25_2" play="Msg_3_25_2"><![CDATA[Precisely. <pause/>There is always a possibility that your results are simply due to chance.]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 21</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_26_2" play="Msg_3_26_2"><![CDATA[Okay. Can we stop for a second? I remember p values but I'm having a hard time making the connection.]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="true" useStudent3="false" useTeacher="false"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 22</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_27_2" play="Msg_3_27_2"><![CDATA[No problem. <pause/>]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 22-2</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_28_2" play="Msg_3_28_2"><![CDATA[So, let's go back to our study comparing the sleep habits of Freshmen, Sophomores, Juniors, and Seniors. <pause/> ]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play="">11.1_ClassSleep.png</MediaURLXML>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play="">ImageOnly</mediaTypeXML>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 22-3</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_29_2" play="Msg_3_29_2"><![CDATA[We use a t-test to compare each group. Let's say that the result of each t-test is p = .05.]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play="">11.1_11.png</MediaURLXML>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play="">ImageOnly</mediaTypeXML>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 23</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_30_2" play="Msg_3_30_2"><![CDATA[Alright.]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="true" useStudent3="false" useTeacher="false"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 24</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_31_2" play="Msg_3_31_2"><![CDATA[That means each comparison has a 5% probability of being due to chance, right?]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 25</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_32_2" play="Msg_3_32_2"><![CDATA[That's right. ]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_451522d2-e6fa-41b5-b9cd-1e43394705db.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="true" useStudent2="false" useStudent3="false" useTeacher="false"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 26</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_33_2" play="Msg_3_33_2"><![CDATA[So, each additional test you conduct is like rolling the dice again. <pause/> One comparison has a 95% chance of being correct, or a 5% chance of being a Type 1 error.]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play="">11.1_13_9.png</MediaURLXML>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play="">ImageOnly</mediaTypeXML>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 26-2</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_34_2" play="Msg_3_34_2"><![CDATA[But the probability of two comparisons both being correct is .95 times .95, or .95 squared, which is about 90%.]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 26-3</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_35_2" play="Msg_3_35_2"><![CDATA[Wow, so now we're at a 10% chance of making a Type 1 error?]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="true" useStudent2="false" useStudent3="false" useTeacher="false"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 26-4</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_36_2" play="Msg_3_36_2"><![CDATA[Right. <pause/> And the probability of three comparisons all being right is .95 cubed, which is about 86%, and so on. <pause/> By the time we get to 6 comparisons, the chance of all of them being right is just 74%.]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 27</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_37_2" play="Msg_3_37_2"><![CDATA[So, multiple tests means more chances that at least one test result is wrong.]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="true" useStudent2="false" useStudent3="false" useTeacher="false"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 28</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_38_2" play="Msg_3_38_2"><![CDATA[That's exactly right. ]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 29</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_39_2" play="Msg_3_39_2"><![CDATA[Okay, that makes sense. <pause/> So, what do we do about it?]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="true" useStudent3="false" useTeacher="false"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 29-2</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_40_2" play="Msg_3_40_2"><![CDATA[Find a new line of work. ]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="true" useTeacher="false"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play=""/>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play=""/>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+    <ITEM UID="" play="" type="scene">
+      <TITLE UID="" play="">Slide 30</TITLE>
+      <NOTES UID="" play=""><![CDATA[Slide 1]]></NOTES>
+      <mattextS UID="Msg_3_41_2" play="Msg_3_41_2"><![CDATA[We use the next inferential test we're going to learn: the Analysis of Variance, or ANOVA.]]></mattextS>
+      <mattextR UID="" play=""/>
+      <mattextD UID="" play=""><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig UID="" play="">
+        <BKIMG UID="" play=""/>
+        <Transparent UID="" play=""><![CDATA[false]]></Transparent>
+        <MediaBaseURL UID="" play="">
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          
+        </MediaBaseURL>
+        <ACEWebAPI UID="" play=""/>
+        <CompLocation UID="" X="0" Y="0" play=""/>
+        <AVATAR S1X="0" S1Y="0" S2X="0" S2Y="0" S3X="0" S3Y="0" Student1="cb/English/Kate/Output/Susan.swf" Student1Pub="cb/English/Kate/Output/Susan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student2="cb/English/Julie/Output/Anna.swf" Student2Pub="cb/English/Julie/Output/Anna_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" Student3="cb/English/Paul/Output/Stan.swf" Student3Pub="cb/English/Paul/Output/Stan_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" TX="0" TY="0" Teacher="cb/English/James/Output/Ben.swf" TeacherPub="cb/English/James/Output/Ben_cbcba7ad-0e2e-4ff3-bcd3-066669699b40.swf" UID="" play="" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" useStudent1="false" useStudent2="false" useStudent3="false" useTeacher="true"/>
+        <MediaURLXML UID="" YouTubeEnding="-1" YouTubeStarting="-1" play="">OutroSlide112_2.png</MediaURLXML>
+        <YOUTUBE UID="" play="">
+          <HotPosition1 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition1>
+          <HotPosition2 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition2>
+          <HotPosition3 UID="" play="">
+            <time UID="" play="">time</time>
+            <guid UID="" play="">Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML UID="" play="">ImageOnly</mediaTypeXML>
+        <SKOMsg UID="" play=""/>
+        <POPChoice Message="" Title="" UID="" enabled="false" play=""/>
+        <UseAIML UID="" play="">0</UseAIML>
+        <AllowBookMark UID="" play="">1</AllowBookMark>
+        <PlayStyle UID="" delay="" play="">auto</PlayStyle>
+        <EnableBigImage UID="" play="">0</EnableBigImage>
+        <PnQs UID="" play=""/>
+      </PageConfig>
+      <PnQs UID="" play=""/>
+    </ITEM>
+  </ID>

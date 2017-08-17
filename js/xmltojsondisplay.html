@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" type="text/css" href="css/talkinghead.css">
+		<script src="jquery.min.js"></script>
+		<script src="jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.js"></script>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="Better.js" type="text/javascript"></script>
+		<script src="bouncer.js" type="text/javascript"></script>
+		<script src="xmltojson_peifu.js" type="text/javascript"></script>
+		<script src="testxml.xml" type="text/xml"></script>
+
+
+	</head>
+		
+		<body>
+		<div> 
+		
+		<script type="text/javascript" language="JavaScript">
+	
+		function processingReturn(data){
+		    var actionLength, text, i;
+		    actionLength=data.ACEActions.length;
+			SpeakList=[];
+			
+//			console.log("++=============================================================");
+//			console.log(JSON.stringify(data));
+//			console.log("=============================================================++++");
+			
+			for (i = 0; i < actionLength; i++) {
+				if ((data.ACEActions[i].Act=="Speak") || (data.ACEActions[i].Act=="ShowMedia")){
+					SpeakList.push(data.ACEActions[i]); 
+					console.log(JSON.stringify(data.ACEActions[i]));
+					}
+			}
+			Action(SpeakList[0],0);	
+
+		}
+
+		</script>
+
+
+	</div>
+
+	</body>
+</html>
