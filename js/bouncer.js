@@ -511,7 +511,10 @@ var xmlData = [];
 function getXmlData(jsonOfXml) {
 	var item = jsonOfXml.ID.ITEM;
 	var mediaIndex=0;
+	var positioni=0;
 
+	//There should be 2 i's. One is for reading the file and seeing media type.
+	//The second i is to assign values into the xmlData object.
 	for(var i=0; i<jsonOfXml.ID.ITEM.length; i++) {
 		//debugger;
 		var obj = {
@@ -532,9 +535,9 @@ function getXmlData(jsonOfXml) {
 
 		//Obtain ShowMedia info
 		if (itemAct.mediaTypeXML["#text"] === "ImageOnly") {
-			xmlData[i].Agent = "System";
-			xmlData[i].Act = "ShowMedia";
-			xmlData[i].Data = itemAct.MediaURLXML["#text"];
+			xmlData[positioni].Agent = "System";
+			xmlData[positioni].Act = "ShowMedia";
+			xmlData[positioni].Data = itemAct.MediaURLXML["#text"];
 
 			mediaIndex++;
 
@@ -544,18 +547,20 @@ function getXmlData(jsonOfXml) {
 				xmlData[mediaIndex].Agent = "ComputerStudent";
 			}
 			xmlData[mediaIndex].Act = "Speak";
-			
+
+			positioni++;
 
 		} else {
-			xmlData[i].Act = "Speak";
+			xmlData[positioni].Act = "Speak";
 			//Obtain Agent info
 			if (itemAgent.useTeacher == "true") {
-				xmlData[i].Agent = "ComputerTutor";
+				xmlData[positioni].Agent = "ComputerTutor";
 			} else if (itemAgent.useStudent1=="true" || itemAgent.useStudent2=="true" || itemAgent.useStudent3=="true") {
-				xmlData[i].Agent = "ComputerStudent";
+				xmlData[positioni].Agent = "ComputerStudent";
 			}
 		}
 		mediaIndex++;
+		positioni++;
 	}
 }
 
