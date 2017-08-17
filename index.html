@@ -156,7 +156,17 @@
 				addCdata(xmlDocCopy);
 
 				removeEmpty(xmlData);
-
+				
+				console.log(xmlData);
+				
+				var actionLength=xmlData.length;
+				var i;
+				SpeakList=[];
+				for (i = 0; i < actionLength; i++) {
+						SpeakList.push(xmlData[i]); 
+						console.log(JSON.stringify(xmlData[i]));
+						}
+					Action(SpeakList[0],0);		
 				}
 			IDRetrive.send(null);
 
