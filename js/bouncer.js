@@ -565,13 +565,18 @@ function getXmlData(jsonOfXml) {
 }
 
 function addCdata(xml) {
+	//debugger;
 	var mediaIndex=0;
 	for(var i=0; i<xml.getElementsByTagName("mattextS").length; i++) {
-		if(xml.getElementsByTagName("mediaTypeXML")[i].childNodes[0].nodeValue === "ImageOnly") {
+		var mattextS = xml.getElementsByTagName("mattextS")[i];
+		var mediaTypeXML = xml.getElementsByTagName("mediaTypeXML")[i];
+		//If it has a childNode, run this command
+		if (mediaTypeXML.childNodes[0]) {
+		if(mediaTypeXML.childNodes[0].nodeValue === "ImageOnly") {
 			mediaIndex++;
-			xmlData[mediaIndex].Data = xml.getElementsByTagName("mattextS")[i].childNodes[0].nodeValue;
-		} else {
-		xmlData[mediaIndex].Data = xml.getElementsByTagName("mattextS")[i].childNodes[0].nodeValue;
+			xmlData[mediaIndex].Data = mattextS.childNodes[0].nodeValue;
+		}} else {
+		xmlData[i].Data = mattextS.childNodes[0].nodeValue;
 		}
 		mediaIndex++;
 	}
