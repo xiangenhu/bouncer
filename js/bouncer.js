@@ -578,3 +578,11 @@ function addCdata(xml) {
 		mediaIndex++;
 	}
 }
+
+function removeEmpty(xmlData) {
+	for (var i=0; i<xmlData.length; i++){
+		if (xmlData[i].Agent == "" && xmlData[i].Act == "" && xmlData[i].Data==""){
+			xmlData.splice(i);
+		}
+	}
+}
