@@ -132,8 +132,11 @@
 			
 			var IDRetrive = new XMLHttpRequest();
 			//debugger;
-			IDRetrive.open('GET', url, true);
-			IDRetrive.overrideMimeType("text/plain")
+			//IDRetrive.open('GET', url, false);
+			//IDRetrive.overrideMimeType("text/plain")
+
+			IDRetrive.open("GET", url, false);
+			IDRetrive.overrideMimeType('text/xml; charset=iso-8859-1');
 
 			IDRetrive.onload = function () {
 				//ID is a string
