@@ -118,7 +118,7 @@
 		var xmlDocCopy;
 
 		function GetIDXML(){
-
+			//debugger;
 			var RetriveIDObj={
 				guid:qs("IDguid","ec0d112f-35f0-4b85-b54d-ead66f1ab672"),
 				source:"ScriptOnly",
@@ -130,18 +130,24 @@
 			
 	//		console.log(url);
 			
-			var IDRetrive  = new XMLHttpRequest();
+			var IDRetrive = new XMLHttpRequest();
+			//debugger;
 			IDRetrive.open('GET', url, true);
+			IDRetrive.overrideMimeType("text/plain")
+
 			IDRetrive.onload = function () {
 				//ID is a string
 				//debugger;
-				var ID = IDRetrive.responseText;
+				var oldID = IDRetrive.responseText;
 				var parser, xmlDoc;
+				//debugger;
+				var ID = "<?xml version='1.0' encoding='UTF-8'?> \n" + oldID;
 
 				parser = new DOMParser();
 				//xmlDoc is an object #document
 				//Converts ID text to xml
 				xmlDoc = parser.parseFromString(ID,"text/xml");
+
 
 				//Cannot use xmlDoc to get Cdata because it has local scope
 				xmlDocCopy = xmlDoc;
@@ -169,7 +175,7 @@
 					Action(SpeakList[0],0);		
 				}
 			IDRetrive.send(null);
-
+		
 		}		
   
 
