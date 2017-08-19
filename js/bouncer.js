@@ -600,3 +600,70 @@ function removeEmpty(xmlData) {
 		}
 	}
 }
+
+var jsonOfXml;
+var xmlDocCopy;
+
+
+function GetIDXML(){
+	//debugger;
+	var RetriveIDObj={
+		guid:SKOGuid,
+		source:"ScriptOnly",
+		TagName:"ID",
+		authorname:"xiangenhu"
+	};
+		
+	var url  = "http://"+SKOSchool+"/retrieve?json="+JSON.stringify(RetriveIDObj);
+	
+	//		console.log(url);
+	
+	var IDRetrive = new XMLHttpRequest();
+	//debugger;
+	//IDRetrive.open('GET', url, false);
+	//IDRetrive.overrideMimeType("text/plain")
+
+	IDRetrive.open("GET", url, false);
+	IDRetrive.overrideMimeType('text/xml; charset=iso-8859-1');
+
+	IDRetrive.onload = function () {
+		//ID is a string
+		//debugger;
+		var oldID = IDRetrive.responseText;
+		var parser, xmlDoc;
+		//debugger;
+		var ID = "<?xml version='1.0' encoding='UTF-8'?> \n" + oldID;
+
+		parser = new DOMParser();
+		//xmlDoc is an object #document
+		//Converts ID text to xml
+		xmlDoc = parser.parseFromString(ID,"text/xml");
+
+
+		//Cannot use xmlDoc to get Cdata because it has local scope
+		xmlDocCopy = xmlDoc;
+
+		//jsonOfXml is an object
+		//Converts xml to json
+		jsonOfXml = xmlToJson(xmlDoc);
+
+		//Gets data parameter from the json object
+		getXmlData(jsonOfXml);
+
+		//Obtains Cdata from the xmlDocCopy and adds it to xmlData Data property
+		addCdata(xmlDocCopy);
+
+		removeEmpty(xmlData);
+		
+		console.log(xmlData);
+		
+		var actionLength=xmlData.length;
+		SpeakList=[];
+		for (var i = 0; i < actionLength; i++) {
+				SpeakList.push(xmlData[i]); 
+				console.log(JSON.stringify(xmlData[i]));
+				}
+			Action(SpeakList[0],0);		
+		}
+	IDRetrive.send(null);
+}
