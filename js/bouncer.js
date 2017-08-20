@@ -16,7 +16,7 @@ function qs(search_for,defaultstr) {
 		return defaultstr;
 	}
 	
-
+//Contains objects with Agent, Act, Data properties
 var SpeakList = [];
 
 // English Character and SKO Default
@@ -264,17 +264,18 @@ function onSceneLoaded(id)
 	// CB content loaded and ready to accept commands - will get N of these where N is # of characters
 }
 
+//Finds which ones is talking and then executes Speak function
 function AgentTalk(obj,aIndex){
 	if (obj.Agent=="ComputerTutor"){
 		Speak(CharactorA,obj.Data,aIndex+1,true);
 	}	
-	if (obj.Agent=="ComputerStudent1"){
+	else if (obj.Agent=="ComputerStudent1"){
 		Speak(CharactorB,obj.Data,aIndex+1,true);
 	} 
-	if (obj.Agent=="ComputerStudent2"){
+	else if (obj.Agent=="ComputerStudent2"){
 		Speak(CharactorC,obj.Data,aIndex+1,true);
 	} 
-	if (obj.Agent=="ComputerStudent3"){
+	else if (obj.Agent=="ComputerStudent3"){
 		Speak(CharactorD,obj.Data,aIndex+1,true);
 	}
 	
@@ -282,6 +283,7 @@ function AgentTalk(obj,aIndex){
 
 //Action(Speaklist). 
 //Speaklist contains an array of objects {Agent, Act, Data}
+//Runs the object through two functions to see what action to take
 function Action(obj,aIndex){
 	actionMethods.ifShowMedia(obj,aIndex);
 	actionMethods.ifSpeakTalk(obj,aIndex);
@@ -289,6 +291,7 @@ function Action(obj,aIndex){
 //When isRunning === true, agents stop talking
 var isRunning = false;
 
+//Organizes function to use in Action();
 var actionMethods = {
 	
 	ifSpeakTalk: function(obj, aIndex) {
@@ -302,6 +305,7 @@ var actionMethods = {
 
 		if (obj.Act=="ShowMedia") {
 			var newID=aIndex+1;
+			//If there's no period in the data, it would be a youtube video (Ex.image.png is not video)
 			if (obj.Data.indexOf('.') == -1){
 				displayYoutube("video-placeholder",obj.Data);
 				currentIndex=newID;
@@ -600,3 +604,65 @@ function removeEmpty(xmlData) {
 		}
 	}
 }
+
+var jsonOfXml;
+var xmlDocCopy;
+
+function GetIDXML(){
+
+	var RetriveIDObj={
+		guid:qs("IDguid","ec0d112f-35f0-4b85-b54d-ead66f1ab672"),
+		source:"ScriptOnly",
+		TagName:"ID",
+		authorname:"xiangenhu"
+	};
+		
+	var url  = "http://mi.skoonline.org/retrieve?json="+JSON.stringify(RetriveIDObj);
+	
+//		console.log(url);
+	
+	var IDRetrive  = new XMLHttpRequest();
+	IDRetrive.overrideMimeType('text/xml; charset=iso-8859-1');
+
+	IDRetrive.open('GET', url, true);
+	IDRetrive.onload = function () {
+		//ID is a string
+		//debugger;
+		var oldID = IDRetrive.responseText;
+		var ID = "<?xml version='1.0' encoding='utf-8'?> \n" + oldID;
+
+		var parser, xmlDoc;
+
+		parser = new DOMParser();
+		//xmlDoc is an object #document
+		//Converts ID text to xml
+		xmlDoc = parser.parseFromString(ID,"text/xml");
+
+		//Cannot use xmlDoc to get Cdata because it has local scope
+		xmlDocCopy = xmlDoc;
+
+		//jsonOfXml is an object
+		//Converts xml to json
+		jsonOfXml = xmlToJson(xmlDoc);
+
+		//Gets data parameter from the json object
+		getXmlData(jsonOfXml);
+
+		//Obtains Cdata from the xmlDocCopy and adds it to xmlData Data property
+		addCdata(xmlDocCopy);
+
+		removeEmpty(xmlData);
+		
+		console.log(xmlData);
+		
+		var actionLength=xmlData.length;
+		SpeakList=[];
+		for (var i = 0; i < actionLength; i++) {
+				SpeakList.push(xmlData[i]); 
+				console.log(JSON.stringify(xmlData[i]));
+				}
+			Action(SpeakList[0],0);		
+		}
+	IDRetrive.send(null);
+
+}		
