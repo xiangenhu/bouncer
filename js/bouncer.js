@@ -370,9 +370,12 @@ function onVariableChange(id, n)
 
 function closeYoutube() {
 	var youtubeContainer = document.getElementById('video-placeholder')
+	//Style is none is it is closed
     youtubeContainer.style.display = "none";
+    //Resumes talking and pauses video
 	isRunning = false;
 	player.pauseVideo();
+	//Resumes talking where leaves off
 	Action(SpeakList[currentIndex],currentIndex);
 }
 
@@ -403,6 +406,7 @@ function resumeSession() {
 
 var player;
 
+//Gets the youtube video from the data and makes it ready to be displayed
 function GetYoutubeVideo(VideoPlaceHolder,VideoID){
 	 player = new YT.Player(VideoPlaceHolder, {
         width: 640,
@@ -429,6 +433,7 @@ function onPlayerReady(event) {
 // when video ends
 var done = false;
 function onPlayerStateChange(event) {    
+	//Once it is done function stops
     if(event.data == YT.PlayerState.PLAYING && !done) { 
         setTimeout(closeYoutube, 5000);
         done = true;
@@ -515,18 +520,20 @@ function xmlToJson(xml) {
 	return obj;
 };
 
+//Contains the data with methods Agent Act Data
 var xmlData = [];
 
 //Takes xml and converts it to json that can be used in processingReturn
 function getXmlData(jsonOfXml) {
+	//Each item has an object with Act:"Speak". However, it can also have an object  
+	//with Act:"Showmedia" if there is a media present
 	var item = jsonOfXml.ID.ITEM;
 	var mediaIndex=0;
-	var mediaIndex=0;
 
-	//There should be 2 i's. One is for reading the file and seeing media type.
-	//The second i is to assign values into the xmlData object.
+	//There should be 2 counters. "i" is for reading the file and seeing media type.
+	//"mediaIndex" is to assign values into the xmlData object.
 	for(var i=0; i<jsonOfXml.ID.ITEM.length; i++) {
-		//debugger;
+		//Declares an object and adds it to the array
 		var obj = {
 			Agent: "",
 			Act: "",
@@ -539,7 +546,7 @@ function getXmlData(jsonOfXml) {
 			Data: "",
 		}
 		xmlData.push(obj);
-
+		//itemAgent and itemAct are a shortcut (pass by reference)
 		var itemAgent = item[i].PageConfig.AVATAR.currentAttributes;
 		var itemAct = item[i].PageConfig;
 
@@ -547,6 +554,7 @@ function getXmlData(jsonOfXml) {
 		if (itemAct.mediaTypeXML["#text"] === "ImageOnly") {
 			xmlData[mediaIndex].Agent = "System";
 			xmlData[mediaIndex].Act = "ShowMedia";
+			//The ["#text"] contains the image name (image.jpg)
 			xmlData[mediaIndex].Data = itemAct.MediaURLXML["#text"];
 
 			mediaIndex++;
@@ -579,17 +587,22 @@ function getXmlData(jsonOfXml) {
 		mediaIndex++;
 	}
 }
-
+//This function takes the Cdata from the xml and puts it in the Data property for 
+//objects with Act:"Speak"
 function addCdata(xml) {
 	//debugger;
 	var mediaIndex=0;
+	//mattextS are elements that contains the Cdata
 	for(var i=0; i<xml.getElementsByTagName("mattextS").length; i++) {
+		//the variable mattextS references the element
 		var mattextS = xml.getElementsByTagName("mattextS")[i];
 		var mediaTypeXML = xml.getElementsByTagName("mediaTypeXML")[i];
-
+		//If the mediatype is image, then put the cdata in the object that comes after
+		//that because the current object contains the image data
 		if(mediaTypeXML.textContent === "ImageOnly") {
 			mediaIndex++;
 			xmlData[mediaIndex].Data = mattextS.textContent;
+		//Otherwise, just put the cdata in the current object
 		} else {
 		xmlData[mediaIndex].Data = mattextS.textContent;
 		}
@@ -618,17 +631,16 @@ function GetIDXML(){
 	};
 		
 	var url  = "http://mi.skoonline.org/retrieve?json="+JSON.stringify(RetriveIDObj);
-	
-//		console.log(url);
-	
+		
 	var IDRetrive  = new XMLHttpRequest();
+	//Fixes issue with firefox browser by forcing it to be read as text
 	IDRetrive.overrideMimeType('text/xml; charset=iso-8859-1');
 
 	IDRetrive.open('GET', url, true);
 	IDRetrive.onload = function () {
 		//ID is a string
-		//debugger;
 		var oldID = IDRetrive.responseText;
+		//Adds declaration
 		var ID = "<?xml version='1.0' encoding='utf-8'?> \n" + oldID;
 
 		var parser, xmlDoc;
@@ -639,6 +651,7 @@ function GetIDXML(){
 		xmlDoc = parser.parseFromString(ID,"text/xml");
 
 		//Cannot use xmlDoc to get Cdata because it has local scope
+		//So, we use a copy of it
 		xmlDocCopy = xmlDoc;
 
 		//jsonOfXml is an object
