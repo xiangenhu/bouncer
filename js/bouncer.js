@@ -471,13 +471,13 @@ function initialize(){
 
 
 // //Allows you to drag avatar with class tr-agent #Lily
-// $(document).ready( function() {
-//     $( function() {
+// $(document).ready(function() {
+//     $(function() {
 //     	$(".tl-agent").draggable();
 // 	});
 
-// 	$( function() {
-//     	$( ".tr-agent" ).draggable();
+// 	$(function() {
+//     	$(".tr-agent").draggable();
 // 	});
 // }
 // )
