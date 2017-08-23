@@ -585,14 +585,14 @@ function getXmlData(jsonOfXml) {
 }
 //This function takes the Cdata from the xml and puts it in the Data property for 
 //objects with Act:"Speak"
-function addCdata(xml) {
+function addCdata(xmlDocCopy) {
 	//debugger;
 	var mediaIndex=0;
 	//mattextS are elements that contains the Cdata
-	for(var i=0; i<xml.getElementsByTagName("mattextS").length; i++) {
+	for(var i=0; i<xmlDocCopy.getElementsByTagName("mattextS").length; i++) {
 		//the variable mattextS references the element
-		var mattextS = xml.getElementsByTagName("mattextS")[i];
-		var mediaTypeXML = xml.getElementsByTagName("mediaTypeXML")[i];
+		var mattextS = xmlDocCopy.getElementsByTagName("mattextS")[i];
+		var mediaTypeXML = xmlDocCopy.getElementsByTagName("mediaTypeXML")[i];
 		//If the mediatype is image, then put the cdata in the object that comes after
 		//that because the current object contains the image data
 		if(mediaTypeXML.textContent === "ImageOnly") {
@@ -705,11 +705,13 @@ function newgetXmlData (jsonOfXml) {
 			Data: "",
 		}
 		xmlData.push(obj);
-
+		//Adds stuff to first object
 		xmlData[i].obj.currentStart = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointStop.value;
 		xmlData[i].obj.duration = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointDuration.value;
 
+		//Adds stuff to second object
 		xmlData[i+1].obj.Agent = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointAgent["#textContent"];
+		xmlData[i+1].obj.Data = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointSpeech.textContent;
 	}
 	//Now we display the image and its respective talking head
 	for(var i=0; i<pageImage.ASATPageImgHotSpot.length; i++) {
@@ -733,15 +735,25 @@ function newgetXmlData (jsonOfXml) {
 		}
 		imgData.push(imgObj);
 
+		var image = document.getElementById("imageContainer");
+		img.background-image.url = xmlData[i].obj.Data;
+
+
 		imgData[i].Xdir = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotX.value;
 		imgData[i].Ydir = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotY.value;
 		imgData[i].imgwidth = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotWidth.value;
 		imgData[i].imgheight = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotHeight.value;
 
+		image.left = imgData[i].Xdir;
+		img.bottom = imgData[i].Ydir;
+		img.background-size = imgData[i].imgwidth, imgData[i].imgheight;
+
 		imgData[i+1].Agent = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswerBy["#text"];
+		xmlData[i+1].obj.Data = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswer.textContent;
+
 	}
 }
-	
+
 function GetIDXML(){
 
 	var RetriveIDObj={
