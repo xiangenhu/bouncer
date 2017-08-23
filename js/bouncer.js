@@ -672,7 +672,7 @@ function GetIDXML(){
 		SpeakList=[];
 		for (var i = 0; i < actionLength; i++) {
 				SpeakList.push(xmlData[i]); 
-				console.log(JSON.stringify(xmlData[i]));
+				console.log("==>"+JSON.stringify(xmlData[i]));
 				}
 			Action(SpeakList[0],0);		
 		}
