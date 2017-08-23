@@ -155,3 +155,11 @@
     display: block;
     z-index:2;
 }
+
+#imageContainer{
+	position: absolute;
+	left:0;
+	bottom:0;
+	background-image: url();
+	background-size:0px 0px;
+}

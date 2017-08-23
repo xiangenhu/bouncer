@@ -431,18 +431,20 @@ function onPlayerReady(event) {
 }
 
 // when video ends
+var duration;
 var done = false;
 function onPlayerStateChange(event) {    
 	//Once it is done function stops
     if(event.data == YT.PlayerState.PLAYING && !done) { 
-        setTimeout(closeYoutube, 5000);
+        setTimeout(closeYoutube, duration);
         done = true;
     }
 }
 
 //play at specific time
+var startTime;
 function seekTo(event) {
-	event.target.seekTo(100);
+	event.target.seekTo(startTime);
 }
  
 function onYouTubeIframeAPIReady() {
@@ -522,6 +524,9 @@ function xmlToJson(xml) {
 
 //Contains the data with methods Agent Act Data
 var xmlData = [];
+
+//The next three functions create the xmlData. getXmlData gets the Agent and Act data from the 
+//jsonOfXml. getCdata gets the data for the Speak property. removeEmpty removes empty objects
 
 //Takes xml and converts it to json that can be used in processingReturn
 function getXmlData(jsonOfXml) {
@@ -618,6 +623,8 @@ function removeEmpty(xmlData) {
 	}
 }
 
+///////////////////////////////////////////////////////////////////////////////////////
+
 var jsonOfXml;
 var xmlDocCopy;
 
@@ -678,4 +685,134 @@ function GetIDXML(){
 		}
 	IDRetrive.send(null);
 
-}		
+}
+
+var videoData = [];
+var imgData = [];
+
+//The next three functions get the xmlData.
+
+function newgetXmlData (jsonOfXml) {
+
+	pageVideo = ASATPageConfigration.ASATPageVideo;
+	pageImage = ASATPageConfigration.ASATPageImage;
+
+	videoData = pageVideo.ASATPageVideoStoppingPointFileName["#text"];
+	displayYoutube("video-placeholder",videoData);
+
+	//First we play the video and its respective talking head
+	for(var i=0; i<pageVideo.ASATPageVideoBreakPoint.length; i++) {
+		//You push 2 objects to xmlData for every breakpoint. For each breakpoint, it 
+		//plays the video at specific parts and then the talking head says something
+		var obj = {
+			Agent: "System",
+			Act: "ShowMedia",
+			Data: pageVideo.ASATPageVideoStoppingPointFileName["#text"],
+		}
+		xmlData.push(obj);
+		var obj = {
+			Agent: "",
+			Act: "Speak",
+			Data: "",
+		}
+		xmlData.push(obj);
+		var vidObj = {
+			currentStart = "",
+			duration = "",
+		}
+		videoData.push(vidObj);
+
+		videoData[i].vidObj.currentStart = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointStop.value;
+		videoData[i].vidObj.duration = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointDuration.value;
+
+		xmlData[i+1].obj.Agent = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointAgent["#textContent"];
+	}
+	//Now we display the image and its respective talking head
+	for(var i=0; i<pageImage.ASATPageImgHotSpot.length; i++) {
+		var obj = {
+			Agent: "System",
+			Act: "ShowMedia",
+			Data: pageVideo.ASATPageImgFile["#text"],
+		}
+		xmlData.push(obj);
+		var obj = {
+			Agent: "",
+			Act: "Speak",
+			Data: "",
+		}
+		xmlData.push(obj);
+		var imgObj = {
+			Xdir: "",
+			Ydir: "",
+			imgwidth: "",
+			imgheight: "",
+		}
+		imgData.push(imgObj);
+
+		imgData[i].Xdir = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotX.value;
+		imgData[i].Ydir = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotY.value;
+		imgData[i].imgwidth = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotWidth.value;
+		imgData[i].imgheight = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotHeight.value;
+
+		imgData[i+1].Agent = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswerBy["#text"];
+	}
+}
+	
+function GetIDXML(){
+
+	var RetriveIDObj={
+		guid:qs("IDguid","ec0d112f-35f0-4b85-b54d-ead66f1ab672"),
+		source:"ScriptOnly",
+		TagName:"ID",
+		authorname:"xiangenhu"
+	};
+		
+	var url  = "http://mi.skoonline.org/retrieve?json="+JSON.stringify(RetriveIDObj);
+		
+	var IDRetrive  = new XMLHttpRequest();
+	//Fixes issue with firefox browser by forcing it to be read as text
+	IDRetrive.overrideMimeType('text/xml; charset=iso-8859-1');
+
+	IDRetrive.open('GET', url, true);
+	IDRetrive.onload = function () {
+		//ID is a string
+		var oldID = IDRetrive.responseText;
+		//Adds declaration
+		var ID = "<?xml version='1.0' encoding='utf-8'?> \n" + oldID;
+
+		var parser, xmlDoc;
+
+		parser = new DOMParser();
+		//xmlDoc is an object #document
+		//Converts ID text to xml
+		xmlDoc = parser.parseFromString(ID,"text/xml");
+
+		//Cannot use xmlDoc to get Cdata because it has local scope
+		//So, we use a copy of it
+		xmlDocCopy = xmlDoc;
+
+		//jsonOfXml is an object
+		//Converts xml to json
+		jsonOfXml = xmlToJson(xmlDoc);
+
+		//Gets data parameter from the json object
+		getXmlData(jsonOfXml);
+
+		//Obtains Cdata from the xmlDocCopy and adds it to xmlData Data property
+		addCdata(xmlDocCopy);
+
+		removeEmpty(xmlData);
+		
+		console.log(xmlData);
+		
+		var actionLength=xmlData.length;
+		SpeakList=[];
+		for (var i = 0; i < actionLength; i++) {
+				SpeakList.push(xmlData[i]); 
+				console.log(JSON.stringify(xmlData[i]));
+				}
+			Action(SpeakList[0],0);		
+		}
+	IDRetrive.send(null);
+
+}
