@@ -318,6 +318,9 @@ var actionMethods = {
 	}
 }
 
+///////////////////////////////////////////////////////////////////////////////////
+//The next section of functions deal with the youtube video
+
 //parameters are div and youtube id (obj,Data)
 function displayYoutube(YoutubContainer,YoutubeID){
 
@@ -394,16 +397,6 @@ function resumeSession() {
 	Action(SpeakList[currentIndex],currentIndex);
 }
 
-// function makeTlAgentBigger() {
-// 	var tlAgent = document.querySelector("tl-agent");
-
-// 	tlAgent.addEventListener('click', function(){
-		
-		
-// 	});
-// }
-// Youtube Controls
-
 var player;
 
 //Gets the youtube video from the data and makes it ready to be displayed
@@ -431,20 +424,18 @@ function onPlayerReady(event) {
 }
 
 // when video ends
-var duration;
 var done = false;
 function onPlayerStateChange(event) {    
 	//Once it is done function stops
     if(event.data == YT.PlayerState.PLAYING && !done) { 
-        setTimeout(closeYoutube, duration);
+        setTimeout(closeYoutube, obj.duration);
         done = true;
     }
 }
 
 //play at specific time
-var startTime;
 function seekTo(event) {
-	event.target.seekTo(startTime);
+	event.target.seekTo(obj.currentStart);
 }
  
 function onYouTubeIframeAPIReady() {
@@ -483,7 +474,7 @@ function initialize(){
 // 	});
 // }
 // )
-
+/////////////////////////////////////////////////////////////////////////////////////////
 // Changes XML to JSON
 function xmlToJson(xml) {
 	// Create the return object
@@ -524,7 +515,7 @@ function xmlToJson(xml) {
 
 //Contains the data with methods Agent Act Data
 var xmlData = [];
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
 //The next three functions create the xmlData. getXmlData gets the Agent and Act data from the 
 //jsonOfXml. getCdata gets the data for the Speak property. removeEmpty removes empty objects
 
@@ -623,8 +614,6 @@ function removeEmpty(xmlData) {
 	}
 }
 
-///////////////////////////////////////////////////////////////////////////////////////
-
 var jsonOfXml;
 var xmlDocCopy;
 
@@ -687,7 +676,8 @@ function GetIDXML(){
 
 }
 
-var videoData = [];
+/////////////////////////////////////////////////////////////////////
+//Same functions as above but different text file is obtained from server
 var imgData = [];
 
 //The next three functions get the xmlData.
@@ -697,9 +687,6 @@ function newgetXmlData (jsonOfXml) {
 	pageVideo = ASATPageConfigration.ASATPageVideo;
 	pageImage = ASATPageConfigration.ASATPageImage;
 
-	videoData = pageVideo.ASATPageVideoStoppingPointFileName["#text"];
-	displayYoutube("video-placeholder",videoData);
-
 	//First we play the video and its respective talking head
 	for(var i=0; i<pageVideo.ASATPageVideoBreakPoint.length; i++) {
 		//You push 2 objects to xmlData for every breakpoint. For each breakpoint, it 
@@ -708,6 +695,8 @@ function newgetXmlData (jsonOfXml) {
 			Agent: "System",
 			Act: "ShowMedia",
 			Data: pageVideo.ASATPageVideoStoppingPointFileName["#text"],
+			currentStart = "",
+			duration = "",
 		}
 		xmlData.push(obj);
 		var obj = {
@@ -716,14 +705,9 @@ function newgetXmlData (jsonOfXml) {
 			Data: "",
 		}
 		xmlData.push(obj);
-		var vidObj = {
-			currentStart = "",
-			duration = "",
-		}
-		videoData.push(vidObj);
 
-		videoData[i].vidObj.currentStart = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointStop.value;
-		videoData[i].vidObj.duration = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointDuration.value;
+		xmlData[i].obj.currentStart = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointStop.value;
+		xmlData[i].obj.duration = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointDuration.value;
 
 		xmlData[i+1].obj.Agent = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointAgent["#textContent"];
 	}
