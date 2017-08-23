@@ -682,7 +682,7 @@ var imgData = [];
 
 //The next three functions get the xmlData.
 
-function newgetXmlData (jsonOfXml) {
+function newGetIDXML(jsonOfXml) {
 
 	pageVideo = ASATPageConfigration.ASATPageVideo;
 	pageImage = ASATPageConfigration.ASATPageImage;
@@ -695,8 +695,8 @@ function newgetXmlData (jsonOfXml) {
 			Agent: "System",
 			Act: "ShowMedia",
 			Data: pageVideo.ASATPageVideoStoppingPointFileName["#text"],
-			currentStart = "",
-			duration = "",
+			currentStart: "",
+			duration: "",
 		}
 		xmlData.push(obj);
 		var obj = {
@@ -736,7 +736,7 @@ function newgetXmlData (jsonOfXml) {
 		imgData.push(imgObj);
 
 		var image = document.getElementById("imageContainer");
-		img.background-image.url = xmlData[i].obj.Data;
+		image.style.backgroundImage = "url('xmlData[i].obj.Data')";
 
 
 		imgData[i].Xdir = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotX.value;
@@ -744,9 +744,10 @@ function newgetXmlData (jsonOfXml) {
 		imgData[i].imgwidth = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotWidth.value;
 		imgData[i].imgheight = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotHeight.value;
 
-		image.left = imgData[i].Xdir;
-		img.bottom = imgData[i].Ydir;
-		img.background-size = imgData[i].imgwidth, imgData[i].imgheight;
+		image.style.backgroundPosition = "imgData[i].Xdir imgData[i].Ydir";
+		//image.style.left = imgData[i].Xdir;
+		//image.style.bottom = imgData[i].Ydir;
+		image.style.backgroundSize = "imgData[i].imgwidth imgData[i].imgheight";
 
 		imgData[i+1].Agent = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswerBy["#text"];
 		xmlData[i+1].obj.Data = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswer.textContent;
