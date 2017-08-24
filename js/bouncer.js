@@ -618,9 +618,9 @@ var jsonOfXml;
 var xmlDocCopy;
 
 function GetIDXML(){
-
+debugger;
 	var RetriveIDObj={
-		guid:qs("IDguid","ec0d112f-35f0-4b85-b54d-ead66f1ab672"),
+		guid:qs("IDguid","ec0d112f-35f0-4b85-b54d-ead66f1ab672"), 
 		source:"ScriptOnly",
 		TagName:"ID",
 		authorname:"xiangenhu"
@@ -682,11 +682,11 @@ var imgData = [];
 
 //The next three functions get the xmlData.
 
-function newgetXmlData(jsonOfXml) {
-
-	pageVideo = ASATPageConfigration.ASATPageVideo;
-	pageImage = ASATPageConfigration.ASATPageImage;
-
+function newGetXmlData(jsonOfXml) {
+//debugger;
+	pageVideo = jsonOfXml.ASATPageConfigration.ASATPageVideo;
+	pageImage = jsonOfXml.ASATPageConfigration.ASATPageImage;
+	var mediaIndex = 0;
 	//First we play the video and its respective talking head
 	for(var i=0; i<pageVideo.ASATPageVideoBreakPoint.length; i++) {
 		//You push 2 objects to xmlData for every breakpoint. For each breakpoint, it 
@@ -706,19 +706,22 @@ function newgetXmlData(jsonOfXml) {
 		}
 		xmlData.push(obj);
 		//Adds stuff to first object
-		xmlData[i].obj.currentStart = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointStop.value;
-		xmlData[i].obj.duration = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointDuration.value;
-
+		xmlData[mediaIndex].currentStart = parseInt(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointStop["#text"]);
+		xmlData[mediaIndex].duration = parseInt(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointDuration["#text"]);
+		debugger;
+		mediaIndex++;
 		//Adds stuff to second object
-		xmlData[i+1].obj.Agent = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointAgent["#textContent"];
-		xmlData[i+1].obj.Data = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointSpeech.textContent;
+		xmlData[mediaIndex].Agent = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointAgent["#text"];
+		xmlData[mediaIndex].Data = xmlDocCopy.getElementsByTagName("ASATPageVideoBreakPointSpeech")[i].textContent;
+
+		mediaIndex++;
 	}
 	//Now we display the image and its respective talking head
 	for(var i=0; i<pageImage.ASATPageImgHotSpot.length; i++) {
 		var obj = {
 			Agent: "System",
 			Act: "ShowMedia",
-			Data: pageVideo.ASATPageImgFile["#text"],
+			Data: pageImage.ASATPageImgFile["#text"],
 		}
 		xmlData.push(obj);
 		var obj = {
@@ -756,15 +759,18 @@ function newgetXmlData(jsonOfXml) {
 }
 
 function newGetIDXML(){
-	debugger;
-	var RetriveIDObj={
-		guid:qs("IDguid","768ca09d-3ea8-4174-a19c-86f096217f05"),
-		source:"ScriptOnly",
-		TagName:"ASATPageConfigration",
-		authorname:"xiangenhu"
-	};
+	//debugger;
+	// var RetriveIDObj={
+	// 	guid:qs("IDguid","768ca09d-3ea8-4174-a19c-86f096217f05"), 
+	// 	source:"ScriptOnly",
+	// 	TagName:"ASATPageConfigration",
+	// 	authorname:"xiangenhu"
+	// };
 		
-	var url  = "http://mi.skoonline.org/retrieve?json="+JSON.stringify(RetriveIDObj);
+	//var url  = "http://mi.skoonline.org/retrieve?json="+JSON.stringify(RetriveIDObj);
+
+	var url = "http://class.skoonline.org/retrieve?json={%22authorname%22:%22xiangenhu%22,%22source%22:%22ScriptOnly%22,%22guid%22:%22768ca09d-3ea8-4174-a19c-86f096217f05%22,%22TagName%22:%22ASATPageConfigration%22}";
+
 		
 	var IDRetrive  = new XMLHttpRequest();
 	//Fixes issue with firefox browser by forcing it to be read as text
