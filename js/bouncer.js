@@ -285,6 +285,7 @@ function AgentTalk(obj,aIndex){
 //Speaklist contains an array of objects {Agent, Act, Data}
 //Runs the object through two functions to see what action to take
 function Action(obj,aIndex){
+	//debugger;
 	actionMethods.ifShowMedia(obj,aIndex);
 	actionMethods.ifSpeakTalk(obj,aIndex);
 }
@@ -302,7 +303,6 @@ var actionMethods = {
 	},
 
 	ifShowMedia: function(obj, aIndex) {
-
 		if (obj.Act=="ShowMedia") {
 			var newID=aIndex+1;
 			//If there's no period in the data, it would be a youtube video (Ex.image.png is not video)
@@ -425,17 +425,17 @@ function onPlayerReady(event) {
 
 // when video ends
 var done = false;
-function onPlayerStateChange(event) {    
+function onPlayerStateChange(event) { 
 	//Once it is done function stops
     if(event.data == YT.PlayerState.PLAYING && !done) { 
-        setTimeout(closeYoutube, obj.duration);
+        setTimeout(closeYoutube, xmlData[aIndex].duration);
         done = true;
     }
 }
 
 //play at specific time
 function seekTo(event) {
-	event.target.seekTo(obj.currentStart);
+	event.target.seekTo(xmlData[aIndex].currentStart);
 }
  
 function onYouTubeIframeAPIReady() {
@@ -618,7 +618,6 @@ var jsonOfXml;
 var xmlDocCopy;
 
 function GetIDXML(){
-debugger;
 	var RetriveIDObj={
 		guid:qs("IDguid","ec0d112f-35f0-4b85-b54d-ead66f1ab672"), 
 		source:"ScriptOnly",
@@ -801,21 +800,13 @@ function newGetIDXML(){
 
 		//Gets data parameter from the json object
 		newGetXmlData(jsonOfXml);
-		debugger;
-		//Obtains Cdata from the xmlDocCopy and adds it to xmlData Data property
-		addCdata(xmlDocCopy);
-
-		removeEmpty(xmlData);
+		//debugger;
 		
 		console.log(xmlData);
 		
-		var actionLength=xmlData.length;
-		SpeakList=[];
-		for (var i = 0; i < actionLength; i++) {
-				SpeakList.push(xmlData[i]); 
-				console.log(JSON.stringify(xmlData[i]));
-				}
-			Action(SpeakList[0],0);		
+		for (var i = 0; i < xmlData.length; i++) {	
+			Action(xmlData[i],i);	
+		}
 		}
 	IDRetrive.send(null);
 
