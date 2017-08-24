@@ -804,9 +804,13 @@ function newGetIDXML(){
 		
 		console.log(xmlData);
 		
-		for (var i = 0; i < xmlData.length; i++) {	
-			Action(xmlData[i],i);	
-		}
+		var actionLength=xmlData.length;
+		SpeakList=[];
+		for (var i = 0; i < actionLength; i++) {
+				SpeakList.push(xmlData[i]); 
+				console.log("==>"+JSON.stringify(xmlData[i]));
+				}
+			Action(SpeakList[0],0);		
 		}
 	IDRetrive.send(null);
 
