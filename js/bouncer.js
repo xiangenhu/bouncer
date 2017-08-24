@@ -519,7 +519,7 @@ var xmlData = [];
 //The next three functions create the xmlData. getXmlData gets the Agent and Act data from the 
 //jsonOfXml. getCdata gets the data for the Speak property. removeEmpty removes empty objects
 
-//Takes xml and converts it to json that can be used in processingReturn
+//Takes xml and converts it to json that can be used in processingReturn. Final data will be in the array xmlData
 function getXmlData(jsonOfXml) {
 	//Each item has an object with Act:"Speak". However, it can also have an object  
 	//with Act:"Showmedia" if there is a media present
@@ -680,7 +680,7 @@ debugger;
 //Same functions as above but different text file is obtained from server
 var imgData = [];
 
-//The next three functions get the xmlData.
+//The next function get the xmlData.
 
 function newGetXmlData(jsonOfXml) {
 //debugger;
@@ -708,7 +708,7 @@ function newGetXmlData(jsonOfXml) {
 		//Adds stuff to first object
 		xmlData[mediaIndex].currentStart = parseInt(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointStop["#text"]);
 		xmlData[mediaIndex].duration = parseInt(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointDuration["#text"]);
-		debugger;
+		//debugger;
 		mediaIndex++;
 		//Adds stuff to second object
 		xmlData[mediaIndex].Agent = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointAgent["#text"];
@@ -718,10 +718,15 @@ function newGetXmlData(jsonOfXml) {
 	}
 	//Now we display the image and its respective talking head
 	for(var i=0; i<pageImage.ASATPageImgHotSpot.length; i++) {
+		//debugger;
 		var obj = {
 			Agent: "System",
 			Act: "ShowMedia",
 			Data: pageImage.ASATPageImgFile["#text"],
+			Xdir: "",
+			Ydir: "",
+			imgwidth: "",
+			imgheight: "",
 		}
 		xmlData.push(obj);
 		var obj = {
@@ -730,31 +735,27 @@ function newGetXmlData(jsonOfXml) {
 			Data: "",
 		}
 		xmlData.push(obj);
-		var imgObj = {
-			Xdir: "",
-			Ydir: "",
-			imgwidth: "",
-			imgheight: "",
-		}
-		imgData.push(imgObj);
+
 
 		var image = document.getElementById("imageContainer");
 		image.style.backgroundImage = "url('xmlData[i].obj.Data')";
+		//debugger;
 
+		xmlData[mediaIndex].Xdir = parseInt(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotX["#text"]);
+		xmlData[mediaIndex].Ydir = parseInt(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotY["#text"]);
+		xmlData[mediaIndex].imgwidth = parseInt(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotWidth["#text"]);
+		xmlData[mediaIndex].imgheight = parseInt(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotHeight["#text"]);
 
-		imgData[i].Xdir = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotX.value;
-		imgData[i].Ydir = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotY.value;
-		imgData[i].imgwidth = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotWidth.value;
-		imgData[i].imgheight = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotHeight.value;
-
-		image.style.backgroundPosition = "imgData[i].Xdir imgData[i].Ydir";
+		image.style.backgroundPosition = "xmlData[mediaIndex].Xdir xmlData[mediaIndex].Ydir";
 		//image.style.left = imgData[i].Xdir;
 		//image.style.bottom = imgData[i].Ydir;
-		image.style.backgroundSize = "imgData[i].imgwidth imgData[i].imgheight";
-
-		imgData[i+1].Agent = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswerBy["#text"];
-		xmlData[i+1].obj.Data = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswer.textContent;
-
+		image.style.backgroundSize = "xmlData[mediaIndex].imgwidth xmlData[mediaIndex].imgheight";
+		//debugger;
+		mediaIndex++;
+		xmlData[mediaIndex].Agent = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswerBy["#text"];
+		xmlData[mediaIndex].Data = xmlDocCopy.getElementsByTagName("ASATPageImgHotSpotAnswer")[i].textContent;;
+		mediaIndex++;
+		//debugger;
 	}
 }
 
@@ -800,7 +801,7 @@ function newGetIDXML(){
 
 		//Gets data parameter from the json object
 		newGetXmlData(jsonOfXml);
-
+		debugger;
 		//Obtains Cdata from the xmlDocCopy and adds it to xmlData Data property
 		addCdata(xmlDocCopy);
 
