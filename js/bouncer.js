@@ -682,7 +682,7 @@ var imgData = [];
 
 //The next three functions get the xmlData.
 
-function newGetIDXML(jsonOfXml) {
+function newgetXmlData(jsonOfXml) {
 
 	pageVideo = ASATPageConfigration.ASATPageVideo;
 	pageImage = ASATPageConfigration.ASATPageImage;
@@ -755,12 +755,12 @@ function newGetIDXML(jsonOfXml) {
 	}
 }
 
-function GetIDXML(){
-
+function newGetIDXML(){
+	debugger;
 	var RetriveIDObj={
-		guid:qs("IDguid","ec0d112f-35f0-4b85-b54d-ead66f1ab672"),
+		guid:qs("IDguid","768ca09d-3ea8-4174-a19c-86f096217f05"),
 		source:"ScriptOnly",
-		TagName:"ID",
+		TagName:"ASATPageConfigration",
 		authorname:"xiangenhu"
 	};
 		
@@ -793,7 +793,7 @@ function GetIDXML(){
 		jsonOfXml = xmlToJson(xmlDoc);
 
 		//Gets data parameter from the json object
-		getXmlData(jsonOfXml);
+		newGetXmlData(jsonOfXml);
 
 		//Obtains Cdata from the xmlDocCopy and adds it to xmlData Data property
 		addCdata(xmlDocCopy);
