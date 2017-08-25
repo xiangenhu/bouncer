@@ -805,7 +805,7 @@ function newGetIDXML(){
 
 		//Gets data parameter from the json object
 		newGetXmlData(jsonOfXml);
-		//debugger;
+		debugger;
 		
 		console.log(xmlData);
 		
