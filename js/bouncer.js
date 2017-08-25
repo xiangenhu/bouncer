@@ -710,7 +710,7 @@ function newGetXmlData(jsonOfXml) {
 		//debugger;
 		mediaIndex++;
 		//Adds stuff to second object
-		if(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointAgent["#text"] === "teacher") {
+		if(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointAgent["#text"] === "Teacher") {
 			xmlData[mediaIndex].Agent = "ComputerTutor";
 		};
 		xmlData[mediaIndex].Data = xmlDocCopy.getElementsByTagName("ASATPageVideoBreakPointSpeech")[i].textContent;
@@ -753,8 +753,8 @@ function newGetXmlData(jsonOfXml) {
 		image.style.backgroundSize = "xmlData[mediaIndex].imgwidth xmlData[mediaIndex].imgheight";
 		//debugger;
 		mediaIndex++;
-		
-		if(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswerBy["#text"] ==="teacher") {
+
+		if(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswerBy["#text"] ==="Teacher") {
 			xmlData[mediaIndex].Agent = "ComputerTutor";
 		}
 		xmlData[mediaIndex].Data = xmlDocCopy.getElementsByTagName("ASATPageImgHotSpotAnswer")[i].textContent;;
