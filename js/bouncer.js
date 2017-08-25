@@ -323,7 +323,6 @@ var actionMethods = {
 
 //parameters are div and youtube id (obj,Data)
 function displayYoutube(YoutubContainer,YoutubeID){
-
 	isRunning = true;
 	GetYoutubeVideo(YoutubContainer,YoutubeID);
 	document.getElementById(YoutubContainer).style.display = "block";
@@ -565,10 +564,13 @@ function getXmlData(jsonOfXml) {
 				xmlData[mediaIndex].Agent = "ComputerStudent3";
 			}
 			xmlData[mediaIndex].Act = "Speak";
+			xmlData[mediaIndex].Data = xmlDocCopy.getElementsByTagName("mattextS")[i].textContent;
+
 
 
 		} else {
 			xmlData[mediaIndex].Act = "Speak";
+			xmlData[mediaIndex].Data = xmlDocCopy.getElementsByTagName("mattextS")[i].textContent;
 			//Obtain Agent info
 			if (itemAgent.useTeacher == "true") {
 				xmlData[mediaIndex].Agent = "ComputerTutor";
@@ -579,28 +581,6 @@ function getXmlData(jsonOfXml) {
 			} else if (itemAgent.useStudent3=="true") {
 				xmlData[mediaIndex].Agent = "ComputerStudent3";
 			}
-		}
-		mediaIndex++;
-	}
-}
-//This function takes the Cdata from the xml and puts it in the Data property for 
-//objects with Act:"Speak"
-function addCdata(xmlDocCopy) {
-	//debugger;
-	var mediaIndex=0;
-	//mattextS are elements that contains the Cdata
-	for(var i=0; i<xmlDocCopy.getElementsByTagName("mattextS").length; i++) {
-		//the variable mattextS references the element
-		var mattextS = xmlDocCopy.getElementsByTagName("mattextS")[i];
-		var mediaTypeXML = xmlDocCopy.getElementsByTagName("mediaTypeXML")[i];
-		//If the mediatype is image, then put the cdata in the object that comes after
-		//that because the current object contains the image data
-		if(mediaTypeXML.textContent === "ImageOnly") {
-			mediaIndex++;
-			xmlData[mediaIndex].Data = mattextS.textContent;
-		//Otherwise, just put the cdata in the current object
-		} else {
-		xmlData[mediaIndex].Data = mattextS.textContent;
 		}
 		mediaIndex++;
 	}
@@ -655,9 +635,6 @@ function GetIDXML(){
 
 		//Gets data parameter from the json object
 		getXmlData(jsonOfXml);
-
-		//Obtains Cdata from the xmlDocCopy and adds it to xmlData Data property
-		addCdata(xmlDocCopy);
 
 		removeEmpty(xmlData);
 		
@@ -805,7 +782,7 @@ function newGetIDXML(){
 
 		//Gets data parameter from the json object
 		newGetXmlData(jsonOfXml);
-		debugger;
+		//debugger;
 		
 		console.log(xmlData);
 		
