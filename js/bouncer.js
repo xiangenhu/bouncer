@@ -710,7 +710,9 @@ function newGetXmlData(jsonOfXml) {
 		//debugger;
 		mediaIndex++;
 		//Adds stuff to second object
-		xmlData[mediaIndex].Agent = pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointAgent["#text"];
+		if(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointAgent["#text"] === "teacher") {
+			xmlData[mediaIndex].Agent = "ComputerTutor";
+		};
 		xmlData[mediaIndex].Data = xmlDocCopy.getElementsByTagName("ASATPageVideoBreakPointSpeech")[i].textContent;
 
 		mediaIndex++;
@@ -751,7 +753,10 @@ function newGetXmlData(jsonOfXml) {
 		image.style.backgroundSize = "xmlData[mediaIndex].imgwidth xmlData[mediaIndex].imgheight";
 		//debugger;
 		mediaIndex++;
-		xmlData[mediaIndex].Agent = pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswerBy["#text"];
+		
+		if(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswerBy["#text"] ==="teacher") {
+			xmlData[mediaIndex].Agent = "ComputerTutor";
+		}
 		xmlData[mediaIndex].Data = xmlDocCopy.getElementsByTagName("ASATPageImgHotSpotAnswer")[i].textContent;;
 		mediaIndex++;
 		//debugger;
