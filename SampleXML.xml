@@ -1,0 +1,2217 @@
+<SKOSCRIPTS AllowCopy="0" LRSURL="https://lrs.adlnet.gov/xAPI/" LRSAdmin="SKOAdmin" LRSPassword="password">
+  <LCCFeedBack>
+    <POSF>
+      <PF>Excellent!</PF>
+      <PF>Great!</PF>
+      <PF>Perfect!</PF>
+      <PF>Well done!</PF>
+      <PF>Great job!</PF>
+      <PF>Good job!</PF>
+      <PF>Excellent answer!</PF>
+      <PF>Right.</PF>
+      <PF>Very good.</PF>
+      <PF>Nice job!</PF>
+      <PF>Good answer!</PF>
+    </POSF>
+    <NEGF>
+      <NF>No, that's incorrect</NF>
+      <NF>No.</NF>
+      <NF>Well, I don't think that's quite right.</NF>
+      <NF>Not quite.</NF>
+      <NF>That is not quite right.</NF>
+      <NF>Um, sorry, not quite.</NF>
+      <NF>That's not quite it.</NF>
+      <NF>No, that's not the right answer.</NF>
+      <NF>No, that's not the correct answer.</NF>
+      <NF>No, you are on the wrong track.</NF>
+      <NF>Not really.</NF>
+      <NF>Um, that's not completely correct.</NF>
+    </NEGF>
+    <NEUF>
+      <NUF>okay. but can you give me a little more on that?</NUF>
+      <NUF>Alright, but please give me a little more on this.</NUF>
+      <NUF>Kind of,but there is a little more you can add.</NUF>
+      <NUF>Yeah, but we need to try to cover a few more points</NUF>
+      <NUF>Almost there, Just give me a little more</NUF>
+    </NEUF>
+  </LCCFeedBack>
+  <AutoTutorScript>
+    <SpeechActs>
+      <SpeechAct name="MetaCog">\b(belie\w*|comprehend\w*|confuse\w*|guess\w*|(?&lt;=n[o']?t)\s?\b(know\w*|underst\w*|follow\w*|recogniz\w*|sure\w*|get)\b|messed|no\s?(idea|clue)|lost|forg[eo]t|need\s?help|imagined?|interpret(ed)?|(seen?|saw)|suppos(ed)?)\b</SpeechAct>
+      <SpeechAct name="MetaCom">\b([|add|added|[Aa]nswer|answered|[Cc]larify|clarified|miss|missed|modify|modified|note|noted|[Rr]epeat|repeated|[Rr]estate|[Rr]ephrase|[Ee]laborate|[Ee]xplain|restated|[Ss]ay|said|saying|speak|spoken|ask|wait|pardon|excuse|speaking|specify|[Ss]pecific|specified|[Tt]ell|told|telling|[Qq]uestion)\b</SpeechAct>
+      <SpeechAct name="Yes">\b([Yy]es|[Yy]ep|[Yy]eah|[Yy]a|[Dd]efinitely|[Aa]ffirmative|[Oo]kay|[Hh]mm|[Oo]k|mm|um)\b</SpeechAct>
+      <SpeechAct name="No">\b([Nn]o|[Nn]ope|[Nn]ah?|[Nn]ot|[Nn]egative|[Nn]O)\b</SpeechAct>
+    </SpeechActs>
+    <RigidPacks>
+      <RigidPack name="Opening">
+        <Item id="1" agent="ComputerTutor" text="In this session, I'm going to ask some questions about why we use ANOVAs." mediaType="" mediaSource="" speech=""/>
+      </RigidPack>
+      <RigidPack name="Closing">
+        <Item id="1" agent="ComputerTutor" text="In conclusion, if your independent variable has more than two levels, use an ANOVA!" mediaType="" mediaSource="" speech=""/>
+        <Item id="2" agent="ComputerTutor" text="sss" mediaType="undefined" mediaSource="undefined" speech=""/>
+      </RigidPack>
+    </RigidPacks>
+    <Rules childrenURL="">
+      <Rule name="Start" status="Start" response="" event="" hasItem="" priority="" frequency="" description="This is the beginning of the conversation.">
+        <Action agent="System" act="SetStatus" data="Opening" id="1"/>
+        <Action agent="System" act="ShowMedia" data="page.html" id="2"/>
+        <Action agent="System" act="GetRule" data="" id="13"/>
+      </Rule>
+      <Rule name="Opening" status="Opening" response="" event="" hasItem="" priority="" frequency="" description="This rule delivers an opening pack if it is available.">
+        <Action agent="System" act="DeliverRigidPack" data="Opening" id="1"/>
+        <Action agent="System" act="GetTutoringPack" data="" id="2"/>
+        <Action agent="System" act="SetStatus" data="GetTutoringPack" id="3"/>
+        <Action agent="System" act="GetRule" data="" id="4"/>
+      </Rule>
+      <Rule name="NoMoreTutoringPack" status="GetTutoringPack" response="" event="" hasItem="false" priority="" frequency="" description="Turns to final closing when all tutoring packs have been covered.">
+        <Action agent="System" act="SetStatus" data="Closing" id="1"/>
+        <Action agent="System" act="GetRule" data="" id="2"/>
+      </Rule>
+      <Rule name="StartTutoring" status="GetTutoringPack" response="" event="" hasItem="true" priority="" frequency="" description="Turns to the main question of the next tutoring pack.">
+        <Action agent="System" act="SetStatus" data="MainQuestion" id="1"/>
+        <Action agent="System" act="GetRule" data="" id="2"/>
+      </Rule>
+      <Rule name="AskMQ" status="MainQuestion" response="" event="" hasItem="" priority="" frequency="" description="Ask the main question, assuming that there is always at least one main question prepared for the tutor agent.">
+        <Action agent="ComputerTutor" act="AskMainQuestion" data="" id="1"/>
+        <Action agent="System" act="SetStatus" data="AskMainQuestion" id="2"/>
+        <Action agent="System" act="WaitForInput" data="30" id="3"/>
+      </Rule>
+      <Rule name="FB2MQGood" status="AskMainQuestion" response="Main-Good" event="" hasItem="" priority="1" frequency="" description="User's answer is ideal. Give feedback and turn to positive transition pack.">
+        <Action agent="ComputerStudent" act="GiveFeedback" data="StudentPositiveFeedback" id="1"/>
+        <Action agent="ComputerTutor" act="GiveFeedback" data="MQPositiveFeedback" id="2"/>
+        <Action agent="System" act="SetStatus" data="PositiveTransition" id="3"/>
+        <Action agent="System" act="GetRule" data="" id="4"/>
+      </Rule>
+      <Rule name="FB2MQBad" status="AskMainQuestion" response="Main-Bad" event="" hasItem="" priority="2" frequency="" description="User's answer is bad. Give feedback and get into expectation.">
+        <Action agent="ComputerStudent" act="Answer" data="Bad" id="1"/>
+        <Action agent="ComputerTutor" act="GiveFeedback" data="NegativeFeedback" id="2"/>
+        <Action agent="System" act="GetExpectation" data="" id="3"/>
+        <Action agent="System" act="SetStatus" data="GetExpectation" id="4"/>
+        <Action agent="System" act="GetRule" data="" id="5"/>
+      </Rule>
+      <Rule name="FB2MQMetaCog" status="AskMainQuestion" response="MetaCog" event="" hasItem="" priority="3" frequency="" description="When user gives MetaCog, give MetaCog repsonse and get into expectation.">
+        <Action agent="ComputerTutor" act="CannedExpression" data="MetaCogRsp" id="1"/>
+        <Action agent="System" act="GetExpectation" data="" id="2"/>
+        <Action agent="System" act="SetStatus" data="GetExpectation" id="3"/>
+        <Action agent="System" act="GetRule" data="" id="4"/>
+      </Rule>
+      <Rule name="PumpBlank" status="AskMainQuestion" response="Main-Blank" event="" hasItem="" priority="4" frequency="" description="User's answer is blank, give a pump.">
+        <Action agent="ComputerTutor" act="CannedExpression" data="PumpBlank" id="1"/>
+        <Action agent="System" act="SetStatus" data="Pump" id="2"/>
+        <Action agent="System" act="WaitForInput" data="120" id="3"/>
+      </Rule>
+      <Rule name="TryMQRepeat" status="AskMainQuestion" response="MetaCom" event="" hasItem="" priority="5" frequency="" description="User wants to repeat the question. Look for the second main question.">
+        <Action agent="ComputerStudent" act="CannedExpression" data="StudentMetaComRsp" id="1"/>
+        <Action agent="ComputerStudent" act="RepeatMainQuestion" data="" id="2"/>
+        <Action agent="System" act="SetStatus" data="RepeatMQ" id="3"/>
+        <Action agent="System" act="WaitForInput" data="120" id="4"/>
+      </Rule>
+      <Rule name="FB2RepeatMQGood" status="RepeatMQ" response="Main-Good" event="" hasItem="" priority="1" frequency="" description="">
+        <Action agent="ComputerStudent" act="GiveFeedback" data="StudentPositiveFeedback" id="1"/>
+        <Action agent="ComputerTutor" act="GiveFeedback" data="MQPositiveFeedback" id="2"/>
+        <Action agent="System" act="SetStatus" data="PositiveTransition" id="3"/>
+        <Action agent="System" act="GetRule" data="" id="4"/>
+      </Rule>
+      <Rule name="FB2RepeatMQBad" status="RepeatMQ" response="Main-Bad" event="" hasItem="" priority="2" frequency="" description="">
+        <Action agent="ComputerStudent" act="Answer" data="Bad" id="1"/>
+        <Action agent="ComputerTutor" act="GiveFeedback" data="NegativeFeedback" id="2"/>
+        <Action agent="System" act="GetExpectation" data="" id="3"/>
+        <Action agent="System" act="SetStatus" data="GetExpectation" id="4"/>
+        <Action agent="System" act="GetRule" data="" id="5"/>
+      </Rule>
+      <Rule name="FB2RepeatMQOther" status="RepeatMQ" response="" event="" hasItem="" priority="3" frequency="" description="When user asks to repeat the question, get into expectation if there no more main question.">
+        <Action agent="ComputerTutor" act="GiveFeedback" data="NeutralFeedback" id="1"/>
+        <Action agent="System" act="GetExpectation" data="" id="2"/>
+        <Action agent="System" act="SetStatus" data="GetExpectation" id="3"/>
+        <Action agent="System" act="GetRule" data="" id="4"/>
+      </Rule>
+      <Rule name="FB2MQIrrelevant" status="AskMainQuestion" response="Main-Irrelevant" event="" hasItem="" priority="6" frequency="1" description="User's answer is irrelevant. Give irrelevant response and get into expectation.">
+        <Action agent="ComputerTutor" act="CannedExpression" data="IrrelRsp" id="1"/>
+        <Action agent="System" act="GetExpectation" data="" id="2"/>
+        <Action agent="System" act="SetStatus" data="GetExpectation" id="3"/>
+        <Action agent="System" act="GetRule" data="" id="4"/>
+      </Rule>
+      <Rule name="CheckConfusionOne" status="AskMainQuestion" response="" event="UserConfused" hasItem="" priority="7" frequency="1" description="Check confusion.">
+        <Action agent="ComputerTutor" act="CannedExpression" data="ConfusionFeedback" id="1"/>
+        <Action agent="System" act="GetExpectation" data="" id="2"/>
+        <Action agent="System" act="SetStatus" data="GetTutorHint" id="3"/>
+        <Action agent="System" act="GetRule" data="" id="4"/>
+      </Rule>
+      <Rule name="CheckConfusionTwo" status="AskMainQuestion" response="" event="UserConfused" hasItem="" priority="7" frequency="3" description="Check confusion.">
+        <Action agent="ComputerStudent" act="CannedExpression" data="StudentConfusionFeedback" id="1"/>
+        <Action agent="ComputerTutor" act="CannedExpression" data="ConfusionFeedback" id="2"/>
+        <Action agent="System" act="GetExpectation" data="" id="3"/>
+        <Action agent="System" act="SetStatus" data="GetTutorHint" id="4"/>
+        <Action agent="System" act="GetRule" data="" id="5"/>
+      </Rule>
+      <Rule name="FB2MQConfusionOne" status="AskMainQuestion" response="" event="CheckConfusion" hasItem="" priority="7" frequency="1" description="Skip pumps sometimes.">
+        <Action agent="ComputerTutor" act="CannedExpression" data="ConfusionFeedback" id="1"/>
+        <Action agent="System" act="GetExpectation" data="" id="2"/>
+        <Action agent="System" act="SetStatus" data="GetTutorHint" id="3"/>
+        <Action agent="System" act="GetRule" data="" id="4"/>
+      </Rule>
+      <Rule name="FB2MQConfusionTwo" status="AskMainQuestion" response="" event="CheckConfusion" hasItem="" priority="7" frequency="3" description="Skip pumps sometimes.">
+        <Action agent="ComputerStudent" act="CannedExpression" data="StudentConfusionFeedback" id="1"/>
+        <Action agent="ComputerTutor" act="CannedExpression" data="ConfusionFeedback" id="2"/>
+        <Action agent="System" act="GetExpectation" data="" id="3"/>
+        <Action agent="System" act="SetStatus" data="GetTutorHint" id="4"/>
+        <Action agent="System" act="GetRule" data="" id="5"/>
+      </Rule>
+      <Rule name="Pump" status="AskMainQuestion" response="" event="" hasItem="" priority="8" frequency="1" description="For all other situations, give a pump.">
+        <Action agent="ComputerTutor" act="CannedExpression" data="Pump" id="1"/>
+        <Action agent="System" act="SetStatus" data="Pump" id="2"/>
+        <Action agent="System" act="WaitForInput" data="120" id="3"/>
+      </Rule>
+      <Rule name="FB2PumpGood" status="Pump" response="Main-Good" event="" hasItem="" priority="1" frequency="" description="User's answer is ideal. Closing current tutoring pack and find next tutoring pack.">
+        <Action agent="ComputerStudent" act="GiveFeedback" data="StudentPositiveFeedback" id="1"/>
+        <Action agent="ComputerTutor" act="GiveFeedback" data="MQPositiveFeedback" id="2"/>
+        <Action agent="System" act="SetStatus" data="PositiveTransition" id="3"/>
+        <Action agent="System" act="GetRule" data="" id="4"/>
+      </Rule>
+      <Rule name="FB2PumpBad" status="Pump" response="Main-Bad" event="" hasItem="" priority="2" frequency="" description="User's answer is bad. Student agrees and gives a bad answer. Tutor corrects and get into expectation.">
+        <Action agent="ComputerStudent" act="Answer" data="Bad" id="1"/>
+        <Action agent="ComputerTutor" act="GiveFeedback" data="NegativeFeedback" id="2"/>
+        <Action agent="System" act="GetExpectation" data="" id="3"/>
+        <Action agent="System" act="SetStatus" data="GetExpectation" id="4"/>
+        <Action agent="System" act="GetRule" data="" id="5"/>
+      </Rule>
+      <Rule name="FB2PumpOther" status="Pump" response="" event="" hasItem="" priority="3" frequency="" description="All other cases, get into expectation.">
+        <Action agent="ComputerTutor" act="GiveFeedback" data="NeutralFeedback" id="1"/>
+        <Action agent="System" act="GetExpectation" data="" id="2"/>
+        <Action agent="System" act="SetStatus" data="GetExpectation" id="3"/>
+        <Action agent="System" act="GetRule" data="" id="4"/>
+      </Rule>
+      <Rule name="FB2MQOther" status="AskMainQuestion" response="" event="" hasItem="" priority="9" frequency="2" description="Skip pumps sometimes.">
+        <Action agent="ComputerTutor" act="CannedExpression" data="NeutralFeedback" id="1"/>
+        <Action agent="System" act="GetExpectation" data="" id="2"/>
+        <Action agent="System" act="SetStatus" data="GetExpectation" id="3"/>
+        <Action agent="System" act="GetRule" data="" id="4"/>
+      </Rule>
+      <Rule name="NoMoreExpectation" status="GetExpectation" response="" event="" hasItem="false" priority="" frequency="" description="When no more expectation available, get into negative transition.">
+        <Action agent="ComputerTutor" act="GiveFeedback" data="NeutralFeedback" id="1"/>
+        <Action agent="System" act="SetStatus" data="NegativeTransition" id="2"/>
+        <Action agent="System" act="GetRule" data="" id="3"/>
+      </Rule>
+      <Rule name="StartExpectation" status="GetExpectation" response="" event="" hasItem="true" priority="" frequency="" description="Try to find a student hint when an expectation is available.">
+        <Action agent="ComputerTutor" act="GetHint" data="" id="1"/>
+        <Action agent="System" act="SetStatus" data="GetTutorHint" id="2"/>
+        <Action agent="System" act="GetRule" data="" id="3"/>
+      </Rule>
+      <Rule name="NoMoreTutorHint" status="GetTutorHint" response="" event="" hasItem="false" priority="" frequency="" description="Try to find a studentn prompt if there is not tutor hint.">
+        <Action agent="ComputerTutor" act="GetPrompt" data="" id="1"/>
+        <Action agent="System" act="SetStatus" data="GetTutorPrompt" id="2"/>
+        <Action agent="System" act="GetRule" data="" id="3"/>
+      </Rule>
+      <Rule name="TutorHint" status="GetTutorHint" response="" event="" hasItem="true" priority="" frequency="" description="Deliver tutor hint if there is any.">
+        <Action agent="ComputerTutor" act="CannedExpression" data="HintStart" id="1"/>
+        <Action agent="ComputerTutor" act="DeliverHint" data="" id="2"/>
+        <Action agent="System" act="SetStatus" data="Hint" id="3"/>
+        <Action agent="System" act="WaitForInput" data="30" id="4"/>
+      </Rule>
+      <Rule name="NoMoreTutorPrompt" status="GetTutorPrompt" response="" event="" hasItem="false" priority="" frequency="" description="Try to find a good answer to the expectation when no more prompt is available.">
+        <Action agent="ComputerTutor" act="GetAnswer" data="Good" id="1"/>
+        <Action agent="System" act="SetStatus" data="GetExpectationAnswer" id="2"/>
+        <Action agent="System" act="GetRule" data="" id="3"/>
+      </Rule>
+      <Rule name="TutorPrompt" status="GetTutorPrompt" response="" event="" hasItem="true" priority="" frequency="" description="Deliver tutor prompt if there is any.">
+        <Action agent="ComputerTutor" act="CannedExpression" data="PromptStart" id="1"/>
+        <Action agent="ComputerTutor" act="DeliverPrompt" data="" id="2"/>
+        <Action agent="System" act="SetStatus" data="Prompt" id="3"/>
+        <Action agent="System" act="WaitForInput" data="120" id="4"/>
+      </Rule>
+      <Rule name="Assertion" status="GetExpectationAnswer" response="" event="" hasItem="true" priority="" frequency="" description="Deliver assertion and get into another expectation.">
+        <Action agent="ComputerTutor" act="Assertion" data="" id="1"/>
+        <Action agent="System" act="GetExpectation" data="" id="2"/>
+        <Action agent="System" act="SetStatus" data="GetExpectation" id="3"/>
+        <Action agent="System" act="GetRule" data="" id="4"/>
+      </Rule>
+      <Rule name="NoAssertion" status="GetExpectationAnswer" response="" event="" hasItem="false" priority="" frequency="" description="Get into another expectation if no assertion available.">
+        <Action agent="System" act="GetExpectation" data="" id="1"/>
+        <Action agent="System" act="SetStatus" data="GetExpectation" id="2"/>
+        <Action agent="System" act="GetRule" data="" id="3"/>
+      </Rule>
+      <Rule name="FB2HintGood" status="Hint" response="Hint-Good" event="" hasItem="" priority="1" frequency="" description="User's answer is good to hint. Give feedback and turn to prompt.">
+        <Action agent="ComputerTutor" act="GiveFeedback" data="PositiveFeedback" id="1"/>
+        <Action agent="System" act="SetStatus" data="GetExpectationAnswer" id="2"/>
+        <Action agent="System" act="GetRule" data="" id="3"/>
+      </Rule>
+      <Rule name="FB2HintBad" status="Hint" response="Hint-Bad" event="" hasItem="" priority="2" frequency="" description="User's answer is bad to hint. Student agent agrees wrongly. Tutor agent corrects. Turn to prompt.">
+        <Action agent="ComputerStudent" act="Answer" data="Bad" id="1"/>
+        <Action agent="ComputerTutor" act="GiveFeedback" data="NegativeFeedback" id="2"/>
+        <Action agent="ComputerTutor" act="GetPrompt" data="" id="3"/>
+        <Action agent="System" act="SetStatus" data="GetTutorPrompt" id="4"/>
+        <Action agent="System" act="GetRule" data="" id="5"/>
+      </Rule>
+      <Rule name="FB2HintConfusion" status="Hint" response="" event="CheckConfusion" hasItem="" priority="3" frequency="1" description="User's prompt answer is bad, give feedback and turn to assertion.">
+        <Action agent="ComputerTutor" act="GiveFeedback" data="ConfusionFeedback" id="1"/>
+        <Action agent="ComputerTutor" act="Answer" data="Good" id="2"/>
+        <Action agent="System" act="SetStatus" data="GetExpectationAnswer" id="3"/>
+        <Action agent="System" act="GetRule" data="" id="4"/>
+      </Rule>
+      <Rule name="CheckHintConfusione" status="Hint" response="" event="UserConfused" hasItem="" priority="3" frequency="1" description="All other hint reponses. Turn to prompt.">
+        <Action agent="ComputerTutor" act="GiveFeedback" data="ConfusionFeedback" id="1"/>
+        <Action agent="ComputerTutor" act="Answer" data="Good" id="2"/>
+        <Action agent="System" act="SetStatus" data="GetExpectationAnswer" id="3"/>
+        <Action agent="System" act="GetRule" data="" id="4"/>
+      </Rule>
+      <Rule name="FB2HintOther" status="Hint" response="" event="" hasItem="" priority="4" frequency="4" description="All other hint reponses. Turn to prompt.">
+        <Action agent="ComputerTutor" act="GiveFeedback" data="NeutralFeedback" id="1"/>
+        <Action agent="ComputerTutor" act="GetPrompt" data="" id="1"/>
+        <Action agent="System" act="SetStatus" data="GetTutorPrompt" id="2"/>
+        <Action agent="System" act="GetRule" data="" id="3"/>
+      </Rule>
+      <Rule name="FB2PromptGood" status="Prompt" response="Prompt-Good" event="" hasItem="" priority="1" frequency="" description="User's answer is good to the prompt. Give feedback and turn to assertion.">
+        <Action agent="ComputerTutor" act="GiveFeedback" data="PositiveFeedback" id="1"/>
+        <Action agent="System" act="SetStatus" data="GetExpectationAnswer" id="2"/>
+        <Action agent="System" act="GetRule" data="" id="3"/>
+      </Rule>
+      <Rule name="FB2PromptBad" status="Prompt" response="Prompt-Bad" event="" hasItem="" priority="2" frequency="" description="User's prompt answer is bad, give feedback and turn to assertion.">
+        <Action agent="ComputerTutor" act="GiveFeedback" data="NegativeFeedback" id="1"/>
+        <Action agent="ComputerTutor" act="Answer" data="Good" id="2"/>
+        <Action agent="System" act="SetStatus" data="GetExpectationAnswer" id="3"/>
+        <Action agent="System" act="GetRule" data="" id="4"/>
+      </Rule>
+      <Rule name="FB2PromptOther" status="Prompt" response="" event="" hasItem="" priority="3" frequency="" description="Any other prompt responses, give prompt answer and turn to assertion.">
+        <Action agent="ComputerTutor" act="Answer" data="Good" id="1"/>
+        <Action agent="System" act="SetStatus" data="GetExpectationAnswer" id="2"/>
+        <Action agent="System" act="GetRule" data="" id="3"/>
+      </Rule>
+      <Rule name="NegTransition" status="NegativeTransition" response="" event="" hasItem="" priority="" frequency="" description="Negative transition to next tutoring pack.">
+        <Action agent="System" act="DeliverRigidPack" data="NegativeTransition" id="1"/>
+        <Action agent="System" act="GetTutoringPack" data="" id="2"/>
+        <Action agent="System" act="SetStatus" data="GetTutoringPack" id="3"/>
+        <Action agent="System" act="GetRule" data="" id="4"/>
+      </Rule>
+      <Rule name="PosTransition" status="PositiveTransition" response="" event="" hasItem="" priority="" frequency="" description="Positive transition to next tutoring pack.">
+        <Action agent="System" act="DeliverRigidPack" data="PositiveTransition" id="1"/>
+        <Action agent="System" act="GetTutoringPack" data="" id="2"/>
+        <Action agent="System" act="SetStatus" data="GetTutoringPack" id="3"/>
+        <Action agent="System" act="GetRule" data="" id="4"/>
+      </Rule>
+      <Rule name="Closing" status="Closing" response="" event="" hasItem="" priority="" frequency="" description="Final closing">
+        <Action agent="System" act="DeliverRigidPack" data="Closing" id="1"/>
+        <Action agent="System" act="SetStatus" data="End" id="2"/>
+      </Rule>
+    </Rules>
+    <Agents>
+      <Agent name="ComputerTutor" firstName="Mary" lastName="Teacherson" title="Dr." displayName="Tutor" gender="Male">
+        <SpeechCan name="MQPositiveFeedback">
+          <Item text="" speech="" note=""/>
+          <Item text="" speech="" note=""/>
+          <Item text="" speech="" note=""/>
+          <Item text="" speech="" note=""/>
+          <Item text="" speech="" note=""/>
+          <Item text="" speech="" note=""/>
+        </SpeechCan>
+        <SpeechCan name="PositiveFeedback">
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+        </SpeechCan>
+        <SpeechCan name="MetaComRsp">
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+        </SpeechCan>
+        <SpeechCan name="PromptStart">
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+        </SpeechCan>
+        <SpeechCan name="PumpBlank">
+          <Item text="" speech=""/>
+        </SpeechCan>
+        <SpeechCan name="Pump">
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+        </SpeechCan>
+        <SpeechCan name="NegativeFeedback">
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+        </SpeechCan>
+        <SpeechCan name="NeutralFeedback">
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+        </SpeechCan>
+        <SpeechCan name="MetaCogRsp">
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+        </SpeechCan>
+        <SpeechCan name="IrrelRsp">
+          <Item text="" speech=""/>
+        </SpeechCan>
+        <SpeechCan name="HintStart">
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+        </SpeechCan>
+        <SpeechCan name="ConfusionFeedback">
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+          <Item text="" speech=""/>
+        </SpeechCan>
+      </Agent>
+      <Agent name="ComputerTutor" firstName="Angela" lastName="Teacherson" title="Dr." displayName="ComputerTutor" gender="Male">
+        <SpeechCan name="MQPositiveFeedback">
+          <Item text="Good answer." speech=" " note=""/>
+          <Item text="Good." speech=" " note=""/>
+          <Item text="Right." speech=" " note=""/>
+          <Item text="Yeah, that's right." speech=" " note=""/>
+          <Item text="Excellent!" speech=" " note=""/>
+          <Item text="Correct." speech=" " note=""/>
+        </SpeechCan>
+        <SpeechCan name="PositiveFeedback">
+          <Item text="Good answer." speech=" " note=""/>
+          <Item text="Good." speech=" " note=""/>
+          <Item text="Right." speech=" " note=""/>
+          <Item text="Yeah, that's right." speech=" " note=""/>
+        </SpeechCan>
+        <SpeechCan name="MetaComRsp">
+          <Item text="Once again." speech=" "/>
+          <Item text="Once more." speech=" "/>
+          <Item text="Let me say that again." speech=" "/>
+          <Item text="Let me repeat." speech=" "/>
+          <Item text="Okay." speech=" "/>
+        </SpeechCan>
+        <SpeechCan name="PromptStart">
+          <Item text="Try this." speech=" "/>
+          <Item text="See if you can get this." speech=" "/>
+          <Item text="Let's try this." speech=" "/>
+          <Item text="See if you know the answer to this." speech=" "/>
+          <Item text="What about this." speech=" "/>
+        </SpeechCan>
+        <SpeechCan name="PumpBlank">
+          <Item text="I will give you some more time." speech=" "/>
+        </SpeechCan>
+        <SpeechCan name="Pump">
+          <Item text="And can you add to that?" speech=" "/>
+          <Item text="What else?" speech=" "/>
+          <Item text="Anything else?" speech=" "/>
+          <Item text="What else can you say about it?" speech=" "/>
+          <Item text="Can you add anything to that?" speech=" "/>
+          <Item text="Is there anything you can add to this?" speech=" "/>
+          <Item text="And can you add to that?" speech=" "/>
+          <Item text="Could you elaborate on that a little?" speech=""/>
+        </SpeechCan>
+        <SpeechCan name="NegativeFeedback">
+          <Item text="No." speech=" "/>
+          <Item text="Not really." speech=""/>
+          <Item text="That's not right." speech=""/>
+        </SpeechCan>
+        <SpeechCan name="NeutralFeedback">
+          <Item text="All right." speech=" "/>
+          <Item text="OK." speech=" "/>
+        </SpeechCan>
+        <SpeechCan name="MetaCogRsp">
+          <Item text="Let's work through it together." speech=" "/>
+          <Item text="Please try to answer at least part of the question." speech=" "/>
+          <Item text="tell me what you know, and we'll go from there." speech=" "/>
+          <Item text="If you can at least try to answer, we can start building from there." speech=" "/>
+          <Item text="Try to answer, so that we have a starting point from which to build." speech=" "/>
+          <Item text="If you give me some sort of an answer, we can at least start from there and build." speech=" "/>
+        </SpeechCan>
+        <SpeechCan name="IrrelRsp">
+          <Item text="Let's focus on the main idea." speech=" "/>
+        </SpeechCan>
+        <SpeechCan name="HintStart">
+          <Item text="This might help." speech=" "/>
+          <Item text="Consider this." speech=" "/>
+          <Item text="Think about this." speech=" "/>
+          <Item text="Look at it this way." speech=" "/>
+          <Item text="Let me help you a little." speech=" "/>
+          <Item text="Let's try this together." speech=" "/>
+          <Item text="Let me help you here." speech=" "/>
+        </SpeechCan>
+        <SpeechCan name="ConfusionFeedback">
+          <Item text="It's okay if you're confused, we will work together." speech=" "/>
+          <Item text="It seems like you may not understand the question." speech=" "/>
+          <Item text="I feel like you may be confused. That can happen." speech=" "/>
+          <Item text="Many people find this confusing. " speech=" "/>
+          <Item text="Are you unsure of what to do? That's OK. We will work through it?" speech=" "/>
+        </SpeechCan>
+      </Agent>
+    </Agents>
+    <ASATPageConfigration name="myPage">
+      <ASATPageText name="myText">
+        <ASATPageTextTitle>Title</ASATPageTextTitle>
+      </ASATPageText>
+      <ASATPageImage name="myImage">
+        <ASATPageImgFile>ATBackGround.jpg</ASATPageImgFile>
+        <ASATPageImgHotSpot name="myImage">
+          <ASATPageImgHotSpotX>0</ASATPageImgHotSpotX>
+          <ASATPageImgHotSpotY>0</ASATPageImgHotSpotY>
+          <ASATPageImgHotSpotWidth>300</ASATPageImgHotSpotWidth>
+          <ASATPageImgHotSpotHeight>400</ASATPageImgHotSpotHeight>
+          <ASATPageImgHotSpotQuestion>What is there?</ASATPageImgHotSpotQuestion>
+          <ASATPageImgHotSpotName>Hot Spot 0</ASATPageImgHotSpotName>
+          <ASATPageImgHotSpotQuestionForm>Interactive</ASATPageImgHotSpotQuestionForm>
+          <ASATPageImgHotSpotAnswer><![CDATA[Something very interesting!]]></ASATPageImgHotSpotAnswer>
+          <ASATPageImgHotSpotAnswerForm>PandQ</ASATPageImgHotSpotAnswerForm>
+        </ASATPageImgHotSpot>
+      </ASATPageImage>
+      <ASATPageVideo name="myVideo">
+        <ASATPageVideoStoppingPointFileName>lepQoU4oek4</ASATPageVideoStoppingPointFileName>
+        <ASATPageVideoBreakPoint name="myVideo">
+          <ASATPageVideoBreakPointName>Break Point 0</ASATPageVideoBreakPointName>
+          <ASATPageVideoBreakPointStop>100</ASATPageVideoBreakPointStop>
+          <ASATPageVideoBreakPointDuration>300</ASATPageVideoBreakPointDuration>
+          <ASATPageVideoBreakPointAgent>Teacher</ASATPageVideoBreakPointAgent>
+          <ASATPageVideoBreakPointSpeech><![CDATA[Pay attention to this.]]></ASATPageVideoBreakPointSpeech>
+        </ASATPageVideoBreakPoint>
+      </ASATPageVideo>
+    </ASATPageConfigration>
+    <TutoringPacks>
+      <TutoringPack name="Q1">
+        <Questions>
+          <Question id="1" agent="ComputerTutor" text="If your independent variable has more than two levels, you must analyze it with an ANOVA.  Why can you not use multiple t-tests?" speech="" media="">
+            <Answers>
+              <Answer name="Ideal answer" agent="ComputerTutor" type="Good" text="" speech="" keys="\b(test\w*|anal\w*|exp\w*r\w*m\w*|inves\w*|tr[iy]al\w*|eval\w*|inq\w*|stud\w*|exam\w*|c[ou]mpar\w*|insp\w*)\b, \b(chan[cs]|prob\w*|lik\w*|poss\w*|err\w*|rand\w*|luc?k\w*|co u?l?d|mig?h?te?\w*), \b(w?rong\w*|incor\w*|err\w*|fals\w*|mista\w*|bad\w*|fa([uw]l\w*|lt\w*)|n['o]t\s*ri(ght|te)|fal a\w*|spec\w*|spur\w*)\b, \b(more?|moar|gre?at\w*|hi|hih|high\w*|larg\w*|ra?i?[sz][^o]\w*|top|up|incre?[^d]\w*|e?xtra|over|e?x[sc]?e[eds]\w*)\b, \b(test\w*|anal\w*|exp\w*r\w*m\w*|inves\w*|tr[iy]al\w*|eval\w*|inq\w*|stud\w*|exam\w*|c[ou]mpar\w*|insp\w*)\b, \b(incre?[^d]\w*|hi|hih|high\w*|larg\w*|more?|moar|ra?i?[sz][^o]\w*|go\w*\s up|big\w*|gre?at\w*)\b, \b((anov|anal.*var)\w*)\b,&#x9;\b(omn\w*|f|ov\w*l|tot\w*|(whol\hole)\w*|prel\w*|init\w*)\b, \b(capit\w*|expl\w*[iy]t\w*|t\w*k\w*\s*adva\w*)\b" threshold=".9" test=""/>
+            </Answers>
+          </Question>
+        </Questions>
+        <Expectations>
+          <Expectation id="1" text="Each test has a chance of being wrong.">
+            <Answers>
+              <Answer name="Expt1Good1" agent="ComputerTutor" type="Good" text="Each test has a chance of being wrong." speech="" keys="\b(test\w*|anal\w*|exp\w*r\w*m\w*|inves\w*|tr[iy]al\w*|eval\w*|inq\w*|stud\w*|exam\w*|c[ou]mpar\w*|insp\w*)\b, \b(chan[cs]|prob\w*|lik\w*|poss\w*|err\w*|rand\w*|luc?k\w*|co u?l?d|mig?h?te?\w*), \b(w?rong\w*|incor\w*|err\w*|fals\w*|mista\w*|bad\w*|fa([uw]l\w*|lt\w*)|n['o]t\s*ri(ght|te)|fal a\w*|spec\w*|spur\w*)\b" threshold=".9" test=""/>
+            </Answers>
+            <Hints>
+              <Hint id="1" agent="ComputerTutor" text="Each statistical test is based on probability, so what does p represent?" speech="" media="">
+                <Answers>
+                  <Answer name="Hint1Good1" agent="ComputerTutor" type="Good" text="The chance of being wrong." speech="" keys="\b(chan[cs]|prob\w*|lik\w*|poss\w*|err\w*|rand\w*|luc?k\w*|co u?l?d|mig?h?te?\w*), \b(w?rong\w*|incor\w*|err\w*|fals\w*|mista\w*|bad\w*|fa([uw]l\w*|lt\w*)|n['o]t\s*ri(ght|te)|fal a\w*|spec\w*|spur\w*)\b" threshold=".9" test=""/>
+                </Answers>
+              </Hint>
+            </Hints>
+            <Prompts>
+              <Prompt id="1" agent="ComputerTutor" text="p represents the chance of a type one error, which means each test you run has a chance of being what?" speech="" media="">
+                <Answers>
+                  <Answer name="Prompt1Good1" agent="ComputerTutor" type="Good" text="Wrong." speech="" keys=" \b(w?rong\w*|incor\w*|err\w*|fals\w*|mista\w*|bad\w*|fa([uw]l\w*|lt\w*)|n['o]t\s*ri(ght|te)|fal a\w*|spec\w*|spur\w*)\b" threshold=".9" test=""/>
+                </Answers>
+              </Prompt>
+            </Prompts>
+          </Expectation>
+          <Expectation id="2" text="More tests increases the probability of at least one being wrong.">
+            <Answers>
+              <Answer name="Expt2Good1" agent="ComputerTutor" type="Good" text="More tests increases the probability of at least one being wrong." speech="" keys="\b(more?|moar|gre?at\w*|hi|hih|high\w*|larg\w*|ra?i?[sz][^o]\w*|top|up|incre?[^d]\w*|e?xtra|over|e?x[sc]?e[eds]\w*)\b, \b(test\w*|anal\w*|exp\w*r\w*m\w*|inves\w*|tr[iy]al\w*|eval\w*|inq\w*|stud\w*|exam\w*|c[ou]mpar\w*|insp\w*)\b, \b(incre?[^d]\w*|hi|hih|high\w*|larg\w*|more?|moar|ra?i?[sz][^o]\w*|go\w*\s up|big\w*|gre?at\w*)\b, \b(w?rong\w*|incor\w*|err\w*|fals\w*|mista\w*|bad\w*|fa([uw]l\w*|lt\w*)|n['o]t\s*ri(ght|te)|fal a\w*|spec\w*|spur\w*)\b" threshold=".9" test=""/>
+            </Answers>
+            <Hints>
+              <Hint id="1" agent="ComputerTutor" text="If each test has a chance of being wrong, what happens if you run multiple tests?" media="">
+                <Answers>
+                  <Answer name="Hint1Good1" agent="ComputerTutor" type="Good" text="More tests increases the probability of at least one being wrong." speech="" keys="\b(more?|moar|gre?at\w*|hi|hih|high\w*|larg\w*|ra?i?[sz][^o]\w*|top|up|incre?[^d]\w*|e?xtra|over|e?x[sc]?e[eds]\w*)\b, \b(test\w*|anal\w*|exp\w*r\w*m\w*|inves\w*|tr[iy]al\w*|eval\w*|inq\w*|stud\w*|exam\w*|c[ou]mpar\w*|insp\w*)\b, \b(incre?[^d]\w*|hi|hih|high\w*|larg\w*|more?|moar|ra?i?[sz][^o]\w*|go\w*\s up|big\w*|gre?at\w*)\b, \b(w?rong\w*|incor\w*|err\w*|fals\w*|mista\w*|bad\w*|fa([uw]l\w*|lt\w*)|n['o]t\s*ri(ght|te)|fal a\w*|spec\w*|spur\w*)\b" threshold=".9" test=""/>
+                </Answers>
+              </Hint>
+            </Hints>
+            <Prompts>
+              <Prompt id="1" agent="ComputerTutor" text="As you run more statistical tests, what happens to the likelihood that at least one is wrong?" speech="" media="">
+                <Answers>
+                  <Answer name="Prompt1Good1" agent="ComputerTutor" type="Good" text="It increases" speech="" keys="\b(incre?[^d]\w*|hi|hih|high\w*|larg\w*|more?|moar|ra?i?[sz][^o]\w*|go\w*\s up|big\w*|gre?at\w*)\b" threshold=".9" test=""/>
+                </Answers>
+              </Prompt>
+            </Prompts>
+          </Expectation>
+          <Expectation id="3" text="An ANOVA uses an omnibus F test to avoid capitalizing on chance.">
+            <Answers>
+              <Answer name="Expt3Good1" agent="ComputerTutor" type="Good" text="ANOVA uses an omnibus F test to avoid capitalizing on chance." speech="" keys="\b((anov|anal.*var)\w*)\b,&#x9;\b(omn\w*|f|ov\w*l|tot\w*|(whol\hole)\w*|prel\w*|init\w*)\b, \b(capit\w*|expl\w*[iy]t\w*|t\w*k\w*\s*adva\w*)\b, \b(chan[cs]|prob\w*|lik\w*|poss\w*|err\w*|rand\w*|luc?k\w*)\b" threshold=".9" test=""/>
+            </Answers>
+            <Hints>
+              <Hint id="1" agent="ComputerTutor" text="How does an ANOVA avoid capitalizing on chance?" media="">
+                <Answers>
+                  <Answer name="Hint1Good1" agent="ComputerTutor" type="Good" text="By using an omnibus F test." speech="" keys="\b(omn\w*|f|ov\w*l|tot\w*|(whol\hole)\w*|prel\w*|init\w*)\b" threshold=".9" test=""/>
+                </Answers>
+              </Hint>
+            </Hints>
+            <Prompts>
+              <Prompt id="1" agent="ComputerTutor" text="Instead of multiple t-tests, an ANOVA uses what kind of test?" speech="" media="">
+                <Answers>
+                  <Answer name="Prompt1Good1" agent="ComputerTutor" type="Good" text="An omnibus F test." speech="" keys="\b(omn\w*|F|ov\w*l|tot\w*|(whol\hole)\w*|prel\w*|init\w*)\b" threshold=".9" test=""/>
+                </Answers>
+              </Prompt>
+            </Prompts>
+          </Expectation>
+        </Expectations>
+        <Misconceptions>
+          <Misconception id="1" text="You’ll be likely to make an error.">
+            <Answers/>
+            <Hints/>
+            <Prompts/>
+          </Misconception>
+        </Misconceptions>
+      </TutoringPack>
+    </TutoringPacks>
+  </AutoTutorScript>
+  <SKOConfig>
+    <TITLE><![CDATA[TutorDemo(ID ASAT)]]></TITLE>
+    <NOTES><![CDATA[<hr/><b>Version:</b>1. <b>Author:</b>barrett.kitterman. <b>Status:</b>. <b>Date:</b>4/17/17  <br/><b>Note:</b><hr/>]]></NOTES>
+    <LogicalNext><![CDATA[]]></LogicalNext>
+    <ContentURL><![CDATA[]]></ContentURL>
+    <iDSSPP>
+      <space><![CDATA[fa]]></space>
+      <spaceindex><![CDATA[0]]></spaceindex>
+      <domain><![CDATA[nodomain]]></domain>
+      <domainindex><![CDATA[0]]></domainindex>
+      <miniStrength>0.2</miniStrength>
+      <miniWeight>0.2</miniWeight>
+      <wc>0.1</wc>
+      <minRankby>0.1</minRankby>
+    </iDSSPP>
+    <PageConfig>
+      <BKIMG><![CDATA[ATBackGround.jpg]]></BKIMG>
+      <Transparent><![CDATA[false]]></Transparent>
+      <MediaBaseURL><![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]></MediaBaseURL>
+      <ACEWebAPI><![CDATA[http://ace.autotutor.org/aceapi2017/api/aceaction]]></ACEWebAPI>
+      <CompLocation X="0" Y="0"/>
+      <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="10" S2X="10" S3X="0" TY="17" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_b6979123-2a19-4092-8e5b-36e1771d4525.swf" Student1Pub="cb/English/Kate/Output/Susan_b6979123-2a19-4092-8e5b-36e1771d4525.swf" Student2Pub="cb/English/Julie/Output/Anna_b6979123-2a19-4092-8e5b-36e1771d4525.swf" Student3Pub="cb/English/Paul/Output/Stan_b6979123-2a19-4092-8e5b-36e1771d4525.swf"/>
+      <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+      <YOUTUBE>
+        <HotPosition1>
+          <time>time</time>
+          <guid>Content</guid>
+        </HotPosition1>
+        <HotPosition2>
+          <time>time</time>
+          <guid>Content</guid>
+        </HotPosition2>
+        <HotPosition3>
+          <time>time</time>
+          <guid>Content</guid>
+        </HotPosition3>
+      </YOUTUBE>
+      <mediaTypeXML/>
+      <SKOMsg/>
+      <POPChoice Title="" Message="" enabled="false"/>
+      <UseAIML>0</UseAIML>
+      <AllowBookMark>1</AllowBookMark>
+      <PlayStyle delay="">auto</PlayStyle>
+      <EnableBigImage>0</EnableBigImage>
+      <PnQs/>
+    </PageConfig>
+  </SKOConfig>
+  <ID>
+    <ITEM type="scene">
+      <TITLE>Slide 1</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[Welcome class. <pause/> When we ended last time, _NAMES1_ had a question about comparing more than two groups.]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL>
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          <![CDATA[]]>
+        </MediaBaseURL>
+        <ACEWebAPI/>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/Paul/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/Paul/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1">IntroSlide.png</MediaURLXML>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML>ImageOnly</mediaTypeXML>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 2</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[Yeah, a question you totally dodged.]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL>
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          <![CDATA[]]>
+        </MediaBaseURL>
+        <ACEWebAPI/>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="true" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="false" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML>BackGroundOnly</mediaTypeXML>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 3</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[_NAMES1_'s question was about using multiple t tests to compare multiple groups. <pause/> ]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL>
+          <![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]>
+          <![CDATA[]]>
+        </MediaBaseURL>
+        <ACEWebAPI/>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1">11.1_3_2.png</MediaURLXML>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <mediaTypeXML>ImageOnly</mediaTypeXML>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 3-2</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[For example, let's imagine we are comparing Freshmen, Sophomores, Juniors, and Seniors. We want to know if there is a difference in the amount of sleep they get per night. <pause/> ]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1">11.1_ClassSleep.png</MediaURLXML>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML>ImageOnly</MediaTypeXML>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 3-3</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[In this case we have multiple groups, which means we need to make multiple comparisons. Specifically, we have four groups and six comparisons. ]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[http://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 3-4</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[The four groups are Freshman, Sophomore, Junior, and Senior. ]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1">11.1_2_7_2.png</MediaURLXML>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML>ImageOnly</MediaTypeXML>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 3-5</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[The six comparisons are Freshman vs. Sophomore, Freshman vs. Junior, Freshman vs. Senior, Sophomore vs. Junior, Sophomore vs. Senior, and Junior vs. Senior. ]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1">11.1_2_8.png</MediaURLXML>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML>ImageOnly</MediaTypeXML>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 4</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[So, can you use multiple t tests to compare those groups?]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="true" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="false" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1">11.1_3_2.png</MediaURLXML>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML>ImageOnly</MediaTypeXML>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 5</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[Actually, we should not use multiple t-tests to make multiple comparisons.]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1">11.1_5.png</MediaURLXML>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML>ImageOnly</MediaTypeXML>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 6</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[Why not?]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="true" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="false" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 7</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[Let me explain why not with an example. ]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 8</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[Consider the following scenario in which you can pick between two games: <pause/> in game 1, you have a 5% chance of winning. <pause/> in game 2, you have a 5% chance of winning in addition to another 5% chance of winning. <pause/> Which game do you want to play? That is, which game gives you a higher chance of winning? ]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1">11.1_6_v2.png</MediaURLXML>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML>ImageOnly</MediaTypeXML>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 9</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[<eyeswide/> I'm having trouble understanding this game. ]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="true" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="false" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 10</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[Ok, let's make this hypothetical game more concrete. <pause/> ]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 10-1</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[You have just over a 5% chance of rolling an 11 on a pair of dice, right?]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1">11.1_7_v2.png</MediaURLXML>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML>ImageOnly</MediaTypeXML>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 10-2</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[I guess. ]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="true" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="false" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 11</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[If you win by rolling an 11, would you rather get one chance to roll <pause/>--as represented in Game 1--<pause/> or two chances to roll<pause/>--as represented in Game 2?]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1">11.1_8_4.png</MediaURLXML>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML>ImageOnly</MediaTypeXML>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 12</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[This is easily the dumbest question you've ever asked.]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="true" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="false" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 13</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[Game 2, obviously.]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="true" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="false" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 14</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[Okay. <pause/> Why?]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 15</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[More chances to win. ]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="true" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="false" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 16</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[Exactly. You're capitalizing on chance. <pause/> The more opportunities you get, the more chances you have to win.]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1">11.1_9.png</MediaURLXML>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML>ImageOnly</MediaTypeXML>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 17</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[So what does this have to do with _NAMES1_'s original question? ]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="true" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="false" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1">11.1_3_2.png</MediaURLXML>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML>ImageOnly</MediaTypeXML>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 18</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[When we're making multiple comparisons, each statistical test has a probability of error associated with it, right?]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 19</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[You mean the p value?]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="true" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="false" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 20</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[Precisely. <pause/>There is always a possibility that your results are simply due to chance.]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 21</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[Okay. Can we stop for a second? I remember p values but I'm having a hard time making the connection.]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="true" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="false" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 22</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[No problem. <pause/>]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 22-2</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[So, let's go back to our study comparing the sleep habits of Freshmen, Sophomores, Juniors, and Seniors. <pause/> ]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1">11.1_ClassSleep.png</MediaURLXML>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML>ImageOnly</MediaTypeXML>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 22-3</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[We use a t-test to compare each group. Let's say that the result of each t-test is p = .05.]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1">11.1_11.png</MediaURLXML>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML>ImageOnly</MediaTypeXML>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 23</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[Alright.]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="true" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="false" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 24</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[That means each comparison has a 5% probability of being due to chance, right?]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 25</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[That's right. ]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="true" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="false" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 26</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[So, each additional test you conduct is like rolling the dice again. <pause/> One comparison has a 95% chance of being correct, or a 5% chance of being a Type 1 error.]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1">11.1_13_9.png</MediaURLXML>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML>ImageOnly</MediaTypeXML>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 26-2</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[But the probability of two comparisons both being correct is .95 times .95, or .95 squared, which is about 90%.]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 26-3</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[Wow, so now we're at a 10% chance of making a Type 1 error?]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="true" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="false" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 26-4</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[Right. <pause/> And the probability of three comparisons all being right is .95 cubed, which is about 86%, and so on. <pause/> By the time we get to 6 comparisons, the chance of all of them being right is just 74%.]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <MediaBaseURL><![CDATA[]]></MediaBaseURL>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 27</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[So, multiple tests means more chances that at least one test result is wrong.]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="true" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="false" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 28</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[That's exactly right. ]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 29</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[Okay, that makes sense. <pause/> So, what do we do about it?]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="true" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="false" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 29-2</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[Find a new line of work. ]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="true" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="false" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1"/>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML/>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+    <ITEM type="scene">
+      <TITLE>Slide 30</TITLE>
+      <NOTES><![CDATA[Slide 1]]></NOTES>
+      <mattextS><![CDATA[We use the next inferential test we're going to learn: the Analysis of Variance, or ANOVA.]]></mattextS>
+      <mattextR><![CDATA[]]></mattextR>
+      <mattextD><![CDATA[Good afternoon, class. We've talked about between subjects designs, where each participant only recieves one level of the independent variable.]]></mattextD>
+      <PageConfig>
+        <BKIMG><![CDATA[]]></BKIMG>
+        <Transparent><![CDATA[false]]></Transparent>
+        <CompLocation X="0" Y="0"/>
+        <AVATAR Teacher="cb/English/James/Output/Ben.swf" Student1="cb/English/Kate/Output/Susan.swf" Student2="cb/English/Julie/Output/Anna.swf" Student3="cb/English/Paul/Output/Stan.swf" useStudent1="false" useStudent2="false" useStudent3="false" showStudent1="true" showStudent2="true" showStudent3="true" showTeacher="true" TX="0" S1X="0" S2X="0" S3X="0" TY="0" S1Y="0" S2Y="0" S3Y="0" useTeacher="true" TeacherPub="cb/English/James/Output/Ben_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student1Pub="cb/English/Kate/Output/Susan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student2Pub="cb/English/Julie/Output/Anna_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf" Student3Pub="cb/English/Paul/Output/Stan_ef439c84-fa2a-456e-bc2c-01c3d89888ed.swf"/>
+        <MediaURLXML YouTubeStarting="-1" YouTubeEnding="-1">OutroSlide112_2.png</MediaURLXML>
+        <YOUTUBE>
+          <HotPosition1>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition1>
+          <HotPosition2>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition2>
+          <HotPosition3>
+            <time>time</time>
+            <guid>Content</guid>
+          </HotPosition3>
+        </YOUTUBE>
+        <MediaTypeXML>ImageOnly</MediaTypeXML>
+        <SKOMsg/>
+        <POPChoice Title="" Message="" enabled="false"/>
+        <UseAIML>0</UseAIML>
+        <AllowBookMark>1</AllowBookMark>
+        <PlayStyle delay="">auto</PlayStyle>
+        <EnableBigImage>0</EnableBigImage>
+        <PnQs/>
+      </PageConfig>
+      <PnQs/>
+    </ITEM>
+  </ID>
+  <ScriptsLOM>
+    <lom/>
+  </ScriptsLOM>
+</SKOSCRIPTS>

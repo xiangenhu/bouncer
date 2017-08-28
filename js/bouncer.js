@@ -67,7 +67,8 @@ if (qs("lang","eng")=="chn")
 	}
 	if  (qs("lang","eng")=="eng") {
 		var UserStudent=qs("UserStudent","Carl");
-		SKOGuid=qs("guid","bf406af8-b18a-4b2f-b03b-1d285ef19b7e");
+		SKOSchool="class.skoonline.org";
+		SKOGuid=qs("guid","b6979123-2a19-4092-8e5b-36e1771d4525");
 	}
 
 
@@ -92,7 +93,7 @@ function ComposeSKOLink(){
 			text= "http://"+school+"/retrieve?json="+JSON.stringify(SKO);
 			return text;
 		}
-		if (qs('SType','GAE')=="GAE")
+		if (qs('SType','GAE')=="NONGAE")
      	{
 			var SKO ={
 			guid:SKOGuid,
