@@ -59,13 +59,13 @@ var urlPageForIFrame = qs("url","");
 var UserStudent=qs("UserStudent","Carl");
 var SKOGuid=qs("guid","bf406af8-b18a-4b2f-b03b-1d285ef19b7e");
 var SKOSchool=qs("school","ccnu.x-in-y.com:8889");
-if (qs("lang","chn")=="chn")
+if (qs("lang","eng")=="chn")
 	{
 		UserStudent=qs("UserStudent","沛沛");
 		SKOSchool="class.skoonline.org";
 		SKOGuid=qs("guid","02989a6a-b50b-4292-abb9-d496ddda3963");
 	}
-	if  (qs("lang","chn")=="eng") {
+	if  (qs("lang","eng")=="eng") {
 		var UserStudent=qs("UserStudent","Carl");
 		SKOGuid=qs("guid","bf406af8-b18a-4b2f-b03b-1d285ef19b7e");
 	}
@@ -92,7 +92,7 @@ function ComposeSKOLink(){
 			text= "http://"+school+"/retrieve?json="+JSON.stringify(SKO);
 			return text;
 		}
-		if (qs('SType','NGAE')=="GAE")
+		if (qs('SType','GAE')=="GAE")
      	{
 			var SKO ={
 			guid:SKOGuid,
@@ -157,31 +157,31 @@ function onContentLoaded()
 {
 	var Avatars = document.getElementById("TopDiv");
 	var s = '';
-	if (qs("C1","0")=="1")	{
+	if (qs("C1","1")=="1")	{
 		s += '<div id="'+Cc1+'" class="tl-agent">'+Cc1+'</div>';
 	}
-	if (qs("C2","0")=="1")	{
+	if (qs("C2","1")=="1")	{
 		s += '<div id="'+Cc2+'" class="tr-agent">'+Cc2+'</div>';
 	}
-	if (qs("C3","0")=="1")	{
+	if (qs("C3","1")=="1")	{
 		s += '<div id="'+Cc3+'" class="bl-agent">'+Cc3+'</div>';
 	}
-	if (qs("C4","0")=="1")	{
+	if (qs("C4","1")=="1")	{
 		s += '<div id="'+Cc4+'" class="br-agent">'+Cc4+'</div>';
 	}
 	Avatars.innerHTML = s; 
 	if (qs("lang","chn")=="chn")
 	{
-		Attache((qs("C1","0")=="1"),Cc1,CharactorA,Cp1);
-		Attache((qs("C2","0")=="1"),Cc2,CharactorB,Cp2);
-		Attache((qs("C3","0")=="1"),Cc3,CharactorC,Cp3);
-		Attache((qs("C4","0")=="1"),Cc4,CharactorD,Cp4);
+		Attache((qs("C1","1")=="1"),Cc1,CharactorA,Cp1);
+		Attache((qs("C2","1")=="1"),Cc2,CharactorB,Cp2);
+		Attache((qs("C3","1")=="1"),Cc3,CharactorC,Cp3);
+		Attache((qs("C4","1")=="1"),Cc4,CharactorD,Cp4);
 	}
 	if  (qs("lang","chn")=="eng") {
-		Attache((qs("C1","0")=="1"),Ec1,CharactorA,Ep1);
-		Attache((qs("C2","0")=="1"),Ec2,CharactorB,Ep2);
-		Attache((qs("C3","0")=="1"),Ec3,CharactorC,Ep3);
-		Attache((qs("C4","0")=="1"),Ec4,CharactorD,Ep4);
+		Attache((qs("C1","1")=="1"),Ec1,CharactorA,Ep1);
+		Attache((qs("C2","1")=="1"),Ec2,CharactorB,Ep2);
+		Attache((qs("C3","1")=="1"),Ec3,CharactorC,Ep3);
+		Attache((qs("C4","1")=="1"),Ec4,CharactorD,Ep4);
 	}
 
 }
