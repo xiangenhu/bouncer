@@ -311,7 +311,7 @@ var actionMethods = {
 				displayYoutube("video-placeholder",obj.Data);
 				currentIndex=newID;
 			}else{
-				displayMedia("MediaContainer",qs("MediaBase","https://xiangenhu.github.io/ATMedia/IMG/CAT/"),obj.Data);
+				displayMedia("MediaContainer",qs("MediaBase","https://xiangenhu.github.io/ATMedia/IMG/StatsTutorDemo_ANOVAIntro_ID/"),obj.Data);
 			}
 			var newText ='<externalcommand command="next" args="'+newID+'"/>.';
 			msSpeak(CharactorA,newText);
@@ -743,16 +743,16 @@ function newGetXmlData(jsonOfXml) {
 
 function newGetIDXML(){
 	//debugger;
-	// var RetriveIDObj={
-	// 	guid:qs("IDguid","768ca09d-3ea8-4174-a19c-86f096217f05"), 
-	// 	source:"ScriptOnly",
-	// 	TagName:"ASATPageConfigration",
-	// 	authorname:"xiangenhu"
-	// };
+	 var RetriveIDObj={
+   	 guid:qs("guid","b6979123-2a19-4092-8e5b-36e1771d4525"), 
+	 source:"ScriptOnly",
+	 TagName:"ASATPageConfigration",
+	 authorname:"xiangenhu"
+	 };
 		
-	//var url  = "http://mi.skoonline.org/retrieve?json="+JSON.stringify(RetriveIDObj);
-
-	var url = "http://class.skoonline.org/retrieve?json={%22authorname%22:%22xiangenhu%22,%22source%22:%22ScriptOnly%22,%22guid%22:%22768ca09d-3ea8-4174-a19c-86f096217f05%22,%22TagName%22:%22ASATPageConfigration%22}";
+	var url  = "http://class.skoonline.org/retrieve?json="+JSON.stringify(RetriveIDObj);
+	console.log(url);
+//    debugger;
 
 		
 	var IDRetrive  = new XMLHttpRequest();
