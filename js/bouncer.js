@@ -428,7 +428,8 @@ var done = false;
 function onPlayerStateChange(event) { 
 	//Once it is done function stops
     if(event.data == YT.PlayerState.PLAYING && !done) { 
-        setTimeout(closeYoutube, xmlData[aIndex].duration);
+//        setTimeout(closeYoutube, xmlData[aIndex].duration);
+        setTimeout(closeYoutube, 300000);
         done = true;
     }
 }
@@ -672,8 +673,8 @@ function newGetXmlData(jsonOfXml) {
 			Agent: "System",
 			Act: "ShowMedia",
 			Data: pageVideo.ASATPageVideoStoppingPointFileName["#text"],
-			currentStart: "",
-			duration: "",
+			currentStart: parseInt(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointStop["#text"]),
+			duration: parseInt(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointDuration["#text"]),
 		}
 		xmlData.push(obj);
 		var obj = {
@@ -683,14 +684,17 @@ function newGetXmlData(jsonOfXml) {
 		}
 		xmlData.push(obj);
 		//Adds stuff to first object
-		xmlData[mediaIndex].currentStart = parseInt(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointStop["#text"]);
-		xmlData[mediaIndex].duration = parseInt(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointDuration["#text"]);
+//		xmlData[mediaIndex].currentStart = parseInt(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointStop["#text"]);
+//		xmlData[mediaIndex].duration = parseInt(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointDuration["#text"]);
 		//debugger;
 		mediaIndex++;
 		//Adds stuff to second object
 		if(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointAgent["#text"] === "Teacher") {
 			xmlData[mediaIndex].Agent = "ComputerTutor";
-		};
+		}
+		else{
+			xmlData[mediaIndex].Agent = "ComputerStudent";
+		}
 		xmlData[mediaIndex].Data = xmlDocCopy.getElementsByTagName("ASATPageVideoBreakPointSpeech")[i].textContent;
 
 		mediaIndex++;
@@ -744,17 +748,14 @@ function newGetXmlData(jsonOfXml) {
 function newGetIDXML(){
 	//debugger;
 	 var RetriveIDObj={
-   	 guid:qs("guid","b6979123-2a19-4092-8e5b-36e1771d4525"), 
+   	 guid:qs("guid","b6979123-2a19-4092-8e5b-36e1771d4525"),
 	 source:"ScriptOnly",
 	 TagName:"ASATPageConfigration",
 	 authorname:"xiangenhu"
 	 };
 		
 	var url  = "http://class.skoonline.org/retrieve?json="+JSON.stringify(RetriveIDObj);
-	console.log(url);
-//    debugger;
-
-		
+	
 	var IDRetrive  = new XMLHttpRequest();
 	//Fixes issue with firefox browser by forcing it to be read as text
 	IDRetrive.overrideMimeType('text/xml; charset=iso-8859-1');
@@ -786,14 +787,14 @@ function newGetIDXML(){
 		//debugger;
 		
 		console.log(xmlData);
-		
+	//	debugger;
 		var actionLength=xmlData.length;
 		SpeakList=[];
 		for (var i = 0; i < actionLength; i++) {
 				SpeakList.push(xmlData[i]); 
 				console.log("==>"+JSON.stringify(xmlData[i]));
 				}
-			Action(SpeakList[0],0);		
+			Action(SpeakList[0],0);	
 		}
 	IDRetrive.send(null);
 
