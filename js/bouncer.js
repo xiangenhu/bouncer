@@ -299,7 +299,9 @@ var actionMethods = {
 	ifSpeakTalk: function(obj, aIndex) {
 		//Only runs if isRunning is false
 		if (obj.Act=="Speak" && isRunning === false) {
-			AgentTalk(obj,aIndex);
+			AgentTalk(obj,aIndex);					
+			document.getElementById('PauseBTN').style.display = "block";
+			document.getElementById('ResumeBTN').style.display = "none";
 		}
 	},
 
@@ -353,7 +355,7 @@ function onExternalCommand(id, cmd, args)
 		var aIndex=Number(args);
 		if (aIndex==SpeakList.length) {
 			document.getElementById("InputArea").style.display = "block";
-			document.getElementById("Initialize").style.display = "none";
+			document.getElementById("Initialize").style.display = "none";	
 //			displayMedia("MediaContainer","","https://xiangenhu.github.io/ATMedia/IMG/CAT/Down2andTone.png");
 			return;
 		}
@@ -599,15 +601,25 @@ var jsonOfXml;
 var xmlDocCopy;
 
 function GetIDXML(){
-	var RetriveIDObj={
-		guid:qs("IDguid","ec0d112f-35f0-4b85-b54d-ead66f1ab672"), 
+	 var RetriveIDObj={
+		guid:qs("guid","ec0d112f-35f0-4b85-b54d-ead66f1ab672"), 
 		source:"ScriptOnly",
 		TagName:"ID",
 		authorname:"xiangenhu"
 	};
 		
-	var url  = "http://mi.skoonline.org/retrieve?json="+JSON.stringify(RetriveIDObj);
+	var url  = "http://mi.skoonline.org/retrieve?json="+JSON.stringify(RetriveIDObj); 
+	/* alert(url);
+	 var RetriveIDObj={
+   	 guid:qs("guid","b6979123-2a19-4092-8e5b-36e1771d4525"),
+	 source:"ScriptOnly",
+	 TagName:"ID",
+	 authorname:"xiangenhu"
+	 };
 		
+	var url  = "http://class.skoonline.org/retrieve?json="+JSON.stringify(RetriveIDObj); 
+ */
+	
 	var IDRetrive  = new XMLHttpRequest();
 	//Fixes issue with firefox browser by forcing it to be read as text
 	IDRetrive.overrideMimeType('text/xml; charset=iso-8859-1');
