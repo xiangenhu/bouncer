@@ -428,8 +428,7 @@ var done = false;
 function onPlayerStateChange(event) { 
 	//Once it is done function stops
     if(event.data == YT.PlayerState.PLAYING && !done) { 
-//        setTimeout(closeYoutube, xmlData[aIndex].duration);
-        setTimeout(closeYoutube, 300000);
+        setTimeout(closeYoutube, xmlData[aIndex].duration);
         done = true;
     }
 }
