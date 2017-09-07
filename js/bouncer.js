@@ -171,14 +171,14 @@ function onContentLoaded()
 		s += '<div id="'+Cc4+'" class="br-agent">'+Cc4+'</div>';
 	}
 	Avatars.innerHTML = s; 
-	if (qs("lang","chn")=="chn")
+	if (qs("lang","eng")=="chn")
 	{
 		Attache((qs("C1","1")=="1"),Cc1,CharactorA,Cp1);
 		Attache((qs("C2","1")=="1"),Cc2,CharactorB,Cp2);
 		Attache((qs("C3","1")=="1"),Cc3,CharactorC,Cp3);
 		Attache((qs("C4","1")=="1"),Cc4,CharactorD,Cp4);
 	}
-	if  (qs("lang","chn")=="eng") {
+	if  (qs("lang","eng")=="eng") {
 		Attache((qs("C1","1")=="1"),Ec1,CharactorA,Ep1);
 		Attache((qs("C2","1")=="1"),Ec2,CharactorB,Ep2);
 		Attache((qs("C3","1")=="1"),Ec3,CharactorC,Ep3);
