@@ -300,8 +300,6 @@ var actionMethods = {
 		//Only runs if isRunning is false
 		if (obj.Act=="Speak" && isRunning === false) {
 			AgentTalk(obj,aIndex);					
-			document.getElementById('PauseBTN').style.display = "block";
-			document.getElementById('ResumeBTN').style.display = "none";
 		}
 	},
 
@@ -356,7 +354,6 @@ function onExternalCommand(id, cmd, args)
 		if (aIndex==SpeakList.length) {
 			document.getElementById("InputArea").style.display = "block";
 			document.getElementById("Initialize").style.display = "none";	
-//			displayMedia("MediaContainer","","https://xiangenhu.github.io/ATMedia/IMG/CAT/Down2andTone.png");
 			return;
 		}
 		Action(SpeakList[aIndex],aIndex);
