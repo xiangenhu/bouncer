@@ -42,18 +42,14 @@
 		//Speak data is words. Showmedia data is youtube id or image.png
 
 		function processingReturn(data){
+			AvatarsAction(data)
 		    var actionLength, text, i;
 		    actionLength=data.ACEActions.length;
 			SpeakList=[];
 			
 			OldText=document.getElementById("Coversation").innerHTML="";
 			var x = document.getElementById('InputArea');
-			x.style.display = 'none';
-			
-//			console.log("++=============================================================");
-//			console.log(JSON.stringify(data));
-//			console.log("=============================================================++++");
-			
+			x.style.display = 'none';			
 			for (i = 0; i < actionLength; i++) {
 				if ((data.ACEActions[i].Act=="Speak") || (data.ACEActions[i].Act=="ShowMedia")){
 					SpeakList.push(data.ACEActions[i]); 
@@ -117,7 +113,7 @@
                 function (event) {
 					event.preventDefault();
 					pauseSession();
-				//	document.getElementById("PauseBTN").style.display = "none";	
+					document.getElementById("PauseBTN").style.display = "none";	
 					document.getElementById("ResumeBTN").style.display = "block";	
                     });
 			$('input#ResumeBTN').click(

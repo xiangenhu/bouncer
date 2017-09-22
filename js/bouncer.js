@@ -83,10 +83,10 @@ function ComposeSKOLink(){
 	    if (qs('SType','GAE')=="GAE")
      	{
 			var SKO ={
-			guid:SKOGuid,
-			TagName:"AutoTutorScript",
-			source:"ScriptOnly",
-			authorname:"xiangenhu"
+				guid:SKOGuid,
+				TagName:"AutoTutorScript",
+				source:"ScriptOnly",
+				authorname:"xiangenhu"
 			}
 		    var school,text;
 			school=SKOSchool;
@@ -96,8 +96,8 @@ function ComposeSKOLink(){
 		if (qs('SType','GAE')=="NONGAE")
      	{
 			var SKO ={
-			guid:SKOGuid,
-			return:"scriptContent"
+				guid:SKOGuid,
+				return:"scriptContent"
 			}
 		    var school,text;
 			school=SKOSchool;
@@ -287,6 +287,7 @@ function AgentTalk(obj,aIndex){
 //Runs the object through two functions to see what action to take
 function Action(obj,aIndex){
 	//debugger;
+	if (obj==null) return;
 	actionMethods.ifShowMedia(obj,aIndex);
 	actionMethods.ifSpeakTalk(obj,aIndex);
 }
