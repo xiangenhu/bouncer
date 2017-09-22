@@ -98,6 +98,9 @@
 		}
 		
         $(document).ready(function () {
+		
+		    document.getElementById("utilityBar").style.display = "none";
+			
             $('input#Initialize').click(
                 function (event) {
 					event.preventDefault();
@@ -123,7 +126,19 @@
 					document.getElementById("PauseBTN").style.display = "block";	
 					document.getElementById("ResumeBTN").style.display = "none";	
                     });
-			
+			if (qs("ST","")=="ID"){
+				Status="ID";
+				GetIDXML();
+			}
+			if (qs("ST","")=="ASATPage"){
+					Status="ASATPage";
+					newGetIDXML();
+			}
+			if (qs("ST","")=="ASAT"){
+					Status="ASAT";
+					POSTtoACE("POST");	
+					document.getElementById("ResumeBTN").style.display = "none";
+			}
         });
 		
 		</script>
@@ -144,16 +159,15 @@
 		 <input type='submit' id='Initialize' value="Start"/>
 		 <input type='submit' id="PauseBTN" value="Pause">
 		 <input type='submit' id="ResumeBTN" value="Resume">
-		<!--  <button onclick="player.playVideo()">Play</button> 
+		 <button onclick="GetIDXML()">RetriveID</button> 
+		 <button onclick="newGetIDXML()">newRetriveID</button> 
+		 <!--  <button onclick="player.playVideo()">Play</button> 
 		 <button onclick="player.pauseVideo()">Pause</button> 
 		 <button onclick="player.mute()">Mute</button> 
 		 <button onclick="player.unMute()">UnMute</button> 
 		 <button onclick="closeYoutube('video-placeholder')">RemoveVideo</button>  -->
-		 <button onclick="GetIDXML()">RetriveID</button> 
-		 <button onclick="newGetIDXML()">newRetriveID</button> 
 		 <br>	
 		</div>
-
 		<script src="js/bouncer.js" type="text/javascript"></script>
 
 	</body>

@@ -21,16 +21,19 @@ var SpeakList = [];
 
 // English Character and SKO Default
 
+var CharactorA;
+var CharactorB;
+var CharactorC;
+var CharactorD;
+
+var Status="";
+
 var Cc1=qs("Cc1","Lee");
 var Cc2=qs("Cc2","Lily");
 var Cc3=qs("Cc3","Angela");
 var Cc4=qs("Cc4","Anna");
 
 
-var CharactorA=Cc1;
-var CharactorB=Cc2;
-var CharactorC=Cc3;
-var CharactorD=Cc4;
 
 var Cp1=qs("Cp1","CBCode/Chinese/Liang/Output/Lee_Files");
 var Cp2=qs("Cp2","CBCode/Chinese/Hui/Output/Lily_Files");
@@ -64,11 +67,21 @@ if (qs("lang","eng")=="chn")
 		UserStudent=qs("UserStudent","沛沛");
 		SKOSchool="class.skoonline.org";
 		SKOGuid=qs("guid","02989a6a-b50b-4292-abb9-d496ddda3963");
+
+		CharactorA=Cc1;
+		CharactorB=Cc2;
+		CharactorC=Cc3;
+		CharactorD=Cc4;
+		
 	}
 	if  (qs("lang","eng")=="eng") {
 		var UserStudent=qs("UserStudent","Carl");
 		SKOSchool="class.skoonline.org";
 		SKOGuid=qs("guid","b6979123-2a19-4092-8e5b-36e1771d4525");
+		CharactorA=Ec1;
+		CharactorB=Ec2;
+		CharactorC=Ec3;
+		CharactorD=Ec4;
 	}
 
 
@@ -159,16 +172,16 @@ function onContentLoaded()
 	var Avatars = document.getElementById("TopDiv");
 	var s = '';
 	if (qs("C1","1")=="1")	{
-		s += '<div id="'+Cc1+'" class="tl-agent">'+Cc1+'</div>';
+		s += '<div id="'+CharactorA+'" class="tl-agent">'+CharactorA+'</div>';
 	}
 	if (qs("C2","1")=="1")	{
-		s += '<div id="'+Cc2+'" class="tr-agent">'+Cc2+'</div>';
+		s += '<div id="'+CharactorB+'" class="tr-agent">'+CharactorB+'</div>';
 	}
 	if (qs("C3","1")=="1")	{
-		s += '<div id="'+Cc3+'" class="bl-agent">'+Cc3+'</div>';
+		s += '<div id="'+CharactorC+'" class="bl-agent">'+CharactorC+'</div>';
 	}
 	if (qs("C4","1")=="1")	{
-		s += '<div id="'+Cc4+'" class="br-agent">'+Cc4+'</div>';
+		s += '<div id="'+CharactorD+'" class="br-agent">'+CharactorD+'</div>';
 	}
 	Avatars.innerHTML = s; 
 	if (qs("lang","eng")=="chn")
@@ -241,12 +254,7 @@ function Speak(movieID,Text,index,print) {
 		if (print==true) {
 			var atext="";
 			var alink = ' <input type="button" onclick="repeat(&#39;'+movieID+'&#39;,&#39;'+Text+'&#39;,&#39;'+index+'&#39;)" value="Repeat" />';
-			if (movieID==CharactorA){ 
-					atext="<li><b>Tutor:</b>" + SText+"</li>";
-				}
-			if (movieID==CharactorB){
-					atext="<li><b>Student:</b> " + SText+"</li>";
-				}
+			atext="<li><b>"+movieID+":</b> " + SText+"</li>";
 			var OldText=document.getElementById("Coversation").innerHTML;
 			document.getElementById("Coversation").innerHTML = atext+"<br/>"+OldText;
 		}
@@ -355,8 +363,22 @@ function onExternalCommand(id, cmd, args)
 	if (cmd=="next"){
 		var aIndex=Number(args);
 		if (aIndex==SpeakList.length) {
-			document.getElementById("InputArea").style.display = "block";
-			document.getElementById("Initialize").style.display = "none";	
+			if (Status=="ASAT")
+			{
+				document.getElementById("InputArea").style.display = "block";
+				document.getElementById("Initialize").style.display = "none";	
+			}
+			if (Status=="ID")
+			{
+				Status="ASATPage";
+				newGetIDXML();
+			}					
+			if (Status=="ASATPage")
+			{
+				Status=ASAT;
+				POSTtoACE("POST");	
+				document.getElementById("ResumeBTN").style.display = "none";
+			}
 			return;
 		}
 		Action(SpeakList[aIndex],aIndex);
