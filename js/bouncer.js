@@ -236,21 +236,23 @@ function ShowLog(){
 
 function Speak(movieID,Text,index,print) {
 	var SText= ReplaceTest(movieID,Text);
-	
-	if (print==true) {
-		var atext="";
-		var alink = ' <input type="button" onclick="repeat(&#39;'+movieID+'&#39;,&#39;'+Text+'&#39;,&#39;'+index+'&#39;)" value="Repeat" />';
-		if (movieID==CharactorA){ 
-				atext="<li><b>Tutor:</b> " + SText+"</li>";
-			}
-		if (movieID==CharactorB){
-				atext="<li><b>Student:</b> " + SText+"</li>";
-			}
-		var OldText=document.getElementById("Coversation").innerHTML;
-		document.getElementById("Coversation").innerHTML = atext+"<br/>"+OldText;
+	if (SText!="") 
+	{
+		if (print==true) {
+			var atext="";
+			var alink = ' <input type="button" onclick="repeat(&#39;'+movieID+'&#39;,&#39;'+Text+'&#39;,&#39;'+index+'&#39;)" value="Repeat" />';
+			if (movieID==CharactorA){ 
+					atext="<li><b>Tutor:</b>" + SText+"</li>";
+				}
+			if (movieID==CharactorB){
+					atext="<li><b>Student:</b> " + SText+"</li>";
+				}
+			var OldText=document.getElementById("Coversation").innerHTML;
+			document.getElementById("Coversation").innerHTML = atext+"<br/>"+OldText;
+		}
+		msSpeak(movieID,SText);
 	}
 	var newText ='<externalcommand command="next" args="'+index+'"/>.';
-	msSpeak(movieID,SText);
 	msSpeakQueued(movieID,newText);
 }
 
