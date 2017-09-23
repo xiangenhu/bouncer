@@ -95,7 +95,7 @@
 #DebuggingArea{
 	left: 200px;
 	right: 200px;
-    top: 450px;
+    top: 0px;
 	position: absolute;
 	opacity:0.95;
 	background:lightGrey; 

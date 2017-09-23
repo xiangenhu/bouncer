@@ -57,7 +57,14 @@
 					}
 				}
 			if (qs("DEBUGGING","0")=="1"){
-					document.getElementById("DebuggingArea").innerHTML =JSON.stringify(data,null,"\t");
+					document.getElementById("DebuggingArea").innerHTML =
+					 "Log.Assessments :<br/>"+JSON.stringify(data.Log.Assessments)+"<hr/>"
+					+"Log.ErrorMessage :<br/>"+JSON.stringify(data.Log.ErrorMessage)+"<hr/>"
+					+"Log.WarningMessage :<br/>"+JSON.stringify(data.Log.WarningMessage)+"<hr/>"
+					+"Log.Error :<br/>"+JSON.stringify(data.Error)+"<hr/>"
+					+"Log.Input <br/>: "+JSON.stringify(data.Log.Input)+"<hr/>"
+					+"Log.Transitions: <br/>"+JSON.stringify(data.Log.Transitions)+"<hr/>"
+					+"ACEActions :<br/>"+JSON.stringify(data.ACEActions)+"<hr/>";
 					}
 			Action(SpeakList[0],0);		
 		}
