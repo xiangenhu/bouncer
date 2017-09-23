@@ -55,7 +55,10 @@
 					SpeakList.push(data.ACEActions[i]); 
 					console.log(JSON.stringify(data.ACEActions[i]));
 					}
-			}
+				}
+			if (qs("DEBUGGING","0")=="1"){
+					document.getElementById("DebuggingArea").innerHTML =JSON.stringify(data,null,"\t");
+					}
 			Action(SpeakList[0],0);		
 		}
 
@@ -139,6 +142,10 @@
 					POSTtoACE("POST");	
 					document.getElementById("ResumeBTN").style.display = "none";
 			}
+			if (qs("DEBUGGING","0")=="1"){
+					document.getElementById("DebuggingArea").style.display = "block";
+			}
+			
         });
 		
 		</script>
@@ -147,6 +154,7 @@
 		 <div id='MediaContainer'></div>
 		 <div id='Coversation'></div>
 		 <div id="imageContainer"></div>
+		 <div id="DebuggingArea"></div>
 
 		<div id="InputArea"align="center">
 		<p> </p>

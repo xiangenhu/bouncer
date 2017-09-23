@@ -92,6 +92,20 @@
     z-index: 1;
 }
 
+#DebuggingArea{
+	left: 200px;
+	right: 200px;
+    top: 450px;
+	position: absolute;
+	opacity:0.95;
+	background:lightGrey; 
+	border-radius: 10px 10px 10px 10px;
+	overflow:hidden;
+	padding:5px;
+    display: none;
+    z-index: 1;
+}
+
 
 #MediaContainer{
     display: block;
