@@ -378,10 +378,15 @@ function onExternalCommand(id, cmd, args)
 			}
 			if (Status=="ID")
 			{
-				Status="ASATPage";
-				GetASATPageXML();
-			}					
-			if (Status=="ASATPage")
+				Status="ASATPageIMG";
+				GetASATPageIMGXML();
+			}	
+			if (Status=="ASATPageIMG")
+			{
+				Status="ASATPageVideo";
+				GetASATPageVideoXML();
+			}			
+			if (Status=="ASATPageVideo")
 			{
 				Status=ASAT;
 				POSTtoACE("POST");	
@@ -460,14 +465,14 @@ var done = false;
 function onPlayerStateChange(event) { 
 	//Once it is done function stops
     if(event.data == YT.PlayerState.PLAYING && !done) { 
-        setTimeout(closeYoutube, xmlData[aIndex].duration*1000);
+        setTimeout(closeYoutube, VideoxmlData[aIndex].duration*1000);
         done = true;
     }
 }
 
 //play at specific time
 function seekTo(event) {
-	event.target.seekTo(xmlData[aIndex].currentStart);
+	event.target.seekTo(VideoxmlData[aIndex].currentStart);
 }
  
 function onYouTubeIframeAPIReady() {
@@ -546,20 +551,22 @@ function xmlToJson(xml) {
 };
 
 //Contains the data with methods Agent Act Data
-var xmlData = [];
+var IMGgexmlData = [];
+var VideoxmlData = [];
+var IDxmlData = [];
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-//The next three functions create the xmlData. getXmlData gets the Agent and Act data from the 
+//The next  functions create the IDxmlData. getIDXmlData gets the Agent and Act data from the 
 //jsonOfXml. getCdata gets the data for the Speak property. removeEmpty removes empty objects
 
-//Takes xml and converts it to json that can be used in processingReturn. Final data will be in the array xmlData
-function getXmlData(jsonOfXml) {
+//Takes xml and converts it to json that can be used in processingReturn. Final data will be in the array IDxmlData
+function getIDXmlData(jsonOfXml) {
 	//Each item has an object with Act:"Speak". However, it can also have an object  
 	//with Act:"Showmedia" if there is a media present
 	var item = jsonOfXml.ID.ITEM;
 	var mediaIndex=0;
 
 	//There should be 2 counters. "i" is for reading the file and seeing media type.
-	//"mediaIndex" is to assign values into the xmlData object.
+	//"mediaIndex" is to assign values into the IDxmlData object.
 	for(var i=0; i<jsonOfXml.ID.ITEM.length; i++) {
 		//Declares an object and adds it to the array
 		var obj = {
@@ -567,13 +574,13 @@ function getXmlData(jsonOfXml) {
 			Act: "",
 			Data: "",
 		}
-		xmlData.push(obj);
+		IDxmlData.push(obj);
 		var obj = {
 			Agent: "",
 			Act: "",
 			Data: "",
 		}
-		xmlData.push(obj);
+		IDxmlData.push(obj);
 		//itemAgent and itemAct are a shortcut (pass by reference)
 		var itemAgent = item[i].PageConfig.AVATAR.currentAttributes;
 		var itemAct = item[i].PageConfig;
@@ -582,36 +589,36 @@ function getXmlData(jsonOfXml) {
 
 		//Obtain ShowMedia info
 		if (itemAct.mediaTypeXML["#text"] == "ImageOnly") {
-			xmlData[mediaIndex].Agent = "System";
-			xmlData[mediaIndex].Act = "ShowMedia";
+			IDxmlData[mediaIndex].Agent = "System";
+			IDxmlData[mediaIndex].Act = "ShowMedia";
 			//The ["#text"] contains the image name (image.jpg)
-			xmlData[mediaIndex].Data = itemAct.MediaURLXML["#text"];
+			IDxmlData[mediaIndex].Data = itemAct.MediaURLXML["#text"];
 
 			mediaIndex++;
 
 			if (itemAgent.useTeacher == "true") {
-				xmlData[mediaIndex].Agent = "ComputerTutor";
+				IDxmlData[mediaIndex].Agent = "ComputerTutor";
 			} else if (itemAgent.useStudent1=="true") {
-				xmlData[mediaIndex].Agent = "ComputerStudent1";
+				IDxmlData[mediaIndex].Agent = "ComputerStudent1";
 			} else if (itemAgent.useStudent2=="true") {
-				xmlData[mediaIndex].Agent = "ComputerStudent2";
+				IDxmlData[mediaIndex].Agent = "ComputerStudent2";
 			} else if (itemAgent.useStudent3=="true") {
-				xmlData[mediaIndex].Agent = "ComputerStudent3";
+				IDxmlData[mediaIndex].Agent = "ComputerStudent3";
 			}
-			xmlData[mediaIndex].Act = "Speak";
-			xmlData[mediaIndex].Data = xmlDocCopy.getElementsByTagName("mattextS")[i].textContent;
+			IDxmlData[mediaIndex].Act = "Speak";
+			IDxmlData[mediaIndex].Data = xmlDocCopy.getElementsByTagName("mattextS")[i].textContent;
 		} else {
-			xmlData[mediaIndex].Act = "Speak";
-			xmlData[mediaIndex].Data = xmlDocCopy.getElementsByTagName("mattextS")[i].textContent;
+			IDxmlData[mediaIndex].Act = "Speak";
+			IDxmlData[mediaIndex].Data = xmlDocCopy.getElementsByTagName("mattextS")[i].textContent;
 			//Obtain Agent info
 			if (itemAgent.useTeacher == "true") {
-				xmlData[mediaIndex].Agent = "ComputerTutor";
+				IDxmlData[mediaIndex].Agent = "ComputerTutor";
 			} else if (itemAgent.useStudent1=="true") {
-				xmlData[mediaIndex].Agent = "ComputerStudent1";
+				IDxmlData[mediaIndex].Agent = "ComputerStudent1";
 			} else if (itemAgent.useStudent2=="true") {
-				xmlData[mediaIndex].Agent = "ComputerStudent2";
+				IDxmlData[mediaIndex].Agent = "ComputerStudent2";
 			} else if (itemAgent.useStudent3=="true") {
-				xmlData[mediaIndex].Agent = "ComputerStudent3";
+				IDxmlData[mediaIndex].Agent = "ComputerStudent3";
 			}
 		}
 		mediaIndex++;
@@ -660,17 +667,17 @@ function GetIDXML(){
 		jsonOfXml = xmlToJson(xmlDoc);
 
 		//Gets data parameter from the json object
-		getXmlData(jsonOfXml);
+		getIDXmlData(jsonOfXml);
 
-		removeEmpty(xmlData);
+		removeEmpty(IDxmlData);
 		
-		console.log(xmlData);
+		console.log(IDxmlData);
 		
-		var actionLength=xmlData.length;
+		var actionLength=IDxmlData.length;
 		SpeakList=[];
 		for (var i = 0; i < actionLength; i++) {
-				SpeakList.push(xmlData[i]); 
-				console.log("==>"+JSON.stringify(xmlData[i]));
+				SpeakList.push(IDxmlData[i]); 
+				console.log("==>"+JSON.stringify(IDxmlData[i]));
 				}
 			Action(SpeakList[0],0);		
 		}
@@ -682,16 +689,15 @@ function GetIDXML(){
 //Same functions as above but different text file is obtained from server
 var imgData = [];
 
-//The next function get the xmlData.
+//The next function get the VideoxmlData.
 
-function newGetXmlData(jsonOfXml) {
+function GetASATPageVideo(jsonOfXml) {
 //debugger;
 	pageVideo = jsonOfXml.ASATPageConfigration.ASATPageVideo;
-	pageImage = jsonOfXml.ASATPageConfigration.ASATPageImage;
 	var mediaIndex = 0;
 	//First we play the video and its respective talking head
 	for(var i=0; i<pageVideo.ASATPageVideoBreakPoint.length; i++) {
-		//You push 2 objects to xmlData for every breakpoint. For each breakpoint, it 
+		//You push 2 objects to VideoxmlData for every breakpoint. For each breakpoint, it 
 		//plays the video at specific parts and then the talking head says something
 		var obj = {
 			Agent: "System",
@@ -700,76 +706,72 @@ function newGetXmlData(jsonOfXml) {
 			currentStart: parseInt(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointStop["#text"]),
 			duration: parseInt(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointDuration["#text"]),
 		}
-		xmlData.push(obj);
+		VideoxmlData.push(obj);
 		var obj = {
 			Agent: "",
 			Act: "Speak",
 			Data: "",
 		}
-		xmlData.push(obj);
+		VideoxmlData.push(obj);
 		//Adds stuff to first object
-//		xmlData[mediaIndex].currentStart = parseInt(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointStop["#text"]);
-//		xmlData[mediaIndex].duration = parseInt(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointDuration["#text"]);
+//		VideoxmlData[mediaIndex].currentStart = parseInt(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointStop["#text"]);
+//		VideoxmlData[mediaIndex].duration = parseInt(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointDuration["#text"]);
 		//debugger;
 		mediaIndex++;
 		//Adds stuff to second object
 		if(pageVideo.ASATPageVideoBreakPoint[i].ASATPageVideoBreakPointAgent["#text"] === "Teacher") {
-			xmlData[mediaIndex].Agent = "ComputerTutor";
+			VideoxmlData[mediaIndex].Agent = "ComputerTutor";
 		}
 		else{
-			xmlData[mediaIndex].Agent = "ComputerStudent";
+			VideoxmlData[mediaIndex].Agent = "ComputerStudent";
 		}
-		xmlData[mediaIndex].Data = xmlDocCopy.getElementsByTagName("ASATPageVideoBreakPointSpeech")[i].textContent;
+		VideoxmlData[mediaIndex].Data = xmlDocCopy.getElementsByTagName("ASATPageVideoBreakPointSpeech")[i].textContent;
 
 		mediaIndex++;
 	}
 	//Now we display the image and its respective talking head
+	
+	document.getElementById("DebuggingArea").innerHTML =JSON.stringify(VideoxmlData);
+}
+
+function GetASATPagePnQ(jsonOfXml){
+	
+//debugger;
+	pageImage = jsonOfXml.ASATPageConfigration.ASATPageImage;
+	var mediaIndex = 0;
+	//First we play the video and its respective talking head	
+	var obj = {
+			Agent: "System",
+			Act: "ShowMedia",
+			Data: pageImage.ASATPageImgFile["#text"],
+		}
+	IMGgexmlData.push(obj);
+	mediaIndex++;
 	for(var i=0; i<pageImage.ASATPageImgHotSpot.length; i++) {
 		//debugger;
 		var obj = {
 			Agent: "System",
-			Act: "ShowMedia",
-			Data: pageImage.ASATPageImgFile["#text"],
-			Xdir: "",
-			Ydir: "",
-			imgwidth: "",
-			imgheight: "",
+			Act: "SPOTS",
+			X:parseInt(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotX["#text"]),
+			Y:parseInt(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotY["#text"]),
+			width:parseInt(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotWidth["#text"]),
+			height:parseInt(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotHeight["#text"]),
+			
+			Question:pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotQuestion["#text"],
+			Answer:pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswer["#text"],
+			Form:pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotQuestionForm["#text"], 
+			QuesBy:pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotQuestionBy["#text"],
+			AnswBy:pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswerBy["#text"] 
 		}
-		xmlData.push(obj);
-		var obj = {
-			Agent: "",
-			Act: "Speak",
-			Data: "",
-		}
-		xmlData.push(obj);
-
-
-		var image = document.getElementById("imageContainer");
-		image.style.backgroundImage = "url('xmlData[i].obj.Data')";
-		//debugger;
-
-		xmlData[mediaIndex].Xdir = parseInt(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotX["#text"]);
-		xmlData[mediaIndex].Ydir = parseInt(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotY["#text"]);
-		xmlData[mediaIndex].imgwidth = parseInt(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotWidth["#text"]);
-		xmlData[mediaIndex].imgheight = parseInt(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotHeight["#text"]);
-
-		image.style.backgroundPosition = "xmlData[mediaIndex].Xdir xmlData[mediaIndex].Ydir";
-		//image.style.left = imgData[i].Xdir;
-		//image.style.bottom = imgData[i].Ydir;
-		image.style.backgroundSize = "xmlData[mediaIndex].imgwidth xmlData[mediaIndex].imgheight";
-		//debugger;
-		mediaIndex++;
-
-		if(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswerBy["#text"] ==="Teacher") {
-			xmlData[mediaIndex].Agent = "ComputerTutor";
-		}
-		xmlData[mediaIndex].Data = xmlDocCopy.getElementsByTagName("ASATPageImgHotSpotAnswer")[i].textContent;;
+		
+		IMGgexmlData.push(obj);
 		mediaIndex++;
 		//debugger;
 	}
+	document.getElementById("DebuggingArea").innerHTML =JSON.stringify(IMGgexmlData);
 }
 
-function GetASATPageXML(){
+function GetASATPageVideoXML(){
 	//debugger;
 	RetriveSKOObj.TagName="ASATPageConfigration";		
 	var url  = "http://"+SKOSchool+"/retrieve?json="+JSON.stringify(RetriveSKOObj);
@@ -801,16 +803,65 @@ function GetASATPageXML(){
 		jsonOfXml = xmlToJson(xmlDoc);
 
 		//Gets data parameter from the json object
-		newGetXmlData(jsonOfXml);
+		GetASATPageVideo(jsonOfXml);
 		//debugger;
 		
-		console.log(xmlData);
+		console.log(VideoxmlData);
 	//	debugger;
-		var actionLength=xmlData.length;
+		var actionLength=VideoxmlData.length;
 		SpeakList=[];
 		for (var i = 0; i < actionLength; i++) {
-				SpeakList.push(xmlData[i]); 
-				console.log("==>"+JSON.stringify(xmlData[i]));
+				SpeakList.push(VideoxmlData[i]); 
+				console.log("==>"+JSON.stringify(VideoxmlData[i]));
+				}
+			Action(SpeakList[0],0);	
+		}
+	IDRetrive.send(null);
+
+}
+
+function GetASATPageIMGXML(){
+	//debugger;
+	RetriveSKOObj.TagName="ASATPageConfigration";		
+	var url  = "http://"+SKOSchool+"/retrieve?json="+JSON.stringify(RetriveSKOObj);
+	
+	var IDRetrive  = new XMLHttpRequest();
+	//Fixes issue with firefox browser by forcing it to be read as text
+	IDRetrive.overrideMimeType('text/xml; charset=iso-8859-1');
+
+	IDRetrive.open('GET', url, true);
+	IDRetrive.onload = function () {
+		//ID is a string
+		var oldID = IDRetrive.responseText;
+		//Adds declaration
+		var ID = "<?xml version='1.0' encoding='utf-8'?> \n" + oldID;
+
+		var parser, xmlDoc;
+
+		parser = new DOMParser();
+		//xmlDoc is an object #document
+		//Converts ID text to xml
+		xmlDoc = parser.parseFromString(ID,"text/xml");
+
+		//Cannot use xmlDoc to get Cdata because it has local scope
+		//So, we use a copy of it
+		xmlDocCopy = xmlDoc;
+
+		//jsonOfXml is an object
+		//Converts xml to json
+		jsonOfXml = xmlToJson(xmlDoc);
+
+		//Gets data parameter from the json object
+		GetASATPagePnQ(jsonOfXml);
+		//debugger;
+		
+		console.log(IMGgexmlData);
+	//	debugger;
+		var actionLength=IMGgexmlData.length;
+		SpeakList=[];
+		for (var i = 0; i < actionLength; i++) {
+				SpeakList.push(IMGgexmlData[i]); 
+				console.log("==>"+JSON.stringify(IMGgexmlData[i]));
 				}
 			Action(SpeakList[0],0);	
 		}
