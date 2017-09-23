@@ -62,6 +62,14 @@ var urlPageForIFrame = qs("url","");
 var UserStudent=qs("UserStudent","Carl");
 var SKOGuid=qs("guid","bf406af8-b18a-4b2f-b03b-1d285ef19b7e");
 var SKOSchool=qs("school","ccnu.x-in-y.com:8889");
+
+
+var RetriveSKOObj={
+		guid:qs("guid","b6979123-2a19-4092-8e5b-36e1771d4525"),
+		source:"ScriptOnly",
+		authorname:"xiangenhu"
+	};
+	
 if (qs("lang","eng")=="chn")
 	{
 		UserStudent=qs("UserStudent","沛沛");
@@ -371,7 +379,7 @@ function onExternalCommand(id, cmd, args)
 			if (Status=="ID")
 			{
 				Status="ASATPage";
-				newGetIDXML();
+				GetASATPageXML();
 			}					
 			if (Status=="ASATPage")
 			{
@@ -452,7 +460,7 @@ var done = false;
 function onPlayerStateChange(event) { 
 	//Once it is done function stops
     if(event.data == YT.PlayerState.PLAYING && !done) { 
-        setTimeout(closeYoutube, xmlData[aIndex].duration);
+        setTimeout(closeYoutube, xmlData[aIndex].duration*1000);
         done = true;
     }
 }
@@ -569,9 +577,11 @@ function getXmlData(jsonOfXml) {
 		//itemAgent and itemAct are a shortcut (pass by reference)
 		var itemAgent = item[i].PageConfig.AVATAR.currentAttributes;
 		var itemAct = item[i].PageConfig;
+		
+		if (itemAct.mediaTypeXML==null) return;
 
 		//Obtain ShowMedia info
-		if (itemAct.mediaTypeXML["#text"] === "ImageOnly") {
+		if (itemAct.mediaTypeXML["#text"] == "ImageOnly") {
 			xmlData[mediaIndex].Agent = "System";
 			xmlData[mediaIndex].Act = "ShowMedia";
 			//The ["#text"] contains the image name (image.jpg)
@@ -590,9 +600,6 @@ function getXmlData(jsonOfXml) {
 			}
 			xmlData[mediaIndex].Act = "Speak";
 			xmlData[mediaIndex].Data = xmlDocCopy.getElementsByTagName("mattextS")[i].textContent;
-
-
-
 		} else {
 			xmlData[mediaIndex].Act = "Speak";
 			xmlData[mediaIndex].Data = xmlDocCopy.getElementsByTagName("mattextS")[i].textContent;
@@ -623,24 +630,8 @@ var jsonOfXml;
 var xmlDocCopy;
 
 function GetIDXML(){
-	 var RetriveIDObj={
-		guid:qs("guid","ec0d112f-35f0-4b85-b54d-ead66f1ab672"), 
-		source:"ScriptOnly",
-		TagName:"ID",
-		authorname:"xiangenhu"
-	};
-		
-	var url  = "http://mi.skoonline.org/retrieve?json="+JSON.stringify(RetriveIDObj); 
-	/* alert(url);
-	 var RetriveIDObj={
-   	 guid:qs("guid","b6979123-2a19-4092-8e5b-36e1771d4525"),
-	 source:"ScriptOnly",
-	 TagName:"ID",
-	 authorname:"xiangenhu"
-	 };
-		
-	var url  = "http://class.skoonline.org/retrieve?json="+JSON.stringify(RetriveIDObj); 
- */
+	RetriveSKOObj.TagName="ID";
+	var url  = "http://"+SKOSchool+"/retrieve?json="+JSON.stringify(RetriveSKOObj); 
 	
 	var IDRetrive  = new XMLHttpRequest();
 	//Fixes issue with firefox browser by forcing it to be read as text
@@ -778,16 +769,10 @@ function newGetXmlData(jsonOfXml) {
 	}
 }
 
-function newGetIDXML(){
+function GetASATPageXML(){
 	//debugger;
-	 var RetriveIDObj={
-   	 guid:qs("guid","b6979123-2a19-4092-8e5b-36e1771d4525"),
-	 source:"ScriptOnly",
-	 TagName:"ASATPageConfigration",
-	 authorname:"xiangenhu"
-	 };
-		
-	var url  = "http://class.skoonline.org/retrieve?json="+JSON.stringify(RetriveIDObj);
+	RetriveSKOObj.TagName="ASATPageConfigration";		
+	var url  = "http://"+SKOSchool+"/retrieve?json="+JSON.stringify(RetriveSKOObj);
 	
 	var IDRetrive  = new XMLHttpRequest();
 	//Fixes issue with firefox browser by forcing it to be read as text
