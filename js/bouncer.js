@@ -16,6 +16,9 @@ function qs(search_for,defaultstr) {
 		return defaultstr;
 	}
 	
+// Pop menu	
+
+	
 //Contains objects with Agent, Act, Data properties
 var SpeakList = [];
 
@@ -350,10 +353,12 @@ function displayYoutube(YoutubContainer,YoutubeID){
 
 function displayMedia(MediaContainer,MediaBase,MediaURL){
 //	isRunning = true;
-	var text='<img align="center" width="640" src="'+MediaBase+MediaURL+'"/>';
+	var text='<img align="center" usemap="#PnQ" width="640" src="'+MediaBase+MediaURL+'"/>';
 	if (MediaURL.toUpperCase().includes("HTTP")==true) {
-		text='<img align="center" width="640" src="'+MediaURL+'"/>';
+		text='<img align="center" width="640" usemap="#PnQ" src="'+MediaURL+'"/>';
 	}
+	text=text+'<map name="PnQ" id="PnQ"> <area href="#" shape="rect" coords="0,0,100,200" data-popupmenu="popmenu1"/></map>';
+	text=text+'<ul id="popmenu1" class="jqpopupmenu"> <li><a href="#">Item 1a</a></li><li><a href="#">Item 2a</a></li><li><a href="#">Item Folder 3a</a><ul><li><a href="#">Sub Item 3.1a</a></li><li><a href="#">Sub Item 3.2a</a></li><li><a href="#">Sub Item 3.3a</a></li><li><a href="#">Sub Item 3.4a</a></li></ul></li></ul>'		
 	document.getElementById(MediaContainer).innerHTML=text;
 	document.getElementById(MediaContainer).style.display = "block";
 }
