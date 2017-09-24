@@ -76,7 +76,7 @@ var RetriveSKOObj={
 if (qs("lang","eng")=="chn")
 	{
 		UserStudent=qs("UserStudent","沛沛");
-		SKOSchool="class.skoonline.org";
+		SKOSchool=qs("school","class.skoonline.org");
 		SKOGuid=qs("guid","02989a6a-b50b-4292-abb9-d496ddda3963");
 
 		CharactorA=Cc1;
@@ -87,7 +87,7 @@ if (qs("lang","eng")=="chn")
 	}
 	if  (qs("lang","eng")=="eng") {
 		var UserStudent=qs("UserStudent","Carl");
-		SKOSchool="class.skoonline.org";
+		SKOSchool=qs("school","class.skoonline.org");
 		SKOGuid=qs("guid","b6979123-2a19-4092-8e5b-36e1771d4525");
 		CharactorA=Ec1;
 		CharactorB=Ec2;
