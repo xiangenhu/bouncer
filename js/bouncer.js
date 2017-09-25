@@ -26,6 +26,8 @@ var SpeakList = [];
 var IMGgexmlData = [];
 var VideoxmlData = [];
 var IDxmlData = [];
+var AREAText="";
+var PnQData="";
 
 // English Character and SKO Default
 
@@ -370,14 +372,17 @@ function displayMedia(MediaContainer,MediaBase,MediaURL){
 	if (Status=="ASATPageIMG")
 	{
 		// Map Information here
-		text=text+'<map name="PnQ" id="PnQ">';
+		/* text=text+'<map name="PnQ" id="PnQ">';
 		text=text+'<area href="#" shape="rect" coords="0,0,100,200" data-popupmenu="popmenu1"/>'; 
+		text=text+'<area href="#" shape="rect" coords="100,200,100,200" data-popupmenu="popmenu2"/>'; 
 		text=text+'</map>';
-	
-		// Detailed MAP information here (example showing
 		text=text+'<ul id="popmenu1" class="jqpopupmenu"> <li><a href="#">Item 1a</a></li><li><a href="#">Item 2a</a></li><li><a href="#">Item Folder 3a</a><ul><li><a href="#">Sub Item 3.1a</a></li><li><a href="#">Sub Item 3.2a</a></li><li><a href="#">Sub Item 3.3a</a></li><li><a href="#">Sub Item 3.4a</a></li></ul></li></ul>';	
+		text=text+'<ul id="popmenu2" class="jqpopupmenu"> <li><a href="#">Item 1a</a></li><li><a href="#">Item 2a</a></li><li><a href="#">Item Folder 3a</a><ul><li><a href="#">Sub Item 3.1a</a></li><li><a href="#">Sub Item 3.2a</a></li><li><a href="#">Sub Item 3.3a</a></li><li><a href="#">Sub Item 3.4a</a></li></ul></li></ul>';	 */
 		
-		 GenerateImgMap(IMGgexmlData);
+		GenerateImgMap(IMGgexmlData);
+		text=text+AREAText+PnQData;
+		
+		
 		
 	}
 	document.getElementById(MediaContainer).innerHTML=text;
@@ -391,12 +396,26 @@ function displayMedia(MediaContainer,MediaBase,MediaURL){
 		})
 	}
 }
+function colorSwitch(id) {
+    element = document.getElementById(id);
+    element.style.background = '#000000';
+}
 
 function GenerateImgMap(MapData)
 {
-	var text="";
+	// Create AREA
 	var HotSpotLength=MapData.length;
 	var i;
+	AREAText='<map name="PnQ" id="PnQ">';
+	for (i = 0; i < HotSpotLength; i++) {
+			if (MapData[i].Act=="SPOTS"){
+				AREAText=AREAText+'<area href="#" shape="rect" coords="'+MapData[i].X.toString()+','+MapData[i].Y.toString()+','+MapData[i].width.toString()+','+MapData[i].height.toString()+'" data-popupmenu="popmenu'+i.toString()+'"/>';
+				PnQData=PnQData+'<ul id="popmenu'+i.toString()+'" class="jqpopupmenu"><li><a href="#">'+MapData[i].Question+'</a><ul><li>'+MapData[i].Answer+'</li></ul></li></ul>';
+				}
+		}
+    AREAText=AREAText+'</map>';
+	// Create AREA
+	var text="";
 	for (i = 0; i < HotSpotLength; i++) {
 			if (MapData[i].Act=="SPOTS"){
 				text=text+"<il>"+ JSON.stringify(MapData[i])+"</li>"
@@ -418,7 +437,7 @@ function onExternalCommand(id, cmd, args)
 	if (cmd=="next"){
 		var aIndex=Number(args);
 		if (aIndex==SpeakList.length) {
-			if (Status=="ASAT")
+			if (Status=="ASAT"||Status=="ASATPageIMG")
 			{
 				document.getElementById("InputArea").style.display = "block";
 				document.getElementById("Initialize").style.display = "none";	
@@ -430,8 +449,8 @@ function onExternalCommand(id, cmd, args)
 			}	
 			if (Status=="ASATPageIMG")
 			{
-				Status="ASATPageVideo";
-				GetASATPageVideoXML();
+			//	Status="ASATPageVideo";
+			//	GetASATPageVideoXML();
 			}			
 			if (Status=="ASATPageVideo")
 			{
@@ -575,6 +594,8 @@ function xmlToJson(xml) {
 		}
 	} else if (xml.nodeType == 3) { // text
 		obj = xml.nodeValue;
+	}else if (xml.nodeType == 4) { // cdata section
+		obj = xml.nodeValue
 	}
 
 	// do children
@@ -775,7 +796,7 @@ function GetASATPageVideo(jsonOfXml) {
 	}
 	//Now we display the image and its respective talking head
 	
-	document.getElementById("DebuggingArea").innerHTML =JSON.stringify(VideoxmlData);
+//	document.getElementById("DebuggingArea").innerHTML =JSON.stringify(VideoxmlData);
 }
 
 function GetASATPagePnQ(jsonOfXml){
@@ -791,8 +812,14 @@ function GetASATPagePnQ(jsonOfXml){
 		}
 	IMGgexmlData.push(obj);
 	mediaIndex++;
+//	document.getElementById("DebuggingArea").innerHTML =JSON.stringify(jsonOfXml);
+	
 	for(var i=0; i<pageImage.ASATPageImgHotSpot.length; i++) {
-		//debugger;
+		//debugger;	
+		var AnAnswer=pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswer["#cdata-section"];
+		//	alert(AnAnswer+' 1');
+		var NewAnAnswer=AnAnswer.replace(/[\r\n]/g, '');
+		//	alert(NewAnAnswer+' 2');
 		var obj = {
 			Agent: "System",
 			Act: "SPOTS",
@@ -802,7 +829,7 @@ function GetASATPagePnQ(jsonOfXml){
 			height:parseInt(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotHeight["#text"]),
 			
 			Question:pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotQuestion["#text"],
-			Answer:pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswer["#text"],
+			Answer:NewAnAnswer,
 			Form:pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotQuestionForm["#text"], 
 			QuesBy:pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotQuestionBy["#text"],
 			AnswBy:pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswerBy["#text"] 
