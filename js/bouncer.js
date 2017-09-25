@@ -360,10 +360,28 @@ function displayMedia(MediaContainer,MediaBase,MediaURL){
 	if (MediaURL.toUpperCase().includes("HTTP")==true) {
 		text='<img align="center" width="640" usemap="#PnQ" src="'+MediaURL+'"/>';
 	}
-	text=text+'<map name="PnQ" id="PnQ"> <area href="#" shape="rect" coords="0,0,100,200" data-popupmenu="popmenu1"/></map>';
-	text=text+'<ul id="popmenu1" class="jqpopupmenu"> <li><a href="#">Item 1a</a></li><li><a href="#">Item 2a</a></li><li><a href="#">Item Folder 3a</a><ul><li><a href="#">Sub Item 3.1a</a></li><li><a href="#">Sub Item 3.2a</a></li><li><a href="#">Sub Item 3.3a</a></li><li><a href="#">Sub Item 3.4a</a></li></ul></li></ul>'		
+	text=text+'<map name="PnQ" id="PnQ">';
+	if (Status=="ASATPageIMG")
+	{
+		// Map Information here
+		text=text+'<area href="#" shape="rect" coords="0,0,100,200" data-popupmenu="popmenu1"/>';
+	}
+    text=text+'</map>';
+	if (Status=="ASATPageIMG")
+	{
+		// Detailed MAP information here (example showing
+		text=text+'<ul id="popmenu1" class="jqpopupmenu"> <li><a href="#">Item 1a</a></li><li><a href="#">Item 2a</a></li><li><a href="#">Item Folder 3a</a><ul><li><a href="#">Sub Item 3.1a</a></li><li><a href="#">Sub Item 3.2a</a></li><li><a href="#">Sub Item 3.3a</a></li><li><a href="#">Sub Item 3.4a</a></li></ul></li></ul>';	
+	}
 	document.getElementById(MediaContainer).innerHTML=text;
 	document.getElementById(MediaContainer).style.display = "block";
+	if (Status=="ASATPageIMG") {
+			jQuery(document).ready(function($){
+			var $anchors=$('*[data-popupmenu]')
+			$anchors.each(function(){
+			$(this).addpopupmenu(this.getAttribute('data-popupmenu'))
+			})
+		})
+	}
 }
 
 function onPresentingChange(id, p)

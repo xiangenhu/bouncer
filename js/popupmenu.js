@@ -142,12 +142,13 @@ jQuery.fn.addpopupmenu=function(popupmenuid){
 };
 
 //By default, add popup menu to anchor links with attribute "data-popupmenu"
-jQuery(document).ready(function($){
-	var $anchors=$('*[data-popupmenu]')
-	$anchors.each(function(){
-		$(this).addpopupmenu(this.getAttribute('data-popupmenu'))
-	})
-})
+
+// jQuery(document).ready(function($){
+//	var $anchors=$('*[data-popupmenu]')
+//	$anchors.each(function(){
+//		$(this).addpopupmenu(this.getAttribute('data-popupmenu'))
+//	})
+//})
 
 //ddlistmenu: Function to define a UL list menu dynamically
 
