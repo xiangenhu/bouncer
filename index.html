@@ -159,9 +159,8 @@
 						document.getElementById("ResumeBTN").style.display = "none";
 				}
 				if (qs("DEBUGGING","0")=="1"){
-						document.getElementById("DebuggingArea").style.display = "block";
+						document.getElementById("utilityBar").style.display = "block";
 				}
-			
 		
 			})	
 		</script>
@@ -180,11 +179,12 @@
 
 		<div id="utilityBar">
 		 Show Logs <input type="checkbox" id="ShowLogs" onclick="ShowLog()">
+		 Show Debugging <input type="checkbox" id="ShowDebugging" onclick="ShowDebuggingNow()">
 		 <input type='submit' id='Initialize' value="Start"/>
 		 <input type='submit' id="PauseBTN" value="Pause">
 		 <input type='submit' id="ResumeBTN" value="Resume">
-		 <button onclick="GetIDXML()">RetriveID</button> 
-		 <button onclick="newGetIDXML()">newRetriveID</button> 
+		<!--  <button onclick="GetIDXML()">RetriveID</button> 
+		 <button onclick="newGetIDXML()">newRetriveID</button>  -->
 		 <!--  <button onclick="player.playVideo()">Play</button> 
 		 <button onclick="player.pauseVideo()">Pause</button> 
 		 <button onclick="player.mute()">Mute</button> 

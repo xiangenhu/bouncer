@@ -257,6 +257,9 @@ function ReplaceTest(MoveID,Text){
 function ShowLog(){
 	ShowWindow("ShowLogs","Coversation");
 }
+function ShowDebuggingNow(){
+	ShowWindow("ShowDebugging","DebuggingArea");
+}
 
 function Speak(movieID,Text,index,print) {
 	var SText= ReplaceTest(movieID,Text);
