@@ -82,8 +82,7 @@
 			url: aceurl,
 			data: iputObj,
 				success: function() {
-					var x = document.getElementById('Coversation');
-					x.style.display = 'block';
+					
 					var s = document.getElementById('InputArea');
 					s.style.display = 'none';
 					var s = document.getElementById('Initialize');
@@ -115,6 +114,7 @@
         $(document).ready(function () {
 		
 		    document.getElementById("utilityBar").style.display = "none";
+			 document.getElementById("Coversation").style.display = "none";
 			
             $('input#Initialize').click(
                 function (event) {
@@ -167,9 +167,9 @@
 		
         <div id="video-placeholder"></div>
 		 <div id='MediaContainer'></div>
-		 <div id='Coversation'></div>
 		 <div id="imageContainer"></div>
 		 <div id="DebuggingArea"></div>
+		 <div id='Coversation'></div>
 
 		<div id="InputArea"align="center">
 		<p> </p>
