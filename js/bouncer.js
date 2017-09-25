@@ -22,6 +22,11 @@ function qs(search_for,defaultstr) {
 //Contains objects with Agent, Act, Data properties
 var SpeakList = [];
 
+
+var IMGgexmlData = [];
+var VideoxmlData = [];
+var IDxmlData = [];
+
 // English Character and SKO Default
 
 var CharactorA;
@@ -372,7 +377,8 @@ function displayMedia(MediaContainer,MediaBase,MediaURL){
 		// Detailed MAP information here (example showing
 		text=text+'<ul id="popmenu1" class="jqpopupmenu"> <li><a href="#">Item 1a</a></li><li><a href="#">Item 2a</a></li><li><a href="#">Item Folder 3a</a><ul><li><a href="#">Sub Item 3.1a</a></li><li><a href="#">Sub Item 3.2a</a></li><li><a href="#">Sub Item 3.3a</a></li><li><a href="#">Sub Item 3.4a</a></li></ul></li></ul>';	
 		
-		document.getElementById("DebuggingArea").innerHTML =JSON.stringify(IMGgexmlData);
+		 GenerateImgMap(IMGgexmlData);
+		
 	}
 	document.getElementById(MediaContainer).innerHTML=text;
 	document.getElementById(MediaContainer).style.display = "block";
@@ -384,6 +390,19 @@ function displayMedia(MediaContainer,MediaBase,MediaURL){
 			})
 		})
 	}
+}
+
+function GenerateImgMap(MapData)
+{
+	var text="";
+	var HotSpotLength=MapData.length;
+	var i;
+	for (i = 0; i < HotSpotLength; i++) {
+			if (MapData[i].Act=="SPOTS"){
+				text=text+"<il>"+ JSON.stringify(MapData[i])+"</li>"
+				}
+		}
+	document.getElementById("DebuggingArea").innerHTML ="<ul>"+text+"</ul>";
 }
 
 function onPresentingChange(id, p)
@@ -579,9 +598,6 @@ function xmlToJson(xml) {
 };
 
 //Contains the data with methods Agent Act Data
-var IMGgexmlData = [];
-var VideoxmlData = [];
-var IDxmlData = [];
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //The next  functions create the IDxmlData. getIDXmlData gets the Agent and Act data from the 
 //jsonOfXml. getCdata gets the data for the Speak property. removeEmpty removes empty objects
