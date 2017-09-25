@@ -66,6 +66,7 @@ var UserStudent=qs("UserStudent","Carl");
 var SKOGuid=qs("guid","bf406af8-b18a-4b2f-b03b-1d285ef19b7e");
 var SKOSchool=qs("school","ccnu.x-in-y.com:8889");
 
+var PnQCode="";
 
 var RetriveSKOObj={
 		guid:qs("guid","b6979123-2a19-4092-8e5b-36e1771d4525"),
@@ -360,17 +361,18 @@ function displayMedia(MediaContainer,MediaBase,MediaURL){
 	if (MediaURL.toUpperCase().includes("HTTP")==true) {
 		text='<img align="center" width="640" usemap="#PnQ" src="'+MediaURL+'"/>';
 	}
-	text=text+'<map name="PnQ" id="PnQ">';
+	
 	if (Status=="ASATPageIMG")
 	{
 		// Map Information here
-		text=text+'<area href="#" shape="rect" coords="0,0,100,200" data-popupmenu="popmenu1"/>';
-	}
-    text=text+'</map>';
-	if (Status=="ASATPageIMG")
-	{
+		text=text+'<map name="PnQ" id="PnQ">';
+		text=text+'<area href="#" shape="rect" coords="0,0,100,200" data-popupmenu="popmenu1"/>'; 
+		text=text+'</map>';
+	
 		// Detailed MAP information here (example showing
 		text=text+'<ul id="popmenu1" class="jqpopupmenu"> <li><a href="#">Item 1a</a></li><li><a href="#">Item 2a</a></li><li><a href="#">Item Folder 3a</a><ul><li><a href="#">Sub Item 3.1a</a></li><li><a href="#">Sub Item 3.2a</a></li><li><a href="#">Sub Item 3.3a</a></li><li><a href="#">Sub Item 3.4a</a></li></ul></li></ul>';	
+		
+		document.getElementById("DebuggingArea").innerHTML =JSON.stringify(IMGgexmlData);
 	}
 	document.getElementById(MediaContainer).innerHTML=text;
 	document.getElementById(MediaContainer).style.display = "block";
@@ -794,7 +796,6 @@ function GetASATPagePnQ(jsonOfXml){
 		mediaIndex++;
 		//debugger;
 	}
-	document.getElementById("DebuggingArea").innerHTML =JSON.stringify(IMGgexmlData);
 }
 
 function GetASATPageVideoXML(){
@@ -832,7 +833,8 @@ function GetASATPageVideoXML(){
 		GetASATPageVideo(jsonOfXml);
 		//debugger;
 		
-		console.log(VideoxmlData);
+//		console.log(VideoxmlData);
+		document.getElementById("DebuggingArea").innerHTML =JSON.stringify(VideoxmlData);
 	//	debugger;
 		var actionLength=VideoxmlData.length;
 		SpeakList=[];
@@ -882,6 +884,7 @@ function GetASATPageIMGXML(){
 		//debugger;
 		
 		console.log(IMGgexmlData);
+		
 	//	debugger;
 		var actionLength=IMGgexmlData.length;
 		SpeakList=[];
@@ -892,5 +895,4 @@ function GetASATPageIMGXML(){
 			Action(SpeakList[0],0);	
 		}
 	IDRetrive.send(null);
-
 }

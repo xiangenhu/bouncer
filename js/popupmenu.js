@@ -17,7 +17,7 @@
 jQuery.noConflict()
 
 var jquerypopupmenu={
-	arrowpath: 'arrow.gif', //full URL or path to arrow image
+	arrowpath: 'img/arrow.gif', //full URL or path to arrow image
 	popupmenuoffsets: [0, 0], //additional x and y offset from mouse cursor for popup menus
 	animspeed: 200, //reveal animation speed (in milliseconds)
 	showhidedelay: [150, 150], //delay before menu appears and disappears when mouse rolls over it, in milliseconds
