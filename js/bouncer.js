@@ -538,7 +538,7 @@ function onPlayerStateChange(event) {
 
 //play at specific time
 function seekTo(event) {
-	event.target.seekTo(VideoxmlData[aIndex].currentStart);
+//	event.target.seekTo(VideoxmlData[aIndex].currentStart);
 }
  
 function onYouTubeIframeAPIReady() {
