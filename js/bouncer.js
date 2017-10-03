@@ -377,11 +377,11 @@ function displayMedia(MediaContainer,MediaBase,MediaURL){
 		text=text+'<area href="#" shape="rect" coords="100,200,100,200" data-popupmenu="popmenu2"/>'; 
 		text=text+'</map>';
 		text=text+'<ul id="popmenu1" class="jqpopupmenu"> <li><a href="#">Item 1a</a></li><li><a href="#">Item 2a</a></li><li><a href="#">Item Folder 3a</a><ul><li><a href="#">Sub Item 3.1a</a></li><li><a href="#">Sub Item 3.2a</a></li><li><a href="#">Sub Item 3.3a</a></li><li><a href="#">Sub Item 3.4a</a></li></ul></li></ul>';	
-		text=text+'<ul id="popmenu2" class="jqpopupmenu"> <li><a href="#">Item 1a</a></li><li><a href="#">Item 2a</a></li><li><a href="#">Item Folder 3a</a><ul><li><a href="#">Sub Item 3.1a</a></li><li><a href="#">Sub Item 3.2a</a></li><li><a href="#">Sub Item 3.3a</a></li><li><a href="#">Sub Item 3.4a</a></li></ul></li></ul>';	 */
+		text=text+'<ul id="popmenu2" class="jqpopupmenu"> <li><a href="#">Item 1a</a></li><li><a href="#">Item 2a</a></li><li><a href="#">Item Folder 3a</a><ul><li><a href="#">Sub Item 3.1a</a></li><li><a href="#">Sub Item 3.2a</a></li><li><a href="#">Sub Item 3.3a</a></li><li><a href="#">Sub Item 3.4a</a></li></ul></li></ul>';	*/
 		
 		GenerateImgMap(IMGgexmlData);
 		text=text+AREAText+PnQData;
-		
+//		alert(text)
 		
 		
 	}
@@ -404,22 +404,44 @@ function colorSwitch(id) {
 function GenerateImgMap(MapData)
 {
 	// Create AREA
-	var HotSpotLength=MapData.length;
-	var i;
+	document.getElementById("DebuggingArea").innerHTML = JSON.stringify(MapData[0].MapInfor[0])+"<hr/>"+JSON.stringify(MapData[0].MapInfor[1]);
+	
+	var HotSpotLength=MapData[0].MapInfor.length;
+	var i = 0;
+	var ManueInfor="";
 	AREAText='<map name="PnQ" id="PnQ">';
 	for (i = 0; i < HotSpotLength; i++) {
-			if (MapData[i].Act=="SPOTS"){
-				AREAText=AREAText+'<area href="#" shape="rect" coords="'+MapData[i].X1.toString()+','+MapData[i].Y1.toString()+','+MapData[i].X2.toString()+','+MapData[i].Y2.toString()+'" data-popupmenu="popmenu'+i.toString()+'"/>';
+		var MapInforData=MapData[0].MapInfor[i];
+			if (MapInforData.Act=="SPOTS"){
+				var x1=640*parseFloat(MapInforData.X1);
+				var x2=640*parseFloat(MapInforData.X2);
+				var y1=480*parseFloat(MapInforData.Y1);
+				var y2=480*parseFloat(MapInforData.Y2);
+				AREAText=AREAText+'<area href="#" shape="rect" coords="'+x1.toString()
+				                                                    +','+y1.toString()
+																	+','+x2.toString()
+																	+','+y2.toString()
+																	+'" data-popupmenu="popmenu'+i.toString()+'"/>'; 
+				
 				}
+			var j = 0;
+			ManueInfor = ManueInfor+'<ul id="popmenu'+i.toString()+'" class="jqpopupmenu">';
+			for (j =0; j<MapInforData.Questions.length;j++){			
+				var QuestInfor= MapInforData.Questions[j];
+				ManueInfor=ManueInfor+'<li><a href="#">'+MapInforData.Questions[j].Quest+'</a><ul><li><a href="#">'+MapInforData.Questions[j].Answer+'</a><li></ul></li>';
+			}
+			ManueInfor=ManueInfor+'</ul>\n';
 		}
-    AREAText=AREAText+'</map>';
+    AREAText=AREAText+'</map>'+ ManueInfor;
+//	alert(AREAText);
+//	alert(ManueInfor);
 	// Create AREA
-	var text="";
-	for (i = 0; i < HotSpotLength; i++) {
-			if (MapData[i].Act=="SPOTS"){
-				text=text+"<il>"+ JSON.stringify(MapData[i])+"</li>"
-				}
-		}
+//	var text="";
+//	for (i = 0; i < HotSpotLength; i++) {
+//			if (MapData[i].Act=="SPOTS"){
+//				text=text+"<il>"+ JSON.stringify(MapData[i])+"</li>"
+//				}
+//		}
 //	document.getElementById("DebuggingArea").innerHTML ="<ul>"+text+"</ul>";
 }
 
@@ -935,7 +957,6 @@ function GetASATPageIMGXML(){
 		//Gets data parameter from the json object
 		GetASATPagePnQ(jsonOfXml);
 		
-		document.getElementById("DebuggingArea").innerHTML = JSON.stringify(IMGgexmlData);
 		//debugger;
 		
 		console.log(IMGgexmlData);
