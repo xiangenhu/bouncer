@@ -76,7 +76,7 @@ var SKOSchool=qs("school","ccnu.x-in-y.com:8889");
 var PnQCode="";
 
 var RetriveSKOObj={
-		guid:qs("guid","b6979123-2a19-4092-8e5b-36e1771d4525"),
+		guid:qs("guid","df365267-1fc9-485b-8918-fb926757369c"),
 		source:"ScriptOnly",
 		authorname:"xiangenhu"
 	};
@@ -96,7 +96,7 @@ if (qs("lang","eng")=="chn")
 	if  (qs("lang","eng")=="eng") {
 		var UserStudent=qs("UserStudent","Carl");
 		SKOSchool=qs("school","class.skoonline.org");
-		SKOGuid=qs("guid","b6979123-2a19-4092-8e5b-36e1771d4525");
+		SKOGuid=qs("guid","df365267-1fc9-485b-8918-fb926757369c");
 		CharactorA=Ec1;
 		CharactorB=Ec2;
 		CharactorC=Ec3;
@@ -409,8 +409,7 @@ function GenerateImgMap(MapData)
 	AREAText='<map name="PnQ" id="PnQ">';
 	for (i = 0; i < HotSpotLength; i++) {
 			if (MapData[i].Act=="SPOTS"){
-				AREAText=AREAText+'<area href="#" shape="rect" coords="'+MapData[i].X.toString()+','+MapData[i].Y.toString()+','+MapData[i].width.toString()+','+MapData[i].height.toString()+'" data-popupmenu="popmenu'+i.toString()+'"/>';
-				PnQData=PnQData+'<ul id="popmenu'+i.toString()+'" class="jqpopupmenu"><li><a href="#">'+MapData[i].Question+'</a><ul><li>'+MapData[i].Answer+'</li></ul></li></ul>';
+				AREAText=AREAText+'<area href="#" shape="rect" coords="'+MapData[i].X1.toString()+','+MapData[i].Y1.toString()+','+MapData[i].X2.toString()+','+MapData[i].Y2.toString()+'" data-popupmenu="popmenu'+i.toString()+'"/>';
 				}
 		}
     AREAText=AREAText+'</map>';
@@ -421,7 +420,7 @@ function GenerateImgMap(MapData)
 				text=text+"<il>"+ JSON.stringify(MapData[i])+"</li>"
 				}
 		}
-	document.getElementById("DebuggingArea").innerHTML ="<ul>"+text+"</ul>";
+//	document.getElementById("DebuggingArea").innerHTML ="<ul>"+text+"</ul>";
 }
 
 function onPresentingChange(id, p)
@@ -805,40 +804,52 @@ function GetASATPagePnQ(jsonOfXml){
 	pageImage = jsonOfXml.ASATPageConfigration.ASATPageImage;
 	var mediaIndex = 0;
 	//First we play the video and its respective talking head	
-	var obj = {
+	var objStar = {
 			Agent: "System",
 			Act: "ShowMedia",
 			Data: pageImage.ASATPageImgFile["#text"],
 		}
-	IMGgexmlData.push(obj);
+//	IMGgexmlData.push(objStar);
+	var MapInform=[];
 	mediaIndex++;
-//	document.getElementById("DebuggingArea").innerHTML =JSON.stringify(jsonOfXml);
-	
-	for(var i=0; i<pageImage.ASATPageImgHotSpot.length; i++) {
+	for(var i=0; i<pageImage.ASATPageImgHotSpots.length; i++) {
 		//debugger;	
-		var AnAnswer=pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswer["#cdata-section"];
+		// var AnAnswer=pageImage.ASATPageImgHotSpots[i].ASATPageImgHotSpotAnswer["#cdata-section"];
 		//	alert(AnAnswer+' 1');
-		var NewAnAnswer=AnAnswer.replace(/[\r\n]/g, '');
+		// var NewAnAnswer=AnAnswer.replace(/[\r\n]/g, '');
 		//	alert(NewAnAnswer+' 2');
-		var obj = {
+		var objLoc = {
 			Agent: "System",
 			Act: "SPOTS",
-			X:parseInt(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotX["#text"]),
-			Y:parseInt(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotY["#text"]),
-			width:parseInt(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotWidth["#text"]),
-			height:parseInt(pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotHeight["#text"]),
+			X1:pageImage.ASATPageImgHotSpots[i].ASATPageImgHotSpotX1["#text"],
+			Y1:pageImage.ASATPageImgHotSpots[i].ASATPageImgHotSpotY1["#text"],
+			X2:pageImage.ASATPageImgHotSpots[i].ASATPageImgHotSpotX2["#text"],
+			Y2:pageImage.ASATPageImgHotSpots[i].ASATPageImgHotSpotY2["#text"],
 			
-			Question:pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotQuestion["#text"],
-			Answer:NewAnAnswer,
-			Form:pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotQuestionForm["#text"], 
-			QuesBy:pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotQuestionBy["#text"],
-			AnswBy:pageImage.ASATPageImgHotSpot[i].ASATPageImgHotSpotAnswerBy["#text"] 
 		}
+		var Questions = [];
+		var QuestionPage = pageImage.ASATPageImgHotSpots[i].ASATPageImgListOfQuestions;
 		
-		IMGgexmlData.push(obj);
+		for (var j=0; j<QuestionPage.ASATPageImgListOfQuestion.length; j++){
+			var AnAnswer=QuestionPage.ASATPageImgListOfQuestion[j].ASATPageImgHotSpotAnswer["#cdata-section"];
+		    var NewAnAnswer=AnAnswer.replace(/[\r\n]/g, '');
+			var Items={
+				Title:QuestionPage.ASATPageImgListOfQuestion[j].ASATPageImgHotSpotQuestionName["#text"],
+				Quest:QuestionPage.ASATPageImgListOfQuestion[j].ASATPageImgHotSpotQuestion["#text"],
+				QuestForm:QuestionPage.ASATPageImgListOfQuestion[j].ASATPageImgHotSpotQuestionForm["#text"],
+				QuestBy:QuestionPage.ASATPageImgListOfQuestion[j].ASATPageImgHotSpotQuestionBy["#text"],
+				Answer:NewAnAnswer,
+				AnswerForm:QuestionPage.ASATPageImgListOfQuestion[j].ASATPageImgHotSpotAnswerForm["#text"],
+				AnswerBy:QuestionPage.ASATPageImgListOfQuestion[j].ASATPageImgHotSpotAnswerBy["#text"],
+			}
+			Questions.push(Items);
+		}
+		objLoc.Questions=Questions;
+		MapInform.push(objLoc);
 		mediaIndex++;
-		//debugger;
 	}
+	objStar.MapInfor=MapInform;  
+	IMGgexmlData.push(objStar);
 }
 
 function GetASATPageVideoXML(){
@@ -877,7 +888,6 @@ function GetASATPageVideoXML(){
 		//debugger;
 		
 //		console.log(VideoxmlData);
-		document.getElementById("DebuggingArea").innerHTML =JSON.stringify(VideoxmlData);
 	//	debugger;
 		var actionLength=VideoxmlData.length;
 		SpeakList=[];
@@ -924,6 +934,8 @@ function GetASATPageIMGXML(){
 
 		//Gets data parameter from the json object
 		GetASATPagePnQ(jsonOfXml);
+		
+		document.getElementById("DebuggingArea").innerHTML = JSON.stringify(IMGgexmlData);
 		//debugger;
 		
 		console.log(IMGgexmlData);
