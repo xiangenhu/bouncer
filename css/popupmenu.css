@@ -23,7 +23,7 @@ position: relative;
 
 .jqpopupmenu li a{
 display: block;
-width: 160px; /*width of menu (not including side paddings)*/
+width: 200px; /*width of menu (not including side paddings)*/
 color: black;
 background: #F5F5F5;
 text-decoration: none;
@@ -32,7 +32,7 @@ padding: 4px 5px;
 
 * html .jqpopupmenu li{ /*IE6 CSS hack*/
 display: inline-block;
-width: 170px; /*width of menu (include side paddings of LI A*/
+width: 210px; /*width of menu (include side paddings of LI A*/
 }
 
 .jqpopupmenu li a:hover, .jqpopupmenu li.selected>a{

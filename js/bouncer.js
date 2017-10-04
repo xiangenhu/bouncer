@@ -64,14 +64,10 @@ var Ep4=qs("Ep4","CBCode/English/Kate/Output/Anna_Files");
 
 var urlPageForIFrame = qs("url","");
 
-
-// var UserStudent=qs("UserStudent","小明");
-
-// var SKOGuid=qs("guid","50ed8af1-3fd1-4ca2-ab1d-3b5cc97fbfbf");
-
 var UserStudent=qs("UserStudent","Carl");
-var SKOGuid=qs("guid","bf406af8-b18a-4b2f-b03b-1d285ef19b7e");
-var SKOSchool=qs("school","ccnu.x-in-y.com:8889");
+var SKOGuid=qs("guid","df365267-1fc9-485b-8918-fb926757369c");
+//var SKOSchool=qs("school","ccnu.x-in-y.com:8889");
+var SKOSchool=qs("school","class.skoonline.org");
 
 var PnQCode="";
 
@@ -84,8 +80,8 @@ var RetriveSKOObj={
 if (qs("lang","eng")=="chn")
 	{
 		UserStudent=qs("UserStudent","沛沛");
-		SKOSchool=qs("school","class.skoonline.org");
-		SKOGuid=qs("guid","02989a6a-b50b-4292-abb9-d496ddda3963");
+//		SKOSchool=qs("school","class.skoonline.org");
+//		SKOGuid=qs("guid","02989a6a-b50b-4292-abb9-d496ddda3963");
 
 		CharactorA=Cc1;
 		CharactorB=Cc2;
@@ -95,8 +91,8 @@ if (qs("lang","eng")=="chn")
 	}
 	if  (qs("lang","eng")=="eng") {
 		var UserStudent=qs("UserStudent","Carl");
-		SKOSchool=qs("school","class.skoonline.org");
-		SKOGuid=qs("guid","df365267-1fc9-485b-8918-fb926757369c");
+//		SKOSchool=qs("school","class.skoonline.org");
+//		SKOGuid=qs("guid","df365267-1fc9-485b-8918-fb926757369c");
 		CharactorA=Ec1;
 		CharactorB=Ec2;
 		CharactorC=Ec3;
