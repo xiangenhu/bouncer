@@ -360,7 +360,7 @@ function displayYoutube(YoutubContainer,YoutubeID){
 
 function displayMedia(MediaContainer,MediaBase,MediaURL){
 //	isRunning = true;
-	var text='<img align="center" usemap="#PnQ" width="640" src="'+MediaBase+MediaURL+'"/>';
+	var text='<img align="center" usemap="#PnQ" width="640" height="480" src="'+MediaBase+MediaURL+'"/>';
 	if (MediaURL.toUpperCase().includes("HTTP")==true) {
 		text='<img align="center" width="640" usemap="#PnQ" src="'+MediaURL+'"/>';
 	}

@@ -45,6 +45,7 @@
 		//Speak data is words. Showmedia data is youtube id or image.png
 
 		function processingReturn(data){
+		    document.getElementById("DebuggingArea").innerHTML =JSON.stringify(data);
 			AvatarsAction(data)
 		    var actionLength, text, i;
 		    actionLength=data.ACEActions.length;
@@ -118,12 +119,14 @@
 			
             $('input#Initialize').click(
                 function (event) {
+					Status="ASAT";
 					event.preventDefault();
 					POSTtoACE("POST");	
 					document.getElementById("ResumeBTN").style.display = "none";
                     });
 			$('input#SubmitAnswer').click(
                 function (event) {
+					Status="ASAT";
 					event.preventDefault();
 					PuttoACE($('textarea#inputText').val());
                     });
